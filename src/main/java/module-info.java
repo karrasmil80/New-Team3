@@ -7,11 +7,15 @@ module dev.newteam.newteam3 {
 
     //KOTLIN
     requires kotlin.stdlib;
+
     requires kotlin.reflect;
 
     //LOGGER
     requires logging.jvm;
     requires org.slf4j;
+
+    requires kotlin.result.jvm;
+
 
     //KOIN-
     requires koin.core.jvm;

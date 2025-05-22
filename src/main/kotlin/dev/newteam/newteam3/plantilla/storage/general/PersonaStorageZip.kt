@@ -1,4 +1,4 @@
-package dev.newteam.newteam3.players.storage.general
+package dev.newteam.newteam3.plantilla.storage.general
 
 class PersonaStorageZip: PersonaStorage {
 }

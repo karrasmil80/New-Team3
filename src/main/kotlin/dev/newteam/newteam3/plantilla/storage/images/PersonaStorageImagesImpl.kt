@@ -1,4 +1,4 @@
-package dev.newteam.newteam3.players.storage.images
+package dev.newteam.newteam3.plantilla.storage.images
 
 class PersonaStorageImagesImpl: PersonaStorageImages {
 }

@@ -5,9 +5,10 @@ import java.io.File
 import java.io.InputStream
 import java.util.*
 
+//Logger
 private val logger = logging()
 
-private const val CONFIG_FILE_NAME = "application.properties"
+private const val CONFIG_FILE_NAME = "config.properties"
 
 class Config {
 
@@ -28,6 +29,10 @@ class Config {
             ?: throw Exception("No se puede leer el fichero de configuración $CONFIG_FILE_NAME")
         properties.load(inputStream)
 
+        /**
+         * Leemos las propiedades del [config.properties]
+         */
+
         imagesDirectory = "$appPath${File.separator}${readProperty("app.images", "imagenes")}/"
         databaseUrl = readProperty("app.database.url", "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1")
         databaseInitTables = readProperty("app.database.init.tables", "false").toBoolean()
@@ -37,12 +42,16 @@ class Config {
         cacheExpiration = readProperty("app.cache.expiration", "60").toLong()
     }
 
-    private fun readProperty(prop: String, default: String): String {
+    /**
+     * Esta función lee una propiedad desde Properties [config.properties], y si algo falla, devuelve un valor por defecto.
+     */
+
+    private fun readProperty(propertie: String, default: String): String {
         return try {
-            logger.debug { "Leyendo propiedad: $prop" }
-            properties.getProperty(prop, default)
+            logger.debug { "Leyendo propiedad: $propertie" }
+            properties.getProperty(propertie, default)
         } catch (e: Exception) {
-            logger.error { "Error al leer la propiedad $prop: ${e.message}" }
+            logger.error { "Error al leer la propiedad $propertie: ${e.message}" }
             default
         }
     }

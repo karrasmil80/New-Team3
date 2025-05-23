@@ -12,4 +12,8 @@ open class PersonaEntity(
     var pais: String,
     var rol: String,
     var imagen : String
-)
+) {
+
+fun getAppelido() = apellido
+
+}

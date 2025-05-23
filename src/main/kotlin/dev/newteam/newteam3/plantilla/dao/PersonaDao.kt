@@ -34,8 +34,8 @@ interface PersonaDao {
      * Funcion que inserta un nuevo miembro en la plantilla de [data.sql]
      */
 
-    @SqlUpdate("INSERT INTO persona (id, nombre, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen)" +
-            "VALUES (:id, :nombre, :fechaNacimiento, :fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen) )")
+    @SqlUpdate("INSERT INTO persona (id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen)" +
+            "VALUES (:id, :nombre, :apellido, :fechaNacimiento, :fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen) )")
     @GetGeneratedKeys
     fun save(@BindBean personalentity: PersonaEntity) : Int
 

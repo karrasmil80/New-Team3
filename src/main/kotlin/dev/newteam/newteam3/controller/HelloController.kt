@@ -1,4 +1,4 @@
-package dev.newteam.newteam3
+package dev.newteam.newteam3.controller
 
 import javafx.fxml.FXML
 import javafx.scene.control.Label

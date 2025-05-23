@@ -2,7 +2,7 @@ package dev.newteam.newteam3.plantilla.models
 
 import java.time.LocalDate
 
-open class Persona(
+abstract class Persona(
     val id: Int,
     val nombre: String,
     val apellido: String,

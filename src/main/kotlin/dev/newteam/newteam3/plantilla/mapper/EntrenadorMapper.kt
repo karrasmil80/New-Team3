@@ -1,5 +1,6 @@
 package dev.newteam.newteam3.plantilla.mapper
 
+import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
 import dev.newteam.newteam3.plantilla.dto.EntrenadorDto
 import dev.newteam.newteam3.plantilla.dto.PersonaDto
 import dev.newteam.newteam3.plantilla.models.Entrenador
@@ -92,9 +93,11 @@ fun EntrenadorDto.toEntity() : EntrenadorEntity {
         equipo = this.equipo
     )
 }
-
+/*
 fun EntrenadorViewModel.EntrenadorState.toModel(): Entrenador {
     return Entrenador(
 
     )
 }
+
+ */

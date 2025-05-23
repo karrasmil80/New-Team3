@@ -1,5 +1,6 @@
 package dev.newteam.newteam3.plantilla.mapper
 
+import dev.newteam.newteam3.plantilla.dao.JugadorEntity
 import dev.newteam.newteam3.plantilla.dto.JugadorDto
 import dev.newteam.newteam3.plantilla.dto.PersonaDto
 import dev.newteam.newteam3.plantilla.models.Jugador
@@ -54,7 +55,7 @@ fun JugadorDto.toModel() : Persona {
 }
 
 fun Jugador.toEntity(): JugadorEntity {
-    return Jugador(
+    return JugadorEntity(
         id = this.id,
         nombre = this.nombre,
         apellido = this.apellido,
@@ -123,6 +124,7 @@ fun JugadorDto.toEntity(): JugadorEntity {
     )
 }
 
+/*
 fun PersonaViewModel.JugadorState.toModel(): Jugador {
     return Jugador(
         id = this.id,
@@ -145,3 +147,5 @@ fun PersonaViewModel.JugadorState.toModel(): Jugador {
         equipo = this.equipo
     )
 }
+
+ */

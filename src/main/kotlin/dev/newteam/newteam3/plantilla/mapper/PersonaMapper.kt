@@ -1,5 +1,8 @@
 package dev.newteam.newteam3.plantilla.mapper
 
+import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
+import dev.newteam.newteam3.plantilla.dao.JugadorEntity
+import dev.newteam.newteam3.plantilla.dao.PersonaEntity
 import dev.newteam.newteam3.plantilla.dto.PersonaDto
 import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Jugador
@@ -14,15 +17,15 @@ fun PersonaDto.toJugador(): Jugador {
         fechaIncorporacion = this.fecha_incorporacion,
         salario = this.salario,
         pais = this.pais,
-        posicion = this.posicion,
+        posicion = this.posicion!!,
         rol = this.rol,
-        dorsal = this.dorsal,
-        altura = this.altura,
-        peso = this.peso,
-        goles = this.goles,
-        mediaGoles = this.media_goles,
-        partidosJugados = this.partidos_jugados,
-        minutosJugados = this.minutos_jugados,
+        dorsal = this.dorsal!!,
+        altura = this.altura!!,
+        peso = this.peso!!,
+        goles = this.goles!!,
+        mediaGoles = this.media_goles!!,
+        partidosJugados = this.partidos_jugados!!,
+        minutosJugados = this.minutos_jugados!!,
         imagen = this.imagen,
         equipo = this.equipo
     )
@@ -38,7 +41,7 @@ fun PersonaDto.toEntrenador(): Entrenador {
         salario = this.salario,
         pais = this.pais,
         imagen = this.imagen,
-        especializacion = this.especializacion,
+        especializacion = this.especializacion!!,
         rol = this.rol,
         equipo = this.equipo
     )
@@ -55,15 +58,15 @@ fun PersonaDto.toModel(): Persona {
             fechaIncorporacion = this.fecha_incorporacion,
             salario = this.salario,
             pais = this.pais,
-            posicion = this.posicion,
+            posicion = this.posicion!!,
 
-            dorsal = this.dorsal,
-            altura = this.altura,
-            peso = this.peso,
-            goles = this.goles,
-            mediaGoles = this.media_goles,
-            partidosJugados = this.partidos_jugados,
-            minutosJugados = this.minutos_jugados,
+            dorsal = this.dorsal!!,
+            altura = this.altura!!,
+            peso = this.peso!!,
+            goles = this.goles!!,
+            mediaGoles = this.media_goles!!,
+            partidosJugados = this.partidos_jugados!!,
+            minutosJugados = this.minutos_jugados!!,
             imagen = this.imagen,
             equipo = this.equipo
         )
@@ -76,7 +79,7 @@ fun PersonaDto.toModel(): Persona {
             fechaIncorporacion = this.fecha_incorporacion,
             salario = this.salario,
             pais = this.pais,
-            especializacion = this.especializacion,
+            especializacion = this.especializacion!!,
             imagen = this.imagen,
             equipo = this.equipo
         )
@@ -86,7 +89,6 @@ fun PersonaDto.toModel(): Persona {
 fun Persona.toEntity(): PersonaEntity {
     if (rol == "jugador") {
         val jugador = this as Jugador
-
         return JugadorEntity(
             id = this.id,
             nombre = jugador.nombre,
@@ -106,7 +108,6 @@ fun Persona.toEntity(): PersonaEntity {
             imagen = jugador.imagen,
             rol = jugador.rol,
             equipo = jugador.equipo
-
         )
     } else {
         val entrenador = this as Entrenador
@@ -146,6 +147,7 @@ fun PersonaEntity.toJugador(): Jugador {
         minutosJugados = jugador.minutosJugados,
         imagen = jugador.imagen,
         rol = jugador.rol,
+        equipo = this.equipo,
     )
 }
 
@@ -159,7 +161,10 @@ fun PersonaEntity.toEntrenador(): Entrenador {
         fechaIncorporacion = entrenador.fechaIncorporacion,
         salario = entrenador.salario,
         pais = entrenador.pais,
-        equipo = entrenador.equipo
+        equipo = entrenador.equipo,
+        imagen = "",
+        rol = this.rol,
+        especializacion = this.especializacion
     )
 }
 
@@ -167,7 +172,7 @@ fun PersonaEntity.toEntrenador(): Entrenador {
 fun PersonaEntity.toModel(): Persona {
     return if (rol == "jugador") {
         val jugador = this as Jugador
-        return Persona(
+        return Jugador(
             id = jugador.id,
             nombre = jugador.nombre,
             apellido = jugador.apellido,

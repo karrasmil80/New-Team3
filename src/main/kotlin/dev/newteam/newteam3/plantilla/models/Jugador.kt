@@ -34,7 +34,7 @@ class Jugador(
 ) {
 
     enum class Posicion {
-        PORTERO, DEFENSA, MEDIOCENTRO, DELANTERO
+        PORTERO, DEFENSA, MEDIOCENTRO, DELANTERO, EXTREMO, INTERIOR
     }
 
     override fun toString(): String {

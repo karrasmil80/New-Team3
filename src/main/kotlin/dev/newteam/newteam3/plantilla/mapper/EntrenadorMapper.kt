@@ -92,3 +92,9 @@ fun EntrenadorDto.toEntity() : EntrenadorEntity {
         equipo = this.equipo
     )
 }
+
+fun EntrenadorViewModel.EntrenadorState.toModel(): Entrenador {
+    return Entrenador(
+
+    )
+}

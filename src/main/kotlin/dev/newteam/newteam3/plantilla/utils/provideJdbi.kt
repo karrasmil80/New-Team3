@@ -1,4 +1,4 @@
-package dev.newteam.newteam3.players.utils
+package dev.newteam.newteam3.plantilla.utils
 import dev.newteam.newteam3.config.Config
 import dev.newteam.newteam3.database.JdbiManager
 import org.jdbi.v3.core.Jdbi

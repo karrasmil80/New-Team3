@@ -4,7 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="" />
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="arreglando conflictos">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/utils/ProvideDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Persona.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Persona.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/dto/EntrenadorDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/EntrenadorDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/dto/JugadorDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/JugadorDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/dto/PersonaDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/PersonaDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/mapper/EntrenadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EntrenadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/mapper/JugadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/models/Convocatoria.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Convocatoria.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/models/Entrenador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Entrenador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/models/Jugador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Jugador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/models/Persona.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/utils/ProvideDao.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/utils/provideCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/utils/provideCache.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/players/utils/provideJdbi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/utils/provideJdbi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/di/AppModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/dto/EntrenadorDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/dto/EntrenadorDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/dto/JugadorDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/dto/JugadorDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/dto/PersonaDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/dto/PersonaDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/mapper/EntrenadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/mapper/EntrenadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/mapper/JugadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/mapper/JugadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/mapper/PersonaMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/models/Convocatoria.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/models/Convocatoria.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/models/Entrenador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/models/Entrenador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/models/Jugador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/models/Jugador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/utils/provideCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dev/newteam/newteam3/players/utils/provideCache.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,27 +96,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;devantu&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build New-Team3.executor": "Run",
+    "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev-zuil",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="dev.newteam.newteam3.plantilla.models" />
       <recent name="dev.newteam.newteam3.players.models" />
       <recent name="dev.newteam.newteam3.models" />
       <recent name="dev.newteam.newteam3.Plantilla.models" />
@@ -141,5 +174,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="arreglando conflictos" />
+    <option name="LAST_COMMIT_MESSAGE" value="arreglando conflictos" />
   </component>
 </project>

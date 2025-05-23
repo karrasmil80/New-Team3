@@ -1,5 +1,7 @@
 package dev.newteam.newteam3.players.models
 
+import dev.newteam.newteam3.plantilla.models.Entrenador
+import dev.newteam.newteam3.plantilla.models.Jugador
 import java.time.LocalDateTime
 
 data class Convocatoria(

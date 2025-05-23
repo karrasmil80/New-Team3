@@ -3,13 +3,12 @@ package dev.newteam.newteam3.di
 import com.github.benmanes.caffeine.cache.Cache
 import dev.newteam.newteam3.config.Config
 import dev.newteam.newteam3.database.JdbiManager
-import dev.newteam.newteam3.players.models.Persona
+import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.players.utils.provideCacheCaffeine
 import dev.newteam.newteam3.players.utils.provideDatabaseManager
 import org.jdbi.v3.core.Jdbi
 import org.koin.dsl.module
 import org.lighthousegames.logging.logging
-import kotlin.math.sin
 
 //Logger
 private val logger = logging()

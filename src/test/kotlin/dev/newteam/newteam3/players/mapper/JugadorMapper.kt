@@ -1,10 +1,9 @@
 package dev.newteam.newteam3.players.mapper
 
-import dev.newteam.newteam3.players.dto.JugadorDto
-import dev.newteam.newteam3.players.dto.PersonaDto
-import dev.newteam.newteam3.players.models.Entrenador
-import dev.newteam.newteam3.players.models.Jugador
-import dev.newteam.newteam3.players.models.Persona
+import dev.newteam.newteam3.plantilla.dto.JugadorDto
+import dev.newteam.newteam3.plantilla.dto.PersonaDto
+import dev.newteam.newteam3.plantilla.models.Jugador
+import dev.newteam.newteam3.plantilla.models.Persona
 
 
 fun Jugador.toDto() : PersonaDto {

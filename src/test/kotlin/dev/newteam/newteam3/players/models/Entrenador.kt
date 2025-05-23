@@ -1,7 +1,7 @@
 package dev.newteam.newteam3.players.models
 
+import dev.newteam.newteam3.plantilla.models.Persona
 import java.time.LocalDate
-import java.time.LocalDateTime
 
 class Entrenador(
     id: Int,

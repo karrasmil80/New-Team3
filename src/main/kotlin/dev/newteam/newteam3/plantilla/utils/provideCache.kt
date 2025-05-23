@@ -1,8 +1,8 @@
-package dev.newteam.newteam3.players.utils
+package dev.newteam.newteam3.plantilla.utils
 
 import com.github.benmanes.caffeine.cache.Cache
 import com.github.benmanes.caffeine.cache.Caffeine
-import dev.newteam.newteam3.players.models.Persona
+import dev.newteam.newteam3.plantilla.models.Persona
 import java.util.concurrent.TimeUnit
 
 /**

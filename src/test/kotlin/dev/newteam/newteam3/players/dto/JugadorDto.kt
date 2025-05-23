@@ -1,6 +1,6 @@
 package dev.newteam.newteam3.players.dto
 
-import dev.newteam.newteam3.players.models.Jugador
+import dev.newteam.newteam3.plantilla.models.Jugador
 import kotlinx.serialization.Serializable
 import java.time.LocalDate
 

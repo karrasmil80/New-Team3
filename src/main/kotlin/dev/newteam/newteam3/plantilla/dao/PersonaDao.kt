@@ -20,21 +20,21 @@ interface PersonaDao {
      * Funcion que encuentra a todos los miembros de la plantilla en [tables.sql]
      */
 
-    @SqlQuery("SELECT * FROM Persona")
+    @SqlQuery("SELECT * FROM persona")
     fun findAll(): List<PersonaEntity>
 
     /**
      * Funcion que busca a un mimebro de la plantilla por id en [tables.sql]
      */
 
-    @SqlQuery("SELECT * FROM Persona WHERE id = :id")
+    @SqlQuery("SELECT * FROM persona WHERE id = :id")
     fun findById(@Bind("id")id: Int): PersonaEntity
 
     /**
      * Funcion que inserta un nuevo miembro en la plantilla de [data.sql]
      */
 
-    @SqlUpdate("INSERT INTO Persona (id, nombre, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen)" +
+    @SqlUpdate("INSERT INTO persona (id, nombre, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen)" +
             "VALUES (:id, :nombre, :fechaNacimiento, :fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen) )")
     @GetGeneratedKeys
     fun save(@BindBean personalentity: PersonaEntity) : Int
@@ -43,14 +43,14 @@ interface PersonaDao {
      * Funcion que borra el id de un miembro en [data.sql]
      */
 
-    @SqlUpdate("DELETE FROM Persona WHERE id = :id")
+    @SqlUpdate("DELETE FROM persona WHERE id = :id")
     fun delete(@Bind("id") id: Int) : Int
 
     /**
      * Funcion que elimina tods la informacion sobre un miembro en [data.sql]
      */
 
-    @SqlUpdate("DELETE FROM Persona")
-    fun deleteAll(@Bind("id")persona: Persona) : Int
+    @SqlUpdate("DELETE FROM persona")
+    fun deleteAll()
 
 }

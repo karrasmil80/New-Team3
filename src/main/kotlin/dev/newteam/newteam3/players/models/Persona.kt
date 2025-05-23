@@ -2,7 +2,6 @@ package dev.newteam.newteam3.players.models
 
 import java.time.LocalDate
 import java.time.LocalDateTime
-
 open class Persona(
     val id: Int,
     val nombre: String,
@@ -13,5 +12,4 @@ open class Persona(
     val pais: String,
     val rol: String,
     val imagen : String,
-
-)
+ )

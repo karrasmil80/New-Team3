@@ -26,12 +26,12 @@ CREATE TABLE IF NOT EXISTS jugador (
     peso DOUBLE PRECISION NOT NULL,
     goles INTEGER NOT NULL,
     partidosJugados INTEGER NOT NULL,
-    FOREIGN KEY (id) REFERENCES plantilla(id)
+    FOREIGN KEY (id) REFERENCES persona(id)
 );
 
 CREATE TABLE IF NOT EXISTS entrenador (
     id INT NOT NULL PRIMARY KEY,
     especialidad VARCHAR(100) NOT NULL,
     equipo VARCHAR(200),
-    FOREIGN KEY (id) REFERENCES plantilla(id)
+    FOREIGN KEY (id) REFERENCES persona(id)
 );

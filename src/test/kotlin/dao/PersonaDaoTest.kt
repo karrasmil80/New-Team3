@@ -18,7 +18,7 @@ class PersonaDaoTest {
     fun setUp() {
         // Inicializamos la BD
         val jdbi = JdbiManager(
-            databaseUrl = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1",
+            databaseUrl = "jdbc:h2:mem:newteamDB;DB_CLOSE_DELAY=-1",
             databaseInitTables = true,
             databaseInitData = true,
             databaseLogger = false

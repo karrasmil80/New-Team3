@@ -6,16 +6,11 @@ module dev.newteam.newteam3 {
     requires javafx.fxml;
 
     //KOTLIN
-    requires kotlin.stdlib;
-
     requires kotlin.reflect;
 
     //LOGGER
     requires logging.jvm;
     requires org.slf4j;
-
-    requires kotlin.result.jvm;
-
 
     //KOIN-
     requires koin.core.jvm;
@@ -23,6 +18,7 @@ module dev.newteam.newteam3 {
     requires org.jdbi.v3.sqlobject;
     requires org.jdbi.v3.kotlin;
     requires com.github.benmanes.caffeine;
+    requires kotlinx.serialization.core;
 
 
     //CARPETAS A ABRIR EN LA APP

@@ -18,12 +18,26 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="New-Team3" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -71,6 +85,7 @@
     "Gradle.Build New-Team3.0.executor": "Run",
     "Gradle.Build New-Team3.executor": "Run",
     "Gradle.CasosCorrectos.executor": "Run",
+    "Gradle.New-Team3.0 [run].executor": "Run",
     "Gradle.PersonaDaoTest.findAll.executor": "Run",
     "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -90,6 +105,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zupab\Desktop\New-Team 3\New-Team3.0\data" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="dev.newteam.newteam3.plantilla.models" />
       <recent name="dev.newteam.newteam3.players.models" />
@@ -121,6 +139,28 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="New-Team3.0 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="PersonaDaoTest.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -164,6 +204,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.PersonaDaoTest.findAll" />
+        <item itemvalue="Gradle.New-Team3.0 [run]" />
         <item itemvalue="Gradle.CasosCorrectos" />
         <item itemvalue="JUnit.dev.newteam.newteam3 in New-Team3.main" />
       </list>

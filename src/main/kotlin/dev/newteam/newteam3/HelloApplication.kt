@@ -1,6 +1,7 @@
 package dev.newteam.newteam3
 
 import dev.newteam.newteam3.di.AppModule
+import dev.newteam.newteam3.plantilla.dao.PersonaDao
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
@@ -34,4 +35,5 @@ class HelloApplication : Application(), KoinComponent {
 
 fun main() {
     Application.launch(HelloApplication::class.java)
+
 }

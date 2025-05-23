@@ -32,4 +32,7 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.database to javafx.fxml;
     exports dev.newteam.newteam3.database to javafx.graphics;
 
+    //DAO
+    exports dev.newteam.newteam3.plantilla.dao to kotlin.reflect;
 }
+

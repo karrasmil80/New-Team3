@@ -34,5 +34,9 @@ module dev.newteam.newteam3 {
 
     //DAO
     exports dev.newteam.newteam3.plantilla.dao to kotlin.reflect;
+
+    //MAIN CONTOLLER
+    opens dev.newteam.newteam3.controller to javafx.fxml;
+    exports dev.newteam.newteam3.controller to javafx.graphics;
 }
 

@@ -14,6 +14,6 @@ open class PersonaEntity(
     var imagen : String
 ) {
 
-fun getAppelido() = apellido
+    fun getAppelido() = apellido
 
 }

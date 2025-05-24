@@ -49,7 +49,7 @@ class JdbiManager (
         }
 
         /**
-         * //Ejecuta un script que obtiene de [config.properties]
+         * Ejecuta un script que obtiene de [config.properties]
          */
 
         if (databaseInitTables) {
@@ -58,7 +58,7 @@ class JdbiManager (
         }
 
         /**
-         * //Ejecuta un script que obtiene de [config.properties]
+         * Ejecuta un script que obtiene de [config.properties]
          */
 
         if (databaseInitData) {

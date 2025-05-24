@@ -6,6 +6,7 @@ import dev.newteam.newteam3.database.JdbiManager
 import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.plantilla.utils.provideCacheCaffeine
 import dev.newteam.newteam3.plantilla.utils.provideDatabaseManager
+import dev.newteam.newteam3.plantilla.utils.providePersonaDao
 import org.jdbi.v3.core.Jdbi
 import org.koin.dsl.module
 import org.lighthousegames.logging.logging
@@ -20,6 +21,7 @@ val AppModule = module {
     /**
      * Crea un singleton de [Config]
      */
+
     try {
         single { Config() }
     } catch (e : Exception) {
@@ -51,6 +53,16 @@ val AppModule = module {
         logger.error { "No se ha podido proporcionar la cache caffeine" }
     }
 
+    /**
+     * Proporciona el dao para [PersonaDao]
+     */
 
-
+    try {
+        single { providePersonaDao(
+            jdbi = get()
+        ) }
+    } catch (e : Exception) {
+        println(e)
+        logger.error { "No se ha podido proporcionar el dao" }
+    }
 }

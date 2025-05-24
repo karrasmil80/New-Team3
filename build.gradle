@@ -95,3 +95,8 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from sourceSets.main.output
+}

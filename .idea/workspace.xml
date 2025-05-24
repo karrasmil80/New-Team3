@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="arreglando conflictos">
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Conflictos arreglados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/HelloController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/HelloController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/database/JdbiManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/database/JdbiManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaEntity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/dao/PersonaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/dao/PersonaDaoTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,12 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="application" type="c8890929:TasksNode$1" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -72,37 +78,31 @@
     &quot;assignee&quot;: &quot;Antukiller&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/karrasmil80/New-Team3.git",
-    "accountId": "48c43642-ec47-445a-9340-4eaa21b6c7cb"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/karrasmil80/New-Team3.git&quot;,
+    &quot;accountId&quot;: &quot;e6cef565-dc86-4336-9a77-3714864c383b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2xPaMMSnkVmzXyzU4zQHLEYzEFK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.Build New-Team3.0.executor": "Run",
     "Gradle.Build New-Team3.executor": "Run",
-    "Gradle.CasosCorrectos.eliminarAlumno.executor": "Run",
-    "Gradle.CasosCorrectos.executor": "Run",
-    "Gradle.CasosCorrectos.findAll.executor": "Run",
-    "Gradle.CasosCorrectos.findById.executor": "Run",
-    "Gradle.CasosCorrectos.insertarAlumno.executor": "Run",
-    "Gradle.New-Team3.0 [run].executor": "Run",
-    "Gradle.PersonaDaoTest.findAll.executor": "Run",
+    "Gradle.New-Team3 [run].executor": "Run",
+    "Gradle.PersonaDaoTest.executor": "Run",
+    "Gradle.PersonaValidatorTest.executor": "Coverage",
+    "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
     "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "dev-zuil",
-    "jdk.selected.JAVA_MODULE": "liberica-full-21",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -112,24 +112,43 @@
     "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "settings.editor.selected.configurable": "project.propCompiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\zupab\Desktop\New-Team 3\New-Team3.0\data" />
-    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="dev.newteam.newteam3.controller" />
       <recent name="dev.newteam.newteam3.plantilla.models" />
       <recent name="dev.newteam.newteam3.players.models" />
       <recent name="dev.newteam.newteam3.models" />
       <recent name="dev.newteam.newteam3.Plantilla.models" />
+      <recent name="dev.newteam.newteam3.Plantilla" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CasosCorrectos.eliminarAlumno">
-    <configuration name="CasosCorrectos.eliminarAlumno" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.PersonaValidatorTest">
+    <configuration name="New-Team3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PersonaDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +161,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.eliminarAlumno&quot;" />
+            <option value="&quot;dao.PersonaDaoTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -153,7 +172,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CasosCorrectos.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PersonaValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -166,7 +185,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.findAll&quot;" />
+            <option value="&quot;validator.PersonaValidatorTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -177,7 +196,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CasosCorrectos.findById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PersonaValidatorTest.validateJugadorRolVacio" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -190,7 +209,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.findById&quot;" />
+            <option value="&quot;validator.PersonaValidatorTest.validateJugadorRolVacio&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -201,69 +220,35 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CasosCorrectos.insertarAlumno" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.insertarAlumno&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="PersonaDaoTest.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;dao.PersonaDaoTest.findAll&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
+    <configuration name="dev.newteam.newteam3 in New-Team3.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="New-Team3.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.newteam.newteam3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.newteam.newteam3" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CasosCorrectos.eliminarAlumno" />
-        <item itemvalue="Gradle.CasosCorrectos.findAll" />
-        <item itemvalue="Gradle.CasosCorrectos.insertarAlumno" />
-        <item itemvalue="Gradle.CasosCorrectos.findById" />
-        <item itemvalue="Gradle.PersonaDaoTest.findAll" />
+        <item itemvalue="Gradle.PersonaValidatorTest" />
+        <item itemvalue="Gradle.PersonaValidatorTest.validateJugadorRolVacio" />
+        <item itemvalue="Gradle.PersonaDaoTest" />
+        <item itemvalue="Gradle.New-Team3 [run]" />
+        <item itemvalue="JUnit.dev.newteam.newteam3 in New-Team3.main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -282,8 +267,17 @@
       <workItem from="1747939304310" duration="405000" />
       <workItem from="1747940397146" duration="264000" />
       <workItem from="1747992162852" duration="1399000" />
-      <workItem from="1748017716670" duration="1238000" />
+      <workItem from="1748074449857" duration="1900000" />
     </task>
+    <task id="LOCAL-00001" summary="Conflictos arreglados">
+      <option name="closed" value="true" />
+      <created>1747995078126</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747995078126</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +296,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="arreglando conflictos" />
-    <MESSAGE value="Configuración del programa y dependencias añadidas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configuración del programa y dependencias añadidas" />
+    <MESSAGE value="Conflictos arreglados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Conflictos arreglados" />
   </component>
 </project>

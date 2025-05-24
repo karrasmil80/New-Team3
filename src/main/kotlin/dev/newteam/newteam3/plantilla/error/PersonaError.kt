@@ -11,21 +11,21 @@ sealed class PersonaError(val message: String) {
      *
      * @param message Mensaje de error.
      */
-    class PersonaValidatorError(message: String) : PersonaError("Persona no válida: $message")
+    class PersonaValidatorError(message: String): PersonaError("Datos no válidos. $message")
 
     /**
      * Almacena el error que se mostrará cuando no se encuentre el ID.
      *
      * @param id Identificador personal de la persona que no se ha podido encontrar.
      */
-    class PersonaIdNotFound(id: Long) : PersonaError("Persona no encontrada con id: $id")
+    class PersonaIdNotFound(id: Long): PersonaError("Persona no encontrada con id: $id")
 
     /**
      * Almacena el error que se mostrará cuando el storage del programa no encuentre el archivo
      *
      * @param message Mensaje de error.
      */
-    class PersonaStorageError(message: String) : PersonaError(message)
+    class PersonaStorageError(message: String): PersonaError(message)
 
     /**
      *  Almacena el error que se mostrará cuando la base de datos de la persona no se haya conectado.

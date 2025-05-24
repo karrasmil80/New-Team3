@@ -13,6 +13,7 @@ class Jugador(
     pais: String,
     imagen: String,
     rol: String = "jugador",
+    equipo: Equipos,
     val posicion: Posicion,
     val dorsal: Int,
     val altura: Double,
@@ -21,7 +22,6 @@ class Jugador(
     val mediaGoles: Double,
     val partidosJugados: Int,
     val minutosJugados: Int,
-    val equipo: String
 ): Persona(id,
     nombre,
     apellido,
@@ -30,7 +30,8 @@ class Jugador(
     salario,
     pais,
     imagen,
-    rol
+    rol,
+    equipo
 ) {
 
     enum class Posicion {

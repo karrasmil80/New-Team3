@@ -11,5 +11,10 @@ abstract class Persona(
     val salario: Double,
     val pais: String,
     val rol: String,
-    val imagen : String
-)
+    val imagen : String,
+    val equipo: Equipos
+) {
+    enum class Equipos {
+        NEW_TEAM, MUPPET
+    }
+}

@@ -12,8 +12,8 @@ class Entrenador(
     pais: String,
     imagen: String,
     rol: String = "entrenador",
+    equipo: Equipos,
     val especializacion: Especializacion,
-    val equipo: String,
 ): Persona(id,
     nombre,
     apellido,
@@ -22,7 +22,8 @@ class Entrenador(
     salario,
     pais,
     imagen,
-    rol
+    rol,
+    equipo,
 ) {
     enum class Especializacion {
         PRINCIPAL, ASISTENTE, PORTEROS

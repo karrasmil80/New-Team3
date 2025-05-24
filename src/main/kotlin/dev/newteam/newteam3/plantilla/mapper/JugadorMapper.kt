@@ -26,7 +26,7 @@ fun Jugador.toDto() : PersonaDto {
         minutos_jugados = minutosJugados,
         imagen = imagen,
         rol = rol,
-        equipo = equipo,
+        equipo = Persona.Equipos.valueOf(equipo.toString()).toString(),
         especializacion = null
     )
 }
@@ -50,7 +50,7 @@ fun JugadorDto.toModel() : Persona {
         minutosJugados = this.minutosJugados,
         imagen = this.imagen,
         rol = this.rol,
-        equipo = this.equipo,
+        equipo = Persona.Equipos.valueOf(equipo),
     )
 }
 
@@ -120,7 +120,7 @@ fun JugadorDto.toEntity(): JugadorEntity {
         minutosJugados = this.minutosJugados,
         imagen = this.imagen,
         rol = this.rol,
-        equipo = this.equipo
+        equipo = Persona.Equipos.valueOf(equipo)
     )
 }
 

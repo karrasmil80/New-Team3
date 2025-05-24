@@ -27,7 +27,7 @@ fun PersonaDto.toJugador(): Jugador {
         partidosJugados = this.partidos_jugados!!,
         minutosJugados = this.minutos_jugados!!,
         imagen = this.imagen,
-        equipo = this.equipo
+        equipo = Persona.Equipos.valueOf(equipo)
     )
 }
 
@@ -43,7 +43,7 @@ fun PersonaDto.toEntrenador(): Entrenador {
         imagen = this.imagen,
         especializacion = this.especializacion!!,
         rol = this.rol,
-        equipo = this.equipo
+        equipo = Persona.Equipos.valueOf(equipo)
     )
 }
 
@@ -68,7 +68,7 @@ fun PersonaDto.toModel(): Persona {
             partidosJugados = this.partidos_jugados!!,
             minutosJugados = this.minutos_jugados!!,
             imagen = this.imagen,
-            equipo = this.equipo
+            equipo = Persona.Equipos.valueOf(equipo)
         )
     } else {
         Entrenador(
@@ -81,7 +81,7 @@ fun PersonaDto.toModel(): Persona {
             pais = this.pais,
             especializacion = this.especializacion!!,
             imagen = this.imagen,
-            equipo = this.equipo
+            equipo = Persona.Equipos.valueOf(equipo)
         )
     }
 }

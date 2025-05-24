@@ -7,6 +7,8 @@ import org.jdbi.v3.sqlobject.kotlin.RegisterKotlinMapper
 import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys
 import org.jdbi.v3.sqlobject.statement.SqlQuery
 import org.jdbi.v3.sqlobject.statement.SqlUpdate
+import dev.newteam.newteam3.plantilla.dao.PersonaEntity
+
 
 @RegisterKotlinMapper(PersonaEntity::class)
 
@@ -24,20 +26,22 @@ interface PersonaDao {
     fun findAll(): List<PersonaEntity>
 
     /**
-     * Funcion que busca a un mimebro de la plantilla por id en [tables.sql]
+     * Funcion que busca a un miembro de la plantilla por id en [tables.sql]
      */
 
     @SqlQuery("SELECT * FROM persona WHERE id = :id")
-    fun findById(@Bind("id")id: Int): PersonaEntity
+    fun findById(@Bind("id")id: Int): PersonaEntity?
 
     /**
      * Funcion que inserta un nuevo miembro en la plantilla de [data.sql]
      */
 
-    @SqlUpdate("INSERT INTO persona (id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen)" +
-            "VALUES (:id, :nombre, :apellido, :fechaNacimiento, :fechaIncorporacion, salario, pais, rol, equipo, ruta_imagen) )")
+    @SqlUpdate(
+        "INSERT INTO persona (id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, imagen) " +
+                "VALUES (:id, :nombre, :apellido, :fechaNacimiento, :fechaIncorporacion, :salario, :pais, :rol, :equipo, :imagen)"
+    )
     @GetGeneratedKeys
-    fun save(@BindBean personalentity: PersonaEntity) : Int
+    fun save(@BindBean personalEntity: PersonaEntity): Int
 
     /**
      * Funcion que borra el id de un miembro en [data.sql]
@@ -51,6 +55,6 @@ interface PersonaDao {
      */
 
     @SqlUpdate("DELETE FROM persona")
-    fun deleteAll()
+    fun deleteAll() : Int
 
 }

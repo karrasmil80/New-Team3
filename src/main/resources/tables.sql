@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS equipo (
     nombre_equipo VARCHAR(200) NOT NULL PRIMARY KEY,
     escudo_equipo VARCHAR(200) DEFAULT 'images/default_profile.png'

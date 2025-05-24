@@ -1,6 +1,7 @@
 package validator
 
 import dev.newteam.newteam3.plantilla.models.Jugador
+import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.plantilla.validator.JugadorValidator
 
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -33,7 +34,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -64,7 +65,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -94,7 +95,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -125,7 +126,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -155,7 +156,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -186,7 +187,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -216,7 +217,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -248,7 +249,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -279,7 +280,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -309,7 +310,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -339,7 +340,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -369,7 +370,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -400,7 +401,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -430,7 +431,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -460,7 +461,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -490,7 +491,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -520,7 +521,7 @@ class PersonaValidatorTest {
             peso = 33.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -550,7 +551,7 @@ class PersonaValidatorTest {
             peso = 174.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -580,7 +581,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = -1,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -610,7 +611,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = -1.0,
             minutosJugados = 0
         )
@@ -640,7 +641,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = -1,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -670,7 +671,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "New Team",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = -1
         )
@@ -681,6 +682,7 @@ class PersonaValidatorTest {
         assertEquals("Datos no válidos. No puede haber jugado minutos negativos.", result.error.message)
     }
 
+    /*
     @Test
     @DisplayName("Test de Jugador sin Equipo.")
     fun validateJugadorSinEquipo() {
@@ -700,7 +702,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -730,7 +732,7 @@ class PersonaValidatorTest {
             peso = 74.0,
             goles = 0,
             partidosJugados = 0,
-            equipo = "N",
+            equipo = Persona.Equipos.MUPPET,
             mediaGoles = 0.0,
             minutosJugados = 0
         )
@@ -740,4 +742,5 @@ class PersonaValidatorTest {
         assertTrue(result.isErr)
         assertEquals("Datos no válidos. El equipo debe tener entre 2 y 50 caracteres.", result.error.message)
     }
+     */
 }

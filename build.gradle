@@ -98,5 +98,4 @@ jlinkZip {
 
 jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from sourceSets.main.output
 }

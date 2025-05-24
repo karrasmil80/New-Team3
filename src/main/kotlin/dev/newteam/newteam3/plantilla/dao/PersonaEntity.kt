@@ -1,5 +1,7 @@
 package dev.newteam.newteam3.plantilla.dao
 
+import dev.newteam.newteam3.plantilla.models.Equipo
+import dev.newteam.newteam3.plantilla.models.Persona
 import java.time.LocalDate
 
 open class PersonaEntity(
@@ -11,9 +13,6 @@ open class PersonaEntity(
     var salario: Double,
     var pais: String,
     var rol: String,
+    var equipo: Persona.Equipos,
     var imagen : String
-) {
-
-    fun getAppelido() = apellido
-
-}
+)

@@ -1,9 +1,12 @@
 package dev.newteam.newteam3.plantilla.mapper
 
 import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
+import dev.newteam.newteam3.plantilla.dao.PersonaEntity
 import dev.newteam.newteam3.plantilla.dto.EntrenadorDto
 import dev.newteam.newteam3.plantilla.dto.PersonaDto
 import dev.newteam.newteam3.plantilla.models.Entrenador
+import dev.newteam.newteam3.plantilla.models.Equipo
+import dev.newteam.newteam3.plantilla.models.Persona
 
 fun Entrenador.toDto() : PersonaDto {
     return PersonaDto(
@@ -25,7 +28,7 @@ fun Entrenador.toDto() : PersonaDto {
         imagen = imagen,
         rol = rol,
         especializacion = especializacion,
-        equipo = equipo
+        equipo = Persona.Equipos.valueOf(equipo.toString()).toString()
     )
 }
 
@@ -41,7 +44,7 @@ fun EntrenadorDto.toModel() : Entrenador {
         imagen = this.imagen,
         especializacion = this.especializacion,
         rol = this.rol,
-        equipo = this.equipo
+        equipo = Persona.Equipos.valueOf(equipo)
     )
 }
 
@@ -58,7 +61,7 @@ fun Entrenador.toEntity() : EntrenadorEntity {
         imagen = this.imagen,
         especializacion = this.especializacion,
         rol = this.rol,
-        equipo = this.equipo
+        equipo = Persona.Equipos.valueOf(equipo.toString())
     )
 }
 
@@ -90,7 +93,7 @@ fun EntrenadorDto.toEntity() : EntrenadorEntity {
         imagen = this.imagen,
         especializacion = this.especializacion,
         rol = this.rol,
-        equipo = this.equipo
+        equipo = Persona.Equipos.valueOf(equipo)
     )
 }
 /*

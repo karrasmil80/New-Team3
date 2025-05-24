@@ -1,6 +1,8 @@
 package dev.newteam.newteam3.plantilla.dao
 
+import dev.newteam.newteam3.plantilla.models.Equipo
 import dev.newteam.newteam3.plantilla.models.Jugador.Posicion
+import dev.newteam.newteam3.plantilla.models.Persona
 import java.time.LocalDate
 
 class JugadorEntity(
@@ -12,6 +14,7 @@ class JugadorEntity(
     salario : Double,
     pais: String,
     imagen: String,
+    equipo: Persona.Equipos,
     rol: String = "jugador",
     val posicion: Posicion,
     val dorsal: Int,
@@ -21,5 +24,4 @@ class JugadorEntity(
     val mediaGoles: Double,
     val partidosJugados: Int,
     val minutosJugados: Int,
-    val equipo: String
-) : PersonaEntity(id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais, rol, imagen)
+) : PersonaEntity(id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais, rol, equipo, imagen)

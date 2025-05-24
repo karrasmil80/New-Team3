@@ -104,12 +104,14 @@ class JugadorValidator: Validator<Jugador, PersonaError> {
             return Err(PersonaError.PersonaValidatorError("No puede haber jugado minutos negativos."))
         }
 
+        /*
         if (t.equipo.isBlank()) {
             return Err(PersonaError.PersonaValidatorError("El equipo no puede estar en blanco."))
         }
         if (t.equipo.length < 2 || t.equipo.length > 50){
             return Err(PersonaError.PersonaValidatorError("El equipo debe tener entre 2 y 50 caracteres."))
         }
+         */
 
         return Ok(t)
     }

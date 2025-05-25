@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Conflictos arreglados">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/extensions/Extensions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/repositories/PersonaRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/repositories/PersonaRepositoryImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/service/PersonaService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/service/PersonaServiceImpl.kt" afterDir="false" />
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Terminado el servicio y el repositorio, falta testear">
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/repository/PersonaRepositoryMockitoTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/error/PersonaError.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/error/PersonaError.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +122,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zupab\IdeaProjects\New-Team3\src\test\kotlin\repository" />
+    </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="dev.newteam.newteam3.plantilla.models" />
       <recent name="dev.newteam.newteam3.players.models" />
@@ -138,8 +133,8 @@
       <recent name="dev.newteam.newteam3.Plantilla" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.New-Team3 [run]">
-    <configuration name="CasosCorrectos.save" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CasosCorrectosRepositorio.findAll">
+    <configuration name="CasosCorrectosRepositorio.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -152,7 +147,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.save&quot;" />
+            <option value="&quot;repository.PersonaRepositoryMockitoTest$CasosCorrectosRepositorio.findAll&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -259,11 +254,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CasosCorrectosRepositorio.findAll" />
         <item itemvalue="Gradle.New-Team3 [run]" />
         <item itemvalue="Gradle.PersonaDaoTest" />
         <item itemvalue="Gradle.CasosIncorrectos.deleteIncorrecto" />
         <item itemvalue="Gradle.CasosIncorrectos.findByIdIncorrecto" />
-        <item itemvalue="Gradle.CasosCorrectos.save" />
       </list>
     </recent_temporary>
   </component>
@@ -292,7 +287,8 @@
       <workItem from="1747992162852" duration="1399000" />
       <workItem from="1748074449857" duration="7127000" />
       <workItem from="1748086785769" duration="2026000" />
-      <workItem from="1748181182816" duration="6583000" />
+      <workItem from="1748181182816" duration="7386000" />
+      <workItem from="1748188641550" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Conflictos arreglados">
       <option name="closed" value="true" />
@@ -302,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747995078126</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Terminado el servicio y el repositorio, falta testear">
+      <option name="closed" value="true" />
+      <created>1748188234353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748188234353</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +326,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="arreglando conflictos" />
     <MESSAGE value="Conflictos arreglados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Conflictos arreglados" />
+    <MESSAGE value="Terminado el servicio y el repositorio, falta testear" />
+    <option name="LAST_COMMIT_MESSAGE" value="Terminado el servicio y el repositorio, falta testear" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/New_Team3$PersonaValidatorTest.ic" NAME="PersonaValidatorTest Coverage Results" MODIFIED="1748078952478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

@@ -109,7 +109,7 @@ class EntrenadorValidatorTest {
 
     @Test
     @DisplayName("Test de Entrenador con Apellido inválido.")
-    fun validateJugadorApellidoInvalido() {
+    fun validateEntrenadorApellidoInvalido() {
         val entrenador = Entrenador (
             id = 1,
             nombre = "Carlos",

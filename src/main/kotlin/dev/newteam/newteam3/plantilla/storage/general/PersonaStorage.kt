@@ -11,6 +11,6 @@ import java.io.File
  * de leer los archivos y escribir a otros archivos.
  * */
 interface PersonaStorage {
-    fun leerDelArchivo (file: File): Result<List<Persona>, PersonaError>
-    fun escribirAUnArchivo (file: File, persona: List<Persona>): Result<String, PersonaError>
+    fun readFromFile (file: File): Result<List<Persona>, PersonaError>
+    fun writeToFile (file: File, persona: List<Persona>): Result<String, PersonaError>
 }

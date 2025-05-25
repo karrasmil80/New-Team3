@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
 
-class PersonaValidatorTest {
+class JugadorValidatorTest {
     private val validator = JugadorValidator()
 
     @Test

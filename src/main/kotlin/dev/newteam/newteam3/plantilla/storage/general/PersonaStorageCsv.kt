@@ -71,8 +71,15 @@ class PersonaStorageCsv: PersonaStorage {
         })
     }
 
-
     override fun writeToFile(file: File, persona: List<Persona>): Result<String, PersonaError> {
+        /*logger.debug { "Escribiendo personas en el fichero CSV: $file" }
+        // comprobación de si el archivo es válido
+        if (!file.parentFile.exists() || !file.parentFile.isDirectory || !file.name.endsWith(".csv", true)) {
+            logger.error { "El directorio padre del fichero no existe o el archivo no es un CSV: ${file.parentFile.absolutePath}" }
+            return Err(PersonaError.PersonaStorageError("No se puede escribir en el archivo debido a que no existe o no es de la extensión adecuada 😔"))
+        }*/
         TODO("Not yet implemented")
     }
+
+
 }

@@ -4,6 +4,7 @@ import com.github.benmanes.caffeine.cache.Cache
 import dev.newteam.newteam3.config.Config
 import dev.newteam.newteam3.database.JdbiManager
 import dev.newteam.newteam3.plantilla.models.Persona
+import dev.newteam.newteam3.plantilla.repositories.PersonaRepositoryImpl
 import dev.newteam.newteam3.plantilla.utils.provideCacheCaffeine
 import dev.newteam.newteam3.plantilla.utils.provideDatabaseManager
 import dev.newteam.newteam3.plantilla.utils.providePersonaDao
@@ -64,5 +65,18 @@ val AppModule = module {
     } catch (e : Exception) {
         println(e)
         logger.error { "No se ha podido proporcionar el dao" }
+    }
+
+    /**
+     * Crea un singleton de [PersonaRepositoryImpl]
+     */
+
+    try {
+        single { PersonaRepositoryImpl(
+            dao = get())
+        }
+    } catch (e : Exception) {
+        println(e)
+        logger.error { "No se ha podido proporcionar el repositorio" }
     }
 }

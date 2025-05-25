@@ -18,7 +18,7 @@ sealed class PersonaError(val message: String) {
      *
      * @param id Identificador personal de la persona que no se ha podido encontrar.
      */
-    class PersonaIdNotFound(id: Long): PersonaError("Persona no encontrada con id: $id")
+    class PersonaIdNotFound(id: Int): PersonaError("Persona no encontrada con id: $id")
 
     /**
      * Almacena el error que se mostrará cuando el storage del programa no encuentre el archivo
@@ -33,4 +33,12 @@ sealed class PersonaError(val message: String) {
      *  @param message Mensaje de error.
      */
     class PersonaDatabaseException(message: String): PersonaError(message)
+
+    /**
+     * Almacenaa el error que se mostrara en el servicio cuando haya algun error
+     *
+     * @param message Mensaje de error.
+     */
+
+    class PersonaServiceException(message: String): PersonaError(message)
 }

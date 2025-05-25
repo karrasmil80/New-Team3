@@ -210,3 +210,46 @@ fun PersonaEntity.toModel(): Persona {
     }
 }
 
+fun Persona.toEntrenador(): Entrenador {
+    val entrenador = this as Entrenador
+    return Entrenador(
+        id = entrenador.id,
+        nombre = entrenador.nombre,
+        apellido = entrenador.apellido,
+        fechaNacimiento = entrenador.fechaNacimiento,
+        fechaIncorporacion = entrenador.fechaIncorporacion,
+        salario = entrenador.salario,
+        pais = entrenador.pais,
+        equipo = entrenador.equipo,
+        imagen = "",
+        rol = this.rol,
+        especializacion = this.especializacion
+    )
+}
+
+
+fun Persona.toJugador(): Jugador {
+    val entrenador = this as Jugador
+    return Jugador(
+        id = entrenador.id,
+        nombre = entrenador.nombre,
+        apellido = entrenador.apellido,
+        fechaNacimiento = entrenador.fechaNacimiento,
+        fechaIncorporacion = entrenador.fechaIncorporacion,
+        salario = entrenador.salario,
+        pais = entrenador.pais,
+        equipo = entrenador.equipo,
+        imagen = "",
+        rol = this.rol,
+        posicion = this.posicion,
+        dorsal = this.dorsal,
+        altura = this.altura,
+        peso = this.peso,
+        goles = this.goles,
+        mediaGoles = this.mediaGoles,
+        partidosJugados = this.partidosJugados,
+        minutosJugados = this.minutosJugados,
+    )
+}
+
+

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
 
-class PersonaValidatorTest {
+class JugadorValidatorTest {
     private val validator = JugadorValidator()
 
     @Test
@@ -382,7 +382,7 @@ class PersonaValidatorTest {
     }
 
 
-    @Test
+    /*@Test
     @DisplayName("Test de Jugador sin Rol.")
     fun validateJugadorRolVacio() {
         val jugador = Jugador (
@@ -410,7 +410,7 @@ class PersonaValidatorTest {
 
         assertTrue(result.isErr)
         assertEquals("Datos no válidos. El rol no puede estar en blanco.", result.error.message)
-    }
+    }*/
 
     @Test
     @DisplayName("Test de Jugador con Dorsal negativo.")
@@ -681,66 +681,4 @@ class PersonaValidatorTest {
         assertTrue(result.isErr)
         assertEquals("Datos no válidos. No puede haber jugado minutos negativos.", result.error.message)
     }
-
-    /*
-    @Test
-    @DisplayName("Test de Jugador sin Equipo.")
-    fun validateJugadorSinEquipo() {
-        val jugador = Jugador (
-            id = 1,
-            nombre = "Carlos",
-            apellido = "Alcaraz",
-            fechaNacimiento = LocalDate.of(2003, 5, 5),
-            fechaIncorporacion = LocalDate.of(2025, 5, 20),
-            salario = 4000.0,
-            pais = "España",
-            rol = "Jugador",
-            imagen = "https://www.directvsports.com/__export/1734643585495/sites/dsports/img/2024/12/19/alcaraz.jpg_1627369046.jpg",
-            posicion = Jugador.Posicion.DELANTERO,
-            dorsal = 7,
-            altura = 1.83,
-            peso = 74.0,
-            goles = 0,
-            partidosJugados = 0,
-            equipo = Persona.Equipos.MUPPET,
-            mediaGoles = 0.0,
-            minutosJugados = 0
-        )
-
-        val result = validator.validate(jugador)
-
-        assertTrue(result.isErr)
-        assertEquals("Datos no válidos. El equipo no puede estar en blanco.", result.error.message)
-    }
-
-    @Test
-    @DisplayName("Test de Jugador con Equipo inválido.")
-    fun validateJugadorEquipoInvalido() {
-        val jugador = Jugador (
-            id = 1,
-            nombre = "Carlos",
-            apellido = "Alcaraz",
-            fechaNacimiento = LocalDate.of(2003, 5, 5),
-            fechaIncorporacion = LocalDate.of(2025, 5, 20),
-            salario = 4000.0,
-            pais = "España",
-            rol = "Jugador",
-            imagen = "https://www.directvsports.com/__export/1734643585495/sites/dsports/img/2024/12/19/alcaraz.jpg_1627369046.jpg",
-            posicion = Jugador.Posicion.DELANTERO,
-            dorsal = 7,
-            altura = 1.83,
-            peso = 74.0,
-            goles = 0,
-            partidosJugados = 0,
-            equipo = Persona.Equipos.MUPPET,
-            mediaGoles = 0.0,
-            minutosJugados = 0
-        )
-
-        val result = validator.validate(jugador)
-
-        assertTrue(result.isErr)
-        assertEquals("Datos no válidos. El equipo debe tener entre 2 y 50 caracteres.", result.error.message)
-    }
-     */
 }

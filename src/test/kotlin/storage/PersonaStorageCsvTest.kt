@@ -7,105 +7,191 @@ import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Jugador
 import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.plantilla.storage.general.PersonaStorageCsv
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import java.io.File
 import java.time.LocalDate
 
-/*class PersonaStorageCsvTest {
+class PersonaStorageCsvTest {
 
-    private val personaStorageCsv = PersonaStorageCsv()
+    private val tempFile = File("data_copia/test_personas.csv")
+    private val storage = PersonaStorageCsv()
 
-    private val jugadorCsvLine = "1,Cristiano,Ronaldo,1985-02-05,2023-08-15,4000.0,Portugal,Jugador,cristiano.png,REAL_MADRID,DELANTERO,7,1.87,84.0,700,0.83,900,80000"
-    private val entrenadorCsvLine = "2,Zinedine,Zidane,1972-06-23,2022-05-10,80000.0,Francia,Entrenador,zidane.png,REAL_MADRID,PRINCIPAL"
-
-    val jugador = Jugador(
+    private val entrenador = Entrenador (
         id = 1,
-        nombre = "Cristiano",
-        apellido = "Ronaldo",
-        fechaNacimiento = LocalDate.of(1985, 2, 5),
-        fechaIncorporacion = LocalDate.of(2023, 8, 15),
+        nombre = "Carlos",
+        apellido = "Alcaraz",
+        fechaNacimiento = LocalDate.of(2003, 5, 5),
+        fechaIncorporacion = LocalDate.of(2025, 5, 20),
         salario = 4000.0,
-        pais = "Portugal",
-        imagen = "cristiano.png",
-        equipo = Persona.Equipos.REAL_MADRID,
-        posicion = Jugador.Posicion.DELANTERO,
-        dorsal = 7,
-        altura = 1.87,
-        peso = 84.0,
-        goles = 700,
-        mediaGoles = 0.83,
-        partidosJugados = 900,
-        minutosJugados = 80000
-    )
-
-    val entrenador = Entrenador(
-        id = 2,
-        nombre = "Zinedine",
-        apellido = "Zidane",
-        fechaNacimiento = LocalDate.of(1972, 6, 23),
-        fechaIncorporacion = LocalDate.of(2022, 5, 10),
-        salario = 80000.0,
-        pais = "Francia",
-        imagen = "zidane.png",
-        equipo = Persona.Equipos.REAL_MADRID,
+        pais = "España",
+        rol = "Entrenador",
+        imagen = "https://www.directvsports.com/__export/1734643585495/sites/dsports/img/2024/12/19/alcaraz.jpg_1627369046.jpg",
+        equipo = Persona.Equipos.NEW_TEAM,
         especializacion = Entrenador.Especializacion.PRINCIPAL
     )
 
+    private val jugador = Jugador (
+        id = 1,
+        nombre = "Carlos",
+        apellido = "Alcaraz",
+        fechaNacimiento = LocalDate.of(2003, 5, 5),
+        fechaIncorporacion = LocalDate.of(2025, 5, 20),
+        salario = 4000.0,
+        pais = "España",
+        rol = "Jugador",
+        imagen = "https://www.directvsports.com/__export/1734643585495/sites/dsports/img/2024/12/19/alcaraz.jpg_1627369046.jpg",
+        posicion = Jugador.Posicion.DELANTERO,
+        dorsal = 7,
+        altura = 1.83,
+        peso = 74.0,
+        goles = 0,
+        partidosJugados = 0,
+        equipo = Persona.Equipos.MUPPET,
+        mediaGoles = 0.0,
+        minutosJugados = 0
+    )
+
     @Test
-    @DisplayName("readFromFile retorna Ok con lista de personas si archivo existe y formato correcto")
-    fun readFromFile_retornaOk_listaPersonas() {
-        val content = """
-            id,nombre,apellido,fechaNacimiento,fechaIncorporacion,salario,pais,tipo,imagen,equipo,especializacion,posicion,dorsal,altura,peso,goles,mediaGoles,partidosJugados,minutosJugados
-            $jugadorCsvLine
-            $entrenadorCsvLine
-        """.trimIndent()
+    @DisplayName("Test de Escribir y leer personas correctamente desde un archivo CSV")
+    fun testWriteAndReadCsv() {
 
-        val tempFile = createTempFile("test_persona", ".csv")
-        tempFile.writeText(content)
+        // escritura
+        val writeResult = storage.writeToFile(tempFile, listOf(entrenador, jugador))
+        assertTrue(writeResult.isOk)
+        assertTrue(tempFile.exists())
 
-        val result = personaStorageCsv.readFromFile(tempFile)
-
-        assertTrue(result.isOk)
-        val personas = result.get()
+        // lectura
+        val readResult = storage.readFromFile(tempFile)
+        assertTrue(readResult.isOk)
+        val personas = readResult.get()!!
         assertEquals(2, personas.size)
-        assertEquals(jugador, personas[0])
-        assertEquals(entrenador, personas[1])
+
+        val readEntrenador = personas[0] as Entrenador
+        val readJugador = personas[1] as Jugador
+
+
+        // comprobación entrenador
+        assertEquals(entrenador.id, readEntrenador.id)
+        assertEquals(entrenador.nombre, readEntrenador.nombre)
+        assertEquals(entrenador.especializacion, readEntrenador.especializacion)
+
+        // comprobación jugador
+        assertEquals(jugador.id, readJugador.id)
+        assertEquals(jugador.nombre, readJugador.nombre)
+        assertEquals(jugador.posicion, readJugador.posicion)
+        assertEquals(jugador.dorsal, readJugador.dorsal)
+    }
+
+    @Test
+    @DisplayName("Test fallido al intentar leer un archivo inexistente.")
+    fun testReadNonExistentFile() {
+        val fakeFile = File("archivo_que_no_existe.csv")
+        val result = storage.readFromFile(fakeFile)
+
+        assertTrue(result.getError() is PersonaError.PersonaStorageError)
+    }
+
+    @Test
+    @DisplayName("Test fallido al leer una persona con rol desconocido en el CSV")
+    fun testReadFromFileWithUnknownRole() {
+        val tempFile = createTempFile("testLecturaRolDesconocido", ".csv")
+
+        tempFile.writeText("""
+        id,nombre,apellidos,fechaNacimiento,fechaIncorporacion,salario,pais,imagen,rol,equipo,especializacion,posicion,dorsal,altura,peso,goles,mediaGoles,partidosJugados,minutosJugados
+        1,Carlos,Alcaraz,2003-05-03,2025-01-01,3000.0,España,imagen.jpg,Manager,NEW_TEAM,,,,,,,,,
+    """.trimIndent())
+
+        val result = storage.readFromFile(tempFile)
+
+        // comprobacion
+        assertTrue(result.isErr)
+        assertTrue(result.error is PersonaError.PersonaStorageError)
+        assertEquals("Tiene que ser o un Jugador o un Entrenador.", result.error.message)
+
+        // borrado del archivo temporal
+        tempFile.delete()
+    }
+
+
+    @Test
+    @DisplayName("Test fallido al intentar escribir en un directorio inválido.")
+    fun testWriteToInvalidFile() {
+        val invalidFile = File("CON/personas.csv")
+        val result = storage.writeToFile(invalidFile, listOf(jugador))
+
+        // comproacion
+        assertTrue(result.getError() is PersonaError.PersonaStorageError)
+    }
+
+    @Test
+    @DisplayName("Test fallido al intentar escribir en un archivo cuyo directorio padre no existe.")
+    fun testWriteToFileWithNonExistentParentDirectory() {
+
+        val nonExistentDir = File("nonExistentDirBloqueada")
+
+        if (nonExistentDir.exists()) {
+            nonExistentDir.deleteRecursively()
+        }
+
+        nonExistentDir.writeText("bloqueo")
+
+        val tempFile = File(nonExistentDir, "test.csv")
+        val result = storage.writeToFile(tempFile, listOf(jugador))
+
+        // comprobaciones
+        assertTrue(result.isErr, "El resultado debe ser un error")
+        assertTrue(result.error is PersonaError.PersonaStorageError, "El error debe ser del tipo PersonaStorageError")
+        assertEquals("El directorio padre no es válido 😔", result.error.message)
+
+        nonExistentDir.delete()
+    }
+    @Test
+    @DisplayName("Test fallido al intentar escribir en un archivo sin extensión .csv")
+    fun testWriteToFileWithInvalidExtension() {
+        val tempFile = File("data_copia/personas.txt")
+
+        val result = storage.writeToFile(tempFile, listOf(jugador))
+
+        // comrpobaciones
+        assertTrue(result.isErr)
+        assertTrue(result.error is PersonaError.PersonaStorageError)
+        assertEquals("El archivo debe tener extensión .csv 😔", result.error.message)
+    }
+
+    @Test
+    @DisplayName("Test fallido al intentar escribir una persona de tipo desconocido.")
+    fun testWriteToFileWithUnknownPersonaType() {
+
+        val personaDesconocida = object : Persona(
+            id = 999,
+            nombre = "Desconocido",
+            apellido = "Desconocido",
+            fechaNacimiento = LocalDate.now(),
+            fechaIncorporacion = LocalDate.now(),
+            salario = 0.0,
+            pais = "N/A",
+            imagen = "N/A",
+            equipo = Equipos.NEW_TEAM,
+            rol = "Desconocido"
+        ) {}
+
+        val tempFile = createTempFile("testEscribirArchivo", ".csv")
+
+        val result = storage.writeToFile(tempFile, listOf(personaDesconocida))
+
+        // comprobaciones
+        assertTrue(result.isErr)
+        assertTrue(result.error is PersonaError.PersonaStorageError)
+        assertEquals("Tipo de persona desconocido: ${personaDesconocida::class.simpleName}",result.error.message)
 
         tempFile.delete()
     }
 
-    @Test
-    @DisplayName("readFromFile retorna Err si archivo no existe")
-    fun readFromFile_retornaErr_archivoNoExiste() {
-        val file = File("archivo_inexistente.csv")
-        val result = personaStorageCsv.readFromFile(file)
+    // para crear el archivo temporal
+    private fun createTempFile(prefix: String, suffix: String): File =
+        kotlin.io.path.createTempFile(prefix, suffix).toFile()
 
-        assertTrue(result.isErr)
-        val error = result.getError()
-        assertTrue(error is PersonaError.PersonaStorageError)
-        assertEquals("El fichero no existe o no se puede leer: ${file.path}", error.message)
-    }
-
-    @Test
-    @DisplayName("readFromFile retorna Err si tipo no es Jugador ni Entrenador")
-    fun readFromFile_retornaErr_tipoDesconocido() {
-        val content = """
-            id,nombre,apellido,fechaNacimiento,fechaIncorporacion,salario,pais,tipo,imagen,equipo,especializacion,posicion,dorsal,altura,peso,goles,mediaGoles,partidosJugados,minutosJugados
-            3,John,Doe,1990-01-01,2020-01-01,30000.0,USA,Manager,john.png,REAL_MADRID,PRINCIPAL,DELANTERO,10,1.85,80.0,10,0.5,20,1500
-        """.trimIndent()
-
-        val tempFile = createTempFile("test_persona_invalid_type", ".csv")
-        tempFile.writeText(content)
-
-        val result = personaStorageCsv.readFromFile(tempFile)
-
-        assertTrue(result.isErr)
-        val error = result.getError()
-        assertTrue(error is PersonaError.PersonaStorageError)
-        assertTrue(error.message!!.contains("Tiene que ser o un Jugador o un Entrenador"))
-
-        tempFile.delete()
-    }
-}*/
+}

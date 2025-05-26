@@ -14,7 +14,13 @@ import java.time.LocalDate
 class PersonaStorageCsv: PersonaStorage {
     private val logger = logging()
 
-
+    /**
+     * Se encarga de leer un listado de personas facilitadas por un archivo de extensión .csv.
+     *
+     * @param file Este es el archivo CSV desde el cual se leen los datos.
+     * @return Devuelve la lista de personas leídas del archivo.
+     * @throws PersonaError.PersonaStorageError Si el archivo no existe, no se puede leer, o tiene un formato incorrecto.
+     */
     override fun readFromFile(file: File): Result<List<Persona>, PersonaError> {
         logger.debug { "Leyendo el archivo..." }
 
@@ -32,7 +38,10 @@ class PersonaStorageCsv: PersonaStorage {
             val fechaIncorporacion = LocalDate.parse(it[4])
             val salario = it[5].toDouble()
             val pais = it[6]
-            when (it[7]) {
+            val imagen = it[7]
+            val rol = it[8]
+
+            when (rol) {
                 "Entrenador" -> Entrenador(
                     id = id,
                     nombre = nombre,
@@ -41,45 +50,75 @@ class PersonaStorageCsv: PersonaStorage {
                     fechaIncorporacion = fechaIncorporacion,
                     salario = salario,
                     pais = pais,
-                    imagen = it[8],
+                    imagen = imagen,
                     equipo = Persona.Equipos.valueOf(it[9]),
-                    especializacion = Entrenador.Especializacion.valueOf(it[9])
+                    especializacion = Entrenador.Especializacion.valueOf(it[10])
                 )
 
                 "Jugador" -> Jugador(
                     id = id,
                     nombre = nombre,
                     apellido = apellido,
-                    fechaNacimiento = fechaIncorporacion,
+                    fechaNacimiento = fechaNacimiento,
                     fechaIncorporacion = fechaIncorporacion,
                     salario = salario,
                     pais = pais,
-                    imagen = it[8],
+                    imagen = imagen,
                     equipo = Persona.Equipos.valueOf(it[9]),
-                    posicion = Jugador.Posicion.valueOf(it[10]),
-                    dorsal = it[11].toInt(),
-                    altura = it[12].toDouble(),
-                    peso = it[13].toDouble(),
-                    goles = it[14].toInt(),
-                    mediaGoles = it[15].toDouble(),
-                    partidosJugados = it[16].toInt(),
-                    minutosJugados = it[17].toInt()
+                    posicion = Jugador.Posicion.valueOf(it[11]),
+                    dorsal = it[12].toInt(),
+                    altura = it[13].toDouble(),
+                    peso = it[14].toDouble(),
+                    goles = it[15].toInt(),
+                    mediaGoles = it[16].toDouble(),
+                    partidosJugados = it[17].toInt(),
+                    minutosJugados = it[18].toInt()
                 )
-
                 else -> return Err(PersonaError.PersonaStorageError("Tiene que ser o un Jugador o un Entrenador."))
             }
         })
     }
 
+    /**
+     * Se encarga de escribir una lista de personas en un archivo CSV.
+     *
+     * @param file El archivo CSV donde escribir los datos.
+     * @param persona La lista de personas a escribir en el archivo.
+     * @throws PersonaError.PersonaStorageError Si el archivo no es válido o no se puede escribir.
+     */
     override fun writeToFile(file: File, persona: List<Persona>): Result<String, PersonaError> {
-        /*logger.debug { "Escribiendo personas en el fichero CSV: $file" }
-        // comprobación de si el archivo es válido
-        if (!file.parentFile.exists() || !file.parentFile.isDirectory || !file.name.endsWith(".csv", true)) {
-            logger.error { "El directorio padre del fichero no existe o el archivo no es un CSV: ${file.parentFile.absolutePath}" }
-            return Err(PersonaError.PersonaStorageError("No se puede escribir en el archivo debido a que no existe o no es de la extensión adecuada 😔"))
-        }*/
-        TODO("Not yet implemented")
+        logger.debug { "Escribiendo personas en el fichero CSV: $file" }
+
+        // condicionales para verificar que exista tanto el archivo como el directorio padre, además de que tenga la extensión correcta
+        val parentFile = file.parentFile
+        if (parentFile != null) {
+            if (!parentFile.exists()) {
+                parentFile.mkdirs()
+            }
+            if (!parentFile.isDirectory) {
+                logger.error { "El directorio padre no es un directorio: ${parentFile.absolutePath}" }
+                return Err(PersonaError.PersonaStorageError("El directorio padre no es válido 😔"))
+            }
+        }
+
+        if (!file.name.endsWith(".csv", true)) {
+            logger.error { "El archivo no tiene extensión .csv: ${file.name}" }
+            return Err(PersonaError.PersonaStorageError("El archivo debe tener extensión .csv 😔"))
+        }
+
+        // escritura
+        file.writeText("id,nombre,apellidos,fechaNacimiento,fechaIncorporacion,salario,pais,imagen,rol,equipo,especializacion,posicion,dorsal,altura,peso,goles,mediaGoles,partidosJugados,minutosJugados\n")
+
+        persona.forEach { persona ->
+            val csvRow = when (persona) {
+                is Entrenador -> "${persona.id},${persona.nombre},${persona.apellido},${persona.fechaNacimiento},${persona.fechaIncorporacion},${persona.salario},${persona.pais},${persona.imagen},Entrenador,${persona.equipo},${persona.especializacion},,,,,,,,"
+                is Jugador -> "${persona.id},${persona.nombre},${persona.apellido},${persona.fechaNacimiento},${persona.fechaIncorporacion},${persona.salario},${persona.pais},${persona.imagen},Jugador,${persona.equipo},,${persona.posicion},${persona.dorsal},${persona.altura},${persona.peso},${persona.goles},${persona.mediaGoles},${persona.partidosJugados},${persona.minutosJugados}"
+                else -> return Err(PersonaError.PersonaStorageError("Tipo de persona desconocido: ${persona::class.simpleName}"))
+            }
+            file.appendText("$csvRow\n")
+        }
+
+        logger.info { "✅ Datos guardados correctamente" }
+        return Ok(file.absolutePath)
     }
-
-
 }

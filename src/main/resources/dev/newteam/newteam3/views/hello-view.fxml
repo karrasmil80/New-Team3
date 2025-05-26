@@ -1,16 +1,464 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml "
-      fx:controller="dev.newteam.newteam3.controller.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<!-- BORRAR ARCHIVO -->
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="dev.newteam.newteam3.controller.HelloController"
+            stylesheets="@../styles/main.css"
+            prefWidth="1400" prefHeight="800"
+            style="-fx-background-color: #d2efff;">
+
+    <top>
+        <MenuBar fx:id="menuBar" prefHeight="35" style="-fx-background-color: #f0f0f0; -fx-font-size: 13px;">
+            <Menu text="Archivo">
+                <MenuItem fx:id="menuItem" text="Nuevo" />
+                <MenuItem fx:id="menuAbrir" text="Abrir" />
+                <MenuItem fx:id="menuGuardar" text="Guardar" />
+                <SeparatorMenuItem />
+                <MenuItem fx:id="menuSalir" text="Salir" />
+            </Menu>
+            <Menu text="Editar">
+                <MenuItem fx:id="menuCopiar" text="Copiar" />
+                <MenuItem fx:id="menuPegar" text="Pegar" />
+            </Menu>
+            <Menu text="Herramientas">
+                <MenuItem fx:id="menuImportar" text="Importar" />
+                <MenuItem fx:id="menuExportar" text="Exportar" />
+            </Menu>
+            <Menu text="Ayuda">
+                <MenuItem fx:id="menuHelp" onAction="#onHelpAction" text="Acerca De" />
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <HBox spacing="15" style="-fx-background-color: #d2efff; -fx-padding: 15; -fx-alignment: top-left;">
+
+            <StackPane prefWidth="450" maxWidth="450" minWidth="450">
+                <Rectangle width="450" height="750" fill="#1a2a6c" arcWidth="25" arcHeight="25" />
+
+                <ImageView fx:id="backgroundLeftOverlay"
+                           fitWidth="450" fitHeight="750"
+                           opacity="0.3" preserveRatio="false">
+                    <Image url="@../images/fondo-izquierda.png" />
+                </ImageView>
+
+                <VBox spacing="0" style="-fx-padding: 25; -fx-alignment: top-left;">
+
+                    <HBox spacing="0" alignment="CENTER_LEFT" style="-fx-padding: 15 0 25 0;">
+                        <HBox spacing="120" alignment="CENTER">
+                            <VBox alignment="CENTER" spacing="8" onMouseClicked="#onNewTeamClick"
+                                  style="-fx-cursor: hand; -fx-padding: 10;">
+                                <ImageView fx:id="fieldIconNewTeam" fitWidth="40" fitHeight="32" preserveRatio="true">
+                                    <Image url="@../icons/campo-retro.png" />
+                                </ImageView>
+                                <Label text="New Team" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                            </VBox>
+
+                            <VBox alignment="CENTER" spacing="8" onMouseClicked="#onMuppetClick"
+                                  style="-fx-cursor: hand; -fx-padding: 10;">
+                                <ImageView fx:id="fieldIconMuppet" fitWidth="40" fitHeight="32" preserveRatio="true">
+                                    <Image url="@../icons/campo-retro.png" />
+                                </ImageView>
+                                <Label text="Muppet" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+                            </VBox>
+                        </HBox>
+                    </HBox>
+
+                    <HBox spacing="0" alignment="TOP_LEFT" style="-fx-padding: 20 0 0 0;">
+                        <VBox alignment="CENTER" style="-fx-padding: 0 15 0 0;">
+                            <Label fx:id="lblJugadores" text="Jugadores:"
+                                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"
+                                   rotate="-90"
+                                   onMouseClicked="#onJugadoresSort" />
+                        </VBox>
+
+                        <VBox spacing="0" style="-fx-padding: 0;">
+                            <ScrollPane fx:id="scrollPaneJugadores"
+                                        prefWidth="350" prefHeight="380" maxHeight="380"
+                                        style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                        vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
+                                <VBox fx:id="playersContainer" spacing="6" style="-fx-background-color: transparent; -fx-padding: 5;">
+
+                                    <HBox fx:id="player10" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="10" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Tsubasa Ozora" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player1" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="1" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Genzo Wakabayashi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player11" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="11" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Taro Misaki" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player14" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="14" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Ryo Ishizaki" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player5" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="5" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Hanji Urabe" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player8" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="8" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Mamoru Izawa" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player2" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="2" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Takeshi Kishida" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player6" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="6" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Shingo Takasugi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player9" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="9" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Teppei Kisugi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player7" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="7" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Hajime Taki" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="player3" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onPlayerSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
+                                        <Label text="3" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Jun Misugi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                </VBox>
+                            </ScrollPane>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="0" alignment="TOP_LEFT" style="-fx-padding: 25 0 0 0;">
+                        <VBox alignment="CENTER" style="-fx-padding: 0 15 0 0;">
+                            <Label fx:id="lblEntrenadores" text="Entrenadores:"
+                                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"
+                                   rotate="-90"
+                                   onMouseClicked="#onEntrenadoresSort" />
+                        </VBox>
+
+                        <VBox spacing="0" style="-fx-padding: 0;">
+                            <ScrollPane fx:id="scrollPaneEntrenadores"
+                                        prefWidth="350" prefHeight="80" maxHeight="80"
+                                        style="-fx-background-color: transparent; -fx-border-color: transparent;"
+                                        vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
+                                <VBox fx:id="coachesContainer" spacing="6" style="-fx-background-color: transparent; -fx-padding: 5;">
+
+                                    <HBox fx:id="coach1" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onCoachSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to right, #8c52ff 0%, #ff914d 100%);" />
+                                        <Label text="1" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Tadashi Shiroyama" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                    <HBox fx:id="coach2" spacing="0" alignment="CENTER_LEFT"
+                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
+                                          onMouseClicked="#onCoachSelect">
+                                        <Circle radius="15" style="-fx-fill: linear-gradient(to right, #8c52ff 0%, #ff914d 100%);" />
+                                        <Label text="2" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
+                                        <Label text="Roberto Sedinho" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
+                                    </HBox>
+
+                                </VBox>
+                            </ScrollPane>
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </StackPane>
+
+            <StackPane prefWidth="900" maxWidth="900" minWidth="900">
+                <Rectangle width="900" height="750" fill="#1a2a6c" arcWidth="25" arcHeight="25" />
+
+                <ImageView fx:id="backgroundRightOverlay"
+                           fitWidth="900" fitHeight="750"
+                           opacity="0.3" preserveRatio="false">
+                    <Image url="@../images/fondo-derecha.png" />
+                </ImageView>
+
+                <VBox spacing="0" style="-fx-padding: 25; -fx-alignment: top-center;">
+
+                    <HBox alignment="TOP_RIGHT" style="-fx-padding: 10 20 0 0; -fx-pref-width: 850;">
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox fx:id="banquilloSection" spacing="12" alignment="CENTER_RIGHT"
+                              style="-fx-cursor: hand; -fx-background-color: rgba(255,255,255,0.15); -fx-background-radius: 20; -fx-padding: 8 15 8 15;"
+                              onMouseClicked="#onBanquilloClick">
+                            <Label text="Banquillo:" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+                            <Label text="✕" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
+                        </HBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER" style="-fx-padding: 20 0 20 0;">
+                        <ImageView fx:id="teamShield" fitWidth="120" fitHeight="140" preserveRatio="true">
+                            <Image url="@../images/logo-newteam-pixel.png" />
+                        </ImageView>
+                    </HBox>
+
+                    <StackPane alignment="CENTER" style="-fx-padding: 25;">
+                        <ImageView fx:id="footballField" fitWidth="720" fitHeight="480" preserveRatio="false">
+                            <Image url="@../images/medio-campo-pixel.png" />
+                        </ImageView>
+
+                        <AnchorPane fx:id="jerseyPositions" prefWidth="720" prefHeight="480">
+
+                            <Button fx:id="jersey1" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="332.5" AnchorPane.topAnchor="40"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg1" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum1" text="1" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey14" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="270" AnchorPane.topAnchor="120"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg14" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum14" text="14" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey5" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="395" AnchorPane.topAnchor="120"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg5" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum5" text="5" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey2" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="190" AnchorPane.topAnchor="170"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg2" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum2" text="2" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey6" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="475" AnchorPane.topAnchor="170"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg6" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum6" text="6" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey12" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="240" AnchorPane.topAnchor="240"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg12" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum12" text="12" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey7" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="425" AnchorPane.topAnchor="240"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg7" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum7" text="7" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey11" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="332.5" AnchorPane.topAnchor="310"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg11" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum11" text="11" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey8" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="170" AnchorPane.topAnchor="380"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg8" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum8" text="8" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey10" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="332.5" AnchorPane.topAnchor="410"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg10" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum10" text="10" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                            <Button fx:id="jersey9" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
+                                    AnchorPane.leftAnchor="495" AnchorPane.topAnchor="380"
+                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
+                                <graphic>
+                                    <StackPane>
+                                        <ImageView fx:id="jerseyImg9" fitWidth="55" fitHeight="60">
+                                            <Image url="@../images/camiseta-pixel.png" />
+                                        </ImageView>
+                                        <Label fx:id="jerseyNum9" text="9" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
+                                    </StackPane>
+                                </graphic>
+                            </Button>
+
+                        </AnchorPane>
+                    </StackPane>
+
+                    <HBox alignment="CENTER" style="-fx-padding: 30 0 0 0;">
+                        <HBox spacing="35" alignment="CENTER"
+                              style="-fx-background-color: rgba(210,239,255,0.4); -fx-background-radius: 30; -fx-padding: 15 45 15 45; -fx-border-color: rgba(255,255,255,0.3); -fx-border-width: 2; -fx-border-radius: 30; -fx-pref-width: 600; -fx-pref-height: 60;">
+
+                            <VBox fx:id="btnAdd" alignment="CENTER" spacing="5" style="-fx-cursor: hand;" onMouseClicked="#onAnadirClick">
+                                <ImageView fx:id="addIcon" fitWidth="22" fitHeight="22">
+                                    <Image url="@../icons/añadir-pixel.png" />
+                                </ImageView>
+                                <Label text="Añadir" style="-fx-text-fill: white; -fx-font-size: 12px;" />
+                            </VBox>
+
+                            <VBox fx:id="btnEdit" alignment="CENTER" spacing="5" style="-fx-cursor: hand; -fx-opacity: 0.5;" onMouseClicked="#onEditarClick">
+                                <ImageView fx:id="editIcon" fitWidth="22" fitHeight="22">
+                                    <Image url="@../icons/editar-pixel.png" />
+                                </ImageView>
+                                <Label text="Editar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
+                            </VBox>
+
+                            <VBox fx:id="btnDelete" alignment="CENTER" spacing="5" style="-fx-cursor: hand; -fx-opacity: 0.5;" onMouseClicked="#onEliminarClick">
+                                <ImageView fx:id="deleteIcon" fitWidth="22" fitHeight="22">
+                                    <Image url="@../icons/eliminar-pixel.png" />
+                                </ImageView>
+                                <Label text="Eliminar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
+                            </VBox>
+
+                            <MenuButton fx:id="btnImport" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                                <graphic>
+                                    <VBox alignment="CENTER" spacing="5" style="-fx-cursor: hand;">
+                                        <ImageView fx:id="importIcon" fitWidth="22" fitHeight="22">
+                                            <Image url="@../icons/importar-pixel.png" />
+                                        </ImageView>
+                                        <Label text="Importar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
+                                    </VBox>
+                                </graphic>
+                                <items>
+                                    <MenuItem fx:id="menuImportCSV" text="Importar CSV" onAction="#onImportCSV" />
+                                    <MenuItem fx:id="menuImportJSON" text="Importar JSON" onAction="#onImportJSON" />
+                                    <MenuItem fx:id="menuImportZIP" text="Importar ZIP" onAction="#onImportZIP" />
+                                </items>
+                            </MenuButton>
+
+                            <MenuButton fx:id="btnExport" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+                                <graphic>
+                                    <VBox alignment="CENTER" spacing="5" style="-fx-cursor: hand;">
+                                        <ImageView fx:id="exportIcon" fitWidth="22" fitHeight="22">
+                                            <Image url="@../icons/exportar-pixel.png" />
+                                        </ImageView>
+                                        <Label text="Exportar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
+                                    </VBox>
+                                </graphic>
+                                <items>
+                                    <MenuItem fx:id="menuExportCSV" text="Exportar CSV" onAction="#onExportCSV" />
+                                    <MenuItem fx:id="menuExportJSON" text="Exportar JSON" onAction="#onExportJSON" />
+                                    <MenuItem fx:id="menuExportHTML" text="Exportar HTML" onAction="#onExportHTML" />
+                                    <MenuItem fx:id="menuExportPDF" text="Exportar PDF" onAction="#onExportPDF" />
+                                    <MenuItem fx:id="menuExportZIP" text="Backup ZIP" onAction="#onExportZIP" />
+                                </items>
+                            </MenuButton>
+
+                        </HBox>
+                    </HBox>
+                </VBox>
+            </StackPane>
+        </HBox>
+    </center>
+</BorderPane>

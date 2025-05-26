@@ -1,0 +1,1571 @@
+Index: src/main/resources/dev/newteam/newteam3/views/hello-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.layout.VBox?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<VBox alignment=\"CENTER\" spacing=\"20.0\" xmlns:fx=\"http://javafx.com/fxml\"\r\n      fx:controller=\"dev.newteam.newteam3.HelloController\">\r\n    <padding>\r\n        <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\"/>\r\n    </padding>\r\n\r\n    <Label fx:id=\"welcomeText\"/>\r\n    <Button text=\"Hello!\" onAction=\"#onHelloButtonClick\"/>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml b/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml
+--- a/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml	(revision e48495868046d932d9443675687b6a133866ff80)
++++ b/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml	(date 1748100339779)
+@@ -1,16 +1,530 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import javafx.geometry.Insets?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.layout.VBox?>
++<?import javafx.scene.control.*?>
++<?import javafx.scene.image.*?>
++<?import javafx.scene.layout.*?>
++<?import javafx.scene.shape.*?>
++
++<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml"
++            fx:controller="dev.newteam.newteam3.HelloController"
++            stylesheets="@../styles/main.css"
++            prefWidth="1400" prefHeight="800"
++            style="-fx-background-color: #d2efff;">
++
++    <top>
++        <MenuBar fx:id="menuBar" prefHeight="35" style="-fx-background-color: #f0f0f0; -fx-font-size: 13px;">
++            <Menu text="Archivo">
++                <MenuItem fx:id="menuItem" text="Nuevo" />
++                <MenuItem fx:id="menuAbrir" text="Abrir" />
++                <MenuItem fx:id="menuGuardar" text="Guardar" />
++                <SeparatorMenuItem />
++                <MenuItem fx:id="menuSalir" text="Salir" />
++            </Menu>
++            <Menu text="Editar">
++                <MenuItem fx:id="menuCopiar" text="Copiar" />
++                <MenuItem fx:id="menuPegar" text="Pegar" />
++            </Menu>
++            <Menu text="Herramientas">
++                <MenuItem fx:id="menuImportar" text="Importar" />
++                <MenuItem fx:id="menuExportar" text="Exportar" />
++            </Menu>
++            <Menu text="Ayuda">
++                <MenuItem fx:id="menuHelp" onAction="#onHelpAction" text="Acerca De" />
++            </Menu>
++        </MenuBar>
++    </top>
++
++    <center>
++        <HBox spacing="15" style="-fx-background-color: #d2efff; -fx-padding: 15; -fx-alignment: top-left;">
++
++            <!-- PANEL IZQUIERDO - EXACTO DEL SVG -->
++            <StackPane prefWidth="450" maxWidth="450" minWidth="450">
++                <!-- Fondo azul oscuro con esquinas redondeadas exactas del SVG -->
++                <Rectangle width="450" height="750" fill="#1a2a6c" arcWidth="25" arcHeight="25" />
++
++                <!-- Imagen translúcida de fondo izquierda -->
++                <ImageView fx:id="backgroundLeftOverlay"
++                           fitWidth="450" fitHeight="750"
++                           opacity="0.3" preserveRatio="false">
++                    <!-- Ruta: /images/backgrounds/left_translucent_overlay.png -->
++                    <Image url="@../images/fondo-izquierda.png" />
++                </ImageView>
++
++                <!-- Contenido del panel izquierdo -->
++                <VBox spacing="0" style="-fx-padding: 25; -fx-alignment: top-left;">
++
++                    <!-- Iconos superiores de equipos - Posiciones exactas del SVG -->
++                    <HBox spacing="0" alignment="CENTER_LEFT" style="-fx-padding: 15 0 25 0;">
++                        <HBox spacing="120" alignment="CENTER">
++                            <!-- New Team - Coordenadas exactas del SVG -->
++                            <VBox alignment="CENTER" spacing="8" onMouseClicked="#onNewTeamClick"
++                                  style="-fx-cursor: hand; -fx-padding: 10;">
++                                <ImageView fx:id="fieldIconNewTeam" fitWidth="40" fitHeight="32" preserveRatio="true">
++                                    <!-- Ruta: /images/icons/field_icon_white.png -->
++                                    <Image url="@../icons/campo-retro.png" />
++                                </ImageView>
++                                <Label text="New Team" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
++                            </VBox>
++
++                            <!-- Muppet - Coordenadas exactas del SVG -->
++                            <VBox alignment="CENTER" spacing="8" onMouseClicked="#onMuppetClick"
++                                  style="-fx-cursor: hand; -fx-padding: 10;">
++                                <ImageView fx:id="fieldIconMuppet" fitWidth="40" fitHeight="32" preserveRatio="true">
++                                    <!-- Ruta: /images/icons/field_icon_white.png -->
++                                    <Image url="@../icons/campo-retro.png" />
++                                </ImageView>
++                                <Label text="Muppet" style="-fx-text-fill: white; -fx-font-size: 14px;" />
++                            </VBox>
++                        </HBox>
++                    </HBox>
++
++                    <!-- Sección Jugadores - Posiciones exactas del SVG -->
++                    <HBox spacing="0" alignment="TOP_LEFT" style="-fx-padding: 20 0 0 0;">
++                        <!-- Título vertical "Jugadores:" - Rotación exacta del SVG -->
++                        <VBox alignment="CENTER" style="-fx-padding: 0 15 0 0;">
++                            <Label fx:id="lblJugadores" text="Jugadores:"
++                                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"
++                                   rotate="-90"
++                                   onMouseClicked="#onJugadoresSort" />
++                        </VBox>
++
++                        <!-- Lista de jugadores - Dimensiones exactas del SVG -->
++                        <VBox spacing="0" style="-fx-padding: 0;">
++                            <ScrollPane fx:id="scrollPaneJugadores"
++                                        prefWidth="350" prefHeight="380" maxHeight="380"
++                                        style="-fx-background-color: transparent; -fx-border-color: transparent;"
++                                        vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
++                                <VBox fx:id="playersContainer" spacing="6" style="-fx-background-color: transparent; -fx-padding: 5;">
++
++                                    <!-- Jugador 10 - Estilo exacto del SVG -->
++                                    <HBox fx:id="player10" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="10" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Tsubasa Ozora" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <!-- Jugador 1 -->
++                                    <HBox fx:id="player1" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="1" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Genzo Wakabayashi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <!-- Jugador 11 -->
++                                    <HBox fx:id="player11" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="11" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Taro Misaki" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <!-- Jugador 14 -->
++                                    <HBox fx:id="player14" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="14" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Ryo Ishizaki" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <!-- Resto de jugadores con círculos naranjas -->
++                                    <HBox fx:id="player5" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="5" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Hanji Urabe" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <HBox fx:id="player8" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="8" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Mamoru Izawa" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <HBox fx:id="player2" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="2" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Takeshi Kishida" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <HBox fx:id="player6" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="6" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Shingo Takasugi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <HBox fx:id="player9" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="9" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Teppei Kisugi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <HBox fx:id="player7" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="7" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Hajime Taki" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <HBox fx:id="player3" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onPlayerSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);" />
++                                        <Label text="3" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Jun Misugi" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                </VBox>
++                            </ScrollPane>
++                        </VBox>
++                    </HBox>
+ 
+-<?import javafx.scene.control.Button?>
+-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+-      fx:controller="dev.newteam.newteam3.HelloController">
+-    <padding>
+-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+-    </padding>
++                    <!-- Sección Entrenadores - Posiciones exactas del SVG -->
++                    <HBox spacing="0" alignment="TOP_LEFT" style="-fx-padding: 25 0 0 0;">
++                        <!-- Título vertical "Entrenadores:" -->
++                        <VBox alignment="CENTER" style="-fx-padding: 0 15 0 0;">
++                            <Label fx:id="lblEntrenadores" text="Entrenadores:"
++                                   style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-cursor: hand;"
++                                   rotate="-90"
++                                   onMouseClicked="#onEntrenadoresSort" />
++                        </VBox>
+ 
+-    <Label fx:id="welcomeText"/>
+-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+-</VBox>
++                        <!-- Lista de entrenadores -->
++                        <VBox spacing="0" style="-fx-padding: 0;">
++                            <ScrollPane fx:id="scrollPaneEntrenadores"
++                                        prefWidth="350" prefHeight="80" maxHeight="80"
++                                        style="-fx-background-color: transparent; -fx-border-color: transparent;"
++                                        vbarPolicy="AS_NEEDED" hbarPolicy="NEVER">
++                                <VBox fx:id="coachesContainer" spacing="6" style="-fx-background-color: transparent; -fx-padding: 5;">
++
++                                    <!-- Entrenador 1 -->
++                                    <HBox fx:id="coach1" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onCoachSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to right, #8c52ff 0%, #ff914d 100%);" />
++                                        <Label text="1" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Tadashi Shiroyama" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                    <!-- Entrenador 2 -->
++                                    <HBox fx:id="coach2" spacing="0" alignment="CENTER_LEFT"
++                                          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 5 15 5 5; -fx-cursor: hand; -fx-pref-height: 35; -fx-min-height: 35; -fx-max-height: 35;"
++                                          onMouseClicked="#onCoachSelect">
++                                        <Circle radius="15" style="-fx-fill: linear-gradient(to right, #8c52ff 0%, #ff914d 100%);" />
++                                        <Label text="2" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-translate-x: -30; -fx-font-size: 12px;" />
++                                        <Label text="Roberto Sedinho" style="-fx-text-fill: black; -fx-font-size: 13px; -fx-padding: 0 0 0 15;" />
++                                    </HBox>
++
++                                </VBox>
++                            </ScrollPane>
++                        </VBox>
++                    </HBox>
++                </VBox>
++            </StackPane>
++
++            <!-- PANEL DERECHO - EXACTO DEL SVG -->
++            <StackPane prefWidth="900" maxWidth="900" minWidth="900">
++                <!-- Fondo azul oscuro con esquinas redondeadas exactas del SVG -->
++                <Rectangle width="900" height="750" fill="#1a2a6c" arcWidth="25" arcHeight="25" />
++
++                <!-- Imagen translúcida de fondo derecha -->
++                <ImageView fx:id="backgroundRightOverlay"
++                           fitWidth="900" fitHeight="750"
++                           opacity="0.3" preserveRatio="false">
++                    <!-- Ruta: /images/backgrounds/right_translucent_overlay.png -->
++                    <Image url="@../images/fondo-derecha.png" />
++                </ImageView>
++
++                <!-- Contenido del panel derecho -->
++                <VBox spacing="0" style="-fx-padding: 25; -fx-alignment: top-center;">
++
++                    <!-- Header superior con banquillo - Posición exacta del SVG -->
++                    <HBox alignment="TOP_RIGHT" style="-fx-padding: 10 20 0 0; -fx-pref-width: 850;">
++                        <Region HBox.hgrow="ALWAYS" />
++                        <HBox fx:id="banquilloSection" spacing="12" alignment="CENTER_RIGHT"
++                              style="-fx-cursor: hand; -fx-background-color: rgba(255,255,255,0.15); -fx-background-radius: 20; -fx-padding: 8 15 8 15;"
++                              onMouseClicked="#onBanquilloClick">
++                            <Label text="Banquillo:" style="-fx-text-fill: white; -fx-font-size: 14px;" />
++                            <Label text="✕" style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;" />
++                        </HBox>
++                    </HBox>
++
++                    <!-- Escudo del equipo NEW TEAM - Posición exacta del SVG -->
++                    <HBox alignment="CENTER" style="-fx-padding: 20 0 20 0;">
++                        <ImageView fx:id="teamShield" fitWidth="120" fitHeight="140" preserveRatio="true">
++                            <!-- Ruta: /images/shields/new_team_shield.png -->
++                            <Image url="@../images/logo-newteam-pixel.png" />
++                        </ImageView>
++                    </HBox>
++
++                    <!-- Campo de fútbol con camisetas - COORDENADAS EXACTAS DEL SVG -->
++                    <StackPane alignment="CENTER" style="-fx-padding: 25;">
++                        <!-- Imagen del campo -->
++                        <ImageView fx:id="footballField" fitWidth="720" fitHeight="480" preserveRatio="false">
++                            <!-- Ruta: /images/field/football_field_3d.png -->
++                            <Image url="@../images/medio-campo-pixel.png" />
++                        </ImageView>
++
++                        <!-- Camisetas con coordenadas EXACTAS extraídas del SVG -->
++                        <AnchorPane fx:id="jerseyPositions" prefWidth="720" prefHeight="480">
++
++                            <!-- Portero (1) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey1" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="332.5" AnchorPane.topAnchor="40"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg1" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum1" text="1" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Defensa Central Izquierdo (14) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey14" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="270" AnchorPane.topAnchor="120"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg14" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum14" text="14" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Defensa Central Derecho (5) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey5" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="395" AnchorPane.topAnchor="120"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg5" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum5" text="5" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Lateral Izquierdo (2) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey2" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="190" AnchorPane.topAnchor="170"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg2" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum2" text="2" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Lateral Derecho (6) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey6" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="475" AnchorPane.topAnchor="170"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg6" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum6" text="6" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Centrocampista Izquierdo (12) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey12" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="240" AnchorPane.topAnchor="240"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg12" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum12" text="12" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Centrocampista Derecho (7) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey7" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="425" AnchorPane.topAnchor="240"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg7" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum7" text="7" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Extremo Centro (11) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey11" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="332.5" AnchorPane.topAnchor="310"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg11" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum11" text="11" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Delantero Izquierdo (8) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey8" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="170" AnchorPane.topAnchor="380"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg8" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum8" text="8" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Delantero Centro (10) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey10" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="332.5" AnchorPane.topAnchor="410"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg10" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum10" text="10" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                            <!-- Delantero Derecho (9) - Coordenadas exactas del SVG -->
++                            <Button fx:id="jersey9" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-cursor: hand;"
++                                    AnchorPane.leftAnchor="495" AnchorPane.topAnchor="380"
++                                    onMouseClicked="#onJerseyClick" onMouseEntered="#onJerseyHover" onMouseExited="#onJerseyExit">
++                                <graphic>
++                                    <StackPane>
++                                        <ImageView fx:id="jerseyImg9" fitWidth="55" fitHeight="60">
++                                            <!-- Ruta: /images/jerseys/jersey_white.png -->
++                                            <Image url="@../images/camiseta-pixel.png" />
++                                        </ImageView>
++                                        <Label fx:id="jerseyNum9" text="9" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 18px;" />
++                                    </StackPane>
++                                </graphic>
++                            </Button>
++
++                        </AnchorPane>
++                    </StackPane>
++
++                    <!-- Óvalo de botones de acción - DIMENSIONES EXACTAS DEL SVG -->
++                    <HBox alignment="CENTER" style="-fx-padding: 30 0 0 0;">
++                        <HBox spacing="35" alignment="CENTER"
++                              style="-fx-background-color: rgba(210,239,255,0.4); -fx-background-radius: 30; -fx-padding: 15 45 15 45; -fx-border-color: rgba(255,255,255,0.3); -fx-border-width: 2; -fx-border-radius: 30; -fx-pref-width: 600; -fx-pref-height: 60;">
++
++                            <!-- Botón Añadir -->
++                            <VBox fx:id="btnAdd" alignment="CENTER" spacing="5" style="-fx-cursor: hand;" onMouseClicked="#onAnadirClick">
++                                <ImageView fx:id="addIcon" fitWidth="22" fitHeight="22">
++                                    <!-- Ruta: /images/icons/add_icon.png -->
++                                    <Image url="@../icons/añadir-pixel.png" />
++                                </ImageView>
++                                <Label text="Añadir" style="-fx-text-fill: white; -fx-font-size: 12px;" />
++                            </VBox>
++
++                            <!-- Botón Editar -->
++                            <VBox fx:id="btnEdit" alignment="CENTER" spacing="5" style="-fx-cursor: hand; -fx-opacity: 0.5;" onMouseClicked="#onEditarClick">
++                                <ImageView fx:id="editIcon" fitWidth="22" fitHeight="22">
++                                    <!-- Ruta: /images/icons/edit_icon.png -->
++                                    <Image url="@../icons/editar-pixel.png" />
++                                </ImageView>
++                                <Label text="Editar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
++                            </VBox>
++
++                            <!-- Botón Eliminar -->
++                            <VBox fx:id="btnDelete" alignment="CENTER" spacing="5" style="-fx-cursor: hand; -fx-opacity: 0.5;" onMouseClicked="#onEliminarClick">
++                                <ImageView fx:id="deleteIcon" fitWidth="22" fitHeight="22">
++                                    <!-- Ruta: /images/icons/delete_icon.png -->
++                                    <Image url="@../icons/eliminar-pixel.png" />
++                                </ImageView>
++                                <Label text="Eliminar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
++                            </VBox>
++
++                            <!-- MenuButton Importar -->
++                            <MenuButton fx:id="btnImport" style="-fx-background-color: transparent; -fx-border-color: transparent;">
++                                <graphic>
++                                    <VBox alignment="CENTER" spacing="5" style="-fx-cursor: hand;">
++                                        <ImageView fx:id="importIcon" fitWidth="22" fitHeight="22">
++                                            <!-- Ruta: /images/icons/import_icon.png -->
++                                            <Image url="@../icons/importar-pixel.png" />
++                                        </ImageView>
++                                        <Label text="Importar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
++                                    </VBox>
++                                </graphic>
++                                <items>
++                                    <MenuItem fx:id="menuImportCSV" text="Importar CSV" onAction="#onImportCSV" />
++                                    <MenuItem fx:id="menuImportJSON" text="Importar JSON" onAction="#onImportJSON" />
++                                    <MenuItem fx:id="menuImportZIP" text="Importar ZIP" onAction="#onImportZIP" />
++                                </items>
++                            </MenuButton>
++
++                            <!-- MenuButton Exportar -->
++                            <MenuButton fx:id="btnExport" style="-fx-background-color: transparent; -fx-border-color: transparent;">
++                                <graphic>
++                                    <VBox alignment="CENTER" spacing="5" style="-fx-cursor: hand;">
++                                        <ImageView fx:id="exportIcon" fitWidth="22" fitHeight="22">
++                                            <!-- Ruta: /images/icons/export_icon.png -->
++                                            <Image url="@../icons/exportar-pixel.png" />
++                                        </ImageView>
++                                        <Label text="Exportar" style="-fx-text-fill: white; -fx-font-size: 12px;" />
++                                    </VBox>
++                                </graphic>
++                                <items>
++                                    <MenuItem fx:id="menuExportCSV" text="Exportar CSV" onAction="#onExportCSV" />
++                                    <MenuItem fx:id="menuExportJSON" text="Exportar JSON" onAction="#onExportJSON" />
++                                    <MenuItem fx:id="menuExportHTML" text="Exportar HTML" onAction="#onExportHTML" />
++                                    <MenuItem fx:id="menuExportPDF" text="Exportar PDF" onAction="#onExportPDF" />
++                                    <MenuItem fx:id="menuExportZIP" text="Backup ZIP" onAction="#onExportZIP" />
++                                </items>
++                            </MenuButton>
++
++                        </HBox>
++                    </HBox>
++                </VBox>
++            </StackPane>
++        </HBox>
++    </center>
++</BorderPane>
+Index: src/main/resources/dev/newteam/newteam3/views/splash.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/views/splash.fxml b/src/main/resources/dev/newteam/newteam3/views/login-view.fxml
+rename from src/main/resources/dev/newteam/newteam3/views/splash.fxml
+rename to src/main/resources/dev/newteam/newteam3/views/login-view.fxml
+--- a/src/main/resources/dev/newteam/newteam3/views/splash.fxml	(revision e48495868046d932d9443675687b6a133866ff80)
++++ b/src/main/resources/dev/newteam/newteam3/views/login-view.fxml	(date 1748268159886)
+@@ -1,14 +1,91 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ 
+-<?import java.lang.*?>
+-<?import java.util.*?>
+-<?import javafx.scene.*?>
+ <?import javafx.scene.control.*?>
++<?import javafx.scene.image.*?>
+ <?import javafx.scene.layout.*?>
+ 
+-<AnchorPane xmlns="http://javafx.com/javafx"
+-            xmlns:fx="http://javafx.com/fxml"
+-            fx:controller="dev.newteam.newteam3.views.Splash"
+-            prefHeight="400.0" prefWidth="600.0">
++<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
++            fx:controller="dev.newteam.newteam3.controllers.LoginController"
++            stylesheets="@../styles/login.css"
++            prefWidth="500" prefHeight="400">
++
++    <!-- Barra de título personalizada Windows XP -->
++    <top>
++        <HBox styleClass="title-bar-xp">
++            <!-- Icono y título -->
++            <HBox styleClass="title-section" spacing="8">
++                <ImageView fx:id="windowIcon" fitWidth="16" fitHeight="16">
++                    <!-- Ruta: /images/icons/app_icon.png -->
++                </ImageView>
++                <Label text="Sign In" styleClass="title-text-xp" />
++            </HBox>
++
++            <!-- Espaciador -->
++            <Region HBox.hgrow="ALWAYS" />
++
++            <!-- Botones de ventana Windows XP -->
++            <HBox styleClass="window-buttons-xp" spacing="0">
++                <!-- Minimizar -->
++                <Button fx:id="btnMinimize" styleClass="window-btn-xp, minimize-btn-xp"
++                        onAction="#minimizeWindow">
++                    <graphic>
++                        <ImageView fitWidth="16" fitHeight="16">
++                            <!-- Ruta: /images/icons/minimize_xp.png -->
++                            <Image url="@../icons/minimize_xp.png" />
++                        </ImageView>
++                    </graphic>
++                </Button>
++
++                <!-- Maximizar/Restaurar -->
++                <Button fx:id="btnMaximize" styleClass="window-btn-xp, maximize-btn-xp"
++                        onAction="#maximizeWindow">
++                    <graphic>
++                        <ImageView fitWidth="16" fitHeight="16">
++                            <!-- Ruta: /images/icons/maximize_xp.png -->
++                            <Image url="@../icons/maximize_xp.png" />
++                        </ImageView>
++                    </graphic>
++                </Button>
++
++                <!-- Cerrar -->
++                <Button fx:id="btnClose" styleClass="window-btn-xp, close-btn-xp"
++                        onAction="#closeWindow">
++                    <graphic>
++                        <ImageView fitWidth="16" fitHeight="16">
++                            <!-- Ruta: /images/icons/close_xp.png -->
++                            <Image url="@../icons/close_xp.png" />
++                        </ImageView>
++                    </graphic>
++                </Button>
++            </HBox>
++        </HBox>
++    </top>
++
++    <!-- Contenido de la ventana -->
++    <center>
++        <VBox styleClass="login-content-xp" spacing="20" alignment="CENTER">
+ 
+-</AnchorPane>
++            <!-- Username -->
++            <VBox spacing="5">
++                <Label text="Username:" styleClass="label-xp" />
++                <TextField fx:id="txtUsername" styleClass="textfield-xp" prefWidth="300" />
++            </VBox>
++
++            <!-- Password -->
++            <VBox spacing="5">
++                <Label text="Password:" styleClass="label-xp" />
++                <PasswordField fx:id="txtPassword" styleClass="textfield-xp" prefWidth="300" />
++            </VBox>
++
++            <!-- Botones -->
++            <HBox spacing="10" alignment="CENTER">
++                <Button fx:id="btnLogin" text="Login" styleClass="button-xp"
++                        onAction="#handleLogin" prefWidth="100" />
++                <Button fx:id="btnCancel" text="Cancel" styleClass="button-xp"
++                        onAction="#handleCancel" prefWidth="100" />
++            </HBox>
++
++        </VBox>
++    </center>
++
++</BorderPane>
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n          </set>\r\n        </option>\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+--- a/.idea/gradle.xml	(revision e48495868046d932d9443675687b6a133866ff80)
++++ b/.idea/gradle.xml	(date 1747843521561)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: src/main/resources/dev/newteam/newteam3/styles/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/* main.css - Versión mejorada con colores profesionales */\r\n\r\n/* Variables de colores */\r\n* {\r\n    -fx-primary-color: #1a2a6c;          /* Azul oscuro para elementos principales */\r\n    -fx-secondary-color: #4CAF50;         /* Verde para acentos y elementos destacados */\r\n    -fx-dark-gray: #2C3E50;               /* Gris oscuro para fondos y contraste */\r\n    -fx-medium-gray: #34495E;             /* Gris medio para paneles y elementos secundarios */\r\n    -fx-light-gray: #ECF0F1;              /* Gris claro para fondos y áreas de trabajo */\r\n    -fx-very-light-gray: #F5F7FA;         /* Gris muy claro para fondos alternativos */\r\n    -fx-warning-color: #F39C12;           /* Naranja para advertencias */\r\n    -fx-error-color: #E74C3C;             /* Rojo para errores */\r\n    -fx-success-color: #27AE60;           /* Verde oscuro para éxito */\r\n    -fx-text-color: #2C3E50;              /* Color principal para texto */\r\n    -fx-light-text-color: #ECF0F1;        /* Color para texto sobre fondos oscuros */\r\n}\r\n\r\n/* Estilos generales */\r\n.root {\r\n    -fx-font-family: \"Roboto\", \"Segoe UI\", sans-serif;\r\n    -fx-background-color: -fx-light-gray;\r\n    -fx-font-size: 13px;\r\n}\r\n\r\n/* Barra de menú y menús */\r\n.menu-bar {\r\n    -fx-background-color: -fx-primary-color;\r\n}\r\n\r\n.menu-bar .label {\r\n    -fx-text-fill: white;\r\n}\r\n\r\n.menu-bar .menu:hover {\r\n    -fx-background-color: derive(-fx-primary-color, 20%);\r\n}\r\n\r\n.menu-item {\r\n    -fx-background-color: white;\r\n}\r\n\r\n.menu-item:hover {\r\n    -fx-background-color: -fx-light-gray;\r\n}\r\n\r\n.menu-item .label {\r\n    -fx-text-fill: -fx-text-color;\r\n}\r\n\r\n/* Barra de herramientas */\r\n.tool-bar {\r\n    -fx-background-color: -fx-very-light-gray;\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-width: 0 0 1 0;\r\n    -fx-padding: 8 10;\r\n    -fx-spacing: 8;\r\n}\r\n\r\n/* Estilos para el panel maestro */\r\n.master-panel {\r\n    -fx-background-color: white;\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);\r\n    -fx-background-radius: 5;\r\n    -fx-border-radius: 5;\r\n    -fx-padding: 15;\r\n    -fx-min-width: 350px;\r\n    -fx-pref-width: 350px;\r\n}\r\n\r\n/* Estilos para el panel de detalle */\r\n.detail-panel {\r\n    -fx-background-color: white;\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);\r\n    -fx-background-radius: 5;\r\n    -fx-border-radius: 5;\r\n    -fx-padding: 15;\r\n}\r\n\r\n/* Estilos para botones de acción */\r\n.action-button {\r\n    -fx-background-color: -fx-primary-color;\r\n    -fx-text-fill: white;\r\n    -fx-font-weight: bold;\r\n    -fx-padding: 8 15;\r\n    -fx-background-radius: 4;\r\n    -fx-cursor: hand;\r\n}\r\n\r\n.action-button:hover {\r\n    -fx-background-color: derive(-fx-primary-color, 20%);\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);\r\n}\r\n\r\n.action-button:pressed {\r\n    -fx-background-color: derive(-fx-primary-color, -10%);\r\n}\r\n\r\n/* Estilos para botones de herramientas */\r\n.tool-button {\r\n    -fx-background-color: transparent;\r\n    -fx-text-fill: -fx-dark-gray;\r\n    -fx-padding: 6 12;\r\n    -fx-cursor: hand;\r\n    -fx-border-radius: 4;\r\n}\r\n\r\n.tool-button:hover {\r\n    -fx-background-color: derive(-fx-light-gray, -5%);\r\n}\r\n\r\n.tool-button:pressed {\r\n    -fx-background-color: derive(-fx-light-gray, -10%);\r\n}\r\n\r\n/* Estilos para botones primarios */\r\n.primary-button {\r\n    -fx-background-color: -fx-secondary-color;\r\n    -fx-text-fill: white;\r\n    -fx-font-weight: bold;\r\n    -fx-padding: 10 20;\r\n    -fx-background-radius: 4;\r\n    -fx-cursor: hand;\r\n}\r\n\r\n.primary-button:hover {\r\n    -fx-background-color: derive(-fx-secondary-color, 20%);\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);\r\n}\r\n\r\n.primary-button:pressed {\r\n    -fx-background-color: derive(-fx-secondary-color, -10%);\r\n}\r\n\r\n/* Estilos para botones secundarios */\r\n.secondary-button {\r\n    -fx-background-color: -fx-light-gray;\r\n    -fx-text-fill: -fx-text-color;\r\n    -fx-padding: 10 20;\r\n    -fx-background-radius: 4;\r\n    -fx-cursor: hand;\r\n}\r\n\r\n.secondary-button:hover {\r\n    -fx-background-color: derive(-fx-light-gray, -10%);\r\n}\r\n\r\n.secondary-button:pressed {\r\n    -fx-background-color: derive(-fx-light-gray, -15%);\r\n}\r\n\r\n/* Estilos para botones de eliminación */\r\n.delete-button {\r\n    -fx-background-color: -fx-error-color;\r\n    -fx-text-fill: white;\r\n    -fx-font-weight: bold;\r\n    -fx-padding: 8 15;\r\n    -fx-background-radius: 4;\r\n    -fx-cursor: hand;\r\n}\r\n\r\n.delete-button:hover {\r\n    -fx-background-color: derive(-fx-error-color, 20%);\r\n}\r\n\r\n/* Estilos para títulos de sección */\r\n.section-title {\r\n    -fx-font-family: \"Montserrat\", \"Segoe UI\", sans-serif;\r\n    -fx-font-size: 18px;\r\n    -fx-font-weight: bold;\r\n    -fx-text-fill: -fx-primary-color;\r\n    -fx-padding: 0 0 10 0;\r\n}\r\n\r\n/* Estilos para subtítulos */\r\n.sub-title {\r\n    -fx-font-family: \"Montserrat\", \"Segoe UI\", sans-serif;\r\n    -fx-font-size: 14px;\r\n    -fx-font-weight: bold;\r\n    -fx-text-fill: -fx-dark-gray;\r\n    -fx-padding: 5 0;\r\n}\r\n\r\n/* Estilos para la tabla */\r\n.table-view {\r\n    -fx-background-color: transparent;\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-radius: 4;\r\n}\r\n\r\n.table-view .column-header-background {\r\n    -fx-background-color: -fx-primary-color;\r\n    -fx-background-radius: 4 4 0 0;\r\n    -fx-padding: 5 0;\r\n}\r\n\r\n.table-view .column-header, .table-view .filler {\r\n    -fx-background-color: transparent;\r\n    -fx-size: 40px;\r\n    -fx-border-width: 0 0 0 0;\r\n}\r\n\r\n.table-view .column-header .label {\r\n    -fx-text-fill: white;\r\n    -fx-font-weight: bold;\r\n    -fx-alignment: CENTER_LEFT;\r\n}\r\n\r\n.table-row-cell {\r\n    -fx-background-color: white;\r\n    -fx-border-color: transparent;\r\n    -fx-table-cell-border-color: transparent;\r\n    -fx-padding: 5;\r\n}\r\n\r\n.table-row-cell:odd {\r\n    -fx-background-color: -fx-very-light-gray;\r\n}\r\n\r\n.table-row-cell:selected {\r\n    -fx-background-color: derive(-fx-secondary-color, 40%);\r\n}\r\n\r\n.table-row-cell:selected .text {\r\n    -fx-fill: -fx-text-color;\r\n}\r\n\r\n.table-row-cell:hover {\r\n    -fx-background-color: derive(-fx-light-gray, 5%);\r\n}\r\n\r\n.table-row-cell:selected:hover {\r\n    -fx-background-color: derive(-fx-secondary-color, 30%);\r\n}\r\n\r\n/* Estilos para campos de texto */\r\n.text-field, .date-picker, .combo-box {\r\n    -fx-background-color: -fx-very-light-gray;\r\n    -fx-background-radius: 4;\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-radius: 4;\r\n    -fx-padding: 8;\r\n}\r\n\r\n.text-field:focused, .date-picker:focused, .combo-box:focused {\r\n    -fx-border-color: -fx-secondary-color;\r\n    -fx-background-color: white;\r\n}\r\n\r\n/* Estilos para pestañas */\r\n.tab-pane .tab-header-area .tab-header-background {\r\n    -fx-background-color: -fx-very-light-gray;\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-width: 0 0 1 0;\r\n}\r\n\r\n.tab-pane .tab {\r\n    -fx-background-color: transparent;\r\n    -fx-padding: 10 15;\r\n}\r\n\r\n.tab-pane .tab:selected {\r\n    -fx-background-color: white;\r\n    -fx-background-radius: 4 4 0 0;\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-width: 1 1 0 1;\r\n    -fx-border-radius: 4 4 0 0;\r\n}\r\n\r\n.tab .tab-label {\r\n    -fx-text-fill: -fx-text-color;\r\n    -fx-font-weight: normal;\r\n}\r\n\r\n.tab:selected .tab-label {\r\n    -fx-text-fill: -fx-primary-color;\r\n    -fx-font-weight: bold;\r\n}\r\n\r\n/* Estilos para separadores */\r\n.separator {\r\n    -fx-background-color: derive(-fx-light-gray, -10%);\r\n}\r\n\r\n.separator:vertical .line {\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-width: 0 1 0 0;\r\n}\r\n\r\n.separator:horizontal .line {\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-border-width: 1 0 0 0;\r\n}\r\n\r\n/* Estilos para etiquetas */\r\n.label {\r\n    -fx-text-fill: -fx-text-color;\r\n}\r\n\r\n/* Estilos para grupos de campos */\r\n.field-group {\r\n    -fx-spacing: 5;\r\n    -fx-padding: 10 0;\r\n}\r\n\r\n/* Estilos para tarjetas de información */\r\n.info-card {\r\n    -fx-background-color: white;\r\n    -fx-background-radius: 5;\r\n    -fx-border-radius: 5;\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);\r\n    -fx-padding: 15;\r\n}\r\n\r\n/* Estilos para tarjetas de estadísticas */\r\n.stat-card {\r\n    -fx-background-color: -fx-primary-color;\r\n    -fx-background-radius: 5;\r\n    -fx-padding: 15;\r\n}\r\n\r\n.stat-card .label {\r\n    -fx-text-fill: white;\r\n}\r\n\r\n.stat-card .stat-value {\r\n    -fx-font-size: 24px;\r\n    -fx-font-weight: bold;\r\n}\r\n\r\n.stat-card .stat-title {\r\n    -fx-font-size: 14px;\r\n    -fx-opacity: 0.8;\r\n}\r\n\r\n/* Estilos para barras de búsqueda */\r\n.search-box {\r\n    -fx-background-color: white;\r\n    -fx-background-radius: 20;\r\n    -fx-border-radius: 20;\r\n    -fx-border-color: derive(-fx-light-gray, -10%);\r\n    -fx-padding: 8 15;\r\n}\r\n\r\n.search-box:focused {\r\n    -fx-border-color: -fx-secondary-color;\r\n}\r\n\r\n/* Estilos para paneles de filtro */\r\n.filter-panel {\r\n    -fx-background-color: -fx-very-light-gray;\r\n    -fx-background-radius: 5;\r\n    -fx-padding: 10;\r\n    -fx-spacing: 10;\r\n}\r\n\r\n/* Estilos para mensajes de estado */\r\n.status-message {\r\n    -fx-padding: 10;\r\n    -fx-background-radius: 5;\r\n    -fx-font-weight: bold;\r\n}\r\n\r\n.status-message.info {\r\n    -fx-background-color: derive(-fx-primary-color, 70%);\r\n    -fx-text-fill: -fx-primary-color;\r\n}\r\n\r\n.status-message.success {\r\n    -fx-background-color: derive(-fx-success-color, 70%);\r\n    -fx-text-fill: -fx-success-color;\r\n}\r\n\r\n.status-message.warning {\r\n    -fx-background-color: derive(-fx-warning-color, 70%);\r\n    -fx-text-fill: -fx-warning-color;\r\n}\r\n\r\n.status-message.error {\r\n    -fx-background-color: derive(-fx-error-color, 70%);\r\n    -fx-text-fill: -fx-error-color;\r\n}\r\n\r\n/* Estilos para tooltips */\r\n.tooltip {\r\n    -fx-background-color: -fx-dark-gray;\r\n    -fx-text-fill: white;\r\n    -fx-font-size: 12px;\r\n    -fx-padding: 8 12;\r\n    -fx-background-radius: 4;\r\n}\r\n\r\n/* ESTILOS PARA LA VENTANA 'ACERCA DE' */\r\n.developer-card {\r\n    -fx-background-color: -fx-very-light-gray;\r\n    -fx-background-radius: 5;\r\n    -fx-padding: 15;\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);\r\n}\r\n\r\n.developer-name {\r\n    -fx-font-family: \"Montserrat\", \"Segoe UI\", sans-serif;\r\n    -fx-font-size: 16px;\r\n    -fx-font-weight: bold;\r\n    -fx-text-fill: -fx-primary-color;\r\n}\r\n\r\n.developer-role {\r\n    -fx-font-size: 14px;\r\n    -fx-text-fill: -fx-dark-gray;\r\n    -fx-opacity: 0.8;\r\n}\r\n\r\n/* Estilos para las imágenes de perfil */\r\n.developer-card ImageView {\r\n    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);\r\n    -fx-background-radius: 60;\r\n    -fx-border-radius: 60;\r\n}\r\n\r\n.text-field {\r\n    -fx-background-radius: 5px;\r\n    -fx-border-color: derive(-fx-primary-color, 70%) ;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/styles/main.css b/src/main/resources/dev/newteam/newteam3/styles/main.css
+--- a/src/main/resources/dev/newteam/newteam3/styles/main.css	(revision e48495868046d932d9443675687b6a133866ff80)
++++ b/src/main/resources/dev/newteam/newteam3/styles/main.css	(date 1748049877944)
+@@ -1,423 +1,183 @@
+-/* main.css - Versión mejorada con colores profesionales */
+-
+-/* Variables de colores */
+-* {
+-    -fx-primary-color: #1a2a6c;          /* Azul oscuro para elementos principales */
+-    -fx-secondary-color: #4CAF50;         /* Verde para acentos y elementos destacados */
+-    -fx-dark-gray: #2C3E50;               /* Gris oscuro para fondos y contraste */
+-    -fx-medium-gray: #34495E;             /* Gris medio para paneles y elementos secundarios */
+-    -fx-light-gray: #ECF0F1;              /* Gris claro para fondos y áreas de trabajo */
+-    -fx-very-light-gray: #F5F7FA;         /* Gris muy claro para fondos alternativos */
+-    -fx-warning-color: #F39C12;           /* Naranja para advertencias */
+-    -fx-error-color: #E74C3C;             /* Rojo para errores */
+-    -fx-success-color: #27AE60;           /* Verde oscuro para éxito */
+-    -fx-text-color: #2C3E50;              /* Color principal para texto */
+-    -fx-light-text-color: #ECF0F1;        /* Color para texto sobre fondos oscuros */
+-}
+-
+-/* Estilos generales */
++/* Configuración base extraída del SVG */
+ .root {
+-    -fx-font-family: "Roboto", "Segoe UI", sans-serif;
+-    -fx-background-color: -fx-light-gray;
+-    -fx-font-size: 13px;
+-}
+-
+-/* Barra de menú y menús */
+-.menu-bar {
+-    -fx-background-color: -fx-primary-color;
+-}
+-
+-.menu-bar .label {
+-    -fx-text-fill: white;
+-}
+-
+-.menu-bar .menu:hover {
+-    -fx-background-color: derive(-fx-primary-color, 20%);
+-}
+-
+-.menu-item {
+-    -fx-background-color: white;
+-}
+-
+-.menu-item:hover {
+-    -fx-background-color: -fx-light-gray;
+-}
+-
+-.menu-item .label {
+-    -fx-text-fill: -fx-text-color;
+-}
+-
+-/* Barra de herramientas */
+-.tool-bar {
+-    -fx-background-color: -fx-very-light-gray;
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-width: 0 0 1 0;
+-    -fx-padding: 8 10;
+-    -fx-spacing: 8;
+-}
+-
+-/* Estilos para el panel maestro */
+-.master-panel {
+-    -fx-background-color: white;
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);
+-    -fx-background-radius: 5;
+-    -fx-border-radius: 5;
+-    -fx-padding: 15;
+-    -fx-min-width: 350px;
+-    -fx-pref-width: 350px;
+-}
+-
+-/* Estilos para el panel de detalle */
+-.detail-panel {
+-    -fx-background-color: white;
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);
+-    -fx-background-radius: 5;
+-    -fx-border-radius: 5;
+-    -fx-padding: 15;
+-}
+-
+-/* Estilos para botones de acción */
+-.action-button {
+-    -fx-background-color: -fx-primary-color;
+-    -fx-text-fill: white;
+-    -fx-font-weight: bold;
+-    -fx-padding: 8 15;
+-    -fx-background-radius: 4;
+-    -fx-cursor: hand;
+-}
+-
+-.action-button:hover {
+-    -fx-background-color: derive(-fx-primary-color, 20%);
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
++    -fx-background-color: #d2efff;
+ }
+ 
+-.action-button:pressed {
+-    -fx-background-color: derive(-fx-primary-color, -10%);
+-}
+-
+-/* Estilos para botones de herramientas */
+-.tool-button {
++/* ScrollBars personalizadas - Colores exactos del SVG */
++.scroll-pane {
+     -fx-background-color: transparent;
+-    -fx-text-fill: -fx-dark-gray;
+-    -fx-padding: 6 12;
+-    -fx-cursor: hand;
+-    -fx-border-radius: 4;
+-}
+-
+-.tool-button:hover {
+-    -fx-background-color: derive(-fx-light-gray, -5%);
+-}
+-
+-.tool-button:pressed {
+-    -fx-background-color: derive(-fx-light-gray, -10%);
+-}
+-
+-/* Estilos para botones primarios */
+-.primary-button {
+-    -fx-background-color: -fx-secondary-color;
+-    -fx-text-fill: white;
+-    -fx-font-weight: bold;
+-    -fx-padding: 10 20;
+-    -fx-background-radius: 4;
+-    -fx-cursor: hand;
+-}
+-
+-.primary-button:hover {
+-    -fx-background-color: derive(-fx-secondary-color, 20%);
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 0);
+-}
+-
+-.primary-button:pressed {
+-    -fx-background-color: derive(-fx-secondary-color, -10%);
+-}
+-
+-/* Estilos para botones secundarios */
+-.secondary-button {
+-    -fx-background-color: -fx-light-gray;
+-    -fx-text-fill: -fx-text-color;
+-    -fx-padding: 10 20;
+-    -fx-background-radius: 4;
+-    -fx-cursor: hand;
+-}
+-
+-.secondary-button:hover {
+-    -fx-background-color: derive(-fx-light-gray, -10%);
+-}
+-
+-.secondary-button:pressed {
+-    -fx-background-color: derive(-fx-light-gray, -15%);
+-}
+-
+-/* Estilos para botones de eliminación */
+-.delete-button {
+-    -fx-background-color: -fx-error-color;
+-    -fx-text-fill: white;
+-    -fx-font-weight: bold;
+-    -fx-padding: 8 15;
+-    -fx-background-radius: 4;
+-    -fx-cursor: hand;
+-}
+-
+-.delete-button:hover {
+-    -fx-background-color: derive(-fx-error-color, 20%);
+-}
+-
+-/* Estilos para títulos de sección */
+-.section-title {
+-    -fx-font-family: "Montserrat", "Segoe UI", sans-serif;
+-    -fx-font-size: 18px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: -fx-primary-color;
+-    -fx-padding: 0 0 10 0;
+-}
+-
+-/* Estilos para subtítulos */
+-.sub-title {
+-    -fx-font-family: "Montserrat", "Segoe UI", sans-serif;
+-    -fx-font-size: 14px;
+-    -fx-font-weight: bold;
+-    -fx-text-fill: -fx-dark-gray;
+-    -fx-padding: 5 0;
+-}
+-
+-/* Estilos para la tabla */
+-.table-view {
+-    -fx-background-color: transparent;
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-radius: 4;
+-}
+-
+-.table-view .column-header-background {
+-    -fx-background-color: -fx-primary-color;
+-    -fx-background-radius: 4 4 0 0;
+-    -fx-padding: 5 0;
+-}
+-
+-.table-view .column-header, .table-view .filler {
+-    -fx-background-color: transparent;
+-    -fx-size: 40px;
+-    -fx-border-width: 0 0 0 0;
+-}
+-
+-.table-view .column-header .label {
+-    -fx-text-fill: white;
+-    -fx-font-weight: bold;
+-    -fx-alignment: CENTER_LEFT;
+-}
+-
+-.table-row-cell {
+-    -fx-background-color: white;
+     -fx-border-color: transparent;
+-    -fx-table-cell-border-color: transparent;
+-    -fx-padding: 5;
+-}
+-
+-.table-row-cell:odd {
+-    -fx-background-color: -fx-very-light-gray;
+-}
+-
+-.table-row-cell:selected {
+-    -fx-background-color: derive(-fx-secondary-color, 40%);
+-}
+-
+-.table-row-cell:selected .text {
+-    -fx-fill: -fx-text-color;
+-}
+-
+-.table-row-cell:hover {
+-    -fx-background-color: derive(-fx-light-gray, 5%);
+-}
+-
+-.table-row-cell:selected:hover {
+-    -fx-background-color: derive(-fx-secondary-color, 30%);
+-}
+-
+-/* Estilos para campos de texto */
+-.text-field, .date-picker, .combo-box {
+-    -fx-background-color: -fx-very-light-gray;
+-    -fx-background-radius: 4;
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-radius: 4;
+-    -fx-padding: 8;
+-}
+-
+-.text-field:focused, .date-picker:focused, .combo-box:focused {
+-    -fx-border-color: -fx-secondary-color;
+-    -fx-background-color: white;
+-}
+-
+-/* Estilos para pestañas */
+-.tab-pane .tab-header-area .tab-header-background {
+-    -fx-background-color: -fx-very-light-gray;
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-width: 0 0 1 0;
+ }
+ 
+-.tab-pane .tab {
++.scroll-pane .viewport {
+     -fx-background-color: transparent;
+-    -fx-padding: 10 15;
+-}
+-
+-.tab-pane .tab:selected {
+-    -fx-background-color: white;
+-    -fx-background-radius: 4 4 0 0;
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-width: 1 1 0 1;
+-    -fx-border-radius: 4 4 0 0;
+-}
+-
+-.tab .tab-label {
+-    -fx-text-fill: -fx-text-color;
+-    -fx-font-weight: normal;
+-}
+-
+-.tab:selected .tab-label {
+-    -fx-text-fill: -fx-primary-color;
+-    -fx-font-weight: bold;
+ }
+ 
+-/* Estilos para separadores */
+-.separator {
+-    -fx-background-color: derive(-fx-light-gray, -10%);
++.scroll-pane .scroll-bar:vertical {
++    -fx-opacity: 0;
++    -fx-pref-width: 10;
++    -fx-background-color: transparent;
+ }
+ 
+-.separator:vertical .line {
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-width: 0 1 0 0;
++.scroll-pane:hover .scroll-bar:vertical {
++    -fx-opacity: 1;
+ }
+ 
+-.separator:horizontal .line {
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-border-width: 1 0 0 0;
++/* ScrollBar para jugadores - Gradiente exacto del SVG */
++.scroll-pane .scroll-bar:vertical .track {
++    -fx-background-color: rgba(255, 255, 255, 0.1);
++    -fx-background-radius: 5;
+ }
+ 
+-/* Estilos para etiquetas */
+-.label {
+-    -fx-text-fill: -fx-text-color;
+-}
+-
+-/* Estilos para grupos de campos */
+-.field-group {
+-    -fx-spacing: 5;
+-    -fx-padding: 10 0;
+-}
+-
+-/* Estilos para tarjetas de información */
+-.info-card {
+-    -fx-background-color: white;
++.scroll-pane .scroll-bar:vertical .thumb {
++    -fx-background-color: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);
+     -fx-background-radius: 5;
+-    -fx-border-radius: 5;
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+-    -fx-padding: 15;
+ }
+ 
+-/* Estilos para tarjetas de estadísticas */
+-.stat-card {
+-    -fx-background-color: -fx-primary-color;
++/* ScrollBar específica para entrenadores - Gradiente exacto del SVG */
++#scrollPaneEntrenadores .scroll-bar:vertical .thumb {
++    -fx-background-color: linear-gradient(to right, #8c52ff 0%, #ff914d 100%);
+     -fx-background-radius: 5;
+-    -fx-padding: 15;
++}
++
++/* Efectos hover para camisetas - Colores exactos del SVG */
++.jersey-button:hover {
++    -fx-border-color: #fffc00;
++    -fx-border-width: 3;
++    -fx-border-radius: 8;
++    -fx-effect: dropshadow(gaussian, #fffc00, 8, 0.6, 0, 0);
++}
++
++.jersey-button.selected {
++    -fx-border-color: #fffc00;
++    -fx-border-width: 4;
++    -fx-border-radius: 8;
++    -fx-background-color: rgba(255, 252, 0, 0.15);
++    -fx-effect: dropshadow(gaussian, #fffc00, 12, 0.8, 0, 0);
++}
++
++/* Efectos hover para items de jugadores - Estilos exactos del SVG */
++.player-item:hover {
++    -fx-background-color: #f8f8f8;
++    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
++    -fx-scale-x: 1.02;
++    -fx-scale-y: 1.02;
++}
++
++.coach-item:hover {
++    -fx-background-color: #f8f8f8;
++    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
++    -fx-scale-x: 1.02;
++    -fx-scale-y: 1.02;
++}
++
++/* Efectos para selección - Colores exactos del SVG */
++.player-item.selected {
++    -fx-background-color: #e6f3ff;
++    -fx-border-color: #4a90e2;
++    -fx-border-width: 2;
++    -fx-border-radius: 20;
++    -fx-effect: dropshadow(gaussian, #4a90e2, 6, 0.5, 0, 0);
+ }
+ 
+-.stat-card .label {
+-    -fx-text-fill: white;
++.coach-item.selected {
++    -fx-background-color: #f0e6ff;
++    -fx-border-color: #8c52ff;
++    -fx-border-width: 2;
++    -fx-border-radius: 20;
++    -fx-effect: dropshadow(gaussian, #8c52ff, 6, 0.5, 0, 0);
+ }
+ 
+-.stat-card .stat-value {
+-    -fx-font-size: 24px;
+-    -fx-font-weight: bold;
++/* Efectos hover para botones de acción - Estilos exactos del SVG */
++.action-btn:hover {
++    -fx-background-color: rgba(255, 255, 255, 0.15);
++    -fx-background-radius: 10;
++    -fx-effect: dropshadow(gaussian, white, 6, 0.4, 0, 0);
++    -fx-scale-x: 1.05;
++    -fx-scale-y: 1.05;
+ }
+ 
+-.stat-card .stat-title {
+-    -fx-font-size: 14px;
+-    -fx-opacity: 0.8;
++/* Efectos para iconos de equipos - Basado en SVG */
++.team-icon:hover {
++    -fx-effect: dropshadow(gaussian, white, 8, 0.5, 0, 0);
++    -fx-scale-x: 1.1;
++    -fx-scale-y: 1.1;
+ }
+ 
+-/* Estilos para barras de búsqueda */
+-.search-box {
++/* Efectos para banquillo - Estilos exactos del SVG */
++.banquillo-section:hover {
++    -fx-background-color: rgba(255,255,255,0.25);
++    -fx-effect: dropshadow(gaussian, white, 5, 0.4, 0, 0);
++}
++
++/* MenuButton específicos - Configuración exacta del SVG */
++.menu-button .arrow-button {
++    -fx-background-color: transparent;
++    -fx-border-color: transparent;
++    -fx-padding: 0;
++}
++
++.menu-button .arrow {
+     -fx-background-color: white;
+-    -fx-background-radius: 20;
+-    -fx-border-radius: 20;
+-    -fx-border-color: derive(-fx-light-gray, -10%);
+-    -fx-padding: 8 15;
+-}
+-
+-.search-box:focused {
+-    -fx-border-color: -fx-secondary-color;
++    -fx-shape: "M 0 0 L 8 8 L 0 16 Z";
++    -fx-scale-shape: true;
++    -fx-pref-width: 10;
++    -fx-pref-height: 10;
+ }
+ 
+-/* Estilos para paneles de filtro */
+-.filter-panel {
+-    -fx-background-color: -fx-very-light-gray;
+-    -fx-background-radius: 5;
+-    -fx-padding: 10;
+-    -fx-spacing: 10;
++/* Efectos hover para nombres cuando se pasa por camisetas - Colores exactos del SVG */
++.player-name.hover-yellow {
++    -fx-text-fill: #fffc00;
++    -fx-font-weight: bold;
++    -fx-effect: dropshadow(gaussian, #fffc00, 3, 0.6, 0, 0);
+ }
+ 
+-/* Estilos para mensajes de estado */
+-.status-message {
+-    -fx-padding: 10;
+-    -fx-background-radius: 5;
++.player-name.hover-orange {
++    -fx-text-fill: #ff863a;
+     -fx-font-weight: bold;
+-}
+-
+-.status-message.info {
+-    -fx-background-color: derive(-fx-primary-color, 70%);
+-    -fx-text-fill: -fx-primary-color;
+-}
+-
+-.status-message.success {
+-    -fx-background-color: derive(-fx-success-color, 70%);
+-    -fx-text-fill: -fx-success-color;
+-}
+-
+-.status-message.warning {
+-    -fx-background-color: derive(-fx-warning-color, 70%);
+-    -fx-text-fill: -fx-warning-color;
+-}
+-
+-.status-message.error {
+-    -fx-background-color: derive(-fx-error-color, 70%);
+-    -fx-text-fill: -fx-error-color;
+-}
+-
+-/* Estilos para tooltips */
+-.tooltip {
+-    -fx-background-color: -fx-dark-gray;
+-    -fx-text-fill: white;
+-    -fx-font-size: 12px;
+-    -fx-padding: 8 12;
+-    -fx-background-radius: 4;
++    -fx-effect: dropshadow(gaussian, #ff863a, 3, 0.6, 0, 0);
+ }
+ 
+-/* ESTILOS PARA LA VENTANA 'ACERCA DE' */
+-.developer-card {
+-    -fx-background-color: -fx-very-light-gray;
+-    -fx-background-radius: 5;
+-    -fx-padding: 15;
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+-}
+-
+-.developer-name {
+-    -fx-font-family: "Montserrat", "Segoe UI", sans-serif;
+-    -fx-font-size: 16px;
++.coach-name.hover-purple {
++    -fx-text-fill: #8c52ff;
+     -fx-font-weight: bold;
+-    -fx-text-fill: -fx-primary-color;
++    -fx-effect: dropshadow(gaussian, #8c52ff, 3, 0.6, 0, 0);
++}
++
++/* Transiciones suaves - Configuración exacta del SVG */
++.player-item, .coach-item, .jersey-button, .action-btn {
++    -fx-transition: all 0.2s ease;
++}
++
++/* Sombras para paneles - Efectos exactos del SVG */
++.left-panel, .right-panel {
++    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0.2, 0, 5);
++}
++
++/* Gradientes exactos extraídos del SVG */
++.player-circle-gradient {
++    -fx-fill: linear-gradient(to bottom, #fffc00 0%, #ff863a 100%);
++}
++
++.coach-circle-gradient {
++    -fx-fill: linear-gradient(to right, #8c52ff 0%, #ff914d 100%);
+ }
+ 
+-.developer-role {
+-    -fx-font-size: 14px;
+-    -fx-text-fill: -fx-dark-gray;
+-    -fx-opacity: 0.8;
++/* Dimensiones exactas extraídas del SVG */
++.panel-left-exact {
++    -fx-pref-width: 450px;
++    -fx-max-width: 450px;
++    -fx-min-width: 450px;
+ }
+ 
+-/* Estilos para las imágenes de perfil */
+-.developer-card ImageView {
+-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 0);
+-    -fx-background-radius: 60;
+-    -fx-border-radius: 60;
++.panel-right-exact {
++    -fx-pref-width: 900px;
++    -fx-max-width: 900px;
++    -fx-min-width: 900px;
+ }
+ 
+-.text-field {
+-    -fx-background-radius: 5px;
+-    -fx-border-color: derive(-fx-primary-color, 70%) ;
++/* Bordes redondeados exactos del SVG */
++.rounded-corners-exact {
++    -fx-background-radius: 25px;
++    -fx-border-radius: 25px;
+ }
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/controllers/LoginController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/controllers/LoginController.kt b/src/main/kotlin/dev/newteam/newteam3/controllers/LoginController.kt
+new file mode 100644
+--- /dev/null	(date 1748047413408)
++++ b/src/main/kotlin/dev/newteam/newteam3/controllers/LoginController.kt	(date 1748047413408)
+@@ -0,0 +1,4 @@
++package dev.newteam.newteam3.controllers
++
++class LoginController {
++}
+\ No newline at end of file
+Index: src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml b/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml
+new file mode 100644
+--- /dev/null	(date 1748267141557)
++++ b/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml	(date 1748267141557)
+@@ -0,0 +1,112 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.Button?>
++<?import javafx.scene.control.TableColumn?>
++<?import javafx.scene.control.TableView?>
++<?import javafx.scene.image.Image?>
++<?import javafx.scene.image.ImageView?>
++<?import javafx.scene.layout.AnchorPane?>
++<?import javafx.scene.layout.BorderPane?>
++<?import javafx.scene.layout.StackPane?>
++
++<BorderPane prefHeight="800" prefWidth="1400" stylesheets="@../styles/alineacion-newteam.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.HelloController">
++
++    <!-- Contenido principal con imagen de fondo -->
++    <center>
++        <StackPane fx:id="mainContainer" styleClass="main-container">
++
++            <!-- Imagen de fondo -->
++            <ImageView fx:id="backgroundImage" fitHeight="770" fitWidth="1400" preserveRatio="false" styleClass="background-image">
++                <!-- Ruta: /images/backgrounds/main_background.png -->
++                    <Image url="@../images/alineacion-view.png" />
++            </ImageView>
++
++            <!-- Contenedor para elementos futuros -->
++           <AnchorPane fx:id="contentContainer" prefHeight="807.0" prefWidth="1406.0" styleClass="content-overlay">
++              <Button fx:id="anadirButton" layoutX="604.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
++                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <Button fx:id="editarAbajoButton" layoutX="740.0" layoutY="693.0" mnemonicParsing="false"
++                      prefHeight="25.0" prefWidth="28.0" styleClass="invisible-button" text="Button"
++                      textFill="TRANSPARENT"/>
++              <Button fx:id="eliminarButton" layoutX="860.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
++                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <Button fx:id="importarButton" layoutX="1021.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
++                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <Button fx:id="exportarButton" layoutX="1155.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
++                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <ImageView fx:id="camisetaDefensaLateralIzquierda" fitHeight="117.0" fitWidth="120.0" layoutX="649.0"
++                         layoutY="269.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaDefensaCentralIzquierda" fitHeight="117.0" fitWidth="120.0" layoutX="769.0"
++                         layoutY="221.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaInteriorIzquierda" fitHeight="117.0" fitWidth="120.0" layoutX="784.0"
++                         layoutY="325.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaCentrocampista" fitHeight="117.0" fitWidth="120.0" layoutX="868.0"
++                         layoutY="409.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaInteriorDerecha" fitHeight="117.0" fitWidth="120.0" layoutX="946.0"
++                         layoutY="323.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaDefensaCentralDerecha" fitHeight="117.0" fitWidth="120.0" layoutX="970.0"
++                         layoutY="220.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaDefensaLateralDerecha" fitHeight="117.0" fitWidth="120.0" layoutX="1087.0"
++                         layoutY="270.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fitHeight="117.0" fitWidth="120.0" layoutX="1068.0" layoutY="459.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fitHeight="117.0" fitWidth="120.0" layoutX="868.0" layoutY="511.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fitHeight="117.0" fitWidth="120.0" layoutX="672.0" layoutY="461.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <ImageView fx:id="camisetaPortero" fitHeight="117.0" fitWidth="120.0" layoutX="870.0" layoutY="116.0">
++                 <Image url="@../images/camiseta-pixel.png"/>
++              </ImageView>
++              <Button fx:id="archivoButton" layoutX="12.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0"
++                      prefWidth="71.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <Button fx:id="editarButton" layoutX="108.0" layoutY="30.0" mnemonicParsing="false" prefHeight="12.0"
++                      prefWidth="54.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <Button fx:id="herramientasButton" layoutX="189.0" layoutY="31.0" mnemonicParsing="false"
++                      prefHeight="19.0" prefWidth="116.0" styleClass="invisible-button" text="Button"
++                      textFill="TRANSPARENT"/>
++              <Button fx:id="ayudaButton" layoutX="336.0" layoutY="29.0" mnemonicParsing="false" prefHeight="21.0"
++                      prefWidth="55.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++              <Button fx:id="campoIzquierdaButton" layoutX="38.0" layoutY="93.0" mnemonicParsing="false"
++                      prefHeight="42.0" prefWidth="53.0" styleClass="invisible-button" text="Button"
++                      textFill="TRANSPARENT"/>
++              <Button fx:id="campoDerechaButton" layoutX="387.0" layoutY="93.0" mnemonicParsing="false"
++                      prefHeight="40.0" prefWidth="50.0" styleClass="invisible-button" text="Button"
++                      textFill="TRANSPARENT"/>
++              <Button fx:id="banquilloButton" layoutX="1300.0" layoutY="106.0" mnemonicParsing="false" prefHeight="36.0"
++                      prefWidth="39.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
++
++              <TableView layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="338.0">
++                 <columns>
++                    <TableColumn prefWidth="63.0" text="C1"/>
++                    <TableColumn prefWidth="276.0" text="C2"/>
++                 </columns>
++              </TableView>
++              <TableView layoutX="72.0" layoutY="154.0" prefHeight="463.0" prefWidth="336.0">
++                 <columns>
++                    <TableColumn editable="false" prefWidth="63.0"/>
++                    <TableColumn editable="false" prefWidth="272.0"/>
++                 </columns>
++              </TableView>
++           </AnchorPane>
++
++        </StackPane>
++    </center>
++
++</BorderPane>
+Index: src/main/resources/dev/newteam/newteam3/styles/splash.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/styles/splash.css b/src/main/resources/dev/newteam/newteam3/styles/splash.css
+new file mode 100644
+--- /dev/null	(date 1748101590403)
++++ b/src/main/resources/dev/newteam/newteam3/styles/splash.css	(date 1748101590403)
+@@ -0,0 +1,50 @@
++/* Contenedor principal de la splash screen */
++.splash-container {
++    -fx-background-color: #000000;
++}
++
++/* Progress Bar con estilo retro arcade */
++.retro-progress-bar {
++    -fx-progress-color: #00FF41;
++    -fx-background-color: #1a1a1a;
++    -fx-background-radius: 0;
++    -fx-border-radius: 0;
++    -fx-border-color: #00FF41;
++    -fx-border-width: 2;
++    -fx-effect: dropshadow(gaussian, #00FF41, 8, 0.6, 0, 0);
++}
++
++.retro-progress-bar .track {
++    -fx-background-color: #1a1a1a;
++    -fx-background-radius: 0;
++    -fx-border-color: #00FF41;
++    -fx-border-width: 1;
++}
++
++.retro-progress-bar .bar {
++    -fx-background-color: linear-gradient(to right, #00FF41 0%, #00CC33 50%, #00FF41 100%);
++    -fx-background-radius: 0;
++    -fx-padding: 0;
++    -fx-effect: innershadow(gaussian, #00FF41, 5, 0.8, 0, 0);
++}
++
++/* Texto de carga con estilo retro */
++.loading-text {
++    -fx-text-fill: #00FF41;
++    -fx-font-family: "Courier New", monospace;
++    -fx-font-size: 16px;
++    -fx-font-weight: bold;
++    -fx-effect: dropshadow(gaussian, #00FF41, 5, 0.7, 0, 0);
++}
++
++/* Efecto scanlines como elemento real (opcional) */
++.scanlines-effect {
++    -fx-background-color: repeating-linear-gradient(
++            to bottom,
++            transparent 0px,
++            transparent 2px,
++            rgba(0, 255, 65, 0.03) 2px,
++            rgba(0, 255, 65, 0.03) 4px
++    );
++    -fx-opacity: 0.3;
++}
+\ No newline at end of file
+Index: src/main/resources/dev/newteam/newteam3/styles/alineacion-newteam.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/styles/alineacion-newteam.css b/src/main/resources/dev/newteam/newteam3/styles/alineacion-newteam.css
+new file mode 100644
+--- /dev/null	(date 1748130541617)
++++ b/src/main/resources/dev/newteam/newteam3/styles/alineacion-newteam.css	(date 1748130541617)
+@@ -0,0 +1,71 @@
++/* Configuración del contenedor principal */
++.main-container {
++    -fx-background-color: transparent;
++}
++
++/* Imagen de fondo */
++.background-image {
++    -fx-opacity: 1.0;
++    -fx-smooth: true;
++    -fx-cache: true;
++}
++
++/* Overlay transparente para contenido futuro */
++.content-overlay {
++    -fx-background-color: transparent;
++}
++
++/* MenuBar styling */
++.menu-bar {
++    -fx-background-color: #f0f0f0;
++    -fx-border-color: #d0d0d0;
++    -fx-border-width: 0 0 1 0;
++    -fx-font-size: 12px;
++    -fx-font-family: "Segoe UI", Arial, sans-serif;
++}
++
++.menu-bar .label {
++    -fx-text-fill: #333333;
++    -fx-font-size: 12px;
++}
++
++.menu-bar .menu:hover {
++    -fx-background-color: #e0e0e0;
++}
++
++/* Asegurar que la imagen cubra toda el área */
++.main-container .background-image {
++    -fx-fit-to-width: true;
++    -fx-fit-to-height: true;
++    -fx-preserve-ratio: false;
++}
++
++/* Preparación para elementos futuros */
++.future-element {
++    -fx-background-color: transparent;
++}
++
++.invisible-button {
++    -fx-background-color: transparent;
++    -fx-border-color: transparent;
++    -fx-background-radius: 0;
++    -fx-border-radius: 0;
++    -fx-padding: 0;
++}
++
++.invisible-button:hover {
++    -fx-background-color: transparent;
++    -fx-border-color: transparent;
++}
++
++.invisible-button:pressed {
++    -fx-background-color: transparent;
++    -fx-border-color: transparent;
++}
++
++.invisible-button:focused {
++    -fx-background-color: transparent;
++    -fx-border-color: transparent;
++    -fx-focus-color: transparent;
++    -fx-faint-focus-color: transparent;
++}
+\ No newline at end of file
+Index: src/main/resources/dev/newteam/newteam3/views/splash-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml b/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml
+new file mode 100644
+--- /dev/null	(date 1748103182200)
++++ b/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml	(date 1748103182200)
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="UTF-8"?>
++
++<?import javafx.scene.control.*?>
++<?import javafx.scene.image.*?>
++<?import javafx.scene.layout.*?>
++
++<AnchorPane prefHeight="781" prefWidth="780" styleClass="splash-container" stylesheets="@../styles/splash.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controllers.SplashController">
++
++    <!-- Imagen de fondo -->
++    <ImageView fx:id="backgroundImage" fitHeight="781" fitWidth="780" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
++            <Image url="@../images/fondo-splash.png" />
++    </ImageView>
++
++    <!-- Efecto scanlines como elemento real -->
++    <Pane fx:id="scanlinesOverlay" mouseTransparent="true" styleClass="scanlines-effect" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
++      <children>
++      
++          <!-- Progress Bar -->
++          <ProgressBar fx:id="loadingProgressBar" layoutX="190.0" layoutY="551.0" opacity="0.57" prefHeight="20" prefWidth="400" progress="0" styleClass="retro-progress-bar" />
++      
++          <!-- Texto de carga -->
++          <Label fx:id="loadingLabel" layoutX="351.0" layoutY="584.0" prefHeight="28.0" prefWidth="105.0" styleClass="loading-text" text="LOADING..." />
++      </children>
++    </Pane>
++</AnchorPane>
+diff --git a/src/main/resources/dev/newteam/newteam3/styles/login.css b/src/main/resources/dev/newteam/newteam3/styles/login.css
+new file mode 100644

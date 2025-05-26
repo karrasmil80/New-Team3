@@ -4,6 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/login-view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/muppets.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/newteam.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/splash.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/muppets-view.fxml" afterDir="false" />
     <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="arreglando conflictos">
       <change afterPath="$PROJECT_DIR$/src/test/kotlin/mapper/MapperTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -56,7 +75,10 @@
         <option value="Kotlin Interface" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
+        <option value="FxmlFile" />
         <option value="Kotlin Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -84,6 +106,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-PabloDLF&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build New-Team3.0.executor": "Run",
@@ -113,7 +183,7 @@
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\zupab\Desktop\New-Team 3\New-Team3.0\data" />
@@ -280,6 +350,29 @@
       <workItem from="1747939304310" duration="405000" />
       <workItem from="1747940397146" duration="264000" />
       <workItem from="1747992162852" duration="1399000" />
+      <workItem from="1748074449857" duration="7127000" />
+      <workItem from="1748086785769" duration="2026000" />
+      <workItem from="1748181182816" duration="7386000" />
+      <workItem from="1748188641550" duration="211000" />
+      <workItem from="1748190136596" duration="227000" />
+      <workItem from="1748249744918" duration="6165000" />
+      <workItem from="1748274310798" duration="774000" />
+    </task>
+    <task id="LOCAL-00001" summary="Conflictos arreglados">
+      <option name="closed" value="true" />
+      <created>1747995078126</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747995078126</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Terminado el servicio y el repositorio, falta testear">
+      <option name="closed" value="true" />
+      <created>1748188234353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748188234353</updated>
       <workItem from="1748017716670" duration="1479000" />
       <workItem from="1748268740618" duration="284000" />
       <workItem from="1748270741171" duration="426000" />

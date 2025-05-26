@@ -1,0 +1,71 @@
+/* Configuración del contenedor principal */
+.main-container {
+    -fx-background-color: transparent;
+}
+
+/* Imagen de fondo */
+.background-image {
+    -fx-opacity: 1.0;
+    -fx-smooth: true;
+    -fx-cache: true;
+}
+
+/* Overlay transparente para contenido futuro */
+.content-overlay {
+    -fx-background-color: transparent;
+}
+
+/* MenuBar styling */
+.menu-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 12px;
+}
+
+.menu-bar .menu:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Asegurar que la imagen cubra toda el área */
+.main-container .background-image {
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+    -fx-preserve-ratio: false;
+}
+
+/* Preparación para elementos futuros */
+.future-element {
+    -fx-background-color: transparent;
+}
+
+.invisible-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 0;
+}
+
+.invisible-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.invisible-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.invisible-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

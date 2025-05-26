@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Public Pixel Font';
+    src: url('../fonts/PublicPixel-rv0pA.ttf')
+}
+
+.text-field {
+    -fx-font-family: 'Public Pixel Font';
+    -fx-font-size: 15px;
+}
+
+
+.invisible-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 0;
+}
+
+.invisible-button:hover {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.invisible-button:pressed {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.invisible-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

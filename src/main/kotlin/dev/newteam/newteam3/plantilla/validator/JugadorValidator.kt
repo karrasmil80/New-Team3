@@ -25,7 +25,7 @@ class JugadorValidator: Validator<Jugador, PersonaError> {
      * que validarán al Jugador.
      */
     override fun validate(t: Jugador): Result<Jugador, PersonaError> {
-        logger.debug { "Validando la entrada de datos del Jugador..." }
+        logger.debug { "🔵 Validando la entrada de datos del Jugador..." }
 
         if (t.nombre.isBlank()) {
             return Err(PersonaError.PersonaValidatorError("El nombre no puede estar en blanco"))

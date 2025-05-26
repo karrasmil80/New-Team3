@@ -8,6 +8,4 @@ data class ConvocatoriaEntity(
     val jornada: LocalDateTime,
     val descripcion: String,
     val jugadoresConvocados: List<JugadorConvocatoria>,
-    val onceTitular: List<Int>, //id de los jugadores titulares
 )
-

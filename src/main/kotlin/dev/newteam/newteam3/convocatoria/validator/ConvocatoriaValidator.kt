@@ -12,9 +12,8 @@ import java.time.LocalDateTime
 /**
  * En esta clase se almacenan los condicionales que validaran la entrada de datos de la convocatoria.
  */
-class ConvocatoriaValidator : Validator<Convocatoria, PersonaError> {
-    private val logger = logging()
 
+class ConvocatoriaValidator: Validator<Convocatoria, PersonaError> {
     override fun validate(t: Convocatoria): Result<Convocatoria, PersonaError> {
         logger.debug { "🔵 Validando la convocatoria..." }
 
@@ -53,3 +52,4 @@ class ConvocatoriaValidator : Validator<Convocatoria, PersonaError> {
         return Ok(t)
     }
 }
+

@@ -1,4 +1,4 @@
-package mapper
+package plantilla.mapper
 
 import dev.newteam.newteam3.plantilla.dao.PersonaEntity
 import dev.newteam.newteam3.plantilla.mapper.toEntity

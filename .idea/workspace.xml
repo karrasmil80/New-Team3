@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageBin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageBin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageJson.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageJson.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageXml.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageXml.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZip.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="New-Team3" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Antukiller&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/karrasmil80/New-Team3.git&quot;,
+    &quot;accountId&quot;: &quot;e6cef565-dc86-4336-9a77-3714864c383b&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2xPaMMSnkVmzXyzU4zQHLEYzEFK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build New-Team3.executor": "Run",
+    "Gradle.CasosCorrectos.deleteAll.executor": "Run",
+    "Gradle.CasosCorrectos.deleteById.executor": "Run",
+    "Gradle.CasosCorrectos.eliminarAlumno.executor": "Run",
+    "Gradle.CasosCorrectos.eliminarPersona.executor": "Run",
+    "Gradle.CasosCorrectos.executor": "Run",
+    "Gradle.CasosCorrectos.findAll.executor": "Run",
+    "Gradle.CasosCorrectos.findById.executor": "Run",
+    "Gradle.CasosCorrectos.save.executor": "Run",
+    "Gradle.CasosCorrectos.saveAll.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.delete.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.deleteAll.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.findAll.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.findById.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.save.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.saveAll.executor": "Run",
+    "Gradle.CasosIncorrectos.deleteIncorrecto.executor": "Run",
+    "Gradle.CasosIncorrectos.executor": "Run",
+    "Gradle.CasosIncorrectos.findAllIncorrecto.executor": "Run",
+    "Gradle.CasosIncorrectos.findByIdIncorrecto.executor": "Run",
+    "Gradle.New-Team3 [run].executor": "Run",
+    "Gradle.PersonaDaoTest.executor": "Run",
+    "Gradle.PersonaRepositoryMockitoTest.executor": "Coverage",
+    "Gradle.PersonaServiceImplMockitoTest.executor": "Coverage",
+    "Gradle.PersonaStorageCsvTest.executor": "Run",
+    "Gradle.PersonaValidatorTest.executor": "Coverage",
+    "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
+    "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature-nico",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zupab\IdeaProjects\New-Team3\src\test\kotlin\repository" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="dev.newteam.newteam3.plantilla.models" />
+      <recent name="dev.newteam.newteam3.players.models" />
+      <recent name="dev.newteam.newteam3.models" />
+      <recent name="dev.newteam.newteam3.Plantilla.models" />
+      <recent name="dev.newteam.newteam3.Plantilla" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.PersonaStorageCsvTest">
+    <configuration name="CasosCorrectos.deleteAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.deleteAll&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CasosCorrectos.findById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.findById&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CasosCorrectos.findById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.findById&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CasosCorrectos.save" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.save&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CasosCorrectos.saveAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.saveAll&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CasosCorrectos.saveAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.saveAll&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CasosCorrectos.save" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest$CasosCorrectos.save&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PersonaServiceImplMockitoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PersonaServiceImplMockitoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;service.PersonaServiceImplMockitoTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PersonaStorageCsvTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;storage.PersonaStorageCsvTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.PersonaStorageCsvTest" />
+        <item itemvalue="Gradle.PersonaServiceImplMockitoTest" />
+        <item itemvalue="Gradle.CasosCorrectos.save" />
+        <item itemvalue="Gradle.CasosCorrectos.findById" />
+        <item itemvalue="Gradle.CasosCorrectos.saveAll" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="" />
+      <created>1747842115631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747842115631</updated>
+      <workItem from="1747842118155" duration="1286000" />
+      <workItem from="1747843436897" duration="6219000" />
+      <workItem from="1747908050213" duration="18661000" />
+      <workItem from="1747937869109" duration="629000" />
+      <workItem from="1747939304310" duration="405000" />
+      <workItem from="1747940397146" duration="264000" />
+      <workItem from="1747992162852" duration="1399000" />
+      <workItem from="1748074449857" duration="7127000" />
+      <workItem from="1748086785769" duration="2026000" />
+      <workItem from="1748181182816" duration="7386000" />
+      <workItem from="1748188641550" duration="211000" />
+      <workItem from="1748190136596" duration="227000" />
+      <workItem from="1748249744918" duration="6165000" />
+    </task>
+    <task id="LOCAL-00001" summary="Conflictos arreglados">
+      <option name="closed" value="true" />
+      <created>1747995078126</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747995078126</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Terminado el servicio y el repositorio, falta testear">
+      <option name="closed" value="true" />
+      <created>1748188234353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748188234353</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Empezando con los test del repositorio">
+      <option name="closed" value="true" />
+      <created>1748188841305</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1748188841305</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio">
+      <option name="closed" value="true" />
+      <created>1748255922199</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748255922199</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
+      <option name="closed" value="true" />
+      <created>1748255957669</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748255957669</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="arreglando conflictos" />
+    <MESSAGE value="Conflictos arreglados" />
+    <MESSAGE value="Terminado el servicio y el repositorio, falta testear" />
+    <MESSAGE value="Empezando con los test del repositorio" />
+    <MESSAGE value="Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/New_Team3$PersonaRepositoryMockitoTest.ic" NAME="PersonaRepositoryMockitoTest Coverage Results" MODIFIED="1748253705105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$PersonaValidatorTest.ic" NAME="PersonaValidatorTest Coverage Results" MODIFIED="1748078952478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$PersonaDaoTest.ic" NAME="PersonaDaoTest Coverage Results" MODIFIED="1748081182033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+  </component>
+</project>

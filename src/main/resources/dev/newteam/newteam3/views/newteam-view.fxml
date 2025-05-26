@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane prefHeight="800" prefWidth="1400" stylesheets="@../styles/newteam.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.NewTeamController">
+
+    <center>
+        <StackPane fx:id="mainContainer" styleClass="main-container">
+
+            <ImageView fx:id="backgroundImage" fitHeight="770" fitWidth="1400" preserveRatio="false" styleClass="background-image">
+                    <Image url="@../images/alineacion-view.png" />
+            </ImageView>
+
+           <AnchorPane fx:id="contentContainer" prefHeight="807.0" prefWidth="1406.0" styleClass="content-overlay">
+              <Button fx:id="anadirButton" layoutX="604.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
+                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <Button fx:id="editarAbajoButton" layoutX="740.0" layoutY="693.0" mnemonicParsing="false"
+                      prefHeight="25.0" prefWidth="28.0" styleClass="invisible-button" text="Button"
+                      textFill="TRANSPARENT"/>
+              <Button fx:id="eliminarButton" layoutX="860.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
+                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <Button fx:id="importarButton" layoutX="1021.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
+                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <Button fx:id="exportarButton" layoutX="1155.0" layoutY="693.0" mnemonicParsing="false" prefHeight="25.0"
+                      prefWidth="28.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <ImageView fx:id="camisetaDefensaLateralIzquierda" fitHeight="117.0" fitWidth="120.0" layoutX="649.0"
+                         layoutY="269.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaDefensaCentralIzquierda" fitHeight="117.0" fitWidth="120.0" layoutX="769.0"
+                         layoutY="221.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaInteriorIzquierda" fitHeight="117.0" fitWidth="120.0" layoutX="784.0"
+                         layoutY="325.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaCentrocampista" fitHeight="117.0" fitWidth="120.0" layoutX="868.0"
+                         layoutY="409.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaInteriorDerecha" fitHeight="117.0" fitWidth="120.0" layoutX="946.0"
+                         layoutY="323.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaDefensaCentralDerecha" fitHeight="117.0" fitWidth="120.0" layoutX="970.0"
+                         layoutY="220.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaDefensaLateralDerecha" fitHeight="117.0" fitWidth="120.0" layoutX="1087.0"
+                         layoutY="270.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fitHeight="117.0" fitWidth="120.0" layoutX="1068.0" layoutY="459.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fitHeight="117.0" fitWidth="120.0" layoutX="868.0" layoutY="511.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fitHeight="117.0" fitWidth="120.0" layoutX="672.0" layoutY="461.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <ImageView fx:id="camisetaPortero" fitHeight="117.0" fitWidth="120.0" layoutX="870.0" layoutY="116.0">
+                 <Image url="@../images/camiseta-pixel.png"/>
+              </ImageView>
+              <Button fx:id="archivoButton" layoutX="12.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0"
+                      prefWidth="71.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <Button fx:id="editarButton" layoutX="108.0" layoutY="30.0" mnemonicParsing="false" prefHeight="12.0"
+                      prefWidth="54.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <Button fx:id="herramientasButton" layoutX="189.0" layoutY="31.0" mnemonicParsing="false"
+                      prefHeight="19.0" prefWidth="116.0" styleClass="invisible-button" text="Button"
+                      textFill="TRANSPARENT"/>
+              <Button fx:id="ayudaButton" layoutX="336.0" layoutY="29.0" mnemonicParsing="false" prefHeight="21.0"
+                      prefWidth="55.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+              <Button fx:id="campoIzquierdaButton" layoutX="38.0" layoutY="93.0" mnemonicParsing="false"
+                      prefHeight="42.0" prefWidth="53.0" styleClass="invisible-button" text="Button"
+                      textFill="TRANSPARENT"/>
+              <Button fx:id="campoDerechaButton" layoutX="387.0" layoutY="93.0" mnemonicParsing="false"
+                      prefHeight="40.0" prefWidth="50.0" styleClass="invisible-button" text="Button"
+                      textFill="TRANSPARENT"/>
+              <Button fx:id="banquilloButton" layoutX="1300.0" layoutY="106.0" mnemonicParsing="false" prefHeight="36.0"
+                      prefWidth="39.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT"/>
+
+              <TableView layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="338.0">
+                 <columns>
+                    <TableColumn prefWidth="63.0" text="C1"/>
+                    <TableColumn prefWidth="276.0" text="C2"/>
+                 </columns>
+              </TableView>
+              <TableView layoutX="72.0" layoutY="154.0" prefHeight="463.0" prefWidth="336.0">
+                 <columns>
+                    <TableColumn editable="false" prefWidth="63.0"/>
+                    <TableColumn editable="false" prefWidth="272.0"/>
+                 </columns>
+              </TableView>
+           </AnchorPane>
+
+        </StackPane>
+    </center>
+
+</BorderPane>

@@ -5,12 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/login-view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/muppets.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/newteam.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/splash.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageBin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageBin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageJson.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageJson.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageXml.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageXml.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZip.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/muppets-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +77,9 @@
         <option value="Kotlin Data Class" />
         <option value="Kotlin File" />
         <option value="Kotlin Interface" />
+        <option value="FxmlFile" />
         <option value="Kotlin Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -100,65 +114,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build New-Team3.executor": "Run",
-    "Gradle.CasosCorrectos.deleteAll.executor": "Run",
-    "Gradle.CasosCorrectos.deleteById.executor": "Run",
-    "Gradle.CasosCorrectos.eliminarAlumno.executor": "Run",
-    "Gradle.CasosCorrectos.eliminarPersona.executor": "Run",
-    "Gradle.CasosCorrectos.executor": "Run",
-    "Gradle.CasosCorrectos.findAll.executor": "Run",
-    "Gradle.CasosCorrectos.findById.executor": "Run",
-    "Gradle.CasosCorrectos.save.executor": "Run",
-    "Gradle.CasosCorrectos.saveAll.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.delete.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.deleteAll.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.findAll.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.findById.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.save.executor": "Run",
-    "Gradle.CasosCorrectosRepositorio.saveAll.executor": "Run",
-    "Gradle.CasosIncorrectos.deleteIncorrecto.executor": "Run",
-    "Gradle.CasosIncorrectos.executor": "Run",
-    "Gradle.CasosIncorrectos.findAllIncorrecto.executor": "Run",
-    "Gradle.CasosIncorrectos.findByIdIncorrecto.executor": "Run",
-    "Gradle.New-Team3 [run].executor": "Run",
-    "Gradle.PersonaDaoTest.executor": "Run",
-    "Gradle.PersonaRepositoryMockitoTest.executor": "Coverage",
-    "Gradle.PersonaServiceImplMockitoTest.executor": "Coverage",
-    "Gradle.PersonaStorageCsvTest.executor": "Run",
-    "Gradle.PersonaValidatorTest.executor": "Coverage",
-    "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
-    "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature-nico",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev-PabloDLF&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\zupab\IdeaProjects\New-Team3\src\test\kotlin\repository" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="dev.newteam.newteam3.controller" />
       <recent name="dev.newteam.newteam3.plantilla.models" />
       <recent name="dev.newteam.newteam3.players.models" />
       <recent name="dev.newteam.newteam3.models" />
       <recent name="dev.newteam.newteam3.Plantilla.models" />
-      <recent name="dev.newteam.newteam3.Plantilla" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.PersonaStorageCsvTest">
@@ -441,6 +456,7 @@
       <workItem from="1748188641550" duration="211000" />
       <workItem from="1748190136596" duration="227000" />
       <workItem from="1748249744918" duration="6165000" />
+      <workItem from="1748274310798" duration="774000" />
     </task>
     <task id="LOCAL-00001" summary="Conflictos arreglados">
       <option name="closed" value="true" />

@@ -1,4 +1,4 @@
-package validator
+package plantilla.validator
 
 import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Persona

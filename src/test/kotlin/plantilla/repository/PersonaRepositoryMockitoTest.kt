@@ -1,4 +1,4 @@
-package repository
+package plantilla.repository
 
 import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
 import dev.newteam.newteam3.plantilla.dao.PersonaDao

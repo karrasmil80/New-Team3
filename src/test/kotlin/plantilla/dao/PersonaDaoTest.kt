@@ -1,4 +1,4 @@
-package dao
+package plantilla.dao
 
 import dev.newteam.newteam3.database.JdbiManager
 import dev.newteam.newteam3.plantilla.dao.PersonaDao

@@ -1,4 +1,4 @@
-package service
+package plantilla.service
 
 import com.github.benmanes.caffeine.cache.Cache
 import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity

@@ -12,17 +12,17 @@ import java.time.LocalDateTime
 @RegisterKotlinMapper(ConvocatoriaEntity::class)
 interface ConvocatoriaDao {
 
-    @SqlQuery("SELECT * FROM persona")
+    @SqlQuery("SELECT id, jornada, descripcion FROM convocatoria")
     fun findAll(): List<ConvocatoriaEntity>
 
-    @SqlQuery("SELECT * FROM persona WHERE id = :id")
+    @SqlQuery("SELECT id, jornada, descripcion FROM convocatoria WHERE id = :id")
     fun findById(@Bind("id")id: Int): ConvocatoriaEntity?
 
     @SqlUpdate("DELETE FROM convocatoria WHERE id = :id")
     fun delete(@Bind("id") id: Int) : Int
 
-    @SqlUpdate("DELETE FROM jugador")
-    fun deleteAllJugadores(): Int
+    @SqlUpdate("DELETE FROM convocatoria")
+    fun deleteAll(): Int
 
     @SqlUpdate("""
     INSERT INTO convocatoria (jornada, descripcion)
@@ -33,10 +33,4 @@ interface ConvocatoriaDao {
         @Bind("jornada") jornada: LocalDateTime,
         @Bind("descripcion") descripcion: String
     ): Int
-
-
-
-
-
-
 }

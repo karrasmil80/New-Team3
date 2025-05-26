@@ -44,16 +44,14 @@ CREATE TABLE IF NOT EXISTS entrenador (
 CREATE TABLE IF NOT EXISTS convocatoria (
     id IDENTITY PRIMARY KEY, -- ID autoincremental (clave primaria)
     jornada TIMESTAMP NOT NULL, -- Fecha y hora de la jornada/partido
-    descripcion VARCHAR(255), -- Descripción libre de la convocatoria
+    descripcion VARCHAR(255) -- Descripción libre de la convocatoria
 );
 
--- Tabla intermedia: JUGADORES CONVOCADOS
-CREATE TABLE IF NOT EXISTS convocatoria_jugador (
-    id IDENTITY PRIMARY KEY, -- ID autoincremental
-    convocatoria_id INT NOT NULL, -- FK a la convocatoria
-    jugador_id INT NOT NULL, -- FK al jugador convocado
-    es_titular BOOLEAN DEFAULT FALSE, -- Marca si el jugador es titular
-    CONSTRAINT fk_convocatoria_cj FOREIGN KEY (convocatoria_id) REFERENCES convocatoria(id), -- FK -> convocatoria
-    CONSTRAINT fk_jugador_cj FOREIGN KEY (jugador_id) REFERENCES jugador(id), -- FK -> jugador
-    CONSTRAINT uq_convocatoria_jugador UNIQUE (convocatoria_id, jugador_id) -- Evita duplicar un jugador en la misma convocatoria
-    );
+-- Tabla de jugadores convocados
+CREATE TABLE IF NOT EXISTS jugador_convocado (
+    convocatoria_id BIGINT NOT NULL,
+    jugador_id BIGINT NOT NULL,
+    FOREIGN KEY (convocatoria_id) REFERENCES convocatoria(id),
+    FOREIGN KEY (jugador_id) REFERENCES jugador(id)
+);
+

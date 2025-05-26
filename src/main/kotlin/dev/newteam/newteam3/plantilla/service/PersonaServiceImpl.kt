@@ -59,9 +59,9 @@ class PersonaServiceImpl(
      * Devuelve un [Result] con el id guardado o un error [PersonaError].
      */
 
-    override fun save(persona: Persona): Result<Int, PersonaError> {
+    override fun save(persona: Persona): Result<Persona, PersonaError> {
         val savePersona = repository.save(persona)
-        cache.put(savePersona, persona)
+        cache.put(persona.id, persona)
         return Ok(savePersona)
     }
 
@@ -96,6 +96,8 @@ class PersonaServiceImpl(
      */
 
     override fun saveAll(personas: List<Persona>): Result<List<Persona>, PersonaError> {
-        return Ok(repository.saveAll(personas))
+        val toSave = Ok(repository.saveAll(personas))
+        cache.invalidateAll()
+        return Ok(personas)
     }
 }

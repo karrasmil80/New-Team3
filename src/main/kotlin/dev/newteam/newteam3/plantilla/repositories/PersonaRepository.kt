@@ -7,7 +7,7 @@ import dev.newteam.newteam3.plantilla.models.Persona
 interface PersonaRepository {
     fun findAll(): List<Persona>
     fun findById(id: Int): Persona?
-    fun save(persona: Persona): Int
+    fun save(persona: Persona): Persona
     fun deleteById(id: Int) : Int
     fun saveJugador(jugador: Jugador): Int
     fun saveEntrenador(entrenador: Entrenador): Int

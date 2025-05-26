@@ -113,6 +113,7 @@ class JugadorValidator: Validator<Jugador, PersonaError> {
         }
          */
 
+
         return Ok(t)
     }
 }

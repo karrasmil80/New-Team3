@@ -128,7 +128,7 @@ fun Persona.toEntity(): PersonaEntity {
 }
 
 fun PersonaEntity.toJugador(): Jugador {
-    val jugador = this as Jugador
+    val jugador = this as JugadorEntity
     return Jugador(
         id = jugador.id,
         nombre = jugador.nombre,
@@ -152,7 +152,7 @@ fun PersonaEntity.toJugador(): Jugador {
 }
 
 fun PersonaEntity.toEntrenador(): Entrenador {
-    val entrenador = this as Entrenador
+    val entrenador = this as EntrenadorEntity
     return Entrenador(
         id = entrenador.id,
         nombre = entrenador.nombre,
@@ -171,7 +171,7 @@ fun PersonaEntity.toEntrenador(): Entrenador {
 
 fun PersonaEntity.toModel(): Persona {
     return if (rol == "jugador") {
-        val jugador = this as Jugador
+        val jugador = this as JugadorEntity
         return Jugador(
             id = jugador.id,
             nombre = jugador.nombre,
@@ -193,7 +193,7 @@ fun PersonaEntity.toModel(): Persona {
             minutosJugados = jugador.minutosJugados
         )
 } else {
-    val entrenador = this as Entrenador
+    val entrenador = this as EntrenadorEntity
         Entrenador(
             id = entrenador.id,
             nombre = entrenador.nombre,

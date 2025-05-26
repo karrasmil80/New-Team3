@@ -44,7 +44,7 @@ class PersonaRepositoryImpl (
      * Funcion que desde [PersonaDao] inserta un nuevo miembro
      */
 
-    override fun save(item: Persona): Int{
+    override fun save(item: Persona): Persona {
         val personaEntity = item.toEntity()
         val id = dao.save(personaEntity)
 
@@ -52,18 +52,17 @@ class PersonaRepositoryImpl (
             "jugador" -> {
                 val jugador = item.toJugador().copy(id = personaEntity.id)
                 dao.saveJugador(jugador.toEntity())
-                return id
-
+                jugador
             }
             "entrenador" -> {
                 val entrenador = item.toEntrenador().copy(id = personaEntity.id)
                 dao.saveEntrenador(entrenador.toEntity())
-                return id
+                entrenador
             }
-
             else -> throw IllegalArgumentException("Tipo no soportado")
         }
     }
+
 
     /**
     * Funcion que desde [PersonaDao] borra el id de un miembro

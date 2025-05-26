@@ -122,7 +122,7 @@ class ConvocatoriaValidatorTest {
     @Test
     @DisplayName("Test Fallo por Convocatoria con más de 11 titulares")
     fun testConvocatoriaOnceTitularExcedido() {
-        val jugadores = List(12) { crearJugador(it + 1, Jugador.Posicion.DEFENSA) }
+        val jugadores = List(12) { crearJugador(it + 1, Jugador.Posicion.DEFENSA) } // lista de 12 jugadores
         val convocados = jugadores.map { convocado(it) }
         val onceTitular = jugadores.map { it.id }
 
@@ -165,7 +165,7 @@ class ConvocatoriaValidatorTest {
 
         val convocatoria = Convocatoria(
             id = 1,
-            descripcion = "  ", // blank string
+            descripcion = "  ",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(convocado(jugador)),
             onceTitular = listOf(jugador.id)

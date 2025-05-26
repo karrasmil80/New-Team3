@@ -16,7 +16,7 @@ class ConvocatoriaValidator : Validator<Convocatoria, PersonaError> {
     private val logger = logging()
 
     override fun validate(t: Convocatoria): Result<Convocatoria, PersonaError> {
-        logger.debug { "Validando la convocatoria..." }
+        logger.debug { "🔵 Validando la convocatoria..." }
 
 
         if (t.id <= 0) {

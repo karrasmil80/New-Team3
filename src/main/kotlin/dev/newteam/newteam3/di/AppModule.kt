@@ -5,6 +5,7 @@ import dev.newteam.newteam3.config.Config
 import dev.newteam.newteam3.database.JdbiManager
 import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.plantilla.repositories.PersonaRepositoryImpl
+import dev.newteam.newteam3.plantilla.service.PersonaServiceImpl
 import dev.newteam.newteam3.plantilla.utils.provideCacheCaffeine
 import dev.newteam.newteam3.plantilla.utils.provideDatabaseManager
 import dev.newteam.newteam3.plantilla.utils.providePersonaDao
@@ -79,4 +80,31 @@ val AppModule = module {
         println(e)
         logger.error { "No se ha podido proporcionar el repositorio" }
     }
+
+    /**
+     * Crea un singleton de [PersonaServiceImpl]
+     */
+
+    try {
+        single { PersonaServiceImpl(
+            repository = get(),
+            cache = get()
+        ) }
+    } catch (e : Exception) {
+        println(e)
+        logger.error { "No se ha podido proporcionar el servicio" }
+    }
+
+    /**
+     * Crea un singleton de [PersonaViewModel]
+     */
+
+    try {
+
+    } catch (e: Exception) {
+        println(e)
+        logger.error { "No se ha podido proporcionar el view model" }
+    }
+
+
 }

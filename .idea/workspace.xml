@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Empezando con los test del repositorio">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/service/PersonaServiceImplMockitoTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/repositories/PersonaRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/repositories/PersonaRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/repositories/PersonaRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/repositories/PersonaRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/service/PersonaService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/service/PersonaService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/service/PersonaServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/service/PersonaServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/repository/PersonaRepositoryMockitoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/repository/PersonaRepositoryMockitoTest.kt" afterDir="false" />
-    </list>
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +115,7 @@
     "Gradle.New-Team3 [run].executor": "Run",
     "Gradle.PersonaDaoTest.executor": "Run",
     "Gradle.PersonaRepositoryMockitoTest.executor": "Coverage",
+    "Gradle.PersonaServiceImplMockitoTest.executor": "Coverage",
     "Gradle.PersonaValidatorTest.executor": "Coverage",
     "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
     "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
@@ -315,7 +306,7 @@
       <workItem from="1748181182816" duration="7386000" />
       <workItem from="1748188641550" duration="211000" />
       <workItem from="1748190136596" duration="227000" />
-      <workItem from="1748249744918" duration="5843000" />
+      <workItem from="1748249744918" duration="6165000" />
     </task>
     <task id="LOCAL-00001" summary="Conflictos arreglados">
       <option name="closed" value="true" />
@@ -341,7 +332,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748188841305</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio">
+      <option name="closed" value="true" />
+      <created>1748255922199</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748255922199</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
+      <option name="closed" value="true" />
+      <created>1748255957669</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748255957669</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +370,9 @@
     <MESSAGE value="Conflictos arreglados" />
     <MESSAGE value="Terminado el servicio y el repositorio, falta testear" />
     <MESSAGE value="Empezando con los test del repositorio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Empezando con los test del repositorio" />
+    <MESSAGE value="Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/New_Team3$PersonaRepositoryMockitoTest.ic" NAME="PersonaRepositoryMockitoTest Coverage Results" MODIFIED="1748253705105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

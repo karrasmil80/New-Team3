@@ -11,7 +11,6 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 
-/*
 class ConvocatoriaValidatorTest {
 
     private val validator = ConvocatoriaValidator()
@@ -54,7 +53,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Jornada muy importante de la temporada.",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = convocados,
-            onceTitular = onceTitular
+            //onceTitular = onceTitular
         )
 
         val result = validator.validate(convocatoria)
@@ -73,7 +72,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Una jornada futura.",
             jornada = LocalDateTime.now().plusDays(3),
             jugadoresConvocados = listOf(convocado(jugador)),
-            onceTitular = listOf(jugador.id)
+            //onceTitular = listOf(jugador.id)
         )
 
         val result = validator.validate(convocatoria)
@@ -92,7 +91,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Sin jugadores.",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(),
-            onceTitular = listOf()
+            //onceTitular = listOf()
         )
 
         val result = validator.validate(convocatoria)
@@ -101,6 +100,7 @@ class ConvocatoriaValidatorTest {
         assertEquals("Datos no válidos. Debe haber al menos un jugador convocado.", result.error.message)
     }
 
+    /*
     @Test
     @DisplayName("Test Fallo por Convocatoria con once titular vacío")
     fun testConvocatoriaOnceTitularVacio() {
@@ -111,7 +111,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Sin once titular.",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(convocado(jugador)),
-            onceTitular = listOf()
+            //onceTitular = listOf()
         )
 
         val result = validator.validate(convocatoria)
@@ -132,7 +132,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Once titular excedido.",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = convocados,
-            onceTitular = onceTitular
+            //onceTitular = onceTitular
         )
 
         val result = validator.validate(convocatoria)
@@ -150,7 +150,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Convocatoria con ID inválido.",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(convocado(jugador)),
-            onceTitular = listOf(jugador.id)
+            //onceTitular = listOf(jugador.id)
         )
 
         val result = validator.validate(convocatoria)
@@ -158,6 +158,7 @@ class ConvocatoriaValidatorTest {
         assertTrue(result.isErr)
         assertEquals("Datos no válidos. El ID de la convocatoria debe ser mayor a 0.", result.error.message)
     }
+     */
 
     @Test
     @DisplayName("Test Fallo por Convocatoria con descripción vacía")
@@ -169,7 +170,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "  ",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(convocado(jugador)),
-            onceTitular = listOf(jugador.id)
+            //onceTitular = listOf(jugador.id)
         )
 
         val result = validator.validate(convocatoria)
@@ -188,7 +189,7 @@ class ConvocatoriaValidatorTest {
             descripcion = "Corta",
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(convocado(jugador)),
-            onceTitular = listOf(jugador.id)
+            //onceTitular = listOf(jugador.id)
         )
 
         val result = validator.validate(convocatoria)
@@ -208,7 +209,7 @@ class ConvocatoriaValidatorTest {
             descripcion = descripcionLarga,
             jornada = LocalDateTime.now().minusDays(1),
             jugadoresConvocados = listOf(convocado(jugador)),
-            onceTitular = listOf(jugador.id)
+            //onceTitular = listOf(jugador.id)
         )
 
         val result = validator.validate(convocatoria)
@@ -217,5 +218,8 @@ class ConvocatoriaValidatorTest {
         assertEquals("Datos no válidos. La descripción debe tener entre 10 y 300 caracteres.", result.error.message)
     }
 }
+
+
+
 
 

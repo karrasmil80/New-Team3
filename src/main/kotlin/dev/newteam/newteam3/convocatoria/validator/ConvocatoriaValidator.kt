@@ -13,6 +13,7 @@ import java.time.LocalDateTime
  * En esta clase se almacenan los condicionales que validaran la entrada de datos de la convocatoria.
  */
 
+private val logger = logging()
 class ConvocatoriaValidator: Validator<Convocatoria, PersonaError> {
     override fun validate(t: Convocatoria): Result<Convocatoria, PersonaError> {
         logger.debug { "🔵 Validando la convocatoria..." }
@@ -41,7 +42,7 @@ class ConvocatoriaValidator: Validator<Convocatoria, PersonaError> {
             return Err(PersonaError.PersonaValidatorError("Debe haber al menos un jugador convocado."))
         }
 
-
+        /*
         if (t.onceTitular.isEmpty()) {
             return Err(PersonaError.PersonaValidatorError("Debe haber al menos un jugador en el once titular."))
         }
@@ -49,6 +50,7 @@ class ConvocatoriaValidator: Validator<Convocatoria, PersonaError> {
         if (t.onceTitular.size > 11) {
             return Err(PersonaError.PersonaValidatorError("El once titular no puede tener más de 11 jugadores."))
         }
+         */
         return Ok(t)
     }
 }

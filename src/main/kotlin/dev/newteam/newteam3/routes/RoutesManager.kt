@@ -29,10 +29,10 @@ object RoutesManager {
     private var sceneMap : HashMap<String, Pane> = HashMap()
 
     enum class View(val fxmlPath : String) {
-        PLANTILLA(""),
-        LOGIN(""),
+        PLANTILLA("views/muppets-view.fxml"),
+        LOGIN("views/login-view.fxml"),
         HELP(""),
-        SPLASH("")
+        SPLASH("views/splash-view.fxml"),
     }
 
     init {
@@ -100,7 +100,7 @@ object RoutesManager {
         logger.debug { "Iniciando Splash screen" }
         val fxmlLoader = FXMLLoader(getResource(View.SPLASH.fxmlPath))
         val root = fxmlLoader.load<Pane>()
-        val newScene = Scene(root, 700.0, 700.0)
+        val newScene = Scene(root, 780.0, 770.0)
 
         escenaPrincipal = stage
         _escenarioActivo = stage

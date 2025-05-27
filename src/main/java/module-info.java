@@ -12,6 +12,9 @@ module dev.newteam.newteam3 {
     requires logging.jvm;
     requires org.slf4j;
 
+    //bcrypt
+    requires jbcrypt;
+
     //KOIN
     requires koin.core.jvm;
     requires org.jdbi.v3.core;

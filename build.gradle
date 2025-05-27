@@ -83,6 +83,9 @@ dependencies {
     // Jacoco
     implementation("org.jacoco:org.jacoco.core:0.8.12")
 
+    //BCrypt
+    implementation("org.mindrot:jbcrypt:0.4")
+
 }
 
 test {

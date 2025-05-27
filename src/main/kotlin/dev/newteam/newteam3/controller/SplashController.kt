@@ -12,6 +12,7 @@ private var logger = logging()
 class SplashController {
 
 
+    @FXML
     lateinit var loadingProgressBar: ProgressBar
 
     fun initialize() {
@@ -33,5 +34,4 @@ class SplashController {
         timeline.cycleCount = 100 // 100 * 0.01 = 1.0 (100%)
         timeline.play()
     }
-
 }

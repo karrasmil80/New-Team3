@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="RoutesManager terminado">
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Routes Manager terminado y splash screen funcionando">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/HelloApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/HelloApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/HelloController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/HelloController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +295,8 @@
       <workItem from="1748268740618" duration="284000" />
       <workItem from="1748270741171" duration="4936000" />
       <workItem from="1748275808515" duration="6700000" />
-      <workItem from="1748352600458" duration="3482000" />
+      <workItem from="1748352600458" duration="3848000" />
+      <workItem from="1748356926244" duration="1093000" />
     </task>
     <task id="LOCAL-00001" summary="Test MapperTest.kt">
       <option name="closed" value="true" />
@@ -343,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748354194737</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Routes Manager terminado y splash screen funcionando">
+      <option name="closed" value="true" />
+      <created>1748356801180</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748356801180</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +375,8 @@
     <MESSAGE value="Empezando con los test del dao de la convocatoria, repositorio, dao, modelos y mappers hechos, falta el servicio" />
     <MESSAGE value="Comentadas algunas cosas en el validador" />
     <MESSAGE value="RoutesManager terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="RoutesManager terminado" />
+    <MESSAGE value="Routes Manager terminado y splash screen funcionando" />
+    <option name="LAST_COMMIT_MESSAGE" value="Routes Manager terminado y splash screen funcionando" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748272538974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

@@ -11,4 +11,6 @@ class HelloController {
     private fun onHelloButtonClick() {
         welcomeText.text = "Welcome to JavaFX Application!"
     }
+
+
 }

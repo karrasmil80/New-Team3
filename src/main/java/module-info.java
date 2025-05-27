@@ -43,6 +43,10 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.controller to javafx.fxml;
     exports dev.newteam.newteam3.controller to javafx.graphics;
 
+    //ROUTES MANAGER
+    opens dev.newteam.newteam3.routes to javafx.fxml;
+    exports dev.newteam.newteam3.routes to javafx.graphics;
+
 
 }
 

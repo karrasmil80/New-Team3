@@ -8,7 +8,6 @@ import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Jugador
 import dev.newteam.newteam3.plantilla.models.Persona
 
-class PersonaMapper {
     fun PersonaDto.toJugador(): Jugador {
         return Jugador(
             id = this.id,
@@ -253,6 +252,5 @@ class PersonaMapper {
         )
     }
 
-}
 
 

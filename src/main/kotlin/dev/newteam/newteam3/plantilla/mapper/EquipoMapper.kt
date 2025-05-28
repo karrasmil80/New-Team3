@@ -4,7 +4,6 @@ import dev.newteam.newteam3.plantilla.dao.EquipoEntity
 import dev.newteam.newteam3.plantilla.dto.EquipoDto
 import dev.newteam.newteam3.plantilla.models.Equipo
 
-class EquipoMapper {
     fun EquipoDto.toModel(): Equipo {
         return Equipo(
             id = this.id,
@@ -37,6 +36,6 @@ class EquipoMapper {
             pais = this.pais
         )
     }
-}
+
 
 

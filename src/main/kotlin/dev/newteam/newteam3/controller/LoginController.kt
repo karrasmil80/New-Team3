@@ -31,7 +31,10 @@ class LoginController {
 
             if(login(username, password)){
                 logger.debug { "Has iniciado sesion" }
+                //Iniciamos la escena de la plantilla tras un login exitoso
                 RoutesManager.initPlantillaStage()
+                //Cerramos la anterior pantalla
+                RoutesManager.escenaActiva.close()
             } else {
                 Alert(Alert.AlertType.ERROR).apply {
                     title = "Error de autenticación"

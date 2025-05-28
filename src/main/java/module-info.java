@@ -39,7 +39,7 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.plantilla.dao to org.jdbi.v3.core;
     exports dev.newteam.newteam3.plantilla.dao to kotlin.reflect;
 
-    //MAIN CONTOLLER
+    //CONTOLLERS
     opens dev.newteam.newteam3.controller to javafx.fxml;
     exports dev.newteam.newteam3.controller to javafx.graphics;
 

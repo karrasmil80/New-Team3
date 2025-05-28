@@ -27,7 +27,8 @@ class SplashController {
 
                 if (progress >= 1.0) {
                     // Aquí llamas a la función para abrir tu ventana principal
-                    RoutesManager.initSplashScreen(RoutesManager.escenaPrincipal)
+                    RoutesManager.escenaActiva.close()
+                    RoutesManager.initLoginStage(RoutesManager.escenaActiva)
                 }
             })
         )

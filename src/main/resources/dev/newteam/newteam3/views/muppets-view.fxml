@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="800" prefWidth="1400" stylesheets="@../styles/muppets.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.NewTeamController">
+<BorderPane prefHeight="800" prefWidth="1400" stylesheets="@../styles/muppets.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.MuppetsController">
     <center>
         <StackPane fx:id="mainContainer" styleClass="main-container">
             <ImageView fx:id="backgroundImage" fitHeight="770" fitWidth="1400" preserveRatio="false" styleClass="background-image">

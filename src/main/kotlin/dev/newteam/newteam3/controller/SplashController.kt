@@ -26,13 +26,12 @@ class SplashController {
                 loadingProgressBar.progress = progress
 
                 if (progress >= 1.0) {
-                    // Aquí llamas a la función para abrir tu ventana principal
                     RoutesManager.escenaActiva.close()
                     RoutesManager.initLoginStage(RoutesManager.escenaActiva)
                 }
             })
         )
-        timeline.cycleCount = 100 // 100 * 0.01 = 1.0 (100%)
+        timeline.cycleCount = 100
         timeline.play()
     }
 }

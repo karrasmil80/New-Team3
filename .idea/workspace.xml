@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Añadiendo bcrypt a la base de datos">
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Arreglado el error de los mappers y ConvocatoriaService terminado">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/User.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EntrenadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EntrenadorMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EquipoMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EquipoMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +55,9 @@
       <list>
         <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
         <option value="Kotlin Object" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -301,7 +297,7 @@
       <workItem from="1748275808515" duration="6700000" />
       <workItem from="1748352600458" duration="3848000" />
       <workItem from="1748356926244" duration="1237000" />
-      <workItem from="1748438289803" duration="1591000" />
+      <workItem from="1748438289803" duration="3577000" />
     </task>
     <task id="LOCAL-00001" summary="Test MapperTest.kt">
       <option name="closed" value="true" />
@@ -359,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748358156860</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Arreglado el error de los mappers y ConvocatoriaService terminado">
+      <option name="closed" value="true" />
+      <created>1748440118689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748440118689</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +394,8 @@
     <MESSAGE value="RoutesManager terminado" />
     <MESSAGE value="Routes Manager terminado y splash screen funcionando" />
     <MESSAGE value="Añadiendo bcrypt a la base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadiendo bcrypt a la base de datos" />
+    <MESSAGE value="Arreglado el error de los mappers y ConvocatoriaService terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado el error de los mappers y ConvocatoriaService terminado" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748272538974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

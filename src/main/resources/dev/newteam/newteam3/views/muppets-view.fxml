@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="800" prefWidth="1400" stylesheets="@../styles/muppets.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.NewTeamController">
+<BorderPane prefHeight="800" prefWidth="1400" stylesheets="@../styles/muppets.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.NewTeamController">
     <center>
         <StackPane fx:id="mainContainer" styleClass="main-container">
             <ImageView fx:id="backgroundImage" fitHeight="770" fitWidth="1400" preserveRatio="false" styleClass="background-image">
@@ -65,14 +60,13 @@
 
                 <TableView layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="338.0">
                     <columns>
-                        <TableColumn prefWidth="63.0" text="C1" />
-                        <TableColumn prefWidth="276.0" text="C2" />
+                        <TableColumn prefWidth="337.0" text="Nombre y Apellidos" />
                     </columns>
                 </TableView>
                 <TableView layoutX="72.0" layoutY="154.0" prefHeight="463.0" prefWidth="336.0">
                     <columns>
-                        <TableColumn editable="false" prefWidth="63.0" />
-                        <TableColumn editable="false" prefWidth="272.0" />
+                        <TableColumn editable="false" prefWidth="85.0" text="Nº Dorsal" />
+                        <TableColumn editable="false" prefWidth="250.0" text="Nombre y Apellidos" />
                     </columns>
                 </TableView>
             </AnchorPane>

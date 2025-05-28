@@ -2,7 +2,9 @@ package dev.newteam.newteam3.plantilla.models
 
 import java.time.LocalDate
 
-
+/**
+ * Aquí se almacenan los datos de las Personas tipo: Jugador.
+ */
 class Jugador(
     id: Int,
     nombre: String,

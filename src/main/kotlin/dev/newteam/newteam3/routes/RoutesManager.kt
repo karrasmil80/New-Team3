@@ -34,7 +34,7 @@ object RoutesManager {
         PLANTILLA_NEWTEAM("views/newteam-view.fxml"),
         BANQUILLO_NEWTEAM("views/newteam-banquillo-view.fxml"),
         LOGIN("views/login-view.fxml"),
-        HELP(""),
+        HELP("views/acercade-view.fxml"),
         SPLASH("views/splash-view.fxml"),
         MODIFY_NEWTEAM("views/newteam-modify-view.fxml"),
         MODIFY_MUPPET("views/muppets-modify-view.fxml"),

@@ -1,6 +1,6 @@
-package dev.newteam.newteam3.user.model
+package dev.newteam.newteam3.user.dao
 
-data class User(
+class UserEntity(
     val id : Int,
     val nombre : String,
     val password : String

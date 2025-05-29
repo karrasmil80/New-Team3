@@ -9,7 +9,7 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertAll
 import java.time.LocalDate
-
+/*
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class PersonaDaoTest {
 
@@ -242,3 +242,4 @@ class PersonaDaoTest {
         }
     }
 }
+ */

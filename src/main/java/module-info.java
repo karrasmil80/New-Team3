@@ -24,6 +24,7 @@ module dev.newteam.newteam3 {
     requires kotlinx.serialization.core;
     requires kotlin.result.jvm;
     requires org.jdbi.v3.sqlobject.kotlin;
+    requires open;
 
 
     //CARPETAS A ABRIR EN LA APP

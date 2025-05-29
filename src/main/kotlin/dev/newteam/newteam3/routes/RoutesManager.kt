@@ -29,10 +29,15 @@ object RoutesManager {
     private var sceneMap : HashMap<String, Pane> = HashMap()
 
     enum class View(val fxmlPath : String) {
-        PLANTILLA(""),
-        LOGIN(""),
-        HELP(""),
-        SPLASH("")
+        PLANTILLA_MUPPET("views/muppets-view.fxml"),
+        BANQUILLO_MUPPET("views/muppets-banquillo-view.fxml"),
+        PLANTILLA_NEWTEAM("views/newteam-view.fxml"),
+        BANQUILLO_NEWTEAM("views/newteam-banquillo-view.fxml"),
+        LOGIN("views/login-view.fxml"),
+        HELP("views/acercade-view.fxml"),
+        SPLASH("views/splash-view.fxml"),
+        MODIFY_NEWTEAM("views/newteam-modify-view.fxml"),
+        MODIFY_MUPPET("views/muppets-modify-view.fxml"),
     }
 
     init {
@@ -54,7 +59,7 @@ object RoutesManager {
         logger.debug { "Iniciando ventana de login" }
         val fxmlLoader = FXMLLoader(getResource(View.LOGIN.fxmlPath))
         val root = fxmlLoader.load<Pane>()
-        val newScene = Scene(root, 700.0, 700.0)
+        val newScene = Scene(root, 660.0, 440.0)
         mainStage.apply {
             title = "Login New Team"
             scene = newScene
@@ -68,10 +73,24 @@ object RoutesManager {
     }
 
     fun initPlantillaStage() {
-        logger.debug { "Cargando escena principal" }
-        val fxmlLoader = FXMLLoader(getResource(View.PLANTILLA.fxmlPath))
+        logger.debug { "Cargando escena new team" }
+        val fxmlLoader = FXMLLoader(getResource(View.PLANTILLA_NEWTEAM.fxmlPath))
         val root = fxmlLoader.load<Pane>()
-        val newScene = Scene(root, 700.0, 700.0)
+        val newScene = Scene(root, 1400.0, 780.0)
+        Stage().apply {
+            title = "New Team APP"
+            scene = newScene
+            centerOnScreen()
+            isResizable = false
+
+        }.show()
+    }
+
+    fun initPlantillaMuppetStage() {
+        logger.debug { "Cargando escena muppet" }
+        val fxmlLoader = FXMLLoader(getResource(View.PLANTILLA_MUPPET.fxmlPath))
+        val root = fxmlLoader.load<Pane>()
+        val newScene = Scene(root, 1400.0, 780.0)
         Stage().apply {
             title = "New Team APP"
             scene = newScene
@@ -100,7 +119,7 @@ object RoutesManager {
         logger.debug { "Iniciando Splash screen" }
         val fxmlLoader = FXMLLoader(getResource(View.SPLASH.fxmlPath))
         val root = fxmlLoader.load<Pane>()
-        val newScene = Scene(root, 700.0, 700.0)
+        val newScene = Scene(root, 780.0, 770.0)
 
         escenaPrincipal = stage
         _escenarioActivo = stage
@@ -111,6 +130,58 @@ object RoutesManager {
             centerOnScreen()
             isResizable = false
 
+        }.show()
+    }
+
+    fun initBanquilloNewTeamScreen() {
+        logger.debug { "Iniciando Banquillo New Team" }
+        val fxmlLoader = FXMLLoader(getResource(View.BANQUILLO_NEWTEAM.fxmlPath))
+        val root = fxmlLoader.load<Pane>()
+        val newScene = Scene(root, 516.0, 700.0)
+        Stage().apply {
+            title = "New Team Banquillo"
+            scene = newScene
+            centerOnScreen()
+            isResizable = false
+        }.show()
+    }
+
+    fun initBanquilloMuppetScreen() {
+        logger.debug { "Iniciando Banquillo Muppet" }
+        val fxmlLoader = FXMLLoader(getResource(View.BANQUILLO_MUPPET.fxmlPath))
+        val root = fxmlLoader.load<Pane>()
+        val newScene = Scene(root, 600.0, 870.0)
+        Stage().apply {
+            title = "New Team Banquillo"
+            scene = newScene
+            centerOnScreen()
+            isResizable = false
+        }.show()
+    }
+
+    fun initModifyNewTeamScreen() {
+        logger.debug { "Iniciando ModifyScreen New Team" }
+        val fxmlLoader = FXMLLoader(getResource(View.MODIFY_NEWTEAM.fxmlPath))
+        val root = fxmlLoader.load<Pane>()
+        val newScene = Scene(root, 895.0, 570.0)
+        Stage().apply {
+            title = "New Team ModifyScreen"
+            scene = newScene
+            centerOnScreen()
+            isResizable = false
+        }.show()
+    }
+
+    fun initModifyMuppetScreen() {
+        logger.debug { "Iniciando ModifyScreen Muppet" }
+        val fxmlLoader = FXMLLoader(getResource(View.MODIFY_MUPPET.fxmlPath))
+        val root = fxmlLoader.load<Pane>()
+        val newScene = Scene(root, 895.0, 570.0)
+        Stage().apply {
+            title = "Muppet ModifyScreen"
+            scene = newScene
+            centerOnScreen()
+            isResizable = false
         }.show()
     }
 

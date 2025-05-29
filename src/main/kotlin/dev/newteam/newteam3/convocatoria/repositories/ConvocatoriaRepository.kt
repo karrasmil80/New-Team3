@@ -12,5 +12,4 @@ interface ConvocatoriaRepository {
     fun deleteById(id: Int) : Int
     fun deleteAll() : Int
     fun saveAll(persona : List<Convocatoria>): List<Convocatoria>
-
 }

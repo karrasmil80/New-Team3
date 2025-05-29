@@ -12,6 +12,9 @@ module dev.newteam.newteam3 {
     requires logging.jvm;
     requires org.slf4j;
 
+    //bcrypt
+    requires jbcrypt;
+
     //KOIN
     requires koin.core.jvm;
     requires org.jdbi.v3.core;
@@ -36,9 +39,13 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.plantilla.dao to org.jdbi.v3.core;
     exports dev.newteam.newteam3.plantilla.dao to kotlin.reflect;
 
-    //MAIN CONTOLLER
+    //CONTOLLERS
     opens dev.newteam.newteam3.controller to javafx.fxml;
     exports dev.newteam.newteam3.controller to javafx.graphics;
+
+    //ROUTES MANAGER
+    opens dev.newteam.newteam3.routes to javafx.fxml;
+    exports dev.newteam.newteam3.routes to javafx.graphics;
 
 
 }

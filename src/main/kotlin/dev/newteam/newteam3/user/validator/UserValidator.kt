@@ -20,6 +20,10 @@ class UserValidator: Validator<User, PersonaError> {
     override fun validate(t: User): Result<User, PersonaError> {
         logger.debug { "🔵 Validando la entrada de datos del Usuario..." }
 
+        if (t.id <= 0) {
+            return Err(PersonaError.PersonaValidatorError("ID negativo/nulo."))
+        }
+
         if (t.nombre != "admin"){
             return Err(PersonaError.PersonaValidatorError("Nombre incorrecto."))
         }

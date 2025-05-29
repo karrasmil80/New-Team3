@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Modelo de usuario creado">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/dao/UserDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/dao/UserEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/mapper/UserMapper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepositoryImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EntrenadorMapperTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EquipoMapperTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/JugadorMapperTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/PersonaMapperTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/AcercaDeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/AcercaDeController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/User.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/model/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/model/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/MapperTest.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +101,22 @@
     "Gradle.CasosCorrectos.insertarAlumno.executor": "Run",
     "Gradle.ConvocatoriaDaoTest.executor": "Run",
     "Gradle.ConvocatoriaValidatorTest.executor": "Run",
+    "Gradle.EntrenadorMapperTest.executor": "Coverage",
+    "Gradle.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity.executor": "Coverage",
+    "Gradle.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador.executor": "Coverage",
     "Gradle.EntrenadorValidatorTest.executor": "Run",
+    "Gradle.JugadorMapperTest.executor": "Coverage",
+    "Gradle.JugadorMapperTest.test conversion JugadorEntity a Jugador.executor": "Run",
     "Gradle.JugadorValidatorTest.executor": "Run",
     "Gradle.MapeoCorrecto.JugadoraPersonaEntity.executor": "Run",
     "Gradle.MapeoCorrecto.executor": "Run",
     "Gradle.New-Team3.0 [run].executor": "Run",
     "Gradle.PersonaDaoTest.executor": "Run",
     "Gradle.PersonaDaoTest.findAll.executor": "Run",
+    "Gradle.PersonaDtoMapperTest.executor": "Coverage",
+    "Gradle.PersonaDtoMapperTest.test conversion Persona a Jugador.executor": "Run",
+    "Gradle.PersonaDtoMapperTest.test conversion PersonaEntity a Entrenador.executor": "Run",
+    "Gradle.PersonaMapperTest.executor": "Coverage",
     "Gradle.PersonaRepositoryMockitoTest.executor": "Run",
     "Gradle.PersonaServiceImplMockitoTest.executor": "Run",
     "Gradle.PersonaStorageCsvTest.executor": "Run",
@@ -124,7 +126,7 @@
     "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev-zuil",
+    "git-widget-placeholder": "features",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "liberica-full-21",
     "kotlin-language-version-configured": "true",
@@ -152,8 +154,8 @@
       <recent name="dev.newteam.newteam3.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.New-Team3.0 [run]">
-    <configuration name="CasosCorrectos" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.EquipoMapperTest">
+    <configuration name="EntrenadorMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -166,7 +168,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;plantilla.dao.PersonaDaoTest$CasosCorrectos&quot;" />
+            <option value="&quot;plantilla.mapper.EntrenadorMapperTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -177,29 +179,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="New-Team3.0 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="run" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="PersonaDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -212,7 +192,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;plantilla.dao.PersonaDaoTest&quot;" />
+            <option value="&quot;plantilla.mapper.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -223,7 +203,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PersonaRepositoryMockitoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -236,7 +216,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;plantilla.repository.PersonaRepositoryMockitoTest&quot;" />
+            <option value="&quot;plantilla.mapper.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -247,7 +227,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PersonaServiceImplMockitoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="EquipoMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -260,7 +240,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;plantilla.service.PersonaServiceImplMockitoTest&quot;" />
+            <option value="&quot;plantilla.mapper.EquipoMapperTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="PersonaMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;plantilla.mapper.PersonaMapperTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -273,11 +277,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.New-Team3.0 [run]" />
-        <item itemvalue="Gradle.PersonaServiceImplMockitoTest" />
-        <item itemvalue="Gradle.PersonaRepositoryMockitoTest" />
-        <item itemvalue="Gradle.PersonaDaoTest" />
-        <item itemvalue="Gradle.CasosCorrectos" />
+        <item itemvalue="Gradle.EquipoMapperTest" />
+        <item itemvalue="Gradle.EntrenadorMapperTest" />
+        <item itemvalue="Gradle.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador" />
+        <item itemvalue="Gradle.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity" />
+        <item itemvalue="Gradle.PersonaMapperTest" />
       </list>
     </recent_temporary>
   </component>
@@ -429,6 +433,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="Modelo de usuario creado" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/New_Team3$PersonaDtoMapperTest.ic" NAME="PersonaDtoMapperTest Coverage Results" MODIFIED="1748501878272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$JugadorMapperTest.ic" NAME="JugadorMapperTest Coverage Results" MODIFIED="1748503545529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748272538974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorMapperTest_test_conversion_EntrenadorEntity_a_Entrenador.ic" NAME="EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador Coverage Results" MODIFIED="1748526051741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorMapperTest.ic" NAME="EntrenadorMapperTest Coverage Results" MODIFIED="1748526274943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$PersonaMapperTest.ic" NAME="PersonaMapperTest Coverage Results" MODIFIED="1748525462079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorMapperTest_test_conversion_Entrenador_a_EntrenadorEntity.ic" NAME="EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity Coverage Results" MODIFIED="1748525828746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

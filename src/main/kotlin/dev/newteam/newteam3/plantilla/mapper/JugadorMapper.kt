@@ -3,6 +3,7 @@ package dev.newteam.newteam3.plantilla.mapper
 import dev.newteam.newteam3.plantilla.dao.JugadorEntity
 import dev.newteam.newteam3.plantilla.dto.JugadorDto
 import dev.newteam.newteam3.plantilla.dto.PersonaDto
+import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Jugador
 import dev.newteam.newteam3.plantilla.models.Persona
 
@@ -30,8 +31,9 @@ import dev.newteam.newteam3.plantilla.models.Persona
         )
     }
 
-    fun JugadorDto.toModel() : Persona {
-        return Jugador(
+fun JugadorDto.toModel(): Persona {
+    return when (rol) {
+        "jugador" -> Jugador(
             id = this.id,
             nombre = this.nombre,
             apellido = this.apellido,
@@ -39,7 +41,7 @@ import dev.newteam.newteam3.plantilla.models.Persona
             fechaIncorporacion = this.fechaIncorporacion,
             salario = this.salario,
             pais = this.pais,
-            posicion = posicion,
+            posicion = this.posicion,
             dorsal = this.dorsal,
             altura = this.altura,
             peso = this.peso,
@@ -49,11 +51,27 @@ import dev.newteam.newteam3.plantilla.models.Persona
             minutosJugados = this.minutosJugados,
             imagen = this.imagen,
             rol = this.rol,
-            equipo = Persona.Equipos.valueOf(equipo),
+            equipo = Persona.Equipos.valueOf(this.equipo)
         )
+        "entrenador" -> Entrenador( // ✅ Manejo de otro tipo de `Persona`
+            id = this.id,
+            nombre = this.nombre,
+            apellido = this.apellido,
+            fechaNacimiento = this.fechaNacimiento,
+            fechaIncorporacion = this.fechaIncorporacion,
+            salario = this.salario,
+            pais = this.pais,
+            imagen = this.imagen,
+            rol = this.rol,
+            especializacion = Entrenador.Especializacion.PRINCIPAL,
+            equipo = Persona.Equipos.valueOf(this.equipo)
+        )
+        else -> throw IllegalArgumentException("Rol desconocido: $rol")
     }
+}
 
-    fun Jugador.toEntity(): JugadorEntity {
+
+fun Jugador.toEntity(): JugadorEntity {
         return JugadorEntity(
             id = this.id,
             nombre = this.nombre,

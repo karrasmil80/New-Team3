@@ -2,6 +2,7 @@ package plantilla.service
 
 import com.github.benmanes.caffeine.cache.Cache
 import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
+import dev.newteam.newteam3.plantilla.mapper.toEntrenador
 import dev.newteam.newteam3.plantilla.mapper.toModel
 import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Persona
@@ -83,15 +84,9 @@ class PersonaServiceImplMockitoTest {
                 equipo = Persona.Equipos.MUPPET
             )
 
-            // mockea el repositorio para que devuelva la entidad
             whenever(repository.findById(1)).thenReturn(entrenadorEntity.toModel())
 
             val result = service.findById(1)
-
-            val mockPersona = repository.findById(1)
-            println(mockPersona)
-            println(mockPersona?.rol)
-
 
             assertTrue(result.isOk)
 

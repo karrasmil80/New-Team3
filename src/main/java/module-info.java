@@ -47,6 +47,10 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.routes to javafx.fxml;
     exports dev.newteam.newteam3.routes to javafx.graphics;
 
+    //ENTITY
+    opens dev.newteam.newteam3.convocatoria.dao to org.jdbi.v3.core;
+    exports dev.newteam.newteam3.convocatoria.dao to kotlin.reflect;
+
 
 }
 

@@ -1,6 +1,8 @@
+-- Equipo MUPPET
 INSERT INTO equipo (nombre_equipo)
 VALUES ('MUPPET');
 
+-- Equipo New Team
 INSERT INTO equipo (nombre_equipo)
 VALUES ('NEW_TEAM');
 
@@ -21,7 +23,7 @@ INSERT INTO persona (
       (40, 'Jeff', 'Turner', '1950-09-08', '1983-04-01', 46000.0, 'Japón', 'entrenador', 'MUPPET');
 
 -- Convocatorias
-INSERT INTO convocatoria (id, jornada, descripcion) VALUES
-      (1, '2025-08-10 15:30:00', 'Jornada de apertura contra el equipo rival'),
-      (2, '2025-08-17 17:00:00', 'Segundo partido de la temporada'),
-      (3, '2025-08-24 16:00:00', 'Partido de ida del clásico')
+INSERT INTO convocatoria (id, jornada) VALUES
+      (1, '2025-08-10 15:30:00'),
+      (2, '2025-08-17 17:00:00'),
+      (3, '2025-08-24 16:00:00');

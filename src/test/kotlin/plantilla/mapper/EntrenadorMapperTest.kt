@@ -14,7 +14,7 @@ import java.time.LocalDate
 
 class EntrenadorMapperTest {
     @Test
-    fun `test conversion Entrenador a PersonaDto`() {
+    fun conversionEntrenadoraPersonaDto() {
         val entrenador = Entrenador(
             id = 1,
             nombre = "Pep",
@@ -58,7 +58,7 @@ class EntrenadorMapperTest {
     }
 
     @Test
-    fun `test conversion EntrenadorDto a Entrenador`() {
+    fun conversionEntrenadorDtoaEntrenador() {
         val entrenadorDto = EntrenadorDto(
             id = 1,
             nombre = "Pep",
@@ -93,7 +93,7 @@ class EntrenadorMapperTest {
 
 
     @Test
-    fun `test conversion Entrenador a EntrenadorEntity`() {
+    fun conversionEntrenadoraEntrenadorEntity() {
         val entrenador = Entrenador(
             id = 1,
             nombre = "Pep",
@@ -127,7 +127,7 @@ class EntrenadorMapperTest {
     }
 
     @Test
-    fun `test conversion EntrenadorEntity a Entrenador`() {
+    fun conversionEntrenadorEntityaEntrenador() {
         val entrenadorEntity = EntrenadorEntity(
             id = 1,
             nombre = "Pep",
@@ -161,7 +161,7 @@ class EntrenadorMapperTest {
     }
 
     @Test
-    fun `test conversion EntrenadorDto a EntrenadorEntity`() {
+    fun conversionEntrenadorDtoaEntrenadorEntity() {
         val entrenadorDto = EntrenadorDto(
             id = 1,
             nombre = "Pep",

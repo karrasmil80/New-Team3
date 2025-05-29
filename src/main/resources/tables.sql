@@ -45,18 +45,20 @@ CREATE TABLE IF NOT EXISTS entrenador (
     FOREIGN KEY (id) REFERENCES persona(id) -- FK: hereda de persona
 );
 
--- Tabla de CONVOCATORIAS
+-- Tabla CONVOCATORIA
 CREATE TABLE IF NOT EXISTS convocatoria (
-    id IDENTITY PRIMARY KEY, -- ID autoincremental (clave primaria)
-    jornada TIMESTAMP NOT NULL, -- Fecha y hora de la jornada/partido
-    descripcion VARCHAR(255) -- Descripción libre de la convocatoria
+    id IDENTITY PRIMARY KEY,
+    jornada TIMESTAMP NOT NULL
 );
 
--- Tabla de jugadores convocados
+-- Tabla JUGADOR_CONVOCADO
 CREATE TABLE IF NOT EXISTS jugador_convocado (
-    convocatoria_id BIGINT NOT NULL,
-    jugador_id BIGINT NOT NULL,
+    id VARCHAR(50) PRIMARY KEY,
+    persona_id INT NOT NULL,
+    convocatoria_id INT NOT NULL,
+    FOREIGN KEY (persona_id) REFERENCES persona(id),
     FOREIGN KEY (convocatoria_id) REFERENCES convocatoria(id),
-    FOREIGN KEY (jugador_id) REFERENCES jugador(id)
+    UNIQUE (persona_id, convocatoria_id) -- evita duplicados
 );
+
 

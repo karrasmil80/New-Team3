@@ -2,6 +2,7 @@ package dev.newteam.newteam3.di
 
 import com.github.benmanes.caffeine.cache.Cache
 import dev.newteam.newteam3.config.Config
+import dev.newteam.newteam3.convocatoria.repositories.ConvocatoriaRepositoryImpl
 import dev.newteam.newteam3.convocatoria.utils.provideConvocatoriaDao
 import dev.newteam.newteam3.database.JdbiManager
 import dev.newteam.newteam3.plantilla.models.Persona
@@ -13,6 +14,7 @@ import dev.newteam.newteam3.plantilla.utils.providePersonaDao
 import org.jdbi.v3.core.Jdbi
 import org.koin.dsl.module
 import org.lighthousegames.logging.logging
+import kotlin.math.log
 import kotlin.math.sin
 
 //Logger
@@ -21,6 +23,7 @@ private val logger = logging()
 val AppModule = module {
 
     //Lo hacemos todo con try catch para no interrumpir el programa y saber cuando falla
+    //PLANTILLA
 
     /**
      * Crea un singleton de [Config]
@@ -108,6 +111,8 @@ val AppModule = module {
         logger.error { "No se ha podido proporcionar el view model" }
     }
 
+    //Convocatoria
+
     /**
      * Proporciona el dao [ConvocatoriaDao]
      */
@@ -115,11 +120,23 @@ val AppModule = module {
     try {
         single { provideConvocatoriaDao(
             jdbi = get()
-        ) }
+        )}
     } catch (e : Exception) {
         println(e)
-        logger.error { "No se ha podido proporcionar el dao para la convocatoria" }
+        logger.error { "no se ha podido proporcionar el dao par" }
     }
 
+    /**
+     * Crea un singleton de [ConvocatoriaRepository]
+     */
 
+    try {
+        single { ConvocatoriaRepositoryImpl(
+            convocadoDao = get(),
+            dao = get()
+        )}
+    } catch (e : Exception) {
+        println(e)
+        logger.error { "No se ha podido crear un singleton de ConvocatoriaRepositoryImpl" }
+    }
 }

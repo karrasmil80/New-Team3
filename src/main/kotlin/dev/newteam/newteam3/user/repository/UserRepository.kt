@@ -1,6 +1,5 @@
 package dev.newteam.newteam3.user.repository
 
-import dev.newteam.newteam3.convocatoria.models.Convocatoria
 import dev.newteam.newteam3.user.model.User
 
 interface UserRepository {

@@ -7,7 +7,7 @@ class UserRepositoryImpl(
     private val userDao: UserDao
 ) : UserRepository {
     override fun findAll(): List<User> {
-        TODO("SS")
+        TODO("Not yet implemented")
     }
 
     override fun findById(id: Int): User? {

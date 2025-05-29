@@ -169,10 +169,11 @@ import dev.newteam.newteam3.plantilla.models.Persona
     }
 
 
-    fun PersonaEntity.toModel(): Persona {
-        return if (rol == "jugador") {
+fun PersonaEntity.toModel(): Persona {
+    return when (rol.trim().lowercase()) {
+        "jugador" -> {
             val jugador = this as JugadorEntity
-            return Jugador(
+            Jugador(
                 id = jugador.id,
                 nombre = jugador.nombre,
                 apellido = jugador.apellido,
@@ -192,7 +193,9 @@ import dev.newteam.newteam3.plantilla.models.Persona
                 partidosJugados = jugador.partidosJugados,
                 minutosJugados = jugador.minutosJugados
             )
-        } else {
+        }
+
+        "entrenador" -> {
             val entrenador = this as EntrenadorEntity
             Entrenador(
                 id = entrenador.id,
@@ -208,9 +211,13 @@ import dev.newteam.newteam3.plantilla.models.Persona
                 especializacion = entrenador.especializacion,
             )
         }
-    }
 
-    fun Persona.toEntrenador(): Entrenador {
+        else -> throw IllegalStateException("Rol desconocido: '$rol'. No se puede mapear a un modelo.")
+    }
+}
+
+
+fun Persona.toEntrenador(): Entrenador {
         val entrenador = this as Entrenador
         return Entrenador(
             id = entrenador.id,

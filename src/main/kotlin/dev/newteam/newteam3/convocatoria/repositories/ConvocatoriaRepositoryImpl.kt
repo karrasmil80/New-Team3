@@ -1,65 +1,84 @@
 package dev.newteam.newteam3.convocatoria.repositories
 
 import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao
-import dev.newteam.newteam3.convocatoria.mapper.toModel
+import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaEntity
+import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoDao
+import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoEntity
 import dev.newteam.newteam3.convocatoria.models.Convocatoria
-import org.lighthousegames.logging.logging
+import dev.newteam.newteam3.convocatoria.models.JugadorConvocado
+import java.util.*
 
-private val logger = logging()
 class ConvocatoriaRepositoryImpl(
-    private val convocatoriaDao: ConvocatoriaDao
+    private val convocadoDao: JugadorConvocadoDao,
+    private val dao: ConvocatoriaDao
 ) : ConvocatoriaRepository {
 
-    /**
-     * Funcion que muestra todo sobre la [Convocatoria]
-     */
-
     override fun findAll(): List<Convocatoria> {
-        return convocatoriaDao.findAll().map { it.toModel() }
+        return dao.findAll().map { entity ->
+            val convocados = convocadoDao.findByConvocatoriaId(entity.id)
+            Convocatoria(
+                id = entity.id,
+                jornada = entity.jornada,
+                personalList = convocados.map {
+                    JugadorConvocado(
+                        id = UUID.fromString(it.id),
+                        convocatoriaId = it.convocatoriaId,
+                        personaId = it.personaId,
+                    )
+                }
+            )
+        }
     }
 
-    /**
-     * Funcion que busca por id una [Convocatoria]
-     */
 
     override fun findById(id: Int): Convocatoria? {
-        return convocatoriaDao.findById(id)?.toModel()
+        val convocatoriaEntity = dao.findById(id) ?: null
+        val convocados = convocadoDao.findByConvocatoriaId(id)
+        return Convocatoria(
+            id = convocatoriaEntity!!.id,
+            jornada = convocatoriaEntity.jornada,
+            personalList = convocados.map {
+                JugadorConvocado(
+                    id = UUID.fromString(it.id),
+                    convocatoriaId = it.convocatoriaId,
+                    personaId = it.personaId,
+                )
+            }
+        )
     }
-
-    /**
-     * Funcion que guarda una [Convocatoria]
-     */
 
     override fun save(convocatoria: Convocatoria): Convocatoria {
-        val toSave = convocatoriaDao.save(
-            jornada = convocatoria.jornada,
-            descripcion = convocatoria.descripcion,
+        val convocatoriaEntity = ConvocatoriaEntity(
+            id = convocatoria.id,
+            jornada = convocatoria.jornada
         )
-        val saved = convocatoria.copy(id = toSave)
-        return saved
-    }
 
-    /**
-     * Funcion que elimina el id de la [Convocatoria]
-     */
+        val id = dao.save(convocatoriaEntity)
+
+        convocatoria.personalList.forEach { convocado ->
+            convocadoDao.save(
+                JugadorConvocadoEntity(
+                    id = convocado.id.toString(),
+                    personaId = convocado.personaId,
+                    convocatoriaId = id
+                )
+            )
+        }
+
+        return convocatoria.copy(id = id)
+    }
 
     override fun deleteById(id: Int): Int {
-        return convocatoriaDao.delete(id)
+        convocadoDao.deleteByConvocatoriaId(id)
+        return dao.deleteById(id)
     }
-
-    /**
-     * Funcion que borra todo sobre una [Convocatoria]
-     */
 
     override fun deleteAll(): Int {
-        return convocatoriaDao.deleteAll()
+        return dao.deleteAll()
     }
 
-    /**
-     * Funcion que guarda todos los datos sobre las [Convocatoria]
-     */
-
-    override fun saveAll(persona: List<Convocatoria>): List<Convocatoria> {
-        return persona.map { save(it) }
+    override fun saveAll(convocatoria: List<Convocatoria>): List<Convocatoria> {
+        return convocatoria.map { save(it) }
     }
+
 }

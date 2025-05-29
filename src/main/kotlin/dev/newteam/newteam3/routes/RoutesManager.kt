@@ -104,7 +104,7 @@ object RoutesManager {
         logger.debug { "Cargando acerca de" }
         val fxmlLoader = FXMLLoader(getResource(View.HELP.fxmlPath))
         val root = fxmlLoader.load<Pane>()
-        val newScene = Scene(root, 700.0, 700.0)
+        val newScene = Scene(root, 1500.0, 500.0)
         Stage().apply {
             title = "New Team acerca de"
             scene = newScene

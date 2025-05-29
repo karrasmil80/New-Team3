@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
@@ -23,7 +24,7 @@ import java.time.LocalDate
 class PersonaRepositoryMockitoTest {
 
     @Mock
-    private lateinit var dao : PersonaDao
+    private lateinit var dao: PersonaDao
 
     @InjectMocks
     private lateinit var repository: PersonaRepositoryImpl
@@ -82,7 +83,7 @@ class PersonaRepositoryMockitoTest {
                 salario = 1000.0,
                 pais = "España",
                 imagen = "",
-                rol = "",
+                rol = "entrenador",
                 equipo = Persona.Equipos.MUPPET,
                 especializacion = Entrenador.Especializacion.PORTEROS
             )
@@ -100,8 +101,8 @@ class PersonaRepositoryMockitoTest {
                 { assertEquals(LocalDate.parse("1990-01-01"), entrenadorId!!.fechaIncorporacion, "Casilla fecha incorporacion correcta") },
                 { assertEquals(1000.0, entrenadorId!!.salario, "Casilla salario correcta") },
                 { assertEquals("España", entrenadorId!!.pais, "Casilla pais correcta") },
+                { assertEquals("entrenador-", entrenadorId!!.rol, "Casilla rol correcta") },
                 { assertEquals("", entrenadorId!!.imagen, "Casilla ruta imagen correcta") },
-                { assertEquals("", entrenadorId!!.rol, "Casilla rol correcta") },
             )
         }
 
@@ -116,19 +117,14 @@ class PersonaRepositoryMockitoTest {
                 fechaIncorporacion = LocalDate.parse("1990-01-01"),
                 salario = 1000.0,
                 pais = "España",
-                rol = "entrenador",
+                rol = "",
                 imagen = "",
                 equipo = Persona.Equipos.MUPPET,
                 especializacion = Entrenador.Especializacion.PORTEROS
             )
 
-            // Mockeamos que el dao.save devuelve un id (por ejemplo 2)
-            whenever(dao.save(any())).thenReturn(2)
+            whenever(dao.saveEntrenador(entrenadorEntity)).thenReturn(1)
 
-            // Mockeamos el guardado específico del entrenador
-            whenever(dao.saveEntrenador(entrenadorEntity)).thenReturn(1) // si devuelve algo, por ejemplo filas afectadas
-
-            // Llamamos al método save del repositorio, que ahora devuelve el objeto guardado
             val entrenadorSave = repository.save(entrenadorEntity.toModel()) as Entrenador
 
             assertAll(
@@ -137,10 +133,10 @@ class PersonaRepositoryMockitoTest {
                 { assertEquals("Pedro", entrenadorSave.nombre, "Casilla nombre correcta") },
                 { assertEquals("Gutierrez", entrenadorSave.apellido, "Casilla apellido correcta") },
                 { assertEquals(LocalDate.parse("1970-01-01"), entrenadorSave.fechaNacimiento, "Casilla fecha nacimiento correcta") },
-                { assertEquals(LocalDate.parse("1990-01-01"), entrenadorSave.fechaIncorporacion, "Casilla fecha incorporacion correcta") },
+                { assertEquals(LocalDate.parse("1990-01-01"), entrenadorSave.fechaIncorporacion, "Casilla fecha incorporacion corrcta") },
                 { assertEquals(1000.0, entrenadorSave.salario, "Casilla salario correcta") },
                 { assertEquals("España", entrenadorSave.pais, "Casilla pais correcta") },
-                { assertEquals("entrenador", entrenadorSave.rol, "Casilla rol correcta") },
+                { assertEquals("", entrenadorSave.rol, "Casilla rol correcta") },
                 { assertEquals(Entrenador.Especializacion.PORTEROS, entrenadorSave.especializacion, "Casilla especialización correcta") }
             )
 
@@ -149,8 +145,8 @@ class PersonaRepositoryMockitoTest {
         }
 
         @Test
-        @DisplayName("Deberia de borrar un id")
-        fun delete() {
+        @DisplayName("Debería borrar un entrenador por id")
+        fun delete_entrenador() {
             val entrenadorEntity = EntrenadorEntity(
                 id = 2,
                 nombre = "Pedro",
@@ -166,13 +162,14 @@ class PersonaRepositoryMockitoTest {
             )
 
             whenever(dao.findById(2)).thenReturn(entrenadorEntity)
-            whenever(dao.delete(2)).thenReturn(1)
+            whenever(dao.deleteEntrenador(2)).thenReturn(1)
 
             repository.deleteById(2)
 
             verify(dao).findById(2)
-            verify(dao).delete(2)
+            verify(dao).deleteEntrenador(2)
         }
+
 
         @Test
         @DisplayName("Debería eliminar todos los datos de los miembros")
@@ -256,18 +253,19 @@ class PersonaRepositoryMockitoTest {
         }
 
         @Test
-        @DisplayName("Deberia de no encontrar un alumno por identificador")
+        @DisplayName("Debería lanzar excepción si no se encuentra la persona por id")
         fun deleteByIdIncorrecto() {
-
-
             whenever(dao.findById(1)).thenReturn(null)
-            whenever(dao.delete(any())).thenReturn(1)
-            whenever(dao.deleteEntrenador(any())).thenReturn(1)
 
-            repository.deleteById(1)
+            val exception = assertThrows<IllegalArgumentException> {
+                repository.deleteById(1)
+            }
 
-            verify(dao, times(1)).findById(1)
+            assertEquals("No se puede eliminar por id", exception.message)
+
+            verify(dao).findById(1)
+            verify(dao, never()).delete(any())
+            verify(dao, never()).deleteEntrenador(any())
         }
-
     }
 }

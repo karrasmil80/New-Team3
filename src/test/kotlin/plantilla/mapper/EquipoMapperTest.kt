@@ -13,7 +13,7 @@ import java.time.LocalDate
 
 class EquipoMapperTest {
     @Test
-    fun `test conversion EquipoDto a Equipo`() {
+    fun conversionEquipoDtoaEquipo() {
         val equipoDto = EquipoDto(
             id = 1,
             nombreEquipo = "FC Barcelona",
@@ -37,7 +37,7 @@ class EquipoMapperTest {
     }
 
     @Test
-    fun `test conversion EquipoDto a EquipoDto`() {
+    fun conversionEquipoDtoaEquipoDto() {
         val equipoDto = EquipoDto(
             id = 2,
             nombreEquipo = "Real Madrid",
@@ -61,7 +61,7 @@ class EquipoMapperTest {
     }
 
     @Test
-    fun `test conversion Equipo a EquipoEntity`() {
+    fun conversionEquipoaEquipoEntity() {
         val equipo = Equipo(
             id = 3,
             nombreEquipo = "Manchester United",

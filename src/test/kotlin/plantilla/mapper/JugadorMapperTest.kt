@@ -17,7 +17,7 @@ import java.time.LocalDate
 class JugadorMapperTest {
 
     @Test
-    fun `test conversion Jugador a PersonaDto`() {
+    fun conversionJugadoraPersonaDto() {
         val jugador = Jugador(
             id = 1,
             nombre = "Cristiano",
@@ -65,7 +65,7 @@ class JugadorMapperTest {
     }
 
     @Test
-    fun `test conversion JugadorDto a Jugador`() {
+    fun conversionJugadorDtoaJugador() {
         val jugadorDto = JugadorDto(
             id = 1,
             nombre = "Cristiano",
@@ -115,7 +115,7 @@ class JugadorMapperTest {
     }
 
     @Test
-    fun `test conversion JugadorDto a Entrenador`() {
+    fun conversionJugadorDtoaEntrenador() {
         val entrenadorDto = JugadorDto(
             id = 2,
             nombre = "Pep",
@@ -158,7 +158,7 @@ class JugadorMapperTest {
     }
 
     @Test
-    fun `test conversion JugadorDto con rol desconocido lanza excepcion`() {
+    fun conversionJugadorDtoconroldesconocidolanzaexcepcion() {
         val desconocidoDto = JugadorDto(
             id = 3,
             nombre = "X",
@@ -184,7 +184,7 @@ class JugadorMapperTest {
     }
 
     @Test
-    fun `test conversion Jugador a JugadorEntity`() {
+    fun conversionJugadoraJugadorEntity() {
         val jugador = Jugador(
             id = 3,
             nombre = "Neymar",
@@ -231,7 +231,7 @@ class JugadorMapperTest {
     }
 
     @Test
-    fun `test conversion JugadorEntity a Jugador`() {
+    fun conversionJugadorEntityaJugador() {
         val jugadorEntity = JugadorEntity(
             id = 1,
             nombre = "Cristiano",
@@ -279,7 +279,7 @@ class JugadorMapperTest {
     }
 
     @Test
-    fun `test conversion JugadorDto a JugadorEntity`() {
+    fun conversionJugadorDtoaJugadorEntity() {
         val jugadorDto = JugadorDto(
             id = 1,
             nombre = "Cristiano",

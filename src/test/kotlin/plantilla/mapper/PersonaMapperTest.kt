@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Assertions.*
 class PersonaMapperTest {
 
     @Test
-    fun `test conversion PersonaDto a Model Jugador`() {
+    fun conversionPersonaDtoaModelJugador() {
         val personaDto = PersonaDto(
             id = 1,
             nombre = "Cristiano",
@@ -67,7 +67,7 @@ class PersonaMapperTest {
     }
 
     @Test
-    fun `test conversion PersonaDto a Model Entrenador`() {
+    fun conversionPersonaDtoaModelEntrenador() {
         val personaDto = PersonaDto(
             id = 2,
             nombre = "Carlo",
@@ -112,7 +112,7 @@ class PersonaMapperTest {
 
 
     @Test
-    fun `test conversion PersonaDto a Entrenador`() {
+    fun conversionPersonaDtoaEntrenador() {
         val personaDto = PersonaDto(
             id = 1,
             nombre = "Rafa",
@@ -153,7 +153,7 @@ class PersonaMapperTest {
     }
 
     @Test
-    fun `test conversion PersonaDto a Jugador`() {
+    fun conversionPersonaDtoaJugador() {
         val personaDto = PersonaDto(
             id = 2,
             nombre = "Leo",
@@ -201,7 +201,7 @@ class PersonaMapperTest {
     }
 
     @Test
-    fun `test conversion PersonaEntity a Jugador`() {
+    fun conversionPersonaEntityaJugador() {
         val jugadorEntity = JugadorEntity(
             id = 2,
             nombre = "Leo",
@@ -250,7 +250,7 @@ class PersonaMapperTest {
     }
 
     @Test
-    fun `test conversion PersonaEntity a Entrenador`() {
+    fun conversionPersonaEntityaEntrenador() {
         val entrenadorEntity = EntrenadorEntity(
             id = 3,
             nombre = "Pep",
@@ -287,7 +287,7 @@ class PersonaMapperTest {
     }
 
     @Test
-    fun `test toJugador conversion`() {
+    fun toJugadorconversion() {
         val jugador = Jugador(
             id = 10,
             nombre = "Lionel",
@@ -332,7 +332,7 @@ class PersonaMapperTest {
         }
 
     @Test
-    fun `test conversion Persona a Entrenador`() {
+    fun conversionPersonaaEntrenador() {
         val entrenador = Entrenador(
             id = 4,
             nombre = "Pep",
@@ -370,7 +370,7 @@ class PersonaMapperTest {
 
 
     @Test
-    fun `test toEntity conversion for Jugador`() {
+    fun toEntityconversionJugador() {
         val jugador = Jugador(
             id = 10,
             nombre = "Lionel",
@@ -415,7 +415,7 @@ class PersonaMapperTest {
     }
 
     @Test
-    fun `test toEntity conversion for Entrenador`() {
+    fun  toEntityconversionEntrenador() {
         val entrenador = Entrenador(
             id = 1,
             nombre = "Pep",

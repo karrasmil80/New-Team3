@@ -2,6 +2,9 @@ package dev.newteam.newteam3.plantilla.models
 
 import java.time.LocalDate
 
+/**
+ * Aquí se almacenan los datos del Equipo.
+ */
 class Equipo(
     val id: Int,
     val nombreEquipo: String,

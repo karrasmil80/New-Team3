@@ -137,7 +137,7 @@ object RoutesManager {
         logger.debug { "Iniciando Banquillo New Team" }
         val fxmlLoader = FXMLLoader(getResource(View.BANQUILLO_NEWTEAM.fxmlPath))
         val root = fxmlLoader.load<Pane>()
-        val newScene = Scene(root, 600.0, 870.0)
+        val newScene = Scene(root, 516.0, 700.0)
         Stage().apply {
             title = "New Team Banquillo"
             scene = newScene

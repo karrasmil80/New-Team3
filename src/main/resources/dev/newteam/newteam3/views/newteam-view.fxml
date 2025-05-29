@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -65,17 +68,24 @@
               <Button fx:id="campoDerechaButton" layoutX="387.0" layoutY="93.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT" />
               <Button fx:id="banquilloButton" layoutX="1300.0" layoutY="106.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="39.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT" />
 
-              <TableView layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="338.0">
+              <TableView fx:id="tablaEntrenadoresNewTeam" layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="366.0">
                  <columns>
-                    <TableColumn prefWidth="337.0" text="Nombre y Apellidos" />
+                    <TableColumn fx:id="nombreCompletoEntrenadores" prefWidth="365.0" text="Nombre y Apellidos" />
                  </columns>
               </TableView>
-              <TableView layoutX="72.0" layoutY="154.0" prefHeight="463.0" prefWidth="336.0">
+              <TableView fx:id="tablaJugadoresNewTeam" layoutX="72.0" layoutY="193.0" prefHeight="424.0" prefWidth="364.0">
                  <columns>
-                    <TableColumn editable="false" prefWidth="63.0" text="Nº Dorsal" />
-                    <TableColumn editable="false" prefWidth="272.0" text="Nombre y Apellidos" />
+                    <TableColumn fx:id="numeroDorsalJugadores" editable="false" prefWidth="76.0" text="Nº Dorsal" />
+                    <TableColumn fx:id="nombreCompletoJugadores" editable="false" prefWidth="287.0" text="Nombre y Apellidos" />
                  </columns>
               </TableView>
+            <TextField fx:id="buscadorNewTeam" layoutX="73.0" layoutY="150.0" prefHeight="32.0" prefWidth="229.0" promptText="Buscar..." />
+            <SplitMenuButton fx:id="filtrarNewTeam" layoutX="312.0" layoutY="150.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="124.0" text="FILTRAR">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Entrenadores" />
+                <MenuItem mnemonicParsing="false" text="Jugadores" />
+              </items>
+            </SplitMenuButton>
            </AnchorPane>
 
         </StackPane>

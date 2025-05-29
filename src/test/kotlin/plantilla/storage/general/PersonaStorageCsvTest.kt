@@ -1,4 +1,4 @@
-package plantilla.storage
+package plantilla.storage.general
 
 import com.github.michaelbull.result.get
 import com.github.michaelbull.result.getError

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Public Pixel Font';
+    src: url('../fonts/PublicPixel-rv0pA.ttf')
+}
+
+.text-field {
+    -fx-font-family: 'Public Pixel Font';
+    -fx-font-size: 15px;
+}

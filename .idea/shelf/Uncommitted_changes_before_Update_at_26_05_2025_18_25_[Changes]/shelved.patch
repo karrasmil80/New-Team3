@@ -1,0 +1,663 @@
+Index: src/main/kotlin/dev/newteam/newteam3/plantilla/models/Convocatoria.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Convocatoria.kt b/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Convocatoria.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Convocatoria.kt	(revision 9e66fd7f8869f638b0c2d01be00f4c47d85d4a27)
++++ /dev/null	(revision 9e66fd7f8869f638b0c2d01be00f4c47d85d4a27)
+@@ -1,12 +0,0 @@
+-package dev.newteam.newteam3.plantilla.models
+-
+-import java.time.LocalDateTime
+-
+-data class Convocatoria(
+-    val id: Int,
+-    val jornada: LocalDateTime,
+-    val descripcion: String,
+-    val jugadores: List<Jugador>,
+-    val onceTitular: List<Jugador>,
+-    val entrenador: Entrenador
+-)
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt
+new file mode 100644
+--- /dev/null	(date 1748275582775)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt	(date 1748275582775)
+@@ -0,0 +1,9 @@
++package dev.newteam.newteam3.convocatoria.models
++
++import dev.newteam.newteam3.plantilla.models.Jugador
++
++class JugadorConvocatoria(
++    val jugador : Jugador,
++) {
++
++}
+\ No newline at end of file
+Index: src/main/resources/tables.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nCREATE TABLE IF NOT EXISTS equipo (\r\n    nombre_equipo VARCHAR(200) NOT NULL PRIMARY KEY,\r\n    escudo_equipo VARCHAR(200) DEFAULT 'images/default_profile.png'\r\n);\r\n\r\nCREATE TABLE IF NOT EXISTS persona (\r\n    id IDENTITY NOT NULL PRIMARY KEY,\r\n    nombre VARCHAR(100) NOT NULL,\r\n    apellido VARCHAR(150) NOT NULL,\r\n    fechaNacimiento DATE NOT NULL,\r\n    fechaIncorporacion DATE NOT NULL,\r\n    salario NUMERIC NOT NULL,\r\n    pais VARCHAR(100) NOT NULL,\r\n    rol VARCHAR(50) NOT NULL CHECK (rol IN ('jugador', 'entrenador')),\r\n    equipo VARCHAR(200) NOT NULL,\r\n    imagen VARCHAR(255) DEFAULT 'images/default_profile.png',\r\n    CONSTRAINT fk_equipo_personal FOREIGN KEY (equipo) REFERENCES equipo(nombre_equipo)\r\n);\r\n\r\nCREATE TABLE IF NOT EXISTS jugador (\r\n    id INT NOT NULL PRIMARY KEY,\r\n    posicion VARCHAR(50) NOT NULL,\r\n    dorsal INTEGER NOT NULL,\r\n    altura DOUBLE PRECISION NOT NULL,\r\n    peso DOUBLE PRECISION NOT NULL,\r\n    goles INTEGER NOT NULL,\r\n    partidosJugados INTEGER NOT NULL,\r\n    FOREIGN KEY (id) REFERENCES persona(id)\r\n);\r\n\r\nCREATE TABLE IF NOT EXISTS entrenador (\r\n    id INT NOT NULL PRIMARY KEY,\r\n    especialidad VARCHAR(100) NOT NULL,\r\n    equipo VARCHAR(200),\r\n    FOREIGN KEY (id) REFERENCES persona(id)\r\n);\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/tables.sql b/src/main/resources/tables.sql
+--- a/src/main/resources/tables.sql	(revision 9e66fd7f8869f638b0c2d01be00f4c47d85d4a27)
++++ b/src/main/resources/tables.sql	(date 1748275582790)
+@@ -1,37 +1,59 @@
+ 
++-- Tabla de EQUIPOS
+ CREATE TABLE IF NOT EXISTS equipo (
+-    nombre_equipo VARCHAR(200) NOT NULL PRIMARY KEY,
+-    escudo_equipo VARCHAR(200) DEFAULT 'images/default_profile.png'
++    nombre_equipo VARCHAR(200) NOT NULL PRIMARY KEY, -- Nombre único del equipo (clave primaria)
++    escudo_equipo VARCHAR(200) DEFAULT 'images/default_profile.png' -- Ruta al escudo del equipo
+ );
+ 
++-- Tabla base: PERSONAS
+ CREATE TABLE IF NOT EXISTS persona (
+-    id IDENTITY NOT NULL PRIMARY KEY,
+-    nombre VARCHAR(100) NOT NULL,
+-    apellido VARCHAR(150) NOT NULL,
+-    fechaNacimiento DATE NOT NULL,
+-    fechaIncorporacion DATE NOT NULL,
+-    salario NUMERIC NOT NULL,
+-    pais VARCHAR(100) NOT NULL,
+-    rol VARCHAR(50) NOT NULL CHECK (rol IN ('jugador', 'entrenador')),
+-    equipo VARCHAR(200) NOT NULL,
+-    imagen VARCHAR(255) DEFAULT 'images/default_profile.png',
+-    CONSTRAINT fk_equipo_personal FOREIGN KEY (equipo) REFERENCES equipo(nombre_equipo)
++    id IDENTITY NOT NULL PRIMARY KEY, -- ID autoincremental (PK)
++    nombre VARCHAR(100) NOT NULL, -- Nombre
++    apellido VARCHAR(150) NOT NULL, -- Apellido
++    fechaNacimiento DATE NOT NULL, -- Fecha de nacimiento
++    fechaIncorporacion DATE NOT NULL, -- Fecha de ingreso al club
++    salario NUMERIC NOT NULL, -- Salario actual
++    pais VARCHAR(100) NOT NULL, -- Nacionalidad
++    rol VARCHAR(50) NOT NULL CHECK (rol IN ('jugador', 'entrenador')), -- Rol: jugador o entrenador (restricción)
++    equipo VARCHAR(200) NOT NULL, -- Nombre del equipo (FK)
++    imagen VARCHAR(255) DEFAULT 'images/default_profile.png', -- Imagen de perfil
++    CONSTRAINT fk_equipo_personal FOREIGN KEY (equipo) REFERENCES equipo(nombre_equipo) -- FK a la tabla equipo
+ );
+ 
++-- Tabla JUGADOR (subtipo de persona)
+ CREATE TABLE IF NOT EXISTS jugador (
+-    id INT NOT NULL PRIMARY KEY,
+-    posicion VARCHAR(50) NOT NULL,
+-    dorsal INTEGER NOT NULL,
+-    altura DOUBLE PRECISION NOT NULL,
+-    peso DOUBLE PRECISION NOT NULL,
+-    goles INTEGER NOT NULL,
+-    partidosJugados INTEGER NOT NULL,
+-    FOREIGN KEY (id) REFERENCES persona(id)
++    id INT NOT NULL PRIMARY KEY, -- ID que debe coincidir con persona.id
++    posicion VARCHAR(50) NOT NULL, -- Posición en el campo (Portero, Defensa, etc.)
++    dorsal INTEGER NOT NULL, -- Número de camiseta
++    altura DOUBLE PRECISION NOT NULL, -- Altura en metros
++    peso DOUBLE PRECISION NOT NULL, -- Peso en kilogramos
++    goles INTEGER NOT NULL, -- Total de goles anotados
++    partidosJugados INTEGER NOT NULL, -- Partidos jugados
++    FOREIGN KEY (id) REFERENCES persona(id) -- FK: hereda de persona
+ );
+ 
++-- Tabla ENTRENADOR (subtipo de persona)
+ CREATE TABLE IF NOT EXISTS entrenador (
+-    id INT NOT NULL PRIMARY KEY,
+-    especialidad VARCHAR(100) NOT NULL,
+-    equipo VARCHAR(200),
+-    FOREIGN KEY (id) REFERENCES persona(id)
++    id INT NOT NULL PRIMARY KEY, -- ID que debe coincidir con persona.id
++    especialidad VARCHAR(100) NOT NULL, -- Ej. Táctico, físico, porteros, etc.
++    equipo VARCHAR(200), -- Equipo actual (opcional)
++    FOREIGN KEY (id) REFERENCES persona(id) -- FK: hereda de persona
+ );
++
++-- Tabla de CONVOCATORIAS
++CREATE TABLE IF NOT EXISTS convocatoria (
++    id IDENTITY PRIMARY KEY, -- ID autoincremental (clave primaria)
++    jornada TIMESTAMP NOT NULL, -- Fecha y hora de la jornada/partido
++    descripcion VARCHAR(255), -- Descripción libre de la convocatoria
++);
++
++-- Tabla intermedia: JUGADORES CONVOCADOS
++CREATE TABLE IF NOT EXISTS convocatoria_jugador (
++    id IDENTITY PRIMARY KEY, -- ID autoincremental
++    convocatoria_id INT NOT NULL, -- FK a la convocatoria
++    jugador_id INT NOT NULL, -- FK al jugador convocado
++    es_titular BOOLEAN DEFAULT FALSE, -- Marca si el jugador es titular
++    CONSTRAINT fk_convocatoria_cj FOREIGN KEY (convocatoria_id) REFERENCES convocatoria(id), -- FK -> convocatoria
++    CONSTRAINT fk_jugador_cj FOREIGN KEY (jugador_id) REFERENCES jugador(id), -- FK -> jugador
++    CONSTRAINT uq_convocatoria_jugador UNIQUE (convocatoria_id, jugador_id) -- Evita duplicar un jugador en la misma convocatoria
++    );
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev1.jpg\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev2.jpg\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/login-view.png\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/login.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/muppets.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/newteam.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/splash.css\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/muppets-view.fxml\" afterDir=\"false\" />\r\n    <list default=\"true\" id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"arreglando conflictos\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/kotlin/mapper/MapperTest.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"application\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Kotlin Interface\" />\r\n        <option value=\"Kotlin Data Class\" />\r\n        <option value=\"Kotlin File\" />\r\n        <option value=\"Kotlin Interface\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Kotlin Class\" />\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Antukiller&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/karrasmil80/New-Team3.git&quot;,\r\n    &quot;accountId&quot;: &quot;48c43642-ec47-445a-9340-4eaa21b6c7cb&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2xPaMMSnkVmzXyzU4zQHLEYzEFK\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,\r\n    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;dev-PabloDLF&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Gradle.Build New-Team3.0.executor\": \"Run\",\r\n    \"Gradle.Build New-Team3.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.eliminarAlumno.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.findAll.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.findById.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.insertarAlumno.executor\": \"Run\",\r\n    \"Gradle.New-Team3.0 [run].executor\": \"Run\",\r\n    \"Gradle.PersonaDaoTest.findAll.executor\": \"Run\",\r\n    \"JUnit.dev.newteam.newteam3 in New-Team3.main.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"dev-zuil\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"jdk.selected.JAVA_MODULE\": \"liberica-full-21\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Problems\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"reference.settingsdialog.project.gradle\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\zupab\\Desktop\\New-Team 3\\New-Team3.0\\data\" />\r\n    </key>\r\n    <key name=\"MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY\">\r\n      <recent name=\"dev.newteam.newteam3.controller\" />\r\n      <recent name=\"dev.newteam.newteam3.plantilla.models\" />\r\n      <recent name=\"dev.newteam.newteam3.players.models\" />\r\n      <recent name=\"dev.newteam.newteam3.models\" />\r\n      <recent name=\"dev.newteam.newteam3.Plantilla.models\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Gradle.CasosCorrectos.eliminarAlumno\">\r\n    <configuration name=\"CasosCorrectos.eliminarAlumno\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;dao.PersonaDaoTest$CasosCorrectos.eliminarAlumno&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"CasosCorrectos.findAll\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;dao.PersonaDaoTest$CasosCorrectos.findAll&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"CasosCorrectos.findById\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;dao.PersonaDaoTest$CasosCorrectos.findById&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"CasosCorrectos.insertarAlumno\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;dao.PersonaDaoTest$CasosCorrectos.insertarAlumno&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"PersonaDaoTest.findAll\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;dao.PersonaDaoTest.findAll&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.CasosCorrectos.eliminarAlumno\" />\r\n        <item itemvalue=\"Gradle.CasosCorrectos.findAll\" />\r\n        <item itemvalue=\"Gradle.CasosCorrectos.insertarAlumno\" />\r\n        <item itemvalue=\"Gradle.CasosCorrectos.findById\" />\r\n        <item itemvalue=\"Gradle.PersonaDaoTest.findAll\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"\" />\r\n      <created>1747842115631</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1747842115631</updated>\r\n      <workItem from=\"1747842118155\" duration=\"1286000\" />\r\n      <workItem from=\"1747843436897\" duration=\"6219000\" />\r\n      <workItem from=\"1747908050213\" duration=\"18661000\" />\r\n      <workItem from=\"1747937869109\" duration=\"629000\" />\r\n      <workItem from=\"1747939304310\" duration=\"405000\" />\r\n      <workItem from=\"1747940397146\" duration=\"264000\" />\r\n      <workItem from=\"1747992162852\" duration=\"1399000\" />\r\n      <workItem from=\"1748074449857\" duration=\"7127000\" />\r\n      <workItem from=\"1748086785769\" duration=\"2026000\" />\r\n      <workItem from=\"1748181182816\" duration=\"7386000\" />\r\n      <workItem from=\"1748188641550\" duration=\"211000\" />\r\n      <workItem from=\"1748190136596\" duration=\"227000\" />\r\n      <workItem from=\"1748249744918\" duration=\"6165000\" />\r\n      <workItem from=\"1748274310798\" duration=\"774000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Conflictos arreglados\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1747995078126</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1747995078126</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Terminado el servicio y el repositorio, falta testear\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748188234353</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748188234353</updated>\r\n      <workItem from=\"1748017716670\" duration=\"1479000\" />\r\n      <workItem from=\"1748268740618\" duration=\"284000\" />\r\n      <workItem from=\"1748270741171\" duration=\"426000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"arreglando conflictos\" />\r\n    <MESSAGE value=\"Configuración del programa y dependencias añadidas\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Configuración del programa y dependencias añadidas\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 9e66fd7f8869f638b0c2d01be00f4c47d85d4a27)
++++ b/.idea/workspace.xml	(date 1748276709262)
+@@ -4,29 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/SplashController.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev1.jpg" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/dev2.jpg" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/images/login-view.png" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/login.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/muppets.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/newteam.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/splash.css" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash-view.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/styles/main.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/hello-view.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/splash.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/muppets-view.fxml" afterDir="false" />
+-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="arreglando conflictos">
+-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/mapper/MapperTest.kt" afterDir="false" />
++    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Test MapperTest.kt">
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Convocatoria.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tables.sql" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -72,13 +60,10 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Kotlin Interface" />
+         <option value="Kotlin Data Class" />
+         <option value="Kotlin File" />
+         <option value="Kotlin Interface" />
+-        <option value="FxmlFile" />
+         <option value="Kotlin Class" />
+-        <option value="CSS File" />
+       </list>
+     </option>
+   </component>
+@@ -108,42 +93,30 @@
+   </component>
+   <component name="PropertiesComponent">{
+   &quot;keyToString&quot;: {
++    &quot;Gradle.Build New-Team3.0.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.insertarAlumno.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.EntrenadorValidatorTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.JugadorValidatorTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.MapeoCorrecto.JugadoraPersonaEntity.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.MapeoCorrecto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.New-Team3.0 [run].executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Coverage&quot;,
+-    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Coverage&quot;,
+-    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,
+-    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaDaoTest.findAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Tests in 'New-Team3.test'.executor&quot;: &quot;Run&quot;,
+     &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;dev-PabloDLF&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;dev-zuil&quot;,
+     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;liberica-full-21&quot;,
+     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+@@ -152,36 +125,8 @@
+     &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Gradle.Build New-Team3.0.executor": "Run",
+-    "Gradle.Build New-Team3.executor": "Run",
+-    "Gradle.CasosCorrectos.eliminarAlumno.executor": "Run",
+-    "Gradle.CasosCorrectos.executor": "Run",
+-    "Gradle.CasosCorrectos.findAll.executor": "Run",
+-    "Gradle.CasosCorrectos.findById.executor": "Run",
+-    "Gradle.CasosCorrectos.insertarAlumno.executor": "Run",
+-    "Gradle.New-Team3.0 [run].executor": "Run",
+-    "Gradle.PersonaDaoTest.findAll.executor": "Run",
+-    "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "dev-zuil",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "jdk.selected.JAVA_MODULE": "liberica-full-21",
+-    "kotlin-language-version-configured": "true",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Problems",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+-    "vue.rearranger.settings.migration": "true"
+   }
+ }</component>
+   <component name="RecentsManager">
+@@ -189,15 +134,15 @@
+       <recent name="C:\Users\zupab\Desktop\New-Team 3\New-Team3.0\data" />
+     </key>
+     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
++      <recent name="dev.newteam.newteam3.convocatoria.models" />
++      <recent name="dev.newteam.newteam3.convocatoria" />
+       <recent name="dev.newteam.newteam3.controller" />
+       <recent name="dev.newteam.newteam3.plantilla.models" />
+       <recent name="dev.newteam.newteam3.players.models" />
+-      <recent name="dev.newteam.newteam3.models" />
+-      <recent name="dev.newteam.newteam3.Plantilla.models" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Gradle.CasosCorrectos.eliminarAlumno">
+-    <configuration name="CasosCorrectos.eliminarAlumno" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++  <component name="RunManager" selected="Gradle.Tests in 'New-Team3.test'">
++    <configuration name="CasosCorrectos" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -210,7 +155,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.eliminarAlumno&quot;" />
++            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -221,7 +166,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="CasosCorrectos.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="EntrenadorValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -234,7 +179,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.findAll&quot;" />
++            <option value="&quot;validator.EntrenadorValidatorTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -245,7 +190,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="CasosCorrectos.findById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="JugadorValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -258,7 +203,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.findById&quot;" />
++            <option value="&quot;validator.JugadorValidatorTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -269,7 +214,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="CasosCorrectos.insertarAlumno" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="PersonaDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -282,7 +227,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;dao.PersonaDaoTest$CasosCorrectos.insertarAlumno&quot;" />
++            <option value="&quot;dao.PersonaDaoTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -293,7 +238,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="PersonaDaoTest.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="Tests in 'New-Team3.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -305,8 +250,6 @@
+         <option name="taskNames">
+           <list>
+             <option value=":test" />
+-            <option value="--tests" />
+-            <option value="&quot;dao.PersonaDaoTest.findAll&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -319,11 +262,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Gradle.CasosCorrectos.eliminarAlumno" />
+-        <item itemvalue="Gradle.CasosCorrectos.findAll" />
+-        <item itemvalue="Gradle.CasosCorrectos.insertarAlumno" />
+-        <item itemvalue="Gradle.CasosCorrectos.findById" />
+-        <item itemvalue="Gradle.PersonaDaoTest.findAll" />
++        <item itemvalue="Gradle.Tests in 'New-Team3.test'" />
++        <item itemvalue="Gradle.CasosCorrectos" />
++        <item itemvalue="Gradle.PersonaDaoTest" />
++        <item itemvalue="Gradle.JugadorValidatorTest" />
++        <item itemvalue="Gradle.EntrenadorValidatorTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -350,38 +293,29 @@
+       <workItem from="1747939304310" duration="405000" />
+       <workItem from="1747940397146" duration="264000" />
+       <workItem from="1747992162852" duration="1399000" />
+-      <workItem from="1748074449857" duration="7127000" />
+-      <workItem from="1748086785769" duration="2026000" />
+-      <workItem from="1748181182816" duration="7386000" />
+-      <workItem from="1748188641550" duration="211000" />
+-      <workItem from="1748190136596" duration="227000" />
+-      <workItem from="1748249744918" duration="6165000" />
+-      <workItem from="1748274310798" duration="774000" />
++      <workItem from="1748017716670" duration="1479000" />
++      <workItem from="1748268740618" duration="284000" />
++      <workItem from="1748270741171" duration="4936000" />
++      <workItem from="1748275808515" duration="657000" />
+     </task>
+-    <task id="LOCAL-00001" summary="Conflictos arreglados">
++    <task id="LOCAL-00001" summary="Test MapperTest.kt">
+       <option name="closed" value="true" />
+-      <created>1747995078126</created>
++      <created>1748271356708</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1747995078126</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="Terminado el servicio y el repositorio, falta testear">
+-      <option name="closed" value="true" />
+-      <created>1748188234353</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1748188234353</updated>
+-      <workItem from="1748017716670" duration="1479000" />
+-      <workItem from="1748268740618" duration="284000" />
+-      <workItem from="1748270741171" duration="426000" />
++      <updated>1748271356708</updated>
+     </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="UnknownFeatures">
++    <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
++    <option featureType="dependencySupport" implementationName="java:org.jdbi:jdbi3-core" />
++  </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
+@@ -396,6 +330,10 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="arreglando conflictos" />
+     <MESSAGE value="Configuración del programa y dependencias añadidas" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Configuración del programa y dependencias añadidas" />
++    <MESSAGE value="Test MapperTest.kt" />
++    <option name="LAST_COMMIT_MESSAGE" value="Test MapperTest.kt" />
++  </component>
++  <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748272538974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt
+new file mode 100644
+--- /dev/null	(date 1748275585391)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt	(date 1748275585391)
+@@ -0,0 +1,13 @@
++package dev.newteam.newteam3.convocatoria.dao
++
++import dev.newteam.newteam3.convocatoria.models.JugadorConvocatoria
++import java.time.LocalDateTime
++
++data class ConvocatoriaEntity(
++    val id: Int,
++    val jornada: LocalDateTime,
++    val descripcion: String,
++    val jugadoresConvocados: List<JugadorConvocatoria>,
++    val onceTitular: List<Int>, //id de los jugadores titulares
++)
++
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt
+new file mode 100644
+--- /dev/null	(date 1748275585383)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt	(date 1748275585383)
+@@ -0,0 +1,12 @@
++package dev.newteam.newteam3.convocatoria.models
++
++import dev.newteam.newteam3.plantilla.models.Entrenador
++import java.time.LocalDateTime
++
++data class Convocatoria(
++    val id: Int,
++    val jornada: LocalDateTime,
++    val descripcion: String,
++    val jugadoresConvocados: List<JugadorConvocatoria>,
++    val onceTitular: List<Int>, //id de los jugadores titulares
++)
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt
+new file mode 100644
+--- /dev/null	(date 1748275585375)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt	(date 1748275585375)
+@@ -0,0 +1,8 @@
++package dev.newteam.newteam3.convocatoria.dao
++
++import dev.newteam.newteam3.plantilla.models.Jugador
++import java.util.UUID
++
++class JugadorConvocadoEntity(
++    val jugador : Jugador,
++)
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt
+new file mode 100644
+--- /dev/null	(date 1748275585367)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt	(date 1748275585367)
+@@ -0,0 +1,42 @@
++package dev.newteam.newteam3.convocatoria.dao
++
++import dev.newteam.newteam3.plantilla.dao.PersonaEntity
++import org.jdbi.v3.sqlobject.customizer.Bind
++import org.jdbi.v3.sqlobject.kotlin.RegisterKotlinMapper
++import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys
++import org.jdbi.v3.sqlobject.statement.SqlQuery
++import org.jdbi.v3.sqlobject.statement.SqlUpdate
++import java.time.LocalDateTime
++
++
++@RegisterKotlinMapper(ConvocatoriaEntity::class)
++interface ConvocatoriaDao {
++
++    @SqlQuery("SELECT * FROM persona")
++    fun findAll(): List<ConvocatoriaEntity>
++
++    @SqlQuery("SELECT * FROM persona WHERE id = :id")
++    fun findById(@Bind("id")id: Int): ConvocatoriaEntity?
++
++    @SqlUpdate("DELETE FROM convocatoria WHERE id = :id")
++    fun delete(@Bind("id") id: Int) : Int
++
++    @SqlUpdate("DELETE FROM jugador")
++    fun deleteAllJugadores(): Int
++
++    @SqlUpdate("""
++    INSERT INTO convocatoria (jornada, descripcion)
++    VALUES (:jornada, :descripcion)
++""")
++    @GetGeneratedKeys("id")
++    fun save(
++        @Bind("jornada") jornada: LocalDateTime,
++        @Bind("descripcion") descripcion: String
++    ): Int
++
++
++
++
++
++
++}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt
+new file mode 100644
+--- /dev/null	(date 1748275582807)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt	(date 1748275582807)
+@@ -0,0 +1,16 @@
++package dev.newteam.newteam3.convocatoria.repositories
++
++import dev.newteam.newteam3.convocatoria.models.Convocatoria
++import dev.newteam.newteam3.plantilla.models.Entrenador
++import dev.newteam.newteam3.plantilla.models.Jugador
++import dev.newteam.newteam3.plantilla.models.Persona
++
++interface ConvocatoriaRepository {
++    fun findAll(): List<Convocatoria>
++    fun findById(id: Int): Convocatoria?
++    fun save(convocatoria: Convocatoria): Convocatoria
++    fun deleteById(id: Int) : Int
++    fun deleteAll() : Int
++    fun saveAll(persona : List<Convocatoria>): List<Convocatoria>
++
++}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt
+new file mode 100644
+--- /dev/null	(date 1748275582799)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt	(date 1748275582799)
+@@ -0,0 +1,34 @@
++package dev.newteam.newteam3.convocatoria.repositories
++
++import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao
++import dev.newteam.newteam3.convocatoria.models.Convocatoria
++import org.lighthousegames.logging.logging
++
++private val logger = logging()
++class ConvocatoriaRepositoryImpl(
++    private val convocatoriaDao: ConvocatoriaDao
++) : ConvocatoriaRepository {
++    override fun findAll(): List<Convocatoria> {
++        TODO("Not yet implemented")
++    }
++
++    override fun findById(id: Int): Convocatoria? {
++        TODO("Not yet implemented")
++    }
++
++    override fun save(convocatoria: Convocatoria): Convocatoria {
++        TODO("Not yet implemented")
++    }
++
++    override fun deleteById(id: Int): Int {
++        TODO("Not yet implemented")
++    }
++
++    override fun deleteAll(): Int {
++        TODO("Not yet implemented")
++    }
++
++    override fun saveAll(persona: List<Convocatoria>): List<Convocatoria> {
++        TODO("Not yet implemented")
++    }
++}
+\ No newline at end of file

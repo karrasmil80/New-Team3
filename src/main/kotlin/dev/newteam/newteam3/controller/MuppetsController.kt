@@ -9,6 +9,9 @@ private val logger = logging()
 class MuppetsController {
 
     @FXML
+    lateinit var ayudaButton: Button
+
+    @FXML
     lateinit var campoIzquierdaButton: Button
 
     @FXML
@@ -22,6 +25,7 @@ class MuppetsController {
 
     fun initialize() {
         initEvents()
+        onAyudaButtonClick()
     }
 
     fun initEvents() {
@@ -57,6 +61,14 @@ class MuppetsController {
             logger.debug { "Campo Derecha button clicked" }
             RoutesManager.escenaActiva.close()
             RoutesManager.initPlantillaStage()
+        }
+    }
+
+    //REVISAR
+    fun onAyudaButtonClick() {
+        ayudaButton.setOnAction {
+            RoutesManager.initAcercaDe()
+            AcercaDeController()
         }
     }
 }

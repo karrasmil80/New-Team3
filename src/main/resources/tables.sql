@@ -1,3 +1,8 @@
+-- Tabla USERS
+CREATE TABLE IF NOT EXISTS users (
+    nombre VARCHAR(200) NOT NULL PRIMARY KEY,
+    password VARCHAR(200) NOT NULL
+);
 
 -- Tabla de EQUIPOS
 CREATE TABLE IF NOT EXISTS equipo (
@@ -17,7 +22,7 @@ CREATE TABLE IF NOT EXISTS persona (
     rol VARCHAR(50) NOT NULL CHECK (rol IN ('jugador', 'entrenador')), -- Rol: jugador o entrenador (restricción)
     equipo VARCHAR(200) NOT NULL, -- Nombre del equipo (FK)
     imagen VARCHAR(255) DEFAULT 'images/default_profile.png', -- Imagen de perfil
-    CONSTRAINT fk_equipo_personal FOREIGN KEY (equipo) REFERENCES equipo(nombre_equipo) -- FK a la tabla equipo
+    FOREIGN KEY (equipo) REFERENCES equipo(nombre_equipo) -- FK a la tabla equipo
 );
 
 -- Tabla JUGADOR (subtipo de persona)

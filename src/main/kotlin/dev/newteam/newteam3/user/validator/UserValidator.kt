@@ -18,8 +18,9 @@ class UserValidator: Validator<User, UserError> {
     /**
      * Método que valida la entrada de datos del Usuario.
      */
+
     override fun validate(t: User): Result<User, UserError> {
-        logger.debug { "🔵 Validando la entrada de datos del Usuario..." }
+        logger.debug { "Validando la entrada de datos del Usuario..." }
 
         if (t.id <= 0) {
             return Err(UserError.UserValidatorError("ID negativo/nulo."))
@@ -32,7 +33,6 @@ class UserValidator: Validator<User, UserError> {
         if (t.password != "contra123") {
             return Err(UserError.UserValidatorError("Contraseña incorrecta."))
         }
-
 
         return Ok(t)
     }

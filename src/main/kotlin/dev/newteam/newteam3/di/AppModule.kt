@@ -8,9 +8,11 @@ import dev.newteam.newteam3.database.JdbiManager
 import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.plantilla.repositories.PersonaRepositoryImpl
 import dev.newteam.newteam3.plantilla.service.PersonaServiceImpl
+import dev.newteam.newteam3.plantilla.storage.general.PersonaStorageZipImpl
 import dev.newteam.newteam3.plantilla.utils.provideCacheCaffeine
 import dev.newteam.newteam3.plantilla.utils.provideDatabaseManager
 import dev.newteam.newteam3.plantilla.utils.providePersonaDao
+import dev.newteam.newteam3.utils.html
 import org.jdbi.v3.core.Jdbi
 import org.koin.dsl.module
 import org.lighthousegames.logging.logging
@@ -139,4 +141,30 @@ val AppModule = module {
         println(e)
         logger.error { "No se ha podido crear un singleton de ConvocatoriaRepositoryImpl" }
     }
+
+    /**
+     * Proporciona un singleton de la clase [html]
+     */
+
+    try {
+        single { html() }
+    } catch (e : Exception) {
+        println(e)
+        logger.debug { "No se ha podido crear un singleton de la clase html" }
+    }
+
+    /**
+     * Crea un singleton de [PersonaStorageZipImpl]
+     */
+
+    try {
+        single { PersonaStorageZipImpl(
+            config = get(),
+            storageJson = get()
+        )}
+    } catch (e : Exception) {
+        println(e)
+        logger.error { "No se ha podido crear un singleton de PersonaStorageZipImpl" }
+    }
+
 }

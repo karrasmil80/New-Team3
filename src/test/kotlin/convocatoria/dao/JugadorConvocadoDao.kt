@@ -1,5 +1,6 @@
 package convocatoria.dao
 
+import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao
 import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoDao
 import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoEntity
 import dev.newteam.newteam3.convocatoria.utils.provideConvocatoriaDao

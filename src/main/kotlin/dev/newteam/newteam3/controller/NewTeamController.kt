@@ -1,13 +1,30 @@
 package dev.newteam.newteam3.controller
 
+import dev.newteam.newteam3.config.Config
+import dev.newteam.newteam3.plantilla.storage.general.PersonaStorageJson
+import dev.newteam.newteam3.plantilla.storage.general.PersonaStorageZipImpl
 import dev.newteam.newteam3.routes.RoutesManager
 import javafx.fxml.FXML
 import javafx.scene.control.Button
 import org.lighthousegames.logging.logging
+import java.io.File
 import kotlin.math.log
 
 private val logger = logging()
 class NewTeamController {
+
+    val storageZip = PersonaStorageZipImpl(
+        config = Config(),
+        storageJson = PersonaStorageJson()
+    )
+
+    val storageJson = PersonaStorageJson()
+
+    @FXML
+    lateinit var exportarButton: Button
+
+    @FXML
+    lateinit var importarButton: Button
 
     @FXML
     lateinit var campoDerechaButton: Button
@@ -26,6 +43,8 @@ class NewTeamController {
 
     fun initialize() {
         initEvents()
+        onImportarButtonClick()
+
     }
 
     fun initEvents() {
@@ -33,6 +52,7 @@ class NewTeamController {
         onAddButtonClick()
         onEditarAbajoButtonClick()
         onCampoDerechaButtonClick()
+        onImportarButtonClick()
     }
 
     fun onBanquilloButtonClick() {
@@ -63,4 +83,14 @@ class NewTeamController {
             RoutesManager.initPlantillaMuppetStage()
         }
     }
+
+    //REVISAR
+    fun onImportarButtonClick() {
+        importarButton.setOnAction {
+            logger.debug { "Importar button clicked" }
+            storageJson.readFromFile(File("data/NEW_TEAM.json"))
+        }
+    }
+
+
 }

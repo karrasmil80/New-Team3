@@ -1,7 +1,5 @@
 package dev.newteam.newteam3.plantilla.models
 
-import java.time.LocalDate
-
 /**
  * Aquí se almacenan los datos de las Personas tipo: Entrenador.
  */
@@ -9,9 +7,9 @@ class Entrenador(
     id: Int,
     nombre: String,
     apellido: String,
-    fechaNacimiento: LocalDate,
-    fechaIncorporacion : LocalDate,
-    salario : Double,
+    fechaNacimiento: String,
+    fechaIncorporacion: String,
+    salario: Double,
     pais: String,
     imagen: String,
     rol: String = "entrenador",
@@ -28,6 +26,10 @@ class Entrenador(
     rol,
     equipo,
 ) {
+
+    val nombreCompleto: String
+        get() = "$nombre $apellido"
+
     enum class Especializacion {
         PRINCIPAL, ASISTENTE, PORTEROS
     }

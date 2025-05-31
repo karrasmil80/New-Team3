@@ -1,17 +1,15 @@
 package dev.newteam.newteam3.plantilla.models
 
-import java.time.LocalDate
-
 /**
  * Aquí se almacenan los datos de las Personas tipo: Jugador.
  */
 class Jugador(
     id: Int,
     nombre: String,
-    apellido: String,
-    fechaNacimiento: LocalDate,
-    fechaIncorporacion : LocalDate,
-    salario : Double,
+    apellido: String ,
+    fechaNacimiento: String,
+    fechaIncorporacion: String,
+    salario: Double,
     pais: String,
     imagen: String,
     rol: String = "jugador",
@@ -24,6 +22,7 @@ class Jugador(
     val mediaGoles: Double,
     val partidosJugados: Int,
     val minutosJugados: Int,
+
 ): Persona(id,
     nombre,
     apellido,
@@ -34,13 +33,19 @@ class Jugador(
     imagen,
     rol,
     equipo
+
+
 ) {
 
+    val nombreCompleto: String
+        get() = "$nombre $apellido"
+
     enum class Posicion {
-        PORTERO, DEFENSA, MEDIOCENTRO, DELANTERO, EXTREMO, INTERIOR
+        PORTERO, DEFENSA, CENTROCAMPISTA, DELANTERO, EXTREMO, INTERIOR
     }
 
     override fun toString(): String {
         return ("Jugador(id=$id, nombre=$nombre, apellido=$apellido, fechaNacimiento=$fechaNacimiento, fechaIncorporacion=$fechaIncorporacion, salario=$salario, pais=$pais, posicion=$posicion, dorsal=$dorsal, altura=$altura, peso=$peso, goles=$goles,mediaGoles = $mediaGoles partidosJugados=$partidosJugados, minutosJugados=$minutosJugados)" )
     }
 }
+

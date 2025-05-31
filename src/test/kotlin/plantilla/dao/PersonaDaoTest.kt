@@ -9,7 +9,7 @@ import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertAll
 import java.time.LocalDate
-/*
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class PersonaDaoTest {
 
@@ -38,8 +38,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -64,8 +64,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -95,8 +95,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -108,8 +108,8 @@ class PersonaDaoTest {
                 id = 2,
                 nombre = "Pepa",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -142,8 +142,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -165,8 +165,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -206,8 +206,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -227,8 +227,8 @@ class PersonaDaoTest {
                 id = 1,
                 nombre = "Pepe",
                 apellido = "Gonzalez",
-                fechaNacimiento = LocalDate.parse("1970-01-01"),
-                fechaIncorporacion = LocalDate.parse("2000-01-01"),
+                fechaNacimiento = "1970-01-01",
+                fechaIncorporacion = "2000-01-01",
                 salario = 1000.0,
                 pais = "España",
                 rol = "jugador",
@@ -242,4 +242,3 @@ class PersonaDaoTest {
         }
     }
 }
- */

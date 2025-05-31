@@ -7,7 +7,7 @@ import java.time.LocalDate
 class EquipoDto(
     val id : Int,
     val nombreEquipo : String,
-    val fechaFundacion : LocalDate,
+    val fechaFundacion : String,
     val imagenEscudo : String,
     val ciudad : String,
     val pais : String,

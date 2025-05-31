@@ -24,7 +24,6 @@ class PersonaStorageCsv: PersonaStorage {
     override fun readFromFile(file: File): Result<List<Persona>, PersonaError> {
         logger.debug { "Leyendo el archivo..." }
 
-        // condicional simple para verificar que el archivo existe y se puede leer.
         if (!file.isFile || !file.exists() || !file.canRead()) {
             logger.error { "El fichero no existe o no se puede leer: $file" }
             return Err(PersonaError.PersonaStorageError("El fichero no existe o no se puede leer: $file"))
@@ -46,8 +45,8 @@ class PersonaStorageCsv: PersonaStorage {
                     id = id,
                     nombre = nombre,
                     apellido = apellido,
-                    fechaNacimiento = fechaNacimiento,
-                    fechaIncorporacion = fechaIncorporacion,
+                    fechaNacimiento = fechaNacimiento.toString(),
+                    fechaIncorporacion = fechaIncorporacion.toString(),
                     salario = salario,
                     pais = pais,
                     imagen = imagen,
@@ -59,8 +58,8 @@ class PersonaStorageCsv: PersonaStorage {
                     id = id,
                     nombre = nombre,
                     apellido = apellido,
-                    fechaNacimiento = fechaNacimiento,
-                    fechaIncorporacion = fechaIncorporacion,
+                    fechaNacimiento = fechaNacimiento.toString(),
+                    fechaIncorporacion = fechaIncorporacion.toString(),
                     salario = salario,
                     pais = pais,
                     imagen = imagen,
@@ -86,10 +85,10 @@ class PersonaStorageCsv: PersonaStorage {
      * @param persona La lista de personas a escribir en el archivo.
      * @throws PersonaError.PersonaStorageError Si el archivo no es válido o no se puede escribir.
      */
+
     override fun writeToFile(file: File, persona: List<Persona>): Result<String, PersonaError> {
         logger.debug { "Escribiendo personas en el fichero CSV: $file" }
 
-        // condicionales para verificar que exista tanto el archivo como el directorio padre, además de que tenga la extensión correcta
         val parentFile = file.parentFile
         if (parentFile != null) {
             if (!parentFile.exists()) {
@@ -97,13 +96,13 @@ class PersonaStorageCsv: PersonaStorage {
             }
             if (!parentFile.isDirectory) {
                 logger.error { "El directorio padre no es un directorio: ${parentFile.absolutePath}" }
-                return Err(PersonaError.PersonaStorageError("El directorio padre no es válido 😔"))
+                return Err(PersonaError.PersonaStorageError("El directorio padre no es válido \uD83D\uDE14"))
             }
         }
 
         if (!file.name.endsWith(".csv", true)) {
             logger.error { "El archivo no tiene extensión .csv: ${file.name}" }
-            return Err(PersonaError.PersonaStorageError("El archivo debe tener extensión .csv 😔"))
+            return Err(PersonaError.PersonaStorageError("El archivo debe tener extensión .csv \uD83D\uDE14"))
         }
 
         // escritura

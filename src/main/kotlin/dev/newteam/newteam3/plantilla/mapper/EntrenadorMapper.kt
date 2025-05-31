@@ -1,20 +1,18 @@
 package dev.newteam.newteam3.plantilla.mapper
 
 import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
-import dev.newteam.newteam3.plantilla.dao.PersonaEntity
 import dev.newteam.newteam3.plantilla.dto.EntrenadorDto
 import dev.newteam.newteam3.plantilla.dto.PersonaDto
 import dev.newteam.newteam3.plantilla.models.Entrenador
-import dev.newteam.newteam3.plantilla.models.Equipo
 import dev.newteam.newteam3.plantilla.models.Persona
 
     fun Entrenador.toDto() : PersonaDto {
         return PersonaDto(
             id = id,
             nombre = nombre,
-            apellido = apellido,
-            fecha_nacimiento = fechaNacimiento,
-            fecha_incorporacion = fechaIncorporacion,
+            apellidos = apellido,
+            fecha_nacimiento = fechaNacimiento.toString(),
+            fecha_incorporacion = fechaIncorporacion.toString(),
             salario = salario,
             pais = pais,
             posicion = null,
@@ -27,7 +25,7 @@ import dev.newteam.newteam3.plantilla.models.Persona
             minutos_jugados = null,
             imagen = imagen,
             rol = rol,
-            especializacion = especializacion,
+            especialidad = especializacion,
             equipo = Persona.Equipos.valueOf(equipo.toString()).toString()
         )
     }
@@ -37,8 +35,8 @@ import dev.newteam.newteam3.plantilla.models.Persona
             id = this.id,
             nombre = this.nombre,
             apellido = this.apellido,
-            fechaNacimiento = this.fechaNacimiento,
-            fechaIncorporacion = this.fechaIncorporacion,
+            fechaNacimiento = this.fechaNacimiento.toString(),
+            fechaIncorporacion = this.fechaIncorporacion.toString(),
             salario = this.salario,
             pais = this.pais,
             imagen = this.imagen,
@@ -70,8 +68,8 @@ import dev.newteam.newteam3.plantilla.models.Persona
             id = this.id,
             nombre = this.nombre,
             apellido = this.apellido,
-            fechaNacimiento = this.fechaNacimiento,
-            fechaIncorporacion = this.fechaIncorporacion,
+            fechaNacimiento = this.fechaNacimiento.toString(),
+            fechaIncorporacion = this.fechaIncorporacion.toString(),
             salario = this.salario,
             pais = this.pais,
             imagen = this.imagen,
@@ -86,8 +84,8 @@ import dev.newteam.newteam3.plantilla.models.Persona
             id = this.id,
             nombre = this.nombre,
             apellido = this.apellido,
-            fechaNacimiento = this.fechaNacimiento,
-            fechaIncorporacion = this.fechaIncorporacion,
+            fechaNacimiento = this.fechaNacimiento.toString(),
+            fechaIncorporacion = this.fechaIncorporacion.toString(),
             salario = this.salario,
             pais = this.pais,
             imagen = this.imagen,

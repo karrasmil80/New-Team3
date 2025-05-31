@@ -4,36 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de">
-      <change afterPath="$PROJECT_DIR$/data/MUPPET.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/MUPPET.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/NEW_TEAM.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/NEW_TEAM.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZipImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/utils/html.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/service/ConvocatoriaServiceImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/utils/HtmlMuppetTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/utils/htmlNewTeamTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2025_12_06_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2025_12_06__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2025_16_48_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_05_2025_16_48__Changes_.xml" beforeDir="false" />
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Finalizado el HTML report y el zip, falta que se lea bien el json y programar los botones">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/personal.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/plantilla.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/MUPPET.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/MUPPET.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NEW_TEAM.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/NEW_TEAM.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_copia/test_personas.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_copia/test_personas.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageZip.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/validator/UserValidator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/validator/UserValidator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/EntrenadorEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/EntrenadorEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/EquipoEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/EquipoEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/JugadorEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/JugadorEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dao/PersonaEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/EntrenadorDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/EntrenadorDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/EquipoDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/EquipoDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/JugadorDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/JugadorDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/PersonaDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/dto/PersonaDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/extensions/Extensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/extensions/Extensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EntrenadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/EntrenadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Entrenador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Entrenador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Equipo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Equipo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Jugador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Jugador.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Persona.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Persona.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageCsv.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageCsv.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/EntrenadorValidator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/EntrenadorValidator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/dao/PersonaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/dao/PersonaDaoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EntrenadorMapperTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EntrenadorMapperTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EquipoMapperTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EquipoMapperTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/JugadorMapperTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/JugadorMapperTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/PersonaMapperTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/PersonaMapperTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/storage/general/PersonaStorageCsvTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/storage/general/PersonaStorageCsvTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/validator/EntrenadorValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/validator/EntrenadorValidatorTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/validator/JugadorValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/validator/JugadorValidatorTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/utils/HtmlMuppetTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/utils/HtmlMuppetTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/utils/htmlNewTeamTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/utils/htmlNewTeamTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +181,7 @@
     "Gradle.ConvocatoriaValidatorTest.executor": "Coverage",
     "Gradle.EntrenadorMapperTest.executor": "Run",
     "Gradle.EntrenadorValidatorTest.executor": "Run",
+    "Gradle.EquipoMapperTest.conversionEquipoDtoaEquipo.executor": "Run",
     "Gradle.EquipoMapperTest.executor": "Run",
     "Gradle.HtmlMuppetTest.executor": "Run",
     "Gradle.HtmlMuppetTest.generarYVerHtmlMuppet.executor": "Run",
@@ -182,10 +192,12 @@
     "Gradle.JugadorValidatorTest.executor": "Run",
     "Gradle.New-Team3 [run].executor": "Run",
     "Gradle.PersonaDaoTest.executor": "Run",
+    "Gradle.PersonaMapperTest.conversionPersonaDtoaModelJugador.executor": "Run",
     "Gradle.PersonaMapperTest.executor": "Run",
     "Gradle.PersonaRepositoryMockitoTest.executor": "Run",
     "Gradle.PersonaServiceImplMockitoTest.executor": "Run",
     "Gradle.PersonaStorageCsvTest.executor": "Run",
+    "Gradle.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory.executor": "Run",
     "Gradle.PersonaValidatorTest.executor": "Coverage",
     "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
     "Gradle.Tests in 'New-Team3.test'.executor": "Run",
@@ -226,7 +238,7 @@
       <recent name="dev.newteam.newteam3.players.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.New-Team3 [run]">
+  <component name="RunManager" selected="Gradle.Tests in 'New-Team3.test'">
     <configuration name="HtmlMuppetTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -251,7 +263,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="HtmlMuppetTest.generarYVerHtmlMuppet" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PersonaStorageCsvTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -264,7 +276,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;utils.HtmlMuppetTest.generarYVerHtmlMuppet&quot;" />
+            <option value="&quot;plantilla.storage.general.PersonaStorageCsvTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -275,26 +287,50 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="New-Team3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="run" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;plantilla.storage.general.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'New-Team3.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="htmlNewTeamTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -321,37 +357,13 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="htmlNewTeamTest.generarYVerHtml" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;utils.htmlNewTeamTest.generarYVerHtml&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.New-Team3 [run]" />
-        <item itemvalue="Gradle.HtmlMuppetTest" />
-        <item itemvalue="Gradle.HtmlMuppetTest.generarYVerHtmlMuppet" />
+        <item itemvalue="Gradle.Tests in 'New-Team3.test'" />
+        <item itemvalue="Gradle.PersonaStorageCsvTest" />
+        <item itemvalue="Gradle.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory" />
         <item itemvalue="Gradle.htmlNewTeamTest" />
-        <item itemvalue="Gradle.htmlNewTeamTest.generarYVerHtml" />
+        <item itemvalue="Gradle.HtmlMuppetTest" />
       </list>
     </recent_temporary>
   </component>
@@ -391,7 +403,8 @@
       <workItem from="1748523707219" duration="212000" />
       <workItem from="1748529115436" duration="7808000" />
       <workItem from="1748598719537" duration="10353000" />
-      <workItem from="1748621238392" duration="5693000" />
+      <workItem from="1748621238392" duration="5815000" />
+      <workItem from="1748677293569" duration="9162000" />
     </task>
     <task id="LOCAL-00001" summary="Conflictos arreglados">
       <option name="closed" value="true" />
@@ -457,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748535480775</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Finalizado el HTML report y el zip, falta que se lea bien el json y programar los botones">
+      <option name="closed" value="true" />
+      <created>1748629493744</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1748629493744</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +506,8 @@
     <MESSAGE value="Merge pull request #29 from nicolasorteg/feature-nico&#10;&#10;Valitor User + Redimension" />
     <MESSAGE value="Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers" />
     <MESSAGE value="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de" />
+    <MESSAGE value="Finalizado el HTML report y el zip, falta que se lea bien el json y programar los botones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado el HTML report y el zip, falta que se lea bien el json y programar los botones" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/New_Team3$PersonaServiceImplMockitoTest.ic" NAME="PersonaServiceImplMockitoTest Coverage Results" MODIFIED="1748255825558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

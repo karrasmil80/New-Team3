@@ -19,8 +19,8 @@ class EntrenadorMapperTest {
             id = 1,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             imagen = "guardiola.jpg",
@@ -31,19 +31,19 @@ class EntrenadorMapperTest {
 
         val dto = entrenador.toDto()
 
-        assertTrue(dto is PersonaDto) // ✅ Validamos que la conversión es correcta
+        assertTrue(dto is PersonaDto)
 
         // Validaciones de propiedades
         assertEquals(entrenador.id, dto.id)
         assertEquals(entrenador.nombre, dto.nombre)
-        assertEquals(entrenador.apellido, dto.apellido)
+        assertEquals(entrenador.apellido, dto.apellidos)
         assertEquals(entrenador.fechaNacimiento, dto.fecha_nacimiento)
         assertEquals(entrenador.fechaIncorporacion, dto.fecha_incorporacion)
         assertEquals(entrenador.salario, dto.salario)
         assertEquals(entrenador.pais, dto.pais)
         assertEquals(entrenador.imagen, dto.imagen)
         assertEquals(entrenador.rol, dto.rol)
-        assertEquals(entrenador.especializacion, dto.especializacion)
+        assertEquals(entrenador.especializacion, dto.especialidad)
         assertEquals(entrenador.equipo.toString(), dto.equipo)
 
         // Validamos que las propiedades relacionadas con Jugador sean `null`
@@ -63,8 +63,8 @@ class EntrenadorMapperTest {
             id = 1,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             imagen = "entrenador",
@@ -75,7 +75,7 @@ class EntrenadorMapperTest {
 
         val entrenador = entrenadorDto.toModel()
 
-        assertTrue(entrenador is Entrenador) // ✅ Validamos que la conversión es correcta
+        assertTrue(entrenador is Entrenador)
 
         // Validaciones de propiedades
         assertEquals(entrenadorDto.id, entrenador.id)
@@ -98,8 +98,8 @@ class EntrenadorMapperTest {
             id = 1,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             imagen = "guardiola.jpg",
@@ -110,7 +110,7 @@ class EntrenadorMapperTest {
 
         val entrenadorEntity = entrenador.toEntity()
 
-        assertTrue(entrenadorEntity is EntrenadorEntity) // ✅ Validamos que la conversión es correcta
+        assertTrue(entrenadorEntity is EntrenadorEntity)
 
         // Validaciones de propiedades
         assertEquals(entrenador.id, entrenadorEntity.id)
@@ -132,8 +132,8 @@ class EntrenadorMapperTest {
             id = 1,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             imagen = "entrenador",
@@ -144,7 +144,7 @@ class EntrenadorMapperTest {
 
         val entrenador = entrenadorEntity.toModel()
 
-        assertTrue(entrenador is Entrenador) // ✅ Validamos que la conversión es correcta
+        assertTrue(entrenador is Entrenador)
 
         // Validaciones de propiedades
         assertEquals(entrenadorEntity.id, entrenador.id)
@@ -166,8 +166,8 @@ class EntrenadorMapperTest {
             id = 1,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             imagen = "guardiola.jpg",
@@ -178,7 +178,7 @@ class EntrenadorMapperTest {
 
         val entrenadorEntity = entrenadorDto.toEntity()
 
-        assertTrue(entrenadorEntity is EntrenadorEntity) // ✅ Validamos que la conversión es correcta
+        assertTrue(entrenadorEntity is EntrenadorEntity)
 
         // Validaciones de propiedades
         assertEquals(entrenadorDto.id, entrenadorEntity.id)

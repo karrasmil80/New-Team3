@@ -22,8 +22,8 @@ class JugadorMapperTest {
             id = 1,
             nombre = "Cristiano",
             apellido = "Ronaldo",
-            fechaNacimiento = LocalDate.of(1985, 2, 5),
-            fechaIncorporacion = LocalDate.of(2003, 8, 12),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 4000000.0,
             pais = "Portugal",
             posicion = Jugador.Posicion.DELANTERO,
@@ -41,12 +41,12 @@ class JugadorMapperTest {
 
         val dto = jugador.toDto()
 
-        assertTrue(dto is PersonaDto) // ✅ Validamos que la conversión es correcta
+        assertTrue(dto is PersonaDto)
 
         // Validaciones de propiedades
         assertEquals(jugador.id, dto.id)
         assertEquals(jugador.nombre, dto.nombre)
-        assertEquals(jugador.apellido, dto.apellido)
+        assertEquals(jugador.apellido, dto.apellidos)
         assertEquals(jugador.fechaNacimiento, dto.fecha_nacimiento)
         assertEquals(jugador.fechaIncorporacion, dto.fecha_incorporacion)
         assertEquals(jugador.salario, dto.salario)
@@ -70,8 +70,8 @@ class JugadorMapperTest {
             id = 1,
             nombre = "Cristiano",
             apellido = "Ronaldo",
-            fechaNacimiento = LocalDate.of(1985, 2, 5),
-            fechaIncorporacion = LocalDate.of(2003, 8, 12),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 4000000.0,
             pais = "Portugal",
             posicion = Jugador.Posicion.DELANTERO,
@@ -89,7 +89,7 @@ class JugadorMapperTest {
 
         val persona = jugadorDto.toModel()
 
-        assertTrue(persona is Jugador) // ✅ Validamos que la conversión es correcta
+        assertTrue(persona is Jugador)
 
         val jugador = persona as Jugador
 
@@ -120,11 +120,11 @@ class JugadorMapperTest {
             id = 2,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
-            posicion = Jugador.Posicion.DELANTERO, // ⚠️ Posición no relevante para entrenador
+            posicion = Jugador.Posicion.DELANTERO,
             rol = "entrenador",
             dorsal = 10,
             altura = 1.80,
@@ -139,7 +139,7 @@ class JugadorMapperTest {
 
         val persona = entrenadorDto.toModel()
 
-        assertTrue(persona is Entrenador) // ✅ Validamos que la conversión es correcta
+        assertTrue(persona is Entrenador)
 
         val entrenador = persona as Entrenador
 
@@ -153,7 +153,7 @@ class JugadorMapperTest {
         assertEquals(entrenadorDto.pais, entrenador.pais)
         assertEquals(entrenadorDto.imagen, entrenador.imagen)
         assertEquals(Persona.Equipos.valueOf(entrenadorDto.equipo), entrenador.equipo)
-        assertEquals(Entrenador.Especializacion.PRINCIPAL, entrenador.especializacion) // ✅ Valor por defecto
+        assertEquals(Entrenador.Especializacion.PRINCIPAL, entrenador.especializacion)
         assertEquals(entrenadorDto.rol, entrenador.rol)
     }
 
@@ -163,8 +163,8 @@ class JugadorMapperTest {
             id = 3,
             nombre = "X",
             apellido = "Y",
-            fechaNacimiento = LocalDate.of(1990, 5, 10),
-            fechaIncorporacion = LocalDate.of(2015, 8, 20),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 50000.0,
             pais = "Desconocido",
             posicion = Jugador.Posicion.DELANTERO,
@@ -180,7 +180,7 @@ class JugadorMapperTest {
             equipo = Persona.Equipos.NEW_TEAM.toString()
         )
 
-        assertThrows<IllegalArgumentException> { desconocidoDto.toModel() } // ✅ Validamos la excepción
+        assertThrows<IllegalArgumentException> { desconocidoDto.toModel() }
     }
 
     @Test
@@ -189,8 +189,8 @@ class JugadorMapperTest {
             id = 3,
             nombre = "Neymar",
             apellido = "Jr",
-            fechaNacimiento = LocalDate.of(1992, 2, 5),
-            fechaIncorporacion = LocalDate.of(2013, 6, 3),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 2000000.0,
             pais = "Brasil",
             posicion = Jugador.Posicion.DELANTERO,
@@ -236,8 +236,8 @@ class JugadorMapperTest {
             id = 1,
             nombre = "Cristiano",
             apellido = "Ronaldo",
-            fechaNacimiento = LocalDate.of(1985, 2, 5),
-            fechaIncorporacion = LocalDate.of(2003, 8, 12),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 4000000.0,
             pais = "Portugal",
             posicion = Jugador.Posicion.DELANTERO,
@@ -255,7 +255,7 @@ class JugadorMapperTest {
 
         val jugador = jugadorEntity.toModel()
 
-        assertTrue(jugador is Jugador) // ✅ Validamos que la conversión es correcta
+        assertTrue(jugador is Jugador)
 
         // Validaciones de propiedades
         assertEquals(jugadorEntity.id, jugador.id)
@@ -284,8 +284,8 @@ class JugadorMapperTest {
             id = 1,
             nombre = "Cristiano",
             apellido = "Ronaldo",
-            fechaNacimiento = LocalDate.of(1985, 2, 5),
-            fechaIncorporacion = LocalDate.of(2003, 8, 12),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 4000000.0,
             pais = "Portugal",
             posicion = Jugador.Posicion.DELANTERO,
@@ -303,7 +303,7 @@ class JugadorMapperTest {
 
         val jugadorEntity = jugadorDto.toEntity()
 
-        assertTrue(jugadorEntity is JugadorEntity) // ✅ Validamos que la conversión es correcta
+        assertTrue(jugadorEntity is JugadorEntity)
 
         // Validaciones de propiedades
         assertEquals(jugadorDto.id, jugadorEntity.id)

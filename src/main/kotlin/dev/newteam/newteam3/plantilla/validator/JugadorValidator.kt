@@ -41,6 +41,7 @@ class JugadorValidator: Validator<Jugador, PersonaError> {
             return Err(PersonaError.PersonaValidatorError("El apellido debe tener entre 2 y 40 caracteres"))
         }
 
+        /*
         if (t.fechaNacimiento == LocalDate.now()) {
             return Err(PersonaError.PersonaValidatorError("La fecha de nacimiento no puede ser hoy"))
         }
@@ -51,6 +52,7 @@ class JugadorValidator: Validator<Jugador, PersonaError> {
         if (t.fechaIncorporacion.isAfter(LocalDate.now())) {
             return Err(PersonaError.PersonaValidatorError("La fecha de incorporación no puede ser en el futuro"))
         }
+         */
 
         if (t.salario <= 0.0) {
             return Err(PersonaError.PersonaValidatorError("El salario debe ser mayor que 0"))

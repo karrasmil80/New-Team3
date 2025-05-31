@@ -1,7 +1,5 @@
 package dev.newteam.newteam3.plantilla.models
 
-import java.time.LocalDate
-
 /**
  * Aquí se almacenan los datos de las Personas.
  */
@@ -9,12 +7,12 @@ abstract class Persona(
     val id: Int,
     val nombre: String,
     val apellido: String,
-    val fechaNacimiento: LocalDate,
-    val fechaIncorporacion: LocalDate,
+    val fechaNacimiento: String,
+    val fechaIncorporacion: String,
     val salario: Double,
     val pais: String,
     val rol: String,
-    val imagen : String,
+    val imagen: String,
     val equipo: Equipos
 ) {
     enum class Equipos {

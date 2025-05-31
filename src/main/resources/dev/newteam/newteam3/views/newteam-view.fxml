@@ -65,15 +65,15 @@
               <Button fx:id="campoDerechaButton" layoutX="387.0" layoutY="93.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT" />
               <Button fx:id="banquilloButton" layoutX="1300.0" layoutY="106.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="39.0" styleClass="invisible-button" text="Button" textFill="TRANSPARENT" />
 
-              <TableView layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="338.0">
+              <TableView fx:id="tableViewNewTeamEntrenadores" layoutX="71.0" layoutY="661.0" prefHeight="90.0" prefWidth="338.0">
                  <columns>
-                    <TableColumn prefWidth="337.0" text="Nombre y Apellidos" />
+                    <TableColumn fx:id="nombresEntrenadoresField" prefWidth="337.0" text="Nombre y Apellidos" />
                  </columns>
               </TableView>
-              <TableView layoutX="72.0" layoutY="154.0" prefHeight="463.0" prefWidth="336.0">
+              <TableView fx:id="tableViewNewTeam" layoutX="72.0" layoutY="154.0" prefHeight="463.0" prefWidth="336.0">
                  <columns>
-                    <TableColumn editable="false" prefWidth="63.0" text="Nº Dorsal" />
-                    <TableColumn editable="false" prefWidth="272.0" text="Nombre y Apellidos" />
+                    <TableColumn fx:id="dorsalCell" editable="false" prefWidth="63.0" text="Nº Dorsal" />
+                    <TableColumn fx:id="nombreApellidoCell" editable="false" prefWidth="272.0" text="Nombre y Apellidos" />
                  </columns>
               </TableView>
            </AnchorPane>

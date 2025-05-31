@@ -17,7 +17,7 @@ class EquipoMapperTest {
         val equipoDto = EquipoDto(
             id = 1,
             nombreEquipo = "FC Barcelona",
-            fechaFundacion = LocalDate.of(1899, 11, 29),
+            fechaFundacion = "1970-01-01",
             imagenEscudo = "barcelona.png",
             ciudad = "Barcelona",
             pais = "España"
@@ -41,7 +41,7 @@ class EquipoMapperTest {
         val equipoDto = EquipoDto(
             id = 2,
             nombreEquipo = "Real Madrid",
-            fechaFundacion = LocalDate.of(1902, 3, 6),
+            fechaFundacion = "1970-01-01",
             imagenEscudo = "realmadrid.png",
             ciudad = "Madrid",
             pais = "España"
@@ -65,7 +65,7 @@ class EquipoMapperTest {
         val equipo = Equipo(
             id = 3,
             nombreEquipo = "Manchester United",
-            fechaFundacion = LocalDate.of(1878, 3, 5),
+            fechaFundacion = "1970-01-01",
             imagenEscudo = "manchester.png",
             ciudad = "Manchester",
             pais = "Reino Unido"

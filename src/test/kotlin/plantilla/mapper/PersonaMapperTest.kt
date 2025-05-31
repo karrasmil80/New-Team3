@@ -22,9 +22,9 @@ class PersonaMapperTest {
         val personaDto = PersonaDto(
             id = 1,
             nombre = "Cristiano",
-            apellido = "Ronaldo",
-            fecha_nacimiento = LocalDate.of(1985, 2, 5),
-            fecha_incorporacion = LocalDate.of(2003, 8, 12),
+            apellidos = "Ronaldo",
+            fecha_nacimiento  = "1970-01-01",
+            fecha_incorporacion = "2000-01-01",
             salario = 4000000.0,
             pais = "Portugal",
             imagen = "jugador",
@@ -38,17 +38,17 @@ class PersonaMapperTest {
             partidos_jugados = 1000,
             minutos_jugados = 90000,
             rol = "jugador",
-            especializacion = null
+            especialidad = null
         )
 
         val jugador = personaDto.toJugador()
 
-        assertTrue(jugador is Jugador) // ✅ Validamos que la conversión es correcta
+        assertTrue(jugador is Jugador)
 
         // Validaciones de propiedades
         assertEquals(personaDto.id, jugador.id)
         assertEquals(personaDto.nombre, jugador.nombre)
-        assertEquals(personaDto.apellido, jugador.apellido)
+        assertEquals(personaDto.apellidos, jugador.apellido)
         assertEquals(personaDto.fecha_nacimiento, jugador.fechaNacimiento)
         assertEquals(personaDto.fecha_incorporacion, jugador.fechaIncorporacion)
         assertEquals(personaDto.salario, jugador.salario)
@@ -71,9 +71,9 @@ class PersonaMapperTest {
         val personaDto = PersonaDto(
             id = 2,
             nombre = "Carlo",
-            apellido = "Ancelotti",
-            fecha_nacimiento = LocalDate.of(1959, 6, 10),
-            fecha_incorporacion = LocalDate.of(1995, 7, 1),
+            apellidos = "Ancelotti",
+            fecha_nacimiento  = "1970-01-01",
+            fecha_incorporacion = "2000-01-01",
             salario = 7000000.0,
             pais = "Italia",
             imagen = "entrenador",
@@ -87,26 +87,26 @@ class PersonaMapperTest {
             partidos_jugados = null,
             minutos_jugados = null,
             rol = "entrenador",
-            especializacion = Entrenador.Especializacion.ASISTENTE
+            especialidad = Entrenador.Especializacion.ASISTENTE
         )
 
         val entrenador = personaDto.toEntrenador()
 
 
 
-        assertTrue(entrenador is Entrenador) // ✅ Validamos que la conversión es correcta
+        assertTrue(entrenador is Entrenador)
 
         // Validaciones de propiedades
         assertEquals(personaDto.id, entrenador.id)
         assertEquals(personaDto.nombre, entrenador.nombre)
-        assertEquals(personaDto.apellido, entrenador.apellido)
+        assertEquals(personaDto.apellidos, entrenador.apellido)
         assertEquals(personaDto.fecha_nacimiento, entrenador.fechaNacimiento)
         assertEquals(personaDto.fecha_incorporacion, entrenador.fechaIncorporacion)
         assertEquals(personaDto.salario, entrenador.salario)
         assertEquals(personaDto.pais, entrenador.pais)
         assertEquals(personaDto.imagen, entrenador.imagen)
         assertEquals(personaDto.equipo, entrenador.equipo.name)
-        assertEquals(personaDto.especializacion, entrenador.especializacion)
+        assertEquals(personaDto.especialidad, entrenador.especializacion)
         assertEquals(personaDto.rol, entrenador.rol)
     }
 
@@ -116,9 +116,9 @@ class PersonaMapperTest {
         val personaDto = PersonaDto(
             id = 1,
             nombre = "Rafa",
-            apellido = "Nadal",
-            fecha_nacimiento = LocalDate.of(1970, 1, 1),
-            fecha_incorporacion = LocalDate.of(1970, 1, 1),
+            apellidos = "Nadal",
+            fecha_nacimiento  = "1970-01-01",
+            fecha_incorporacion = "2000-01-01",
             salario = 1000.0,
             pais = "España",
             imagen = "entrenador",
@@ -132,7 +132,7 @@ class PersonaMapperTest {
             partidos_jugados = null,
             minutos_jugados = null,
             rol = "entrenador", // ✅ Corregido a minúscula
-            especializacion = Entrenador.Especializacion.PRINCIPAL
+            especialidad = Entrenador.Especializacion.PRINCIPAL
         )
 
         val persona = personaDto.toModel()
@@ -142,14 +142,14 @@ class PersonaMapperTest {
 
         assertEquals(personaDto.id, entrenador.id)
         assertEquals(personaDto.nombre, entrenador.nombre)
-        assertEquals(personaDto.apellido, entrenador.apellido)
+        assertEquals(personaDto.apellidos, entrenador.apellido)
         assertEquals(personaDto.fecha_nacimiento, entrenador.fechaNacimiento)
         assertEquals(personaDto.fecha_incorporacion, entrenador.fechaIncorporacion)
         assertEquals(personaDto.salario, entrenador.salario)
         assertEquals(personaDto.pais, entrenador.pais)
         assertEquals(personaDto.imagen, entrenador.imagen)
         assertEquals(personaDto.equipo, entrenador.equipo.name)
-        assertEquals(personaDto.especializacion, entrenador.especializacion)
+        assertEquals(personaDto.especialidad, entrenador.especializacion)
     }
 
     @Test
@@ -157,9 +157,9 @@ class PersonaMapperTest {
         val personaDto = PersonaDto(
             id = 2,
             nombre = "Leo",
-            apellido = "Messi",
-            fecha_nacimiento = LocalDate.of(1987, 6, 24),
-            fecha_incorporacion = LocalDate.of(2021, 8, 10),
+            apellidos = "Messi",
+            fecha_nacimiento  = "1970-01-01",
+            fecha_incorporacion = "2000-01-01",
             salario = 3000000.0,
             pais = "Argentina",
             imagen = "jugador",
@@ -173,7 +173,7 @@ class PersonaMapperTest {
             partidos_jugados = 900,
             minutos_jugados = 81000,
             rol = "jugador", // ✅ Rol correcto
-            especializacion = null
+            especialidad = null
         )
 
         val persona = personaDto.toModel()
@@ -183,7 +183,7 @@ class PersonaMapperTest {
 
         assertEquals(personaDto.id, jugador.id)
         assertEquals(personaDto.nombre, jugador.nombre)
-        assertEquals(personaDto.apellido, jugador.apellido)
+        assertEquals(personaDto.apellidos, jugador.apellido)
         assertEquals(personaDto.fecha_nacimiento, jugador.fechaNacimiento)
         assertEquals(personaDto.fecha_incorporacion, jugador.fechaIncorporacion)
         assertEquals(personaDto.salario, jugador.salario)
@@ -206,8 +206,8 @@ class PersonaMapperTest {
             id = 2,
             nombre = "Leo",
             apellido = "Messi",
-            fechaNacimiento = LocalDate.of(1987, 6, 24),
-            fechaIncorporacion = LocalDate.of(2021, 8, 10),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 3000000.0,
             pais = "Argentina",
             posicion = Jugador.Posicion.DELANTERO,
@@ -255,8 +255,8 @@ class PersonaMapperTest {
             id = 3,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             equipo = Persona.Equipos.MUPPET,
@@ -292,8 +292,8 @@ class PersonaMapperTest {
             id = 10,
             nombre = "Lionel",
             apellido = "Messi",
-            fechaNacimiento = LocalDate.of(1987,6,24),
-            fechaIncorporacion = LocalDate.of(2004,10,16),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 75000000.0,
             pais = "Argentina",
             equipo = Persona.Equipos.MUPPET,
@@ -337,8 +337,8 @@ class PersonaMapperTest {
             id = 4,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971, 1, 18),
-            fechaIncorporacion = LocalDate.of(2008, 6, 1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             equipo = Persona.Equipos.MUPPET,
@@ -350,7 +350,7 @@ class PersonaMapperTest {
         // Conversión de Persona a Entrenador
         val entrenadorConvertido = entrenador.toEntrenador()
 
-        assertTrue(entrenadorConvertido is Entrenador) // ✅ Validamos la conversión correcta
+        assertTrue(entrenadorConvertido is Entrenador)
 
         // Validaciones de propiedades
         assertEquals(entrenador.id, entrenadorConvertido.id)
@@ -375,8 +375,8 @@ class PersonaMapperTest {
             id = 10,
             nombre = "Lionel",
             apellido = "Messi",
-            fechaNacimiento = LocalDate.of(1987,6,24),
-            fechaIncorporacion = LocalDate.of(2004,10,16),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 75000000.0,
             pais = "Argentina",
             equipo = Persona.Equipos.MUPPET,
@@ -420,8 +420,8 @@ class PersonaMapperTest {
             id = 1,
             nombre = "Pep",
             apellido = "Guardiola",
-            fechaNacimiento = LocalDate.of(1971,1,18),
-            fechaIncorporacion = LocalDate.of(2016,7,1),
+            fechaNacimiento = "1970-01-01",
+            fechaIncorporacion = "2000-01-01",
             salario = 5000000.0,
             pais = "España",
             equipo = Persona.Equipos.NEW_TEAM,

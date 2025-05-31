@@ -53,6 +53,10 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.convocatoria.dao to org.jdbi.v3.core;
     exports dev.newteam.newteam3.convocatoria.dao to kotlin.reflect;
 
+    //MODELS
+    opens dev.newteam.newteam3.plantilla.models to javafx.base;
+    exports dev.newteam.newteam3.plantilla.models to javafx.graphics;
+
 
 }
 

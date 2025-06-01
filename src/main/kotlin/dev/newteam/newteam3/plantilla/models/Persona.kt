@@ -5,12 +5,12 @@ package dev.newteam.newteam3.plantilla.models
  */
 abstract class Persona(
     val id: Int,
-    val nombre: String,
-    val apellido: String,
-    val fechaNacimiento: String,
-    val fechaIncorporacion: String,
-    val salario: Double,
-    val pais: String,
+    var nombre: String,
+    var apellido: String,
+    var fechaNacimiento: String,
+    var fechaIncorporacion: String,
+    var salario: Double,
+    var pais: String,
     val rol: String,
     val imagen: String,
     val equipo: Equipos

@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="898.0" stylesheets="@../styles/muppets-modify-view.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="898.0" stylesheets="@../styles/muppets-modify-view.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.NewTeamModifyController">
 
-    <ImageView fitHeight="579.0" fitWidth="902.0" layoutX="-3.0" layoutY="-4.0">
+    <ImageView fitHeight="579.0" fitWidth="902.0" layoutX="-2.0">
         <Image url="@../images/newteam-modify-view.png" />
     </ImageView>
 
@@ -28,7 +28,10 @@
     <Button fx:id="ayudaButton" layoutX="214.0" layoutY="-3.0" mnemonicParsing="false" opacity="0.0" prefHeight="43.0" prefWidth="16.0" rotate="90.0" textFill="TRANSPARENT" />
     <Button fx:id="campoIzquierdaButton" layoutX="22.0" layoutY="59.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="31.0" textFill="TRANSPARENT" />
     <Button fx:id="campoDerechaButton" layoutX="237.0" layoutY="60.0" mnemonicParsing="false" opacity="0.0" prefHeight="29.0" prefWidth="30.0" textFill="TRANSPARENT" />
-    <ImageView fx:id="dorsalNumImage" fitHeight="114.0" fitWidth="103.0" layoutX="99.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="dorsalNumImage" fitHeight="79.0" fitWidth="238.0" layoutX="34.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/logo-newteam-pixel.png" />
+      </image></ImageView>
 
     <GridPane hgap="15" layoutX="347.0" layoutY="64.0" prefHeight="784.0" prefWidth="308.0" vgap="15">
         <padding>
@@ -105,11 +108,11 @@
         </VBox>
     </GridPane>
 
-    <DatePicker fx:id="fechaIncorporacionField" disable="true" layoutX="158.0" layoutY="343.0" prefHeight="25.0" prefWidth="109.0" promptText="DD/MM/AAAA" />
-    <ComboBox fx:id="rolComboBox" disable="true" layoutX="76.0" layoutY="255.0" prefHeight="17.0" prefWidth="149.0" promptText="Rol / Posición" />
-    <TextField fx:id="nombreField" disable="true" layoutX="76.0" layoutY="220.0" text="José" />
-    <TextField fx:id="edadField" disable="true" layoutX="87.0" layoutY="315.0" text="21 años" />
-    <TextField fx:id="paisField" disable="true" layoutX="87.0" layoutY="286.0" text="Mongolia" />
+    <DatePicker fx:id="fechaIncorporacionField" disable="true" layoutX="163.0" layoutY="343.0" prefHeight="25.0" prefWidth="115.0" promptText="DD/MM/AAAA" />
+    <ComboBox fx:id="rolComboBox" disable="true" layoutX="126.0" layoutY="240.0" prefHeight="17.0" prefWidth="149.0" promptText="Rol / Posición" />
+    <TextField fx:id="nombreField" disable="true" layoutX="128.0" layoutY="203.0" text="José" />
+    <TextField fx:id="edadField" disable="true" layoutX="128.0" layoutY="307.0" text="21 años" />
+    <TextField fx:id="paisField" disable="true" layoutX="126.0" layoutY="277.0" text="Mongolia" />
     <Label layoutX="73.0" layoutY="439.0" />
 
     <!-- Labels grandes con fuente personalizada -->

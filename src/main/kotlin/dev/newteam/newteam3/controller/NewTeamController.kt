@@ -1,8 +1,6 @@
 package dev.newteam.newteam3.controller
 
-import com.github.michaelbull.result.*
 import dev.newteam.newteam3.config.Config
-import dev.newteam.newteam3.plantilla.error.PersonaError
 import dev.newteam.newteam3.plantilla.models.Entrenador
 import dev.newteam.newteam3.plantilla.models.Jugador
 import dev.newteam.newteam3.plantilla.models.Persona
@@ -12,6 +10,9 @@ import dev.newteam.newteam3.plantilla.storage.general.PersonaStorageZipImpl
 import dev.newteam.newteam3.routes.RoutesManager
 import javafx.collections.FXCollections
 import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
+import javafx.scene.Parent
+import javafx.scene.Scene
 import javafx.scene.control.Alert
 import javafx.scene.control.Button
 import javafx.scene.control.TableColumn
@@ -21,7 +22,6 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import org.lighthousegames.logging.logging
 import java.io.File
-import kotlin.math.log
 
 private val logger = logging()
 class NewTeamController {
@@ -71,10 +71,10 @@ class NewTeamController {
     @FXML
     lateinit var banquilloButton: Button
 
+
     fun initialize() {
         initDefaultValues()
         initEvents()
-        onImportarButtonClick()
 
     }
 
@@ -84,6 +84,7 @@ class NewTeamController {
         onEditarAbajoButtonClick()
         onCampoDerechaButtonClick()
         onImportarButtonClick()
+        onExportarButtonClick()
         onEliminarButtonClick()
     }
 
@@ -93,6 +94,7 @@ class NewTeamController {
         nombresEntrenadoresField.cellValueFactory = PropertyValueFactory("nombreCompleto")
     }
 
+
     fun onBanquilloButtonClick() {
         banquilloButton.setOnAction {
             logger.debug { "Banquillo button clicked" }
@@ -100,18 +102,42 @@ class NewTeamController {
         }
     }
 
+
     fun onAddButtonClick() {
         anadirButton.setOnAction {
             logger.debug { "Add banquillo button clicked" }
-            RoutesManager.initModifyNewTeamScreen()
+            RoutesManager.initModifyNewTeamScreen(null)
         }
     }
+
 
     fun onEditarAbajoButtonClick() {
         editarAbajoButton.setOnAction {
             logger.debug { "Editar abajo button clicked" }
-            RoutesManager.initModifyNewTeamScreen()
+            val jugadorSeleccionado = tableViewNewTeam.selectionModel.selectedItem
+            val entrenadorSeleccionado = tableViewNewTeamEntrenadores.selectionModel.selectedItem
+
+            val personaSeleccionada: Persona? = jugadorSeleccionado ?: entrenadorSeleccionado
+
+            if (personaSeleccionada != null) {
+                RoutesManager.initModifyNewTeamScreen(personaSeleccionada)
+            } else {
+                Alert(Alert.AlertType.ERROR).apply {
+                    title = "Error"
+                    headerText = "Debes seleccionar un jugador o entrenador"
+                    contentText = "Selecciona uno para poder editarlo"
+                }.showAndWait()
+            }
+            tableViewNewTeam.refresh()
+            tableViewNewTeamEntrenadores.refresh()
         }
+    }
+
+    fun onGuardarButtonClick() {
+        logger.info { "Guardar button clicked" }
+        anadirButton.setOnAction {
+        }
+
     }
 
     fun onCampoDerechaButtonClick() {
@@ -170,6 +196,45 @@ class NewTeamController {
         }
     }
 
+    fun onExportarButtonClick() {
+        exportarButton.setOnAction {
+            val personas = tableViewNewTeam.items.toList() // Copia segura de los datos
 
+            val fileChooser = FileChooser()
+            fileChooser.title = "Guardar archivo CSV"
+            fileChooser.initialFileName = "export.csv"
+            fileChooser.extensionFilters.add(FileChooser.ExtensionFilter("CSV Files", "*.csv"))
+            val file = fileChooser.showSaveDialog(null)
 
+            if (file != null) {
+                val result = csvStorage.writeToFile(file, personas)
+                if (result.isOk) {
+                    Alert(Alert.AlertType.INFORMATION, "Exportación completada correctamente.").showAndWait()
+                    logger.debug { "Archivo exportado a: ${file.absolutePath}" }
+                } else {
+                    Alert(Alert.AlertType.ERROR, "Error al exportar: ${result.error.message}").showAndWait()
+                    logger.error { "Error al exportar: ${result.error.message}" }
+                }
+            }
+        }
+    }
+
+    fun abrirFormularioModificacion(persona: Persona) {
+        val loader = FXMLLoader(javaClass.getResource("NewTeamModify.fxml"))
+        val root = loader.load<Parent>()
+        val modifyController = loader.getController<NewTeamModifyController>()
+        modifyController.mainController = this
+        modifyController.setPersona(persona)
+
+        val stage = Stage()
+        stage.scene = Scene(root)
+        stage.show()
+    }
+
+    fun addJugador(jugador: Jugador) {
+        if (tableViewNewTeam.items == null) {
+            tableViewNewTeam.items = FXCollections.observableArrayList()
+        }
+        tableViewNewTeam.items.add(jugador)
+    }
 }

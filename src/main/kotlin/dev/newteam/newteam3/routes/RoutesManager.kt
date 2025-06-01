@@ -1,5 +1,7 @@
 package dev.newteam.newteam3.routes
 
+import dev.newteam.newteam3.controller.NewTeamModifyController
+import dev.newteam.newteam3.plantilla.models.Persona
 import javafx.application.Application
 import javafx.application.Platform
 import javafx.fxml.FXMLLoader
@@ -159,11 +161,14 @@ object RoutesManager {
         }.show()
     }
 
-    fun initModifyNewTeamScreen() {
+    fun initModifyNewTeamScreen(persona: Persona? = null) {
         logger.debug { "Iniciando ModifyScreen New Team" }
         val fxmlLoader = FXMLLoader(getResource(View.MODIFY_NEWTEAM.fxmlPath))
         val root = fxmlLoader.load<Pane>()
         val newScene = Scene(root, 895.0, 570.0)
+        val controller = fxmlLoader.getController<NewTeamModifyController>()
+        controller.setPersona(persona)
+
         Stage().apply {
             title = "New Team ModifyScreen"
             scene = newScene

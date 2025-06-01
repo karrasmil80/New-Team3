@@ -105,7 +105,6 @@ class PersonaStorageCsv: PersonaStorage {
             return Err(PersonaError.PersonaStorageError("El archivo debe tener extensión .csv \uD83D\uDE14"))
         }
 
-        // escritura
         file.writeText("id,nombre,apellidos,fechaNacimiento,fechaIncorporacion,salario,pais,imagen,rol,equipo,especializacion,posicion,dorsal,altura,peso,goles,mediaGoles,partidosJugados,minutosJugados\n")
 
         persona.forEach { persona ->

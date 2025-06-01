@@ -2,6 +2,7 @@ package dev.newteam.newteam3.di
 
 import com.github.benmanes.caffeine.cache.Cache
 import dev.newteam.newteam3.config.Config
+import dev.newteam.newteam3.controller.NewTeamController
 import dev.newteam.newteam3.convocatoria.repositories.ConvocatoriaRepositoryImpl
 import dev.newteam.newteam3.convocatoria.utils.provideConvocatoriaDao
 import dev.newteam.newteam3.database.JdbiManager
@@ -167,4 +168,14 @@ val AppModule = module {
         logger.error { "No se ha podido crear un singleton de PersonaStorageZipImpl" }
     }
 
+    /**
+     * Crea un singleton de [NewTeamController]
+     */
+
+    try {
+        single { NewTeamController() }
+    } catch (e : Exception) {
+        println(e)
+        logger.error { "No se ha podido crear un singleton de new team controller" }
+    }
 }

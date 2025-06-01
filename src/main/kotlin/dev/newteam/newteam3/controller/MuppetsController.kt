@@ -1,5 +1,6 @@
 package dev.newteam.newteam3.controller
 
+import dev.newteam.newteam3.plantilla.models.Persona
 import dev.newteam.newteam3.routes.RoutesManager
 import javafx.fxml.FXML
 import javafx.scene.control.Button
@@ -22,6 +23,8 @@ class MuppetsController {
 
     @FXML
     lateinit var editarAbajoButton: Button
+
+    var persona : Persona? = null
 
     fun initialize() {
         initEvents()
@@ -64,11 +67,16 @@ class MuppetsController {
         }
     }
 
-    //REVISAR
     fun onAyudaButtonClick() {
         ayudaButton.setOnAction {
             RoutesManager.initAcercaDe()
             AcercaDeController()
+        }
+    }
+
+    fun cargarEnModifyView(persona: Persona) {
+        persona.let {
+            
         }
     }
 }

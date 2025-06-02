@@ -25,7 +25,7 @@ class EquipoMapperTest {
 
         val equipo = equipoDto.toModel()
 
-        assertTrue(equipo is Equipo) // ✅ Validamos que la conversión es correcta
+        assertTrue(equipo is Equipo)
 
         // Validaciones de propiedades
         assertEquals(equipoDto.id, equipo.id)
@@ -49,7 +49,7 @@ class EquipoMapperTest {
 
         val equipoDtoConvertido = equipoDto.toDto()
 
-        assertTrue(equipoDtoConvertido is EquipoDto) // ✅ Validamos que la conversión es correcta
+        assertTrue(equipoDtoConvertido is EquipoDto)
 
         // Validaciones de propiedades
         assertEquals(equipoDto.id, equipoDtoConvertido.id)
@@ -73,7 +73,7 @@ class EquipoMapperTest {
 
         val equipoEntity = equipo.toEntity()
 
-        assertTrue(equipoEntity is EquipoEntity) // ✅ Validamos que la conversión es correcta
+        assertTrue(equipoEntity is EquipoEntity)
 
         // Validaciones de propiedades
         assertEquals(equipo.id, equipoEntity.id)

@@ -53,7 +53,7 @@ fun JugadorDto.toModel(): Persona {
             rol = this.rol,
             equipo = Persona.Equipos.valueOf(this.equipo)
         )
-        "entrenador" -> Entrenador( // ✅ Manejo de otro tipo de `Persona`
+        "entrenador" -> Entrenador(
             id = this.id,
             nombre = this.nombre,
             apellido = this.apellido,

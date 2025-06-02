@@ -3,6 +3,7 @@ package dev.newteam.newteam3.controller
 import dev.newteam.newteam3.routes.RoutesManager
 import javafx.fxml.FXML
 import javafx.scene.control.Button
+import javafx.scene.control.PasswordField
 import javafx.scene.control.TextField
 import org.lighthousegames.logging.logging
 
@@ -14,10 +15,14 @@ class UserLoginController {
     lateinit var usernameTextField: TextField
 
     @FXML
-    lateinit var passwordTextField: TextField
+    lateinit var passwordTextField: PasswordField
 
     @FXML
     lateinit var enterButton: Button
+
+    @FXML
+    lateinit var cancelButton: Button
+
 
     fun initialize() {
         enterButton.setOnAction {
@@ -26,8 +31,15 @@ class UserLoginController {
 
             logger.debug { "Acceso libre como usuario: $username" }
             RoutesManager.initPlantillaStage()
-            enterButton.scene.window.hide()  // <-- Cierra ventana login
+            enterButton.scene.window.hide()
+        }
+
+        cancelButton.setOnAction {
+            logger.debug { "Cancelar button clicked" }
+            RoutesManager.initLoginAdminStage()
+            cancelButton.scene.window.hide()
         }
     }
+
 }
 

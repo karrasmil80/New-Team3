@@ -57,6 +57,10 @@ module dev.newteam.newteam3 {
     opens dev.newteam.newteam3.plantilla.models to javafx.base;
     exports dev.newteam.newteam3.plantilla.models to javafx.graphics;
 
+    //USERS
+    opens dev.newteam.newteam3.user.dao to org.jdbi.v3.core;
+    exports dev.newteam.newteam3.user.dao to kotlin.reflect;
+
 
 }
 

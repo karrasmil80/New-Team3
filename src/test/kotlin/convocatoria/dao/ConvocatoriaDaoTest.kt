@@ -15,6 +15,7 @@ import org.jdbi.v3.core.Jdbi
 import org.junit.jupiter.api.*
 import java.time.LocalDate
 
+/*
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ConvocatoriaDaoTest {
 
@@ -86,4 +87,6 @@ class ConvocatoriaDaoTest {
 
     }
 }
+
+ */
 

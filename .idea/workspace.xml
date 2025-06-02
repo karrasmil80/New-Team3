@@ -5,22 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Funcion importar, eliminar hecha. Falta el viewModel he cambiado los mappers, &quot;arreglado&quot; el dto (creo) y he reajustado los test">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2025_10_19_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2025_10_19__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2025_10_20_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_05_2025_10_20__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/utils/provideUserDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/user/dao/UserDaoTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/user/repositories/UserRepositoryImplMockitoTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsModifyController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsModifyController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamModifyController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamModifyController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/di/AppModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Jugador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Jugador.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Persona.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/models/Persona.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageCsv.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/storage/general/PersonaStorageCsv.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/muppets-modify-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/muppets-modify-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-modify-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/newteam-modify-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/dao/UserDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/dao/UserDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/mapper/UserMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/mapper/UserMapper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/utils/html.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/utils/html.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,15 +76,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Data Class" />
-        <option value="Kotlin File" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Object" />
+        <option value="Kotlin File" />
         <option value="Kotlin Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -106,104 +110,109 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectos.testFindAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.delete_entrenador.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.convocatoriaIdNoCoincide.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.idNegativo.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.jornadaAntigua.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.jornadaFutura.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.listaVacia.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosInvalidos.personaIdMenorIgualCero.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CasosValidos.convocatoriaIsOk.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaDao.deleteAll_removesAllRecords.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaDao.deleteByConvocatoriaId_removesAllWithSameConvocatoria.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaDao.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.ConvocatoriaDao.findAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaDao.findById.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaDao.testFindByConvocatoriaId.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaDaoTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.deleteAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.findAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.findById.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.findByIdNotFound.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.save convocatoria.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.saveAll.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaServiceImpl.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ConvocatoriaValidatorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.EntrenadorMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.EntrenadorValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.EquipoMapperTest.conversionEquipoDtoaEquipo.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.EquipoMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HtmlMuppetTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HtmlMuppetTest.generarYVerHtmlMuppet.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.HtmlUtilsTest.generarYVerHtml.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JugadorConvocadoDaoTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JugadorMapperTest.conversionJugadoraPersonaDto.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JugadorMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.JugadorValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaMapperTest.conversionPersonaDtoaModelJugador.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'New-Team3.test'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'convocatoria'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'convocatoria.dao'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'plantilla.mapper'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.UserValidatorTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.UserValidatorTest.validateUserContraseñaInvalida.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.htmlNewTeamTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.htmlNewTeamTest.generarYVerHtml.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.HtmlKt.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev-zuil&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build New-Team3.executor": "Run",
+    "Gradle.CasosCorrectos.deleteAll.executor": "Run",
+    "Gradle.CasosCorrectos.deleteById.executor": "Run",
+    "Gradle.CasosCorrectos.eliminarAlumno.executor": "Run",
+    "Gradle.CasosCorrectos.eliminarPersona.executor": "Run",
+    "Gradle.CasosCorrectos.executor": "Run",
+    "Gradle.CasosCorrectos.findAll.executor": "Run",
+    "Gradle.CasosCorrectos.findById.executor": "Run",
+    "Gradle.CasosCorrectos.save.executor": "Run",
+    "Gradle.CasosCorrectos.saveAll.executor": "Run",
+    "Gradle.CasosCorrectos.testFindAll.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.delete.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.deleteAll.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.delete_entrenador.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.findAll.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.findById.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.save.executor": "Run",
+    "Gradle.CasosCorrectosRepositorio.saveAll.executor": "Run",
+    "Gradle.CasosIncorrectos.deleteIncorrecto.executor": "Run",
+    "Gradle.CasosIncorrectos.executor": "Run",
+    "Gradle.CasosIncorrectos.findAllIncorrecto.executor": "Run",
+    "Gradle.CasosIncorrectos.findByIdIncorrecto.executor": "Run",
+    "Gradle.CasosInvalidos.convocatoriaIdNoCoincide.executor": "Run",
+    "Gradle.CasosInvalidos.executor": "Run",
+    "Gradle.CasosInvalidos.idNegativo.executor": "Run",
+    "Gradle.CasosInvalidos.jornadaAntigua.executor": "Run",
+    "Gradle.CasosInvalidos.jornadaFutura.executor": "Run",
+    "Gradle.CasosInvalidos.listaVacia.executor": "Run",
+    "Gradle.CasosInvalidos.personaIdMenorIgualCero.executor": "Run",
+    "Gradle.CasosValidos.convocatoriaIsOk.executor": "Run",
+    "Gradle.ConvocatoriaDao.deleteAll_removesAllRecords.executor": "Run",
+    "Gradle.ConvocatoriaDao.deleteByConvocatoriaId_removesAllWithSameConvocatoria.executor": "Run",
+    "Gradle.ConvocatoriaDao.executor": "Coverage",
+    "Gradle.ConvocatoriaDao.findAll.executor": "Run",
+    "Gradle.ConvocatoriaDao.findById.executor": "Run",
+    "Gradle.ConvocatoriaDao.testFindByConvocatoriaId.executor": "Run",
+    "Gradle.ConvocatoriaDaoTest.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.deleteAll.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.findAll.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.findById.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.findByIdNotFound.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.save convocatoria.executor": "Run",
+    "Gradle.ConvocatoriaRepositoryMockitoTest.saveAll.executor": "Run",
+    "Gradle.ConvocatoriaServiceImpl.executor": "Run",
+    "Gradle.ConvocatoriaValidatorTest.executor": "Coverage",
+    "Gradle.EntrenadorMapperTest.executor": "Run",
+    "Gradle.EntrenadorValidatorTest.executor": "Run",
+    "Gradle.EquipoMapperTest.conversionEquipoDtoaEquipo.executor": "Run",
+    "Gradle.EquipoMapperTest.executor": "Run",
+    "Gradle.HtmlMuppetTest.executor": "Run",
+    "Gradle.HtmlMuppetTest.generarYVerHtmlMuppet.executor": "Run",
+    "Gradle.HtmlUtilsTest.generarYVerHtml.executor": "Run",
+    "Gradle.JugadorConvocadoDaoTest.executor": "Run",
+    "Gradle.JugadorMapperTest.conversionJugadoraPersonaDto.executor": "Run",
+    "Gradle.JugadorMapperTest.executor": "Run",
+    "Gradle.JugadorValidatorTest.executor": "Run",
+    "Gradle.New-Team3 [run].executor": "Run",
+    "Gradle.PersonaDaoTest.executor": "Run",
+    "Gradle.PersonaMapperTest.conversionPersonaDtoaModelJugador.executor": "Run",
+    "Gradle.PersonaMapperTest.executor": "Run",
+    "Gradle.PersonaRepositoryMockitoTest.executor": "Run",
+    "Gradle.PersonaServiceImplMockitoTest.executor": "Run",
+    "Gradle.PersonaStorageCsvTest.executor": "Run",
+    "Gradle.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory.executor": "Run",
+    "Gradle.PersonaValidatorTest.executor": "Coverage",
+    "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
+    "Gradle.Tests in 'New-Team3.test'.executor": "Run",
+    "Gradle.Tests in 'convocatoria'.executor": "Run",
+    "Gradle.Tests in 'convocatoria.dao'.executor": "Run",
+    "Gradle.Tests in 'plantilla'.executor": "Run",
+    "Gradle.Tests in 'plantilla.mapper'.executor": "Run",
+    "Gradle.Tests in 'user'.executor": "Run",
+    "Gradle.Tests in 'user.dao'.executor": "Run",
+    "Gradle.UserDaoTest.executor": "Run",
+    "Gradle.UserRepositoryImplMockitoTest.executor": "Run",
+    "Gradle.UserValidatorTest.executor": "Coverage",
+    "Gradle.UserValidatorTest.validateUserContraseñaInvalida.executor": "Coverage",
+    "Gradle.htmlNewTeamTest.executor": "Run",
+    "Gradle.htmlNewTeamTest.generarYVerHtml.executor": "Run",
+    "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
+    "Kotlin.HtmlKt.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev-zuil",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\zupab\IdeaProjects\New-Team3\src\test\kotlin\repository" />
@@ -239,54 +248,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="PersonaStorageCsvTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;plantilla.storage.general.PersonaStorageCsvTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;plantilla.storage.general.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration name="Tests in 'New-Team3.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -309,7 +270,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="htmlNewTeamTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'user'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -322,7 +283,55 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;utils.htmlNewTeamTest&quot;" />
+            <option value="&quot;user.*&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;user.dao.UserDaoTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserRepositoryImplMockitoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;user.repositories.UserRepositoryImplMockitoTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -337,9 +346,9 @@
       <list>
         <item itemvalue="Gradle.New-Team3 [run]" />
         <item itemvalue="Gradle.Tests in 'New-Team3.test'" />
-        <item itemvalue="Gradle.PersonaStorageCsvTest" />
-        <item itemvalue="Gradle.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory" />
-        <item itemvalue="Gradle.htmlNewTeamTest" />
+        <item itemvalue="Gradle.UserRepositoryImplMockitoTest" />
+        <item itemvalue="Gradle.UserDaoTest" />
+        <item itemvalue="Gradle.Tests in 'user'" />
       </list>
     </recent_temporary>
   </component>
@@ -507,6 +516,7 @@
     <SUITE FILE_PATH="coverage/New_Team3$UserValidatorTest_validateUserContraseñaInvalida.ic" NAME="UserValidatorTest.validateUserContraseñaInvalida Coverage Results" MODIFIED="1748523372901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748536445882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/New_Team3$JugadorValidatorTest.ic" NAME="JugadorValidatorTest Coverage Results" MODIFIED="1748523356201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/New_Team3$UserRepositoryImplMockitoTest.ic" NAME="UserRepositoryImplMockitoTest Coverage Results" MODIFIED="1748864034804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaDaoTest.ic" NAME="ConvocatoriaDaoTest Coverage Results" MODIFIED="1748523258020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/New_Team3$PersonaValidatorTest.ic" NAME="PersonaValidatorTest Coverage Results" MODIFIED="1748078952478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaRepositoryMockitoTest.ic" NAME="ConvocatoriaRepositoryMockitoTest Coverage Results" MODIFIED="1748534918153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

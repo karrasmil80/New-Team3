@@ -10,20 +10,24 @@ import org.jdbi.v3.sqlobject.statement.SqlUpdate
 @RegisterKotlinMapper(UserEntity::class)
 interface UserDao {
 
-    @SqlQuery("SELECT * FROM user")
+    @SqlQuery("SELECT * FROM usuario")
     fun findAll() : List<UserEntity>
 
-    @SqlQuery("SELECT * FROM WHERE id = :id")
+    @SqlQuery("SELECT * FROM usuario WHERE id = :id")
     fun findById(@Bind("id")id: Int): UserEntity?
 
-    @SqlUpdate("INSERT INTO user (id, nombre, password) VALUES (:id, :nombre, :password)")
-    @GetGeneratedKeys
-    fun save(@Bind("id")user: UserEntity): Int
+    @SqlUpdate("INSERT INTO usuario (id, nombre, password) VALUES (:id, :nombre, :password)")
+    fun save(
+        @Bind("id") id: Int,
+        @Bind("nombre") nombre: String,
+        @Bind("password") password: String
+    ): UserEntity
 
-    @SqlUpdate("DELETE FROM user WHERE id = :id")
+
+    @SqlUpdate("DELETE FROM usuario WHERE id = :id")
     fun deleteById(@Bind("id")id: Int) : Int
 
-    @SqlUpdate("DELETE * FROM user")
+    @SqlUpdate("DELETE FROM usuario")
     fun deleteAll() : Int
 
 }

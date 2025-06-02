@@ -1,18 +1,21 @@
 package dev.newteam.newteam3.controller
 
 import dev.newteam.newteam3.routes.RoutesManager
+import javafx.application.Platform
 import javafx.fxml.FXML
-import javafx.scene.control.Alert
-import javafx.scene.control.Button
-import javafx.scene.control.TextField
+import javafx.scene.control.*
 import org.lighthousegames.logging.logging
 import org.mindrot.jbcrypt.BCrypt
 
 private val logger = logging()
 class LoginController {
 
+
     @FXML
-    lateinit var passwordTextField: TextField
+    lateinit var closeButton: Button
+
+    @FXML
+    lateinit var passw: PasswordField
 
     @FXML
     lateinit var usernameTextField: TextField
@@ -26,13 +29,12 @@ class LoginController {
     @FXML
     lateinit var userAccessButton: Button
 
-
     fun initialize() {
         logger.debug { "Iniciando sesion..." }
 
         loginButton.setOnAction {
             val username = usernameTextField.text
-            val password = passwordTextField.text
+            val password = passw.text
 
             if(login(username, password)){
                 logger.debug { "Has iniciado sesion" }
@@ -45,11 +47,13 @@ class LoginController {
                     headerText = "Vuelva a introducir sus datos correctamente"
                 }.showAndWait()
             }
+
+            onAppExit()
         }
 
         cancelButton.setOnAction {
             usernameTextField.clear()
-            passwordTextField.clear()
+            passw.clear()
         }
 
         userAccessButton.setOnAction {
@@ -70,4 +74,10 @@ class LoginController {
 
         return username == correctUsername && BCrypt.checkpw(password, hashedPassword)
     }
+    fun onAppExit() {
+        closeButton.setOnAction {
+            RoutesManager.onAppExit()
+        }
+    }
+
 }

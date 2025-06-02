@@ -71,6 +71,9 @@ class NewTeamController {
     @FXML
     lateinit var banquilloButton: Button
 
+    @FXML
+    lateinit var ayudaButton: Button
+
 
     fun initialize() {
         initDefaultValues()
@@ -86,6 +89,7 @@ class NewTeamController {
         onImportarButtonClick()
         onExportarButtonClick()
         onEliminarButtonClick()
+        onAyudaButtonClick()
     }
 
     fun initDefaultValues() {
@@ -219,22 +223,10 @@ class NewTeamController {
         }
     }
 
-    fun abrirFormularioModificacion(persona: Persona) {
-        val loader = FXMLLoader(javaClass.getResource("NewTeamModify.fxml"))
-        val root = loader.load<Parent>()
-        val modifyController = loader.getController<NewTeamModifyController>()
-        modifyController.mainController = this
-        modifyController.setPersona(persona)
-
-        val stage = Stage()
-        stage.scene = Scene(root)
-        stage.show()
-    }
-
-    fun addJugador(jugador: Jugador) {
-        if (tableViewNewTeam.items == null) {
-            tableViewNewTeam.items = FXCollections.observableArrayList()
+    fun onAyudaButtonClick() {
+        ayudaButton.setOnAction {
+            RoutesManager.initAcercaDe()
+            AcercaDeController()
         }
-        tableViewNewTeam.items.add(jugador)
     }
 }

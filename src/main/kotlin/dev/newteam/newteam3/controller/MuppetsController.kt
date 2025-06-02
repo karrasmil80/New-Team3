@@ -74,9 +74,4 @@ class MuppetsController {
         }
     }
 
-    fun cargarEnModifyView(persona: Persona) {
-        persona.let {
-            
-        }
-    }
 }

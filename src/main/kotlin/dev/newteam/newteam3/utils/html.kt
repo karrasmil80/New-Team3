@@ -47,7 +47,7 @@ class html {
     </style>
 </head>
 <body>
-    <h1>Informe del equipo MUPPET</h1>
+    <h1>Informe del equipo</h1>
     <table>
         <thead>
             <tr>

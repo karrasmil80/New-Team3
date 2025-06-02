@@ -1,3 +1,7 @@
+-- Usuarios del sistema
+INSERT INTO usuario (id, nombre, password) VALUES
+(1, 'admin', 'admin123');
+
 -- Equipo MUPPET
 INSERT INTO equipo (nombre_equipo)
 VALUES ('MUPPET');

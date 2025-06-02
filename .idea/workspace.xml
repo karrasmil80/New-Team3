@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Funcion importar, eliminar hecha. Falta el viewModel he cambiado los mappers, &quot;arreglado&quot; el dto (creo) y he reajustado los test">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/utils/provideUserDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/user/dao/UserDaoTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/user/repositories/UserRepositoryImplMockitoTest.kt" afterDir="false" />
+    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/login-view.fxml&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/service/UserService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/service/UserServiceImpl.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/user/service/UserServiceMockitoTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/LoginController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/MuppetsController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/NewTeamController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/dao/UserDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/dao/UserDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/mapper/UserMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/mapper/UserMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/utils/html.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/utils/html.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/UserLoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/controller/UserLoginController.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/storage/general/PersonaStorageJsonTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/storage/general/PersonaStorageJsonTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/user/dao/UserDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/user/dao/UserDaoTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/user/repositories/UserRepositoryImplMockitoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/user/repositories/UserRepositoryImplMockitoTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +66,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Data Class" />
-        <option value="Kotlin Interface" />
         <option value="Kotlin Object" />
         <option value="Kotlin File" />
+        <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
       </list>
     </option>
@@ -180,6 +170,7 @@
     "Gradle.PersonaServiceImplMockitoTest.executor": "Run",
     "Gradle.PersonaStorageCsvTest.executor": "Run",
     "Gradle.PersonaStorageCsvTest.testWriteToFileWithNonExistentParentDirectory.executor": "Run",
+    "Gradle.PersonaStorageJsonTest.executor": "Run",
     "Gradle.PersonaValidatorTest.executor": "Coverage",
     "Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor": "Run",
     "Gradle.Tests in 'New-Team3.test'.executor": "Run",
@@ -191,6 +182,7 @@
     "Gradle.Tests in 'user.dao'.executor": "Run",
     "Gradle.UserDaoTest.executor": "Run",
     "Gradle.UserRepositoryImplMockitoTest.executor": "Run",
+    "Gradle.UserServiceImplTest.executor": "Run",
     "Gradle.UserValidatorTest.executor": "Coverage",
     "Gradle.UserValidatorTest.validateUserContraseñaInvalida.executor": "Coverage",
     "Gradle.htmlNewTeamTest.executor": "Run",
@@ -248,6 +240,30 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="PersonaStorageJsonTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;plantilla.storage.general.PersonaStorageJsonTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="Tests in 'New-Team3.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -294,7 +310,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserServiceImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -307,31 +323,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;user.dao.UserDaoTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="UserRepositoryImplMockitoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;user.repositories.UserRepositoryImplMockitoTest&quot;" />
+            <option value="&quot;dev.newteam.newteam3.user.service.UserServiceImplTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -346,8 +338,8 @@
       <list>
         <item itemvalue="Gradle.New-Team3 [run]" />
         <item itemvalue="Gradle.Tests in 'New-Team3.test'" />
-        <item itemvalue="Gradle.UserRepositoryImplMockitoTest" />
-        <item itemvalue="Gradle.UserDaoTest" />
+        <item itemvalue="Gradle.PersonaStorageJsonTest" />
+        <item itemvalue="Gradle.UserServiceImplTest" />
         <item itemvalue="Gradle.Tests in 'user'" />
       </list>
     </recent_temporary>
@@ -472,7 +464,31 @@
       <option name="project" value="LOCAL" />
       <updated>1748690485763</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="95 test funcionando">
+      <option name="closed" value="true" />
+      <created>1748864941306</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1748864941306</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/login-view.fxml&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml">
+      <option name="closed" value="true" />
+      <created>1748864971681</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1748864971681</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/login-view.fxml&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml">
+      <option name="closed" value="true" />
+      <created>1748864982168</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1748864982168</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +518,10 @@
     <MESSAGE value="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de" />
     <MESSAGE value="Finalizado el HTML report y el zip, falta que se lea bien el json y programar los botones" />
     <MESSAGE value="Funcion importar, eliminar hecha. Falta el viewModel he cambiado los mappers, &quot;arreglado&quot; el dto (creo) y he reajustado los test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funcion importar, eliminar hecha. Falta el viewModel he cambiado los mappers, &quot;arreglado&quot; el dto (creo) y he reajustado los test" />
+    <MESSAGE value="Merge pull request #38 from nicolasorteg/feature-nico&#10;&#10;Inicio de sesión como user" />
+    <MESSAGE value="95 test funcionando" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/login-view.fxml&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/login-view.fxml&#10;#&#9;src/main/resources/dev/newteam/newteam3/views/user-login-view.fxml" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/New_Team3$PersonaServiceImplMockitoTest.ic" NAME="PersonaServiceImplMockitoTest Coverage Results" MODIFIED="1748255825558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

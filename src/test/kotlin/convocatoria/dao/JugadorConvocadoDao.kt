@@ -39,7 +39,7 @@ class JugadorConvocadoDaoTest {
 
     @Test
     fun findById() {
-        val entity = JugadorConvocadoEntity("1", 37, 1) // personaId=37 y convocatoriaId=1 existen
+        val entity = JugadorConvocadoEntity("1", 37, 1)
         val save = jugadorconvocatoria.save(entity)
         assertEquals(1, save)
 
@@ -63,7 +63,7 @@ class JugadorConvocadoDaoTest {
     }
 
     @Test
-    fun testFindByConvocatoriaId() {
+    fun findByConvocatoriaId() {
         jugadorconvocatoria.save(JugadorConvocadoEntity("1", 37, 3))
         jugadorconvocatoria.save(JugadorConvocadoEntity("2", 38, 3))
         jugadorconvocatoria.save(JugadorConvocadoEntity("3", 37, 2))
@@ -73,7 +73,7 @@ class JugadorConvocadoDaoTest {
     }
 
     @Test
-    fun deleteByConvocatoriaId_removesAllWithSameConvocatoria() {
+    fun deleteByConvocatoriaId() {
         jugadorconvocatoria.save(JugadorConvocadoEntity("11", 37, 2))
         jugadorconvocatoria.save(JugadorConvocadoEntity("12", 38, 2))
         jugadorconvocatoria.save(JugadorConvocadoEntity("13", 37, 3))
@@ -87,7 +87,7 @@ class JugadorConvocadoDaoTest {
     }
 
     @Test
-    fun deleteAll_removesAllRecords() {
+    fun deleteAll() {
         jugadorconvocatoria.save(JugadorConvocadoEntity("15", 37, 1))
         jugadorconvocatoria.save(JugadorConvocadoEntity("16", 38, 2))
 

@@ -11,7 +11,8 @@ import java.io.File
 import java.nio.file.Files
 import java.time.LocalDate
 
-/*class PersonaStorageJsonTest {
+/*
+class PersonaStorageJsonTest {
     private lateinit var storageJson: PersonaStorageJson
     private lateinit var tempFile: File
 
@@ -139,4 +140,5 @@ import java.time.LocalDate
             { assertTrue(tempFile.readText().contains("ENTRENADOR_PORTEROS"), "Debe contener la especialidad del entrenador") }
         )
     }
-}*/
+}
+ */

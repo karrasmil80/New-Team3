@@ -32,7 +32,7 @@ class UserDaoTest {
     }
 
     @Test
-    fun `test save and findById`() {
+    fun findById() {
         dao.save(1, "juan", "1234")
         val user = dao.findById(1)
         assertNotNull(user)
@@ -40,7 +40,7 @@ class UserDaoTest {
     }
 
     @Test
-    fun `test findAll`() {
+    fun findAll() {
         dao.save(1, "juan", "1234")
         dao.save(2, "ana", "abcd")
         val allUsers = dao.findAll()
@@ -48,7 +48,7 @@ class UserDaoTest {
     }
 
     @Test
-    fun `test deleteById`() {
+    fun deleteById() {
         dao.save(1, "juan", "1234")
         val deletedRows = dao.deleteById(1)
         assertEquals(1, deletedRows)
@@ -57,7 +57,7 @@ class UserDaoTest {
     }
 
     @Test
-    fun `test deleteAll`() {
+    fun deleteAll() {
         dao.save(1, "juan", "1234")
         dao.save(2, "ana", "abcd")
         val deleted = dao.deleteAll()

@@ -46,7 +46,7 @@ class UserRepositoryImplMockitoTest {
     }
 
     @Test
-    fun `findById returns mapped user`() {
+    fun findById() {
         val userEntity = UserEntity(1, "Pablo", "pass1")
 
         whenever(userDao.findById(1)).thenReturn(userEntity)

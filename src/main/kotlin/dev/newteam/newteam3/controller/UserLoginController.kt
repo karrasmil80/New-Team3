@@ -34,11 +34,13 @@ class UserLoginController {
             enterButton.scene.window.hide()
         }
 
+        /*
         cancelButton.setOnAction {
             logger.debug { "Cancelar button clicked" }
             RoutesManager.initLoginAdminStage()
             cancelButton.scene.window.hide()
         }
+         */
     }
 
 }

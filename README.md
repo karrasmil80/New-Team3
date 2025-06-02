@@ -18,7 +18,7 @@ Una aplicación de escritorio desarrollada en Java y Kotlin con JavaFX, orientad
 ### Requisitos
 
 - JDK 21
-- Gradle (o usar el wrapper incluido `./gradlew`)
+- Gradle
 
 ### Clonar el repositorio
 

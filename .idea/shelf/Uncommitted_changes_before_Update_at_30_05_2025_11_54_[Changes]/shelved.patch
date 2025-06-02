@@ -1,0 +1,281 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"C\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/module-info.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/module-info.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/data.sql\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/data.sql\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/tables.sql\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/tables.sql\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/kotlin/user/validator/UserValidatorTest.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/kotlin/user/validator/UserValidatorTest.kt\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"application\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"build\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Kotlin Data Class\" />\r\n        <option value=\"Kotlin File\" />\r\n        <option value=\"Kotlin Class\" />\r\n        <option value=\"Kotlin Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Antukiller&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/karrasmil80/New-Team3.git&quot;,\r\n    &quot;accountId&quot;: &quot;e6cef565-dc86-4336-9a77-3714864c383b&quot;\r\n  }\r\n}</component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt\" root0=\"SKIP_INSPECTION\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2xPaMMSnkVmzXyzU4zQHLEYzEFK\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectos.testFindAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.delete_entrenador.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.ConvocatoriaDao.deleteAll_removesAllRecords.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.ConvocatoriaDao.deleteByConvocatoriaId_removesAllWithSameConvocatoria.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.ConvocatoriaDao.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.ConvocatoriaDao.findAll.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.ConvocatoriaDao.findById.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.ConvocatoriaDao.testFindByConvocatoriaId.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.ConvocatoriaDaoTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.EntrenadorValidatorTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.JugadorValidatorTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.PersonaMapperTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Tests in 'convocatoria.dao'.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.UserValidatorTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.UserValidatorTest.validateUserContraseñaInvalida.executor&quot;: &quot;Coverage&quot;,\r\n    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;dev-zuil&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\zupab\\IdeaProjects\\New-Team3\\src\\test\\kotlin\\repository\" />\r\n    </key>\r\n    <key name=\"MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY\">\r\n      <recent name=\"user.validator\" />\r\n      <recent name=\"user\" />\r\n      <recent name=\"\" />\r\n      <recent name=\"dev.newteam.newteam3.plantilla.models\" />\r\n      <recent name=\"dev.newteam.newteam3.players.models\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Gradle.New-Team3 [run]\">\r\n    <configuration name=\"EntrenadorValidatorTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.validator.EntrenadorValidatorTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"JugadorValidatorTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.validator.JugadorValidatorTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"New-Team3 [run]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\"run\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>false</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"PersonaDaoTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.dao.PersonaDaoTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"UserValidatorTest.validateUserContraseñaInvalida\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;user.validator.UserValidatorTest.validateUserContraseñaInvalida&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.New-Team3 [run]\" />\r\n        <item itemvalue=\"Gradle.UserValidatorTest.validateUserContraseñaInvalida\" />\r\n        <item itemvalue=\"Gradle.JugadorValidatorTest\" />\r\n        <item itemvalue=\"Gradle.EntrenadorValidatorTest\" />\r\n        <item itemvalue=\"Gradle.PersonaDaoTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"\" />\r\n      <created>1747842115631</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1747842115631</updated>\r\n      <workItem from=\"1747842118155\" duration=\"1286000\" />\r\n      <workItem from=\"1747843436897\" duration=\"6219000\" />\r\n      <workItem from=\"1747908050213\" duration=\"18661000\" />\r\n      <workItem from=\"1747937869109\" duration=\"629000\" />\r\n      <workItem from=\"1747939304310\" duration=\"405000\" />\r\n      <workItem from=\"1747940397146\" duration=\"264000\" />\r\n      <workItem from=\"1747992162852\" duration=\"1399000\" />\r\n      <workItem from=\"1748074449857\" duration=\"7127000\" />\r\n      <workItem from=\"1748086785769\" duration=\"2026000\" />\r\n      <workItem from=\"1748181182816\" duration=\"7386000\" />\r\n      <workItem from=\"1748188641550\" duration=\"211000\" />\r\n      <workItem from=\"1748190136596\" duration=\"227000\" />\r\n      <workItem from=\"1748249744918\" duration=\"6536000\" />\r\n      <workItem from=\"1748419279014\" duration=\"291000\" />\r\n      <workItem from=\"1748419681193\" duration=\"5037000\" />\r\n      <workItem from=\"1748426755060\" duration=\"1179000\" />\r\n      <workItem from=\"1748510538042\" duration=\"13032000\" />\r\n      <workItem from=\"1748523707219\" duration=\"212000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Conflictos arreglados\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1747995078126</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1747995078126</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Terminado el servicio y el repositorio, falta testear\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748188234353</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748188234353</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Empezando con los test del repositorio\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748188841305</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748188841305</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748255922199</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748255922199</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748255957669</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748255957669</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"añadido el servicio al Koin\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748256279961</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748256279961</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748424597358</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748424597358</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"arreglando conflictos\" />\r\n    <MESSAGE value=\"Conflictos arreglados\" />\r\n    <MESSAGE value=\"Terminado el servicio y el repositorio, falta testear\" />\r\n    <MESSAGE value=\"Empezando con los test del repositorio\" />\r\n    <MESSAGE value=\"Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio\" />\r\n    <MESSAGE value=\"Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt\" />\r\n    <MESSAGE value=\"añadido el servicio al Koin\" />\r\n    <MESSAGE value=\"Merge pull request #29 from nicolasorteg/feature-nico&#10;&#10;Valitor User + Redimension\" />\r\n    <MESSAGE value=\"Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$PersonaServiceImplMockitoTest.ic\" NAME=\"PersonaServiceImplMockitoTest Coverage Results\" MODIFIED=\"1748255825558\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$UserValidatorTest_validateUserContraseñaInvalida.ic\" NAME=\"UserValidatorTest.validateUserContraseñaInvalida Coverage Results\" MODIFIED=\"1748523372901\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$JugadorValidatorTest.ic\" NAME=\"JugadorValidatorTest Coverage Results\" MODIFIED=\"1748523356201\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$PersonaRepositoryMockitoTest.ic\" NAME=\"PersonaRepositoryMockitoTest Coverage Results\" MODIFIED=\"1748513499046\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$ConvocatoriaDaoTest.ic\" NAME=\"ConvocatoriaDaoTest Coverage Results\" MODIFIED=\"1748523258020\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$CasosCorrectosRepositorio.ic\" NAME=\"CasosCorrectosRepositorio Coverage Results\" MODIFIED=\"1748513492659\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$PersonaValidatorTest.ic\" NAME=\"PersonaValidatorTest Coverage Results\" MODIFIED=\"1748078952478\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$ConvocatoriaDao.ic\" NAME=\"ConvocatoriaDao Coverage Results\" MODIFIED=\"1748523289363\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$EntrenadorValidatorTest.ic\" NAME=\"EntrenadorValidatorTest Coverage Results\" MODIFIED=\"1748523341881\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$PersonaDaoTest.ic\" NAME=\"PersonaDaoTest Coverage Results\" MODIFIED=\"1748523315784\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0d1d37a648db5d2952203fdd0bab7c9d8a4e29b6)
++++ b/.idea/workspace.xml	(date 1748598729990)
+@@ -4,36 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="C">
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
++    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tables.sql" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/user/validator/UserValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/user/validator/UserValidatorTest.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/data_copia/test_personas.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data_copia/test_personas.csv" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -87,8 +60,8 @@
+       <list>
+         <option value="Kotlin Data Class" />
+         <option value="Kotlin File" />
+-        <option value="Kotlin Class" />
+         <option value="Kotlin Interface" />
++        <option value="Kotlin Class" />
+       </list>
+     </option>
+   </component>
+@@ -135,7 +108,7 @@
+     &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectosRepositorio.delete_entrenador.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.CasosCorrectosRepositorio.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
+@@ -151,19 +124,33 @@
+     &quot;Gradle.ConvocatoriaDao.findAll.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.ConvocatoriaDao.findById.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.ConvocatoriaDao.testFindByConvocatoriaId.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.ConvocatoriaDaoTest.executor&quot;: &quot;Coverage&quot;,
+-    &quot;Gradle.EntrenadorValidatorTest.executor&quot;: &quot;Coverage&quot;,
+-    &quot;Gradle.JugadorValidatorTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.ConvocatoriaDaoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.deleteAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.findAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.findById.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.findByIdNotFound.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.save convocatoria.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaRepositoryMockitoTest.saveAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.EntrenadorMapperTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.EntrenadorValidatorTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.EquipoMapperTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.JugadorConvocadoDaoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.JugadorMapperTest.conversionJugadoraPersonaDto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.JugadorMapperTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.JugadorValidatorTest.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.PersonaMapperTest.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,
+     &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Tests in 'New-Team3.test'.executor&quot;: &quot;Coverage&quot;,
+     &quot;Gradle.Tests in 'convocatoria.dao'.executor&quot;: &quot;Run&quot;,
+-    &quot;Gradle.UserValidatorTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Tests in 'plantilla.mapper'.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.UserValidatorTest.executor&quot;: &quot;Coverage&quot;,
+     &quot;Gradle.UserValidatorTest.validateUserContraseñaInvalida.executor&quot;: &quot;Coverage&quot;,
+     &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+@@ -194,8 +181,8 @@
+       <recent name="dev.newteam.newteam3.players.models" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Gradle.New-Team3 [run]">
+-    <configuration name="EntrenadorValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++  <component name="RunManager" selected="Gradle.Tests in 'New-Team3.test'">
++    <configuration name="EntrenadorMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -208,7 +195,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;plantilla.validator.EntrenadorValidatorTest&quot;" />
++            <option value="&quot;plantilla.mapper.EntrenadorMapperTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -219,7 +206,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="JugadorValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="EquipoMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -232,7 +219,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;plantilla.validator.JugadorValidatorTest&quot;" />
++            <option value="&quot;plantilla.mapper.EquipoMapperTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -243,29 +230,31 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="New-Team3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="JugadorMapperTest.conversionJugadoraPersonaDto" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="externalSystemIdString" value="GRADLE" />
+-        <option name="scriptParameters" />
++        <option name="scriptParameters" value="" />
+         <option name="taskDescriptions">
+           <list />
+         </option>
+         <option name="taskNames">
+           <list>
+-            <option value="run" />
++            <option value=":test" />
++            <option value="--tests" />
++            <option value="&quot;plantilla.mapper.JugadorMapperTest.conversionJugadoraPersonaDto&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+       </ExternalSystemSettings>
+-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
++      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+       <DebugAllEnabled>false</DebugAllEnabled>
+-      <RunAsTest>false</RunAsTest>
++      <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="PersonaDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="Tests in 'New-Team3.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -277,8 +266,6 @@
+         <option name="taskNames">
+           <list>
+             <option value=":test" />
+-            <option value="--tests" />
+-            <option value="&quot;plantilla.dao.PersonaDaoTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -289,7 +276,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="UserValidatorTest.validateUserContraseñaInvalida" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="Tests in 'plantilla.mapper'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -302,7 +289,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;user.validator.UserValidatorTest.validateUserContraseñaInvalida&quot;" />
++            <option value="&quot;plantilla.mapper.*&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -315,11 +302,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Gradle.New-Team3 [run]" />
+-        <item itemvalue="Gradle.UserValidatorTest.validateUserContraseñaInvalida" />
+-        <item itemvalue="Gradle.JugadorValidatorTest" />
+-        <item itemvalue="Gradle.EntrenadorValidatorTest" />
+-        <item itemvalue="Gradle.PersonaDaoTest" />
++        <item itemvalue="Gradle.Tests in 'New-Team3.test'" />
++        <item itemvalue="Gradle.Tests in 'plantilla.mapper'" />
++        <item itemvalue="Gradle.JugadorMapperTest.conversionJugadoraPersonaDto" />
++        <item itemvalue="Gradle.EquipoMapperTest" />
++        <item itemvalue="Gradle.EntrenadorMapperTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -357,6 +344,7 @@
+       <workItem from="1748426755060" duration="1179000" />
+       <workItem from="1748510538042" duration="13032000" />
+       <workItem from="1748523707219" duration="212000" />
++      <workItem from="1748529115436" duration="7808000" />
+     </task>
+     <task id="LOCAL-00001" summary="Conflictos arreglados">
+       <option name="closed" value="true" />
+@@ -414,7 +402,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1748424597358</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de">
++      <option name="closed" value="true" />
++      <created>1748535480775</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1748535480775</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -441,18 +437,22 @@
+     <MESSAGE value="añadido el servicio al Koin" />
+     <MESSAGE value="Merge pull request #29 from nicolasorteg/feature-nico&#10;&#10;Valitor User + Redimension" />
+     <MESSAGE value="Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers" />
++    <MESSAGE value="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de" />
++    <option name="LAST_COMMIT_MESSAGE" value="Test del convocatoria dao y convocatoria repository hechos, actualizado el koin&#10;y cambiada la anchura del acerca de" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/New_Team3$PersonaServiceImplMockitoTest.ic" NAME="PersonaServiceImplMockitoTest Coverage Results" MODIFIED="1748255825558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$UserValidatorTest_validateUserContraseñaInvalida.ic" NAME="UserValidatorTest.validateUserContraseñaInvalida Coverage Results" MODIFIED="1748523372901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$JugadorValidatorTest.ic" NAME="JugadorValidatorTest Coverage Results" MODIFIED="1748523356201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+     <SUITE FILE_PATH="coverage/New_Team3$PersonaRepositoryMockitoTest.ic" NAME="PersonaRepositoryMockitoTest Coverage Results" MODIFIED="1748513499046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaDaoTest.ic" NAME="ConvocatoriaDaoTest Coverage Results" MODIFIED="1748523258020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+     <SUITE FILE_PATH="coverage/New_Team3$CasosCorrectosRepositorio.ic" NAME="CasosCorrectosRepositorio Coverage Results" MODIFIED="1748513492659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$PersonaValidatorTest.ic" NAME="PersonaValidatorTest Coverage Results" MODIFIED="1748078952478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+     <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaDao.ic" NAME="ConvocatoriaDao Coverage Results" MODIFIED="1748523289363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+     <SUITE FILE_PATH="coverage/New_Team3$EntrenadorValidatorTest.ic" NAME="EntrenadorValidatorTest Coverage Results" MODIFIED="1748523341881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+     <SUITE FILE_PATH="coverage/New_Team3$PersonaDaoTest.ic" NAME="PersonaDaoTest Coverage Results" MODIFIED="1748523315784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$UserValidatorTest.ic" NAME="UserValidatorTest Coverage Results" MODIFIED="1748535904140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$UserValidatorTest_validateUserContraseñaInvalida.ic" NAME="UserValidatorTest.validateUserContraseñaInvalida Coverage Results" MODIFIED="1748523372901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748536445882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$JugadorValidatorTest.ic" NAME="JugadorValidatorTest Coverage Results" MODIFIED="1748523356201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaDaoTest.ic" NAME="ConvocatoriaDaoTest Coverage Results" MODIFIED="1748523258020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$PersonaValidatorTest.ic" NAME="PersonaValidatorTest Coverage Results" MODIFIED="1748078952478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaRepositoryMockitoTest.ic" NAME="ConvocatoriaRepositoryMockitoTest Coverage Results" MODIFIED="1748534918153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+   </component>
+ </project>
+\ No newline at end of file

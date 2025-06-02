@@ -1,0 +1,1811 @@
+Index: src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.routes\r\n\r\nimport javafx.application.Application\r\nimport javafx.application.Platform\r\nimport javafx.fxml.FXMLLoader\r\nimport javafx.scene.Parent\r\nimport javafx.scene.Scene\r\nimport javafx.scene.control.Alert\r\nimport javafx.scene.control.ButtonType\r\nimport javafx.scene.layout.Pane\r\nimport javafx.stage.Modality\r\nimport javafx.stage.Stage\r\nimport javafx.stage.WindowEvent\r\nimport org.lighthousegames.logging.logging\r\nimport java.io.InputStream\r\nimport java.net.URL\r\nimport java.util.*\r\nimport kotlin.collections.HashMap\r\n\r\nprivate val logger = logging()\r\n\r\nobject RoutesManager {\r\n    lateinit var escenaPrincipal : Stage\r\n    private lateinit var _escenarioActivo : Stage\r\n    val escenaActiva : Stage\r\n        get() = _escenarioActivo\r\n    lateinit var app : Application\r\n\r\n    private var sceneMap : HashMap<String, Pane> = HashMap()\r\n\r\n    enum class View(val fxmlPath : String) {\r\n        PLANTILLA_MUPPET(\"views/muppets-view.fxml\"),\r\n        BANQUILLO_MUPPET(\"views/muppets-banquillo-view.fxml\"),\r\n        PLANTILLA_NEWTEAM(\"views/newteam-view.fxml\"),\r\n        BANQUILLO_NEWTEAM(\"views/newteam-banquillo-view.fxml\"),\r\n        LOGIN(\"views/login-view.fxml\"),\r\n        HELP(\"views/acercade-view.fxml\"),\r\n        SPLASH(\"views/splash-view.fxml\"),\r\n        MODIFY_NEWTEAM(\"views/newteam-modify-view.fxml\"),\r\n        MODIFY_MUPPET(\"views/muppets-modify-view.fxml\"),\r\n    }\r\n\r\n    init {\r\n        logger.debug { \"Iniciando Routes Manager\" }\r\n        Locale.setDefault(Locale.forLanguageTag(\"es-ES\"))\r\n    }\r\n\r\n    fun getResourceAsStream(resource : String) : InputStream {\r\n        return app::class.java.getResourceAsStream(resource)\r\n            ?:throw RuntimeException(\"Resource como stream : $resource no encontrado\")\r\n    }\r\n\r\n    fun getResource(resource : String) : URL {\r\n        return app::class.java.getResource(resource)\r\n            ?: throw RuntimeException(\"Resource $resource no encontrado\")\r\n    }\r\n\r\n    fun initLoginStage(mainStage: Stage) {\r\n        logger.debug { \"Iniciando ventana de login\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.LOGIN.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 660.0, 440.0)\r\n        mainStage.apply {\r\n            title = \"Login New Team\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n\r\n        }.show()\r\n\r\n        escenaPrincipal = mainStage\r\n        _escenarioActivo = mainStage\r\n    }\r\n\r\n    fun initPlantillaStage() {\r\n        logger.debug { \"Cargando escena new team\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.PLANTILLA_NEWTEAM.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 1400.0, 780.0)\r\n        Stage().apply {\r\n            title = \"New Team APP\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n\r\n        }.show()\r\n    }\r\n\r\n    fun initPlantillaMuppetStage() {\r\n        logger.debug { \"Cargando escena muppet\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.PLANTILLA_MUPPET.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 1400.0, 780.0)\r\n        Stage().apply {\r\n            title = \"New Team APP\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n\r\n        }.show()\r\n    }\r\n\r\n    fun initAcercaDe() {\r\n        logger.debug { \"Cargando acerca de\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.HELP.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 700.0, 700.0)\r\n        Stage().apply {\r\n            title = \"New Team acerca de\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n            initModality(Modality.WINDOW_MODAL)\r\n\r\n        }.show()\r\n    }\r\n\r\n    fun initSplashScreen(stage: Stage) {\r\n        logger.debug { \"Iniciando Splash screen\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.SPLASH.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 780.0, 770.0)\r\n\r\n        escenaPrincipal = stage\r\n        _escenarioActivo = stage\r\n\r\n        stage.apply {\r\n            title = \"New Team Splash Screen\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n\r\n        }.show()\r\n    }\r\n\r\n    fun initBanquilloNewTeamScreen() {\r\n        logger.debug { \"Iniciando Banquillo New Team\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.BANQUILLO_NEWTEAM.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 516.0, 700.0)\r\n        Stage().apply {\r\n            title = \"New Team Banquillo\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n        }.show()\r\n    }\r\n\r\n    fun initBanquilloMuppetScreen() {\r\n        logger.debug { \"Iniciando Banquillo Muppet\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.BANQUILLO_MUPPET.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 600.0, 870.0)\r\n        Stage().apply {\r\n            title = \"New Team Banquillo\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n        }.show()\r\n    }\r\n\r\n    fun initModifyNewTeamScreen() {\r\n        logger.debug { \"Iniciando ModifyScreen New Team\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.MODIFY_NEWTEAM.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 895.0, 570.0)\r\n        Stage().apply {\r\n            title = \"New Team ModifyScreen\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n        }.show()\r\n    }\r\n\r\n    fun initModifyMuppetScreen() {\r\n        logger.debug { \"Iniciando ModifyScreen Muppet\" }\r\n        val fxmlLoader = FXMLLoader(getResource(View.MODIFY_MUPPET.fxmlPath))\r\n        val root = fxmlLoader.load<Pane>()\r\n        val newScene = Scene(root, 895.0, 570.0)\r\n        Stage().apply {\r\n            title = \"Muppet ModifyScreen\"\r\n            scene = newScene\r\n            centerOnScreen()\r\n            isResizable = false\r\n        }.show()\r\n    }\r\n\r\n    fun onAppExit(\r\n        title : String = \"¿Salir de la Aplicacion de New-Team?\",\r\n        header : String = \"¿Seguro que desea salir de la aplicación?\",\r\n        content : String = \"Se perderán los datos no guardados\",\r\n        event: WindowEvent? = null\r\n    ){\r\n        logger.debug { \"Cerrando aplicacion\" }\r\n        Alert(Alert.AlertType.CONFIRMATION).apply {\r\n            this.title = title\r\n            this.headerText = header\r\n            this.contentText = content\r\n        }.showAndWait().ifPresent { opcion ->\r\n            if (opcion == ButtonType.OK) {\r\n                Platform.exit()\r\n            } else {\r\n                event?.consume()\r\n            }\r\n        }\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt b/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt	(date 1748529125945)
+@@ -104,7 +104,7 @@
+         logger.debug { "Cargando acerca de" }
+         val fxmlLoader = FXMLLoader(getResource(View.HELP.fxmlPath))
+         val root = fxmlLoader.load<Pane>()
+-        val newScene = Scene(root, 700.0, 700.0)
++        val newScene = Scene(root, 1500.0, 500.0)
+         Stage().apply {
+             title = "New Team acerca de"
+             scene = newScene
+Index: src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.*?>\r\n<?import javafx.scene.image.*?>\r\n<?import javafx.scene.layout.*?>\r\n\r\n<AnchorPane prefHeight=\"422.0\" prefWidth=\"1376.0\" xmlns=\"http://javafx.com/javafx/17.0.12\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"dev.newteam.newteam3.views.AcercaDeController\">\r\n    <ImageView fitHeight=\"422.0\" fitWidth=\"1580.0\" layoutX=\"-35.0\">\r\n        <Image url=\"@../images/acercade-view.png\" />\r\n    </ImageView>\r\n    <Button fx:id=\"githubButtons1\" layoutX=\"201.0\" layoutY=\"286.0\" mnemonicParsing=\"false\" opacity=\"0.0\" prefHeight=\"22.0\" prefWidth=\"78.0\" />\r\n    <Button fx:id=\"githubButtons2\" layoutX=\"541.0\" layoutY=\"286.0\" mnemonicParsing=\"false\" opacity=\"0.0\" prefHeight=\"22.0\" prefWidth=\"78.0\" />\r\n    <Button fx:id=\"githubButtons3\" layoutX=\"880.0\" layoutY=\"285.0\" mnemonicParsing=\"false\" opacity=\"0.0\" prefHeight=\"22.0\" prefWidth=\"78.0\" />\r\n    <Button fx:id=\"githubButtons4\" layoutX=\"1222.0\" layoutY=\"285.0\" mnemonicParsing=\"false\" opacity=\"0.0\" prefHeight=\"22.0\" prefWidth=\"78.0\" />\r\n    <Hyperlink fx:id=\"url1\" layoutX=\"254.0\" layoutY=\"314.0\" text=\"Hyperlink\" />\r\n   <Hyperlink fx:id=\"url2\" layoutX=\"645.0\" layoutY=\"311.0\" text=\"Hyperlink\" />\r\n   <Hyperlink fx:id=\"url3\" layoutX=\"1031.0\" layoutY=\"314.0\" text=\"Hyperlink\" />\r\n   <Hyperlink fx:id=\"url4\" layoutX=\"1421.0\" layoutY=\"314.0\" text=\"Hyperlink\" />\r\n</AnchorPane>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml b/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml
+--- a/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml	(date 1748529125953)
+@@ -4,7 +4,7 @@
+ <?import javafx.scene.image.*?>
+ <?import javafx.scene.layout.*?>
+ 
+-<AnchorPane prefHeight="422.0" prefWidth="1376.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.views.AcercaDeController">
++<AnchorPane prefHeight="422.0" prefWidth="1376.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.AcercaDeController">
+     <ImageView fitHeight="422.0" fitWidth="1580.0" layoutX="-35.0">
+         <Image url="@../images/acercade-view.png" />
+     </ImageView>
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,65 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.repositories
+-
+-import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao
+-import dev.newteam.newteam3.convocatoria.mapper.toModel
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-import org.lighthousegames.logging.logging
+-
+-private val logger = logging()
+-class ConvocatoriaRepositoryImpl(
+-    private val convocatoriaDao: ConvocatoriaDao
+-) : ConvocatoriaRepository {
+-
+-    /**
+-     * Funcion que muestra todo sobre la [Convocatoria]
+-     */
+-
+-    override fun findAll(): List<Convocatoria> {
+-        return convocatoriaDao.findAll().map { it.toModel() }
+-    }
+-
+-    /**
+-     * Funcion que busca por id una [Convocatoria]
+-     */
+-
+-    override fun findById(id: Int): Convocatoria? {
+-        return convocatoriaDao.findById(id)?.toModel()
+-    }
+-
+-    /**
+-     * Funcion que guarda una [Convocatoria]
+-     */
+-
+-    override fun save(convocatoria: Convocatoria): Convocatoria {
+-        val toSave = convocatoriaDao.save(
+-            jornada = convocatoria.jornada,
+-            descripcion = convocatoria.descripcion,
+-        )
+-        val saved = convocatoria.copy(id = toSave)
+-        return saved
+-    }
+-
+-    /**
+-     * Funcion que elimina el id de la [Convocatoria]
+-     */
+-
+-    override fun deleteById(id: Int): Int {
+-        return convocatoriaDao.delete(id)
+-    }
+-
+-    /**
+-     * Funcion que borra todo sobre una [Convocatoria]
+-     */
+-
+-    override fun deleteAll(): Int {
+-        return convocatoriaDao.deleteAll()
+-    }
+-
+-    /**
+-     * Funcion que guarda todos los datos sobre las [Convocatoria]
+-     */
+-
+-    override fun saveAll(persona: List<Convocatoria>): List<Convocatoria> {
+-        return persona.map { save(it) }
+-    }
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,12 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.validator
+-
+-import com.github.michaelbull.result.Result
+-
+-/**
+- * Esta interfaz actúa a modo de contrato y obliga a todas las clases que hereden
+- * de esta a implementar la función que ayuda a validar la
+- * entrada de datos de la Convocatoria.
+- */
+-interface Validator<T, E> {
+-    fun validate (t: T): Result<T, E>
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,9 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.models
+-
+-import dev.newteam.newteam3.plantilla.models.Jugador
+-
+-class JugadorConvocatoria(
+-    val jugador : Jugador,
+-) {
+-
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,15 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.repositories
+-
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-import dev.newteam.newteam3.plantilla.models.Entrenador
+-import dev.newteam.newteam3.plantilla.models.Jugador
+-import dev.newteam.newteam3.plantilla.models.Persona
+-
+-interface ConvocatoriaRepository {
+-    fun findAll(): List<Convocatoria>
+-    fun findById(id: Int): Convocatoria?
+-    fun save(convocatoria: Convocatoria): Convocatoria
+-    fun deleteById(id: Int) : Int
+-    fun deleteAll() : Int
+-    fun saveAll(persona : List<Convocatoria>): List<Convocatoria>
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,42 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.service
+-
+-import com.github.michaelbull.result.Ok
+-import com.github.michaelbull.result.Result
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-import dev.newteam.newteam3.convocatoria.repositories.ConvocatoriaRepository
+-import dev.newteam.newteam3.plantilla.error.PersonaError
+-import org.lighthousegames.logging.logging
+-
+-private val logger = logging()
+-
+-class ConvocatoriaServiceImpl (
+-    private val convocatoriaRepository: ConvocatoriaRepository
+-) : ConvocatoriaService {
+-    override fun findAll(): Result<List<Convocatoria>, PersonaError> {
+-        return Ok(convocatoriaRepository.findAll())
+-    }
+-
+-    override fun findById(id: Int): Result<Convocatoria?, PersonaError> {
+-        return Ok(convocatoriaRepository.findById(id))
+-    }
+-
+-    override fun save(convocatoria: Convocatoria): Result<Convocatoria, PersonaError> {
+-        return Ok(convocatoriaRepository.save(convocatoria))
+-    }
+-
+-    override fun deleteById(id: Int): Result<Int, PersonaError> {
+-        val filasABorrar = convocatoriaRepository.deleteById(id)
+-        return Ok(filasABorrar)
+-    }
+-
+-    override fun deleteAll(): Result<Int, PersonaError> {
+-        val filasABorrar = convocatoriaRepository.deleteAll()
+-        return Ok(filasABorrar)
+-    }
+-
+-    override fun saveAll(convocatoria: List<Convocatoria>): Result<List<Convocatoria>, PersonaError> {
+-        val toSave = Ok(convocatoriaRepository.saveAll(convocatoria))
+-        return Ok(convocatoria)
+-    }
+-
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,57 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.validator
+-
+-import com.github.michaelbull.result.Result
+-import com.github.michaelbull.result.Err
+-import com.github.michaelbull.result.Ok
+-
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-import dev.newteam.newteam3.plantilla.error.PersonaError
+-import org.lighthousegames.logging.logging
+-import java.time.LocalDateTime
+-
+-/**
+- * En esta clase se almacenan los condicionales que validaran la entrada de datos de la convocatoria.
+- */
+-
+-private val logger = logging()
+-class ConvocatoriaValidator: Validator<Convocatoria, PersonaError> {
+-    override fun validate(t: Convocatoria): Result<Convocatoria, PersonaError> {
+-        logger.debug { "🔵 Validando la convocatoria..." }
+-
+-
+-        if (t.id <= 0) {
+-            return Err(PersonaError.PersonaValidatorError("El ID de la convocatoria debe ser mayor a 0."))
+-        }
+-
+-
+-        if (t.jornada.isAfter(LocalDateTime.now())) {
+-            return Err(PersonaError.PersonaValidatorError("La fecha de la jornada no puede estar en el futuro."))
+-        }
+-
+-
+-        if (t.descripcion.isBlank()) {
+-            return Err(PersonaError.PersonaValidatorError("La descripción no puede estar vacía."))
+-        }
+-
+-        if (t.descripcion.length < 10 || t.descripcion.length > 300) {
+-            return Err(PersonaError.PersonaValidatorError("La descripción debe tener entre 10 y 300 caracteres."))
+-        }
+-
+-
+-        if (t.jugadoresConvocados.isEmpty()) {
+-            return Err(PersonaError.PersonaValidatorError("Debe haber al menos un jugador convocado."))
+-        }
+-
+-        /*
+-        if (t.onceTitular.isEmpty()) {
+-            return Err(PersonaError.PersonaValidatorError("Debe haber al menos un jugador en el once titular."))
+-        }
+-
+-        if (t.onceTitular.size > 11) {
+-            return Err(PersonaError.PersonaValidatorError("El once titular no puede tener más de 11 jugadores."))
+-        }
+-         */
+-        return Ok(t)
+-    }
+-}
+-
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,15 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.service
+-
+-import com.github.michaelbull.result.Result
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-import dev.newteam.newteam3.plantilla.error.PersonaError
+-
+-interface ConvocatoriaService {
+-    fun findAll(): Result<List<Convocatoria>, PersonaError>
+-    fun findById(id: Int): Result<Convocatoria?, PersonaError>
+-    fun save(convocatoria: Convocatoria): Result<Convocatoria, PersonaError>
+-    fun deleteById(id: Int): Result<Int, PersonaError>
+-    fun deleteAll(): Result<Int, PersonaError>
+-    fun saveAll(convocatoria: List<Convocatoria>): Result<List<Convocatoria>, PersonaError>
+-
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt
+deleted file mode 100644
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ /dev/null	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
+@@ -1,22 +0,0 @@
+-package dev.newteam.newteam3.convocatoria.mapper
+-
+-import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaEntity
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-
+-fun ConvocatoriaEntity.toModel() : Convocatoria {
+-    return Convocatoria(
+-        id = this.id,
+-        jornada = this.jornada,
+-        descripcion = this.descripcion,
+-        jugadoresConvocados = this.jugadoresConvocados,
+-    )
+-}
+-
+-fun Convocatoria.toEntity() : ConvocatoriaEntity {
+-    return ConvocatoriaEntity(
+-        id = this.id,
+-        jornada = this.jornada,
+-        descripcion = this.descripcion,
+-        jugadoresConvocados = this.jugadoresConvocados,
+-    )
+-}
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt
+new file mode 100644
+--- /dev/null	(date 1748529128623)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt	(date 1748529128623)
+@@ -0,0 +1,10 @@
++package dev.newteam.newteam3.convocatoria.models
++
++import java.util.*
++
++data class JugadorConvocado (
++    val id: UUID = UUID.randomUUID(),
++    val convocatoriaId: Int,
++    val personaId: Int,
++    val posicion: Int,
++)
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt
+new file mode 100644
+--- /dev/null	(date 1748529128629)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt	(date 1748529128629)
+@@ -0,0 +1,48 @@
++package dev.newteam.newteam3.convocatoria.dao
++
++import org.jdbi.v3.sqlobject.customizer.Bind
++import org.jdbi.v3.sqlobject.customizer.BindBean
++import org.jdbi.v3.sqlobject.statement.SqlQuery
++import org.jdbi.v3.sqlobject.statement.SqlUpdate
++
++interface JugadorConvocadoDao {
++
++    @SqlQuery("""
++        SELECT id, persona_id AS personaId, convocatoria_id AS convocatoriaId
++        FROM jugador_convocado
++    """)
++    fun findAll(): List<JugadorConvocadoEntity>
++
++    @SqlQuery("""
++        SELECT id, persona_id AS personaId, convocatoria_id AS convocatoriaId
++        FROM jugador_convocado
++        WHERE id = :id
++    """)
++    fun findById(@Bind("id") id: String): JugadorConvocadoEntity?
++
++    @SqlQuery("""
++        SELECT id, persona_id AS personaId, convocatoria_id AS convocatoriaId
++        FROM jugador_convocado
++        WHERE convocatoria_id = :convocatoriaId
++    """)
++    fun findByConvocatoriaId(@Bind("convocatoriaId") convocatoriaId: Int): List<JugadorConvocadoEntity>
++
++    @SqlUpdate("""
++        DELETE FROM jugador_convocado WHERE id = :id
++    """)
++    fun deleteById(@Bind("id") id: String): Int
++
++    @SqlUpdate("""
++        DELETE FROM jugador_convocado WHERE convocatoria_id = :convocatoriaId
++    """)
++    fun deleteByConvocatoriaId(@Bind("convocatoriaId") convocatoriaId: Int): Int
++
++    @SqlUpdate("""
++        INSERT INTO jugador_convocado (id, persona_id, convocatoria_id)
++        VALUES (:id, :personaId, :convocatoriaId)
++    """)
++    fun save(@BindBean entity: JugadorConvocadoEntity): Int
++
++    @SqlUpdate("DELETE FROM jugador_convocado")
++    fun deleteAll(): Int
++}
+\ No newline at end of file
+Index: src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package plantilla.service\r\n\r\nimport com.github.benmanes.caffeine.cache.Cache\r\nimport dev.newteam.newteam3.plantilla.dao.EntrenadorEntity\r\nimport dev.newteam.newteam3.plantilla.mapper.toModel\r\nimport dev.newteam.newteam3.plantilla.models.Entrenador\r\nimport dev.newteam.newteam3.plantilla.models.Persona\r\nimport dev.newteam.newteam3.plantilla.repositories.PersonaRepositoryImpl\r\nimport dev.newteam.newteam3.plantilla.service.PersonaServiceImpl\r\nimport org.junit.jupiter.api.Assertions.assertTrue\r\nimport org.junit.jupiter.api.DisplayName\r\nimport org.junit.jupiter.api.Nested\r\nimport org.junit.jupiter.api.Test\r\nimport org.junit.jupiter.api.extension.ExtendWith\r\nimport org.mockito.InjectMocks\r\nimport org.mockito.Mock\r\nimport org.mockito.junit.jupiter.MockitoExtension\r\nimport org.mockito.kotlin.doNothing\r\nimport org.mockito.kotlin.times\r\nimport org.mockito.kotlin.verify\r\nimport org.mockito.kotlin.whenever\r\nimport java.time.LocalDate\r\n\r\n@ExtendWith(MockitoExtension::class)\r\nclass PersonaServiceImplMockitoTest {\r\n\r\n    @Mock\r\n    private lateinit var repository: PersonaRepositoryImpl\r\n\r\n    @Mock\r\n    private lateinit var cache: Cache<Int, Persona>\r\n\r\n    @InjectMocks\r\n    private lateinit var service: PersonaServiceImpl\r\n\r\n    @Nested\r\n    @DisplayName(\"Casos correctos\")\r\n    inner class CasosCorrectos {\r\n\r\n        @Test\r\n        @DisplayName(\"Deberia de devolver una lista de la plantilla\")\r\n        fun findAll() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"Entrenador\",\r\n                especializacion = Entrenador.Especializacion.PORTEROS,\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET\r\n            )\r\n\r\n            val model = entrenadorEntity.toModel()\r\n\r\n            whenever(repository.findAll()).thenReturn(listOf(model))\r\n\r\n            val entrandorLista = service.findAll()\r\n\r\n            assertTrue(entrandorLista.isOk, \"El resultado deberia de ser una lista\")\r\n\r\n            verify(repository, times(1)).findAll()\r\n\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Debería devolver el identificador de un miembro\")\r\n        fun findById() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                especializacion = Entrenador.Especializacion.PORTEROS,\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET\r\n            )\r\n\r\n            // mockea el repositorio para que devuelva la entidad\r\n            whenever(repository.findById(1)).thenReturn(entrenadorEntity.toModel())\r\n\r\n            val result = service.findById(1)\r\n\r\n            val mockPersona = repository.findById(1)\r\n            println(mockPersona)\r\n            println(mockPersona?.rol)\r\n\r\n\r\n            assertTrue(result.isOk)\r\n\r\n\r\n            verify(repository, times(1)).findById(1)\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Deberia de guardar un objeto\")\r\n        fun save() {\r\n\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                especializacion = Entrenador.Especializacion.PORTEROS,\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET\r\n            )\r\n\r\n            val personaModel = entrenadorEntity.toModel()\r\n\r\n            whenever(repository.save(personaModel)).thenReturn(personaModel)\r\n\r\n            val result = service.save(personaModel)\r\n\r\n            verify(repository).save(personaModel)\r\n            verify(cache).put(personaModel.id, personaModel)\r\n\r\n\r\n        }\r\n\r\n\r\n\r\n        @Test\r\n        @DisplayName(\"Debería eliminar el identificador de un miembro\")\r\n        fun deleteById() {\r\n\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"Entrenador\",\r\n                especializacion = Entrenador.Especializacion.PORTEROS,\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET\r\n            )\r\n\r\n            whenever(repository.deleteById(1)).thenReturn(1)\r\n\r\n            doNothing().whenever(cache).invalidate(1)\r\n\r\n            val resultado = service.deleteById(1)\r\n\r\n            assertTrue(resultado.isOk)\r\n\r\n            verify(repository, times(1)).deleteById(1)\r\n            verify(cache, times(1)).invalidate(1)\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Debería borrar todos los miembros\")\r\n        fun deleteAll() {\r\n\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"Entrenador\",\r\n                especializacion = Entrenador.Especializacion.PORTEROS,\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET\r\n            )\r\n\r\n            whenever(repository.deleteAll()).thenReturn(10)\r\n\r\n            doNothing().whenever(cache).invalidateAll()\r\n\r\n            val resultado = service.deleteAll()\r\n\r\n            assertTrue(resultado.isOk)\r\n\r\n            verify(repository, times(1)).deleteAll()\r\n            verify(cache, times(1)).invalidateAll()\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Debería guardar todos los miembros\")\r\n        fun saveAll() {\r\n            val plantillaList = listOf(\r\n                EntrenadorEntity(\r\n                    id = 1,\r\n                    nombre = \"Pedro\",\r\n                    apellido = \"Gutierrez\",\r\n                    fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                    fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                    salario = 1000.0,\r\n                    pais = \"España\",\r\n                    rol = \"Entrenador\",\r\n                    especializacion = Entrenador.Especializacion.PORTEROS,\r\n                    imagen = \"\",\r\n                    equipo = Persona.Equipos.MUPPET\r\n                ).toModel()\r\n            )\r\n\r\n            val personaModelList = plantillaList\r\n\r\n            whenever(repository.saveAll(personaModelList)).thenReturn(personaModelList)\r\n\r\n            doNothing().whenever(cache).invalidateAll()\r\n\r\n            val resultado = service.saveAll(personaModelList)\r\n\r\n            assertTrue(resultado.isOk)\r\n            verify(repository, times(1)).saveAll(personaModelList)\r\n            verify(cache, times(1)).invalidateAll()\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt b/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt
+--- a/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt	(date 1748529125974)
+@@ -2,6 +2,7 @@
+ 
+ import com.github.benmanes.caffeine.cache.Cache
+ import dev.newteam.newteam3.plantilla.dao.EntrenadorEntity
++import dev.newteam.newteam3.plantilla.mapper.toEntrenador
+ import dev.newteam.newteam3.plantilla.mapper.toModel
+ import dev.newteam.newteam3.plantilla.models.Entrenador
+ import dev.newteam.newteam3.plantilla.models.Persona
+@@ -83,16 +84,10 @@
+                 equipo = Persona.Equipos.MUPPET
+             )
+ 
+-            // mockea el repositorio para que devuelva la entidad
+             whenever(repository.findById(1)).thenReturn(entrenadorEntity.toModel())
+ 
+             val result = service.findById(1)
+ 
+-            val mockPersona = repository.findById(1)
+-            println(mockPersona)
+-            println(mockPersona?.rol)
+-
+-
+             assertTrue(result.isOk)
+ 
+ 
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt
+new file mode 100644
+--- /dev/null	(date 1748529128584)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt	(date 1748529128584)
+@@ -0,0 +1,12 @@
++package dev.newteam.newteam3.convocatoria.utils
++
++import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao
++import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoDao
++import org.jdbi.v3.core.Jdbi
++import org.lighthousegames.logging.logging
++
++fun provideJugadorConvocadoDao(jdbi: Jdbi): JugadorConvocadoDao {
++    val logger = logging()
++    logger.debug { "Inicializando PersonaDao" }
++    return jdbi.onDemand(JugadorConvocadoDao::class.java)
++}
+\ No newline at end of file
+Index: src/main/resources/tables.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>-- Tabla USERS\r\nCREATE TABLE IF NOT EXISTS users (\r\n    nombre VARCHAR(200) NOT NULL PRIMARY KEY,\r\n    password VARCHAR(200) NOT NULL\r\n);\r\n\r\n-- Tabla de EQUIPOS\r\nCREATE TABLE IF NOT EXISTS equipo (\r\n    nombre_equipo VARCHAR(200) NOT NULL PRIMARY KEY, -- Nombre único del equipo (clave primaria)\r\n    escudo_equipo VARCHAR(200) DEFAULT 'images/default_profile.png' -- Ruta al escudo del equipo\r\n);\r\n\r\n-- Tabla base: PERSONAS\r\nCREATE TABLE IF NOT EXISTS persona (\r\n    id IDENTITY NOT NULL PRIMARY KEY, -- ID autoincremental (PK)\r\n    nombre VARCHAR(100) NOT NULL, -- Nombre\r\n    apellido VARCHAR(150) NOT NULL, -- Apellido\r\n    fechaNacimiento DATE NOT NULL, -- Fecha de nacimiento\r\n    fechaIncorporacion DATE NOT NULL, -- Fecha de ingreso al club\r\n    salario NUMERIC NOT NULL, -- Salario actual\r\n    pais VARCHAR(100) NOT NULL, -- Nacionalidad\r\n    rol VARCHAR(50) NOT NULL CHECK (rol IN ('jugador', 'entrenador')), -- Rol: jugador o entrenador (restricción)\r\n    equipo VARCHAR(200) NOT NULL, -- Nombre del equipo (FK)\r\n    imagen VARCHAR(255) DEFAULT 'images/default_profile.png', -- Imagen de perfil\r\n    FOREIGN KEY (equipo) REFERENCES equipo(nombre_equipo) -- FK a la tabla equipo\r\n);\r\n\r\n-- Tabla JUGADOR (subtipo de persona)\r\nCREATE TABLE IF NOT EXISTS jugador (\r\n    id INT NOT NULL PRIMARY KEY, -- ID que debe coincidir con persona.id\r\n    posicion VARCHAR(50) NOT NULL, -- Posición en el campo (Portero, Defensa, etc.)\r\n    dorsal INTEGER NOT NULL, -- Número de camiseta\r\n    altura DOUBLE PRECISION NOT NULL, -- Altura en metros\r\n    peso DOUBLE PRECISION NOT NULL, -- Peso en kilogramos\r\n    goles INTEGER NOT NULL, -- Total de goles anotados\r\n    partidosJugados INTEGER NOT NULL, -- Partidos jugados\r\n    FOREIGN KEY (id) REFERENCES persona(id) -- FK: hereda de persona\r\n);\r\n\r\n-- Tabla ENTRENADOR (subtipo de persona)\r\nCREATE TABLE IF NOT EXISTS entrenador (\r\n    id INT NOT NULL PRIMARY KEY, -- ID que debe coincidir con persona.id\r\n    especialidad VARCHAR(100) NOT NULL, -- Ej. Táctico, físico, porteros, etc.\r\n    equipo VARCHAR(200), -- Equipo actual (opcional)\r\n    FOREIGN KEY (id) REFERENCES persona(id) -- FK: hereda de persona\r\n);\r\n\r\n-- Tabla de CONVOCATORIAS\r\nCREATE TABLE IF NOT EXISTS convocatoria (\r\n    id IDENTITY PRIMARY KEY, -- ID autoincremental (clave primaria)\r\n    jornada TIMESTAMP NOT NULL, -- Fecha y hora de la jornada/partido\r\n    descripcion VARCHAR(255) -- Descripción libre de la convocatoria\r\n);\r\n\r\n-- Tabla de jugadores convocados\r\nCREATE TABLE IF NOT EXISTS jugador_convocado (\r\n    convocatoria_id BIGINT NOT NULL,\r\n    jugador_id BIGINT NOT NULL,\r\n    FOREIGN KEY (convocatoria_id) REFERENCES convocatoria(id),\r\n    FOREIGN KEY (jugador_id) REFERENCES jugador(id)\r\n);\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/tables.sql b/src/main/resources/tables.sql
+--- a/src/main/resources/tables.sql	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/resources/tables.sql	(date 1748529125979)
+@@ -45,18 +45,20 @@
+     FOREIGN KEY (id) REFERENCES persona(id) -- FK: hereda de persona
+ );
+ 
+--- Tabla de CONVOCATORIAS
++-- Tabla CONVOCATORIA
+ CREATE TABLE IF NOT EXISTS convocatoria (
+-    id IDENTITY PRIMARY KEY, -- ID autoincremental (clave primaria)
+-    jornada TIMESTAMP NOT NULL, -- Fecha y hora de la jornada/partido
+-    descripcion VARCHAR(255) -- Descripción libre de la convocatoria
++    id IDENTITY PRIMARY KEY,
++    jornada TIMESTAMP NOT NULL
+ );
+ 
+--- Tabla de jugadores convocados
++-- Tabla JUGADOR_CONVOCADO
+ CREATE TABLE IF NOT EXISTS jugador_convocado (
+-    convocatoria_id BIGINT NOT NULL,
+-    jugador_id BIGINT NOT NULL,
++    id VARCHAR(50) PRIMARY KEY,
++    persona_id INT NOT NULL,
++    convocatoria_id INT NOT NULL,
++    FOREIGN KEY (persona_id) REFERENCES persona(id),
+     FOREIGN KEY (convocatoria_id) REFERENCES convocatoria(id),
+-    FOREIGN KEY (jugador_id) REFERENCES jugador(id)
++    UNIQUE (persona_id, convocatoria_id) -- evita duplicados
+ );
+ 
++
+Index: src/test/kotlin/user/validator/UserValidatorTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package user.validator\r\n\r\nimport dev.newteam.newteam3.user.model.User\r\nimport dev.newteam.newteam3.user.validator.UserValidator\r\nimport org.junit.jupiter.api.Assertions.assertEquals\r\nimport org.junit.jupiter.api.Assertions.assertTrue\r\nimport org.junit.jupiter.api.DisplayName\r\nimport org.junit.jupiter.api.Test\r\n\r\nclass UserValidatorTest {\r\n    private val validator = UserValidator()\r\n\r\n    @Test\r\n    @DisplayName(\"Test de Usuario Válido.\")\r\n    fun validateUserValido() {\r\n        val user = User(\r\n            nombre = \"admin\",\r\n            password = \"contra123\"\r\n        )\r\n        val result = validator.validate(user)\r\n\r\n        assertTrue(result.isOk, \"El validador debe devolver Ok\")\r\n        assertEquals(user, result.value, \"El validador debe devolver el mismo user.\")\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Test de Usuario Nombre Inválido.\")\r\n    fun validateUserNombreInvalido() {\r\n        val user = User(\r\n            nombre = \"ajmin\",\r\n            password = \"contra123\"\r\n        )\r\n        val result = validator.validate(user)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. Nombre incorrecto.\", result.error.message)\r\n\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Test de Usuario Contraseña Inválida.\")\r\n    fun validateUserContraseñaInvalida() {\r\n        val user = User(\r\n            nombre = \"admin\",\r\n            password = \"contra1234\"\r\n        )\r\n        val result = validator.validate(user)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. Contraseña incorrecta.\", result.error.message)\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/kotlin/user/validator/UserValidatorTest.kt b/src/test/kotlin/user/validator/UserValidatorTest.kt
+--- a/src/test/kotlin/user/validator/UserValidatorTest.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/test/kotlin/user/validator/UserValidatorTest.kt	(date 1748529125986)
+@@ -14,6 +14,7 @@
+     @DisplayName("Test de Usuario Válido.")
+     fun validateUserValido() {
+         val user = User(
++            id = 1,
+             nombre = "admin",
+             password = "contra123"
+         )
+@@ -27,6 +28,7 @@
+     @DisplayName("Test de Usuario Nombre Inválido.")
+     fun validateUserNombreInvalido() {
+         val user = User(
++            id = 1,
+             nombre = "ajmin",
+             password = "contra123"
+         )
+@@ -41,6 +43,7 @@
+     @DisplayName("Test de Usuario Contraseña Inválida.")
+     fun validateUserContraseñaInvalida() {
+         val user = User(
++            id = 1,
+             nombre = "admin",
+             password = "contra1234"
+         )
+Index: src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt b/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt
+new file mode 100644
+--- /dev/null	(date 1748529128590)
++++ b/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt	(date 1748529128590)
+@@ -0,0 +1,102 @@
++package convocatoria.dao
++
++import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoDao
++import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoEntity
++import dev.newteam.newteam3.convocatoria.utils.provideConvocatoriaDao
++import dev.newteam.newteam3.convocatoria.utils.provideJugadorConvocadoDao
++import dev.newteam.newteam3.database.JdbiManager
++import org.jdbi.v3.core.Jdbi
++import org.junit.jupiter.api.Assertions.*
++import org.junit.jupiter.api.Assertions.assertEquals
++import org.junit.jupiter.api.BeforeAll
++import org.junit.jupiter.api.BeforeEach
++import org.junit.jupiter.api.Test
++import org.junit.jupiter.api.TestInstance
++
++@TestInstance(TestInstance.Lifecycle.PER_CLASS)
++class ConvocatoriaDao {
++
++    private lateinit var jdbi : Jdbi
++    private lateinit var jugadorconvocatoria : JugadorConvocadoDao
++
++    @BeforeAll
++    fun setUp() {
++        val jdbi = JdbiManager(
++            databaseUrl = "jdbc:h2:mem:newteamDB;DB_CLOSE_DELAY=-1",
++            databaseInitTables = true,
++            databaseInitData = true,
++            databaseLogger = false
++        ).jdbi
++        jugadorconvocatoria = provideJugadorConvocadoDao(jdbi)
++    }
++
++    @BeforeEach
++    fun clear() {
++        jugadorconvocatoria.deleteAll()
++    }
++
++    @Test
++    fun findById() {
++        val entity = JugadorConvocadoEntity("1", 37, 1) // personaId=37 y convocatoriaId=1 existen
++        val save = jugadorconvocatoria.save(entity)
++        assertEquals(1, save)
++
++        val found = jugadorconvocatoria.findById("1")
++        assertNotNull(found)
++        assertEquals(entity, found)
++    }
++
++    @Test
++    fun findAll() {
++        val lista = listOf(
++            JugadorConvocadoEntity("1", 37, 1),
++            JugadorConvocadoEntity("2", 38, 2)
++        )
++        lista.forEach { jugadorconvocatoria.save(it) }
++
++        val all = jugadorconvocatoria.findAll()
++
++        assertEquals(2, all.size)
++
++    }
++
++    @Test
++    fun testFindByConvocatoriaId() {
++        jugadorconvocatoria.save(JugadorConvocadoEntity("1", 37, 3))
++        jugadorconvocatoria.save(JugadorConvocadoEntity("2", 38, 3))
++        jugadorconvocatoria.save(JugadorConvocadoEntity("3", 37, 2))
++
++        val result = jugadorconvocatoria.findByConvocatoriaId(3)
++        assertEquals(2, result.size)
++    }
++
++    @Test
++    fun deleteByConvocatoriaId_removesAllWithSameConvocatoria() {
++        jugadorconvocatoria.save(JugadorConvocadoEntity("11", 37, 2))
++        jugadorconvocatoria.save(JugadorConvocadoEntity("12", 38, 2))
++        jugadorconvocatoria.save(JugadorConvocadoEntity("13", 37, 3))
++
++        val deleted = jugadorconvocatoria.deleteByConvocatoriaId(2)
++        assertEquals(2, deleted)
++
++        val jugadorDeleteId = jugadorconvocatoria.findAll()
++        assertEquals(1, jugadorDeleteId.size)
++        assertEquals("13", jugadorDeleteId[0].id)
++    }
++
++    @Test
++    fun deleteAll_removesAllRecords() {
++        jugadorconvocatoria.save(JugadorConvocadoEntity("15", 37, 1))
++        jugadorconvocatoria.save(JugadorConvocadoEntity("16", 38, 2))
++
++        val deleted = jugadorconvocatoria.deleteAll()
++        assertEquals(2, deleted)
++
++        val jugadorFindAll = jugadorconvocatoria.findAll()
++        assertTrue(jugadorFindAll.isEmpty())
++    }
++
++
++
++
++}
+\ No newline at end of file
+Index: src/main/resources/data.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>INSERT INTO equipo (nombre_equipo)\r\nVALUES ('MUPPET');\r\n\r\nINSERT INTO equipo (nombre_equipo)\r\nVALUES ('NEW_TEAM');\r\n\r\n-- Jugadores\r\nINSERT INTO persona (\r\n    id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais,\r\n    rol, equipo\r\n) VALUES\r\n      (37, 'Daisuke', 'Furukawa', '1971-11-12', '1983-04-01', 34100.0, 'Japón', 'jugador', 'MUPPET'),\r\n      (38, 'Koichiro', 'Kazami', '1971-05-08', '1983-04-01', 33600.0, 'Japón', 'jugador', 'MUPPET');\r\n\r\n-- Entrenadores\r\nINSERT INTO persona (\r\n    id, nombre, apellido, fechaNacimiento, fechaIncorporacion, salario, pais,\r\n    rol, equipo\r\n) VALUES\r\n      (39, 'Kozo', 'Kira', '1952-09-18', '1983-04-01', 53000.0, 'Japón', 'entrenador', 'MUPPET'),\r\n      (40, 'Jeff', 'Turner', '1950-09-08', '1983-04-01', 46000.0, 'Japón', 'entrenador', 'MUPPET');\r\n\r\n-- Convocatorias\r\nINSERT INTO convocatoria (id, jornada, descripcion) VALUES\r\n      (1, '2025-08-10 15:30:00', 'Jornada de apertura contra el equipo rival'),\r\n      (2, '2025-08-17 17:00:00', 'Segundo partido de la temporada'),\r\n      (3, '2025-08-24 16:00:00', 'Partido de ida del clásico')
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/data.sql b/src/main/resources/data.sql
+--- a/src/main/resources/data.sql	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/resources/data.sql	(date 1748529125990)
+@@ -1,6 +1,8 @@
++-- Equipo MUPPET
+ INSERT INTO equipo (nombre_equipo)
+ VALUES ('MUPPET');
+ 
++-- Equipo New Team
+ INSERT INTO equipo (nombre_equipo)
+ VALUES ('NEW_TEAM');
+ 
+@@ -21,7 +23,7 @@
+       (40, 'Jeff', 'Turner', '1950-09-08', '1983-04-01', 46000.0, 'Japón', 'entrenador', 'MUPPET');
+ 
+ -- Convocatorias
+-INSERT INTO convocatoria (id, jornada, descripcion) VALUES
+-      (1, '2025-08-10 15:30:00', 'Jornada de apertura contra el equipo rival'),
+-      (2, '2025-08-17 17:00:00', 'Segundo partido de la temporada'),
+-      (3, '2025-08-24 16:00:00', 'Partido de ida del clásico')
+\ No newline at end of file
++INSERT INTO convocatoria (id, jornada) VALUES
++      (1, '2025-08-10 15:30:00'),
++      (2, '2025-08-17 17:00:00'),
++      (3, '2025-08-24 16:00:00');
+\ No newline at end of file
+Index: src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package plantilla.repository\r\n\r\nimport dev.newteam.newteam3.plantilla.dao.EntrenadorEntity\r\nimport dev.newteam.newteam3.plantilla.dao.PersonaDao\r\nimport dev.newteam.newteam3.plantilla.mapper.toModel\r\nimport dev.newteam.newteam3.plantilla.models.Entrenador\r\nimport dev.newteam.newteam3.plantilla.models.Persona\r\nimport dev.newteam.newteam3.plantilla.repositories.PersonaRepositoryImpl\r\nimport org.junit.jupiter.api.Assertions.assertEquals\r\nimport org.junit.jupiter.api.Assertions.assertNotNull\r\nimport org.junit.jupiter.api.DisplayName\r\nimport org.junit.jupiter.api.Nested\r\nimport org.junit.jupiter.api.Test\r\nimport org.junit.jupiter.api.Assertions.*\r\nimport org.junit.jupiter.api.extension.ExtendWith\r\nimport org.mockito.InjectMocks\r\nimport org.mockito.Mock\r\nimport org.mockito.junit.jupiter.MockitoExtension\r\nimport org.mockito.kotlin.*\r\nimport java.time.LocalDate\r\n\r\n@ExtendWith(MockitoExtension::class)\r\nclass PersonaRepositoryMockitoTest {\r\n\r\n    @Mock\r\n    private lateinit var dao : PersonaDao\r\n\r\n    @InjectMocks\r\n    private lateinit var repository: PersonaRepositoryImpl\r\n\r\n    @Nested\r\n    @DisplayName(\"Casos correctos repositorio\")\r\n\r\n    inner class CasosCorrectosRepositorio {\r\n        @Test\r\n        @DisplayName(\"Deberia de devolver una lista con todos los miembros\")\r\n        fun findAll() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"2006-09-08\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET,\r\n                especializacion = Entrenador.Especializacion.PORTEROS\r\n            )\r\n\r\n            whenever(dao.findAll()).thenReturn(listOf(entrenadorEntity))\r\n\r\n            val entrandorLista = repository.findAll()\r\n\r\n            assertAll(\r\n                { assertNotNull(entrandorLista.size == 1, \"Entrenador no nulo\") },\r\n                { assertEquals(1, entrandorLista.size, \"Entrenador correcto\") },\r\n                { assertEquals(1, entrandorLista[0].id, \"Casilla id correcta\") },\r\n                { assertEquals(\"Pedro\", entrandorLista[0].nombre, \"Casilla nombre correcta\") },\r\n                { assertEquals(\"Gutierrez\", entrandorLista[0].apellido, \"Casilla apellidos correcta\") },\r\n                { assertEquals(LocalDate.parse(\"1970-01-01\"), entrandorLista[0].fechaNacimiento, \"Casilla fecha nacimiento correcta\") },\r\n                { assertEquals(LocalDate.parse(\"2006-09-08\"), entrandorLista[0].fechaIncorporacion, \"Casilla fecha incorporacion correcta\") },\r\n                { assertEquals(1000.0, entrandorLista[0].salario, \"Casilla salario correcta\") },\r\n                { assertEquals(\"España\", entrandorLista[0].pais, \"Casilla pais correcta\") },\r\n                { assertEquals(\"\", entrandorLista[0].rol, \"Casilla rol correcta\") },\r\n                { assertEquals(Entrenador.Especializacion.PORTEROS, entrenadorEntity.especializacion, \"Casilla especialidad correcta\") },\r\n                { assertEquals(\"\", entrenadorEntity.imagen, \"Casilla ruta imagen correcta\") },\r\n            )\r\n            verify(dao, atLeastOnce()).findAll()\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Deberia de devolver un miembro buscado por id\")\r\n        fun findById() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 2,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"1990-01-01\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                imagen = \"\",\r\n                rol = \"\",\r\n                equipo = Persona.Equipos.MUPPET,\r\n                especializacion = Entrenador.Especializacion.PORTEROS\r\n            )\r\n\r\n            whenever(dao.findById(2)).thenReturn(entrenadorEntity)\r\n\r\n            val entrenadorId = repository.findById(2)\r\n\r\n            assertAll(\r\n                { assertNotNull(entrenadorId, \"Entrenador no nulo\") },\r\n                { assertEquals(2, entrenadorId!!.id, \"Casilla id correcta\") },\r\n                { assertEquals(\"Pedro\", entrenadorId!!.nombre, \"Casilla nombre correcta\") },\r\n                { assertEquals(\"Gutierrez\", entrenadorId!!.apellido, \"Casilla apellidos correcta\") },\r\n                { assertEquals(LocalDate.parse(\"1970-01-01\"), entrenadorId!!.fechaNacimiento, \"Casilla fecha nacimiento correcta\") },\r\n                { assertEquals(LocalDate.parse(\"1990-01-01\"), entrenadorId!!.fechaIncorporacion, \"Casilla fecha incorporacion correcta\") },\r\n                { assertEquals(1000.0, entrenadorId!!.salario, \"Casilla salario correcta\") },\r\n                { assertEquals(\"España\", entrenadorId!!.pais, \"Casilla pais correcta\") },\r\n                { assertEquals(\"\", entrenadorId!!.imagen, \"Casilla ruta imagen correcta\") },\r\n                { assertEquals(\"\", entrenadorId!!.rol, \"Casilla rol correcta\") },\r\n            )\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Debería salvar un miembro y devolver el objeto guardado\")\r\n        fun save() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 2,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"1990-01-01\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET,\r\n                especializacion = Entrenador.Especializacion.PORTEROS\r\n            )\r\n\r\n            // Mockeamos que el dao.save devuelve un id (por ejemplo 2)\r\n            whenever(dao.save(any())).thenReturn(2)\r\n\r\n            // Mockeamos el guardado específico del entrenador\r\n            whenever(dao.saveEntrenador(entrenadorEntity)).thenReturn(1) // si devuelve algo, por ejemplo filas afectadas\r\n\r\n            // Llamamos al método save del repositorio, que ahora devuelve el objeto guardado\r\n            val entrenadorSave = repository.save(entrenadorEntity.toModel()) as Entrenador\r\n\r\n            assertAll(\r\n                { assertNotNull(entrenadorSave, \"Entrenador no nulo\") },\r\n                { assertEquals(2, entrenadorSave.id, \"Casilla id correcta\") },\r\n                { assertEquals(\"Pedro\", entrenadorSave.nombre, \"Casilla nombre correcta\") },\r\n                { assertEquals(\"Gutierrez\", entrenadorSave.apellido, \"Casilla apellido correcta\") },\r\n                { assertEquals(LocalDate.parse(\"1970-01-01\"), entrenadorSave.fechaNacimiento, \"Casilla fecha nacimiento correcta\") },\r\n                { assertEquals(LocalDate.parse(\"1990-01-01\"), entrenadorSave.fechaIncorporacion, \"Casilla fecha incorporacion correcta\") },\r\n                { assertEquals(1000.0, entrenadorSave.salario, \"Casilla salario correcta\") },\r\n                { assertEquals(\"España\", entrenadorSave.pais, \"Casilla pais correcta\") },\r\n                { assertEquals(\"entrenador\", entrenadorSave.rol, \"Casilla rol correcta\") },\r\n                { assertEquals(Entrenador.Especializacion.PORTEROS, entrenadorSave.especializacion, \"Casilla especialización correcta\") }\r\n            )\r\n\r\n            verify(dao).save(any())\r\n            verify(dao).saveEntrenador(any())\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Deberia de borrar un id\")\r\n        fun delete() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 2,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"1990-01-01\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET,\r\n                especializacion = Entrenador.Especializacion.PORTEROS\r\n            )\r\n\r\n            whenever(dao.findById(2)).thenReturn(entrenadorEntity)\r\n            whenever(dao.delete(2)).thenReturn(1)\r\n\r\n            repository.deleteById(2)\r\n\r\n            verify(dao).findById(2)\r\n            verify(dao).delete(2)\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Debería eliminar todos los datos de los miembros\")\r\n        fun deleteAll() {\r\n\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 2,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"1990-01-01\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET,\r\n                especializacion = Entrenador.Especializacion.PORTEROS\r\n            )\r\n\r\n            repository.deleteAll()\r\n            verify(dao, times(1)).deleteAll()\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Debería salvar los datos de varios miembros\")\r\n        fun saveAll() {\r\n            val entrenadorEntity = EntrenadorEntity(\r\n                id = 1,\r\n                nombre = \"Pedro\",\r\n                apellido = \"Gutierrez\",\r\n                fechaNacimiento = LocalDate.parse(\"1970-01-01\"),\r\n                fechaIncorporacion = LocalDate.parse(\"1990-01-01\"),\r\n                salario = 1000.0,\r\n                pais = \"España\",\r\n                rol = \"entrenador\",\r\n                imagen = \"\",\r\n                equipo = Persona.Equipos.MUPPET,\r\n                especializacion = Entrenador.Especializacion.PORTEROS\r\n            )\r\n\r\n            val listaModel = listOf(entrenadorEntity.toModel())\r\n\r\n            whenever(dao.save(any())).thenReturn(1)\r\n            whenever(dao.saveEntrenador(any())).thenReturn(1)\r\n\r\n            repository.saveAll(listaModel)\r\n\r\n            // Verificamos que se haya llamado dao.save y dao.saveEntrenador para cada entidad\r\n            verify(dao, times(listaModel.size)).save(any())\r\n            verify(dao, times(listaModel.size)).saveEntrenador(any())\r\n        }\r\n\r\n        @Nested\r\n        @DisplayName(\"CasosIncorrectos\")\r\n        inner class CasosIncorrectos {\r\n            @Test\r\n            @DisplayName(\"Deberia devolver una lista vacia\")\r\n            fun findAllIncorrecto() {\r\n\r\n                whenever(dao.findAll()).thenReturn(emptyList())\r\n\r\n                val emptyList = repository.findAll()\r\n\r\n                assertEquals(0, emptyList.size, \"La lista debe estar vacía\")\r\n\r\n                verify(dao, times(1)).findAll()\r\n            }\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Deberia de de ser un id nulo\")\r\n        fun findByIdIncorrecto() {\r\n\r\n            whenever(dao.findById(1)).thenReturn(null)\r\n\r\n            val idNulo = repository.findById(1)\r\n\r\n            assertEquals(null, idNulo, \"El id deberia de ser nulo\")\r\n\r\n            verify(dao, times(1)).findById(1)\r\n        }\r\n\r\n        @Test\r\n        @DisplayName(\"Deberia de no encontrar un alumno por identificador\")\r\n        fun deleteByIdIncorrecto() {\r\n\r\n\r\n            whenever(dao.findById(1)).thenReturn(null)\r\n            whenever(dao.delete(any())).thenReturn(1)\r\n            whenever(dao.deleteEntrenador(any())).thenReturn(1)\r\n\r\n            repository.deleteById(1)\r\n\r\n            verify(dao, times(1)).findById(1)\r\n        }\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt b/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt
+--- a/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt	(date 1748529125997)
+@@ -12,6 +12,7 @@
+ import org.junit.jupiter.api.Nested
+ import org.junit.jupiter.api.Test
+ import org.junit.jupiter.api.Assertions.*
++import org.junit.jupiter.api.assertThrows
+ import org.junit.jupiter.api.extension.ExtendWith
+ import org.mockito.InjectMocks
+ import org.mockito.Mock
+@@ -23,7 +24,7 @@
+ class PersonaRepositoryMockitoTest {
+ 
+     @Mock
+-    private lateinit var dao : PersonaDao
++    private lateinit var dao: PersonaDao
+ 
+     @InjectMocks
+     private lateinit var repository: PersonaRepositoryImpl
+@@ -59,12 +60,30 @@
+                 { assertEquals(1, entrandorLista[0].id, "Casilla id correcta") },
+                 { assertEquals("Pedro", entrandorLista[0].nombre, "Casilla nombre correcta") },
+                 { assertEquals("Gutierrez", entrandorLista[0].apellido, "Casilla apellidos correcta") },
+-                { assertEquals(LocalDate.parse("1970-01-01"), entrandorLista[0].fechaNacimiento, "Casilla fecha nacimiento correcta") },
+-                { assertEquals(LocalDate.parse("2006-09-08"), entrandorLista[0].fechaIncorporacion, "Casilla fecha incorporacion correcta") },
++                {
++                    assertEquals(
++                        LocalDate.parse("1970-01-01"),
++                        entrandorLista[0].fechaNacimiento,
++                        "Casilla fecha nacimiento correcta"
++                    )
++                },
++                {
++                    assertEquals(
++                        LocalDate.parse("2006-09-08"),
++                        entrandorLista[0].fechaIncorporacion,
++                        "Casilla fecha incorporacion correcta"
++                    )
++                },
+                 { assertEquals(1000.0, entrandorLista[0].salario, "Casilla salario correcta") },
+                 { assertEquals("España", entrandorLista[0].pais, "Casilla pais correcta") },
+                 { assertEquals("", entrandorLista[0].rol, "Casilla rol correcta") },
+-                { assertEquals(Entrenador.Especializacion.PORTEROS, entrenadorEntity.especializacion, "Casilla especialidad correcta") },
++                {
++                    assertEquals(
++                        Entrenador.Especializacion.PORTEROS,
++                        entrenadorEntity.especializacion,
++                        "Casilla especialidad correcta"
++                    )
++                },
+                 { assertEquals("", entrenadorEntity.imagen, "Casilla ruta imagen correcta") },
+             )
+             verify(dao, atLeastOnce()).findAll()
+@@ -82,7 +101,7 @@
+                 salario = 1000.0,
+                 pais = "España",
+                 imagen = "",
+-                rol = "",
++                rol = "entrenador",
+                 equipo = Persona.Equipos.MUPPET,
+                 especializacion = Entrenador.Especializacion.PORTEROS
+             )
+@@ -100,8 +119,8 @@
+                 { assertEquals(LocalDate.parse("1990-01-01"), entrenadorId!!.fechaIncorporacion, "Casilla fecha incorporacion correcta") },
+                 { assertEquals(1000.0, entrenadorId!!.salario, "Casilla salario correcta") },
+                 { assertEquals("España", entrenadorId!!.pais, "Casilla pais correcta") },
++                { assertEquals("entrenador-", entrenadorId!!.rol, "Casilla rol correcta") },
+                 { assertEquals("", entrenadorId!!.imagen, "Casilla ruta imagen correcta") },
+-                { assertEquals("", entrenadorId!!.rol, "Casilla rol correcta") },
+             )
+         }
+ 
+@@ -116,19 +135,14 @@
+                 fechaIncorporacion = LocalDate.parse("1990-01-01"),
+                 salario = 1000.0,
+                 pais = "España",
+-                rol = "entrenador",
++                rol = "",
+                 imagen = "",
+                 equipo = Persona.Equipos.MUPPET,
+                 especializacion = Entrenador.Especializacion.PORTEROS
+             )
+ 
+-            // Mockeamos que el dao.save devuelve un id (por ejemplo 2)
+-            whenever(dao.save(any())).thenReturn(2)
++            whenever(dao.saveEntrenador(entrenadorEntity)).thenReturn(1)
+ 
+-            // Mockeamos el guardado específico del entrenador
+-            whenever(dao.saveEntrenador(entrenadorEntity)).thenReturn(1) // si devuelve algo, por ejemplo filas afectadas
+-
+-            // Llamamos al método save del repositorio, que ahora devuelve el objeto guardado
+             val entrenadorSave = repository.save(entrenadorEntity.toModel()) as Entrenador
+ 
+             assertAll(
+@@ -137,10 +151,10 @@
+                 { assertEquals("Pedro", entrenadorSave.nombre, "Casilla nombre correcta") },
+                 { assertEquals("Gutierrez", entrenadorSave.apellido, "Casilla apellido correcta") },
+                 { assertEquals(LocalDate.parse("1970-01-01"), entrenadorSave.fechaNacimiento, "Casilla fecha nacimiento correcta") },
+-                { assertEquals(LocalDate.parse("1990-01-01"), entrenadorSave.fechaIncorporacion, "Casilla fecha incorporacion correcta") },
++                { assertEquals(LocalDate.parse("1990-01-01"), entrenadorSave.fechaIncorporacion, "Casilla fecha incorporacion corrcta") },
+                 { assertEquals(1000.0, entrenadorSave.salario, "Casilla salario correcta") },
+                 { assertEquals("España", entrenadorSave.pais, "Casilla pais correcta") },
+-                { assertEquals("entrenador", entrenadorSave.rol, "Casilla rol correcta") },
++                { assertEquals("", entrenadorSave.rol, "Casilla rol correcta") },
+                 { assertEquals(Entrenador.Especializacion.PORTEROS, entrenadorSave.especializacion, "Casilla especialización correcta") }
+             )
+ 
+@@ -149,8 +163,8 @@
+         }
+ 
+         @Test
+-        @DisplayName("Deberia de borrar un id")
+-        fun delete() {
++        @DisplayName("Debería borrar un entrenador por id")
++        fun delete_entrenador() {
+             val entrenadorEntity = EntrenadorEntity(
+                 id = 2,
+                 nombre = "Pedro",
+@@ -166,13 +180,14 @@
+             )
+ 
+             whenever(dao.findById(2)).thenReturn(entrenadorEntity)
+-            whenever(dao.delete(2)).thenReturn(1)
++            whenever(dao.deleteEntrenador(2)).thenReturn(1)
+ 
+             repository.deleteById(2)
+ 
+             verify(dao).findById(2)
+-            verify(dao).delete(2)
++            verify(dao).deleteEntrenador(2)
+         }
++
+ 
+         @Test
+         @DisplayName("Debería eliminar todos los datos de los miembros")
+@@ -256,18 +271,19 @@
+         }
+ 
+         @Test
+-        @DisplayName("Deberia de no encontrar un alumno por identificador")
++        @DisplayName("Debería lanzar excepción si no se encuentra la persona por id")
+         fun deleteByIdIncorrecto() {
+-
+-
+             whenever(dao.findById(1)).thenReturn(null)
+-            whenever(dao.delete(any())).thenReturn(1)
+-            whenever(dao.deleteEntrenador(any())).thenReturn(1)
+ 
+-            repository.deleteById(1)
++            val exception = assertThrows<IllegalArgumentException> {
++                repository.deleteById(1)
++            }
+ 
+-            verify(dao, times(1)).findById(1)
++            assertEquals("No se puede eliminar por id", exception.message)
++
++            verify(dao).findById(1)
++            verify(dao, never()).delete(any())
++            verify(dao, never()).deleteEntrenador(any())
+         }
+-
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"Modelo de usuario creado\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EntrenadorMapperTest.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EquipoMapperTest.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/JugadorMapperTest.kt\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/PersonaMapperTest.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/MapperTest.kt\" beforeDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"New-Team3\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"application\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Kotlin Data Class\" />\r\n        <option value=\"Kotlin File\" />\r\n        <option value=\"Kotlin Object\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Kotlin Interface\" />\r\n        <option value=\"Kotlin Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Antukiller&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/karrasmil80/New-Team3.git&quot;,\r\n    &quot;accountId&quot;: &quot;48c43642-ec47-445a-9340-4eaa21b6c7cb&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2xPaMMSnkVmzXyzU4zQHLEYzEFK\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Gradle.Build New-Team3.0.executor\": \"Run\",\r\n    \"Gradle.Build New-Team3.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.eliminarAlumno.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.findAll.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.findById.executor\": \"Run\",\r\n    \"Gradle.CasosCorrectos.insertarAlumno.executor\": \"Run\",\r\n    \"Gradle.ConvocatoriaDaoTest.executor\": \"Run\",\r\n    \"Gradle.ConvocatoriaValidatorTest.executor\": \"Run\",\r\n    \"Gradle.EntrenadorMapperTest.executor\": \"Coverage\",\r\n    \"Gradle.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity.executor\": \"Coverage\",\r\n    \"Gradle.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador.executor\": \"Coverage\",\r\n    \"Gradle.EntrenadorValidatorTest.executor\": \"Run\",\r\n    \"Gradle.JugadorMapperTest.executor\": \"Coverage\",\r\n    \"Gradle.JugadorMapperTest.test conversion JugadorEntity a Jugador.executor\": \"Run\",\r\n    \"Gradle.JugadorValidatorTest.executor\": \"Run\",\r\n    \"Gradle.MapeoCorrecto.JugadoraPersonaEntity.executor\": \"Run\",\r\n    \"Gradle.MapeoCorrecto.executor\": \"Run\",\r\n    \"Gradle.New-Team3.0 [run].executor\": \"Run\",\r\n    \"Gradle.PersonaDaoTest.executor\": \"Run\",\r\n    \"Gradle.PersonaDaoTest.findAll.executor\": \"Run\",\r\n    \"Gradle.PersonaDtoMapperTest.executor\": \"Coverage\",\r\n    \"Gradle.PersonaDtoMapperTest.test conversion Persona a Jugador.executor\": \"Run\",\r\n    \"Gradle.PersonaDtoMapperTest.test conversion PersonaEntity a Entrenador.executor\": \"Run\",\r\n    \"Gradle.PersonaMapperTest.executor\": \"Coverage\",\r\n    \"Gradle.PersonaRepositoryMockitoTest.executor\": \"Run\",\r\n    \"Gradle.PersonaServiceImplMockitoTest.executor\": \"Run\",\r\n    \"Gradle.PersonaStorageCsvTest.executor\": \"Run\",\r\n    \"Gradle.Tests in 'New-Team3.test'.executor\": \"Run\",\r\n    \"Gradle.Tests in 'plantilla'.executor\": \"Run\",\r\n    \"Gradle.Tests in 'plantilla.dao'.executor\": \"Run\",\r\n    \"JUnit.dev.newteam.newteam3 in New-Team3.main.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"features\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"jdk.selected.JAVA_MODULE\": \"liberica-full-21\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Problems\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"reference.settingsdialog.project.gradle\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\zupab\\Desktop\\New-Team 3\\New-Team3.0\\data\" />\r\n    </key>\r\n    <key name=\"MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY\">\r\n      <recent name=\"dev.newteam.newteam3.user.repository\" />\r\n      <recent name=\"dev.newteam.newteam3.user.model\" />\r\n      <recent name=\"dev.newteam.newteam3.convocatoria.models\" />\r\n      <recent name=\"dev.newteam.newteam3.convocatoria\" />\r\n      <recent name=\"dev.newteam.newteam3.controller\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Gradle.EquipoMapperTest\">\r\n    <configuration name=\"EntrenadorMapperTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.mapper.EntrenadorMapperTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.mapper.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.mapper.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"EquipoMapperTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.mapper.EquipoMapperTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"PersonaMapperTest\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;plantilla.mapper.PersonaMapperTest&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.EquipoMapperTest\" />\r\n        <item itemvalue=\"Gradle.EntrenadorMapperTest\" />\r\n        <item itemvalue=\"Gradle.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador\" />\r\n        <item itemvalue=\"Gradle.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity\" />\r\n        <item itemvalue=\"Gradle.PersonaMapperTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5fa3d01e-bb69-4e82-81e9-b4a0d1080850\" name=\"Changes\" comment=\"\" />\r\n      <created>1747842115631</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1747842115631</updated>\r\n      <workItem from=\"1747842118155\" duration=\"1286000\" />\r\n      <workItem from=\"1747843436897\" duration=\"6219000\" />\r\n      <workItem from=\"1747908050213\" duration=\"18661000\" />\r\n      <workItem from=\"1747937869109\" duration=\"629000\" />\r\n      <workItem from=\"1747939304310\" duration=\"405000\" />\r\n      <workItem from=\"1747940397146\" duration=\"264000\" />\r\n      <workItem from=\"1747992162852\" duration=\"1399000\" />\r\n      <workItem from=\"1748017716670\" duration=\"1479000\" />\r\n      <workItem from=\"1748268740618\" duration=\"284000\" />\r\n      <workItem from=\"1748270741171\" duration=\"4936000\" />\r\n      <workItem from=\"1748275808515\" duration=\"6700000\" />\r\n      <workItem from=\"1748352600458\" duration=\"3848000\" />\r\n      <workItem from=\"1748356926244\" duration=\"1237000\" />\r\n      <workItem from=\"1748438289803\" duration=\"8638000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Test MapperTest.kt\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748271356708</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748271356708</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Creada la carpeta convocatoria con sus respectivos datos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748277209352</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748277209352</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Empezando con los test del dao de la convocatoria, repositorio, dao, modelos y mappers hechos, falta el servicio\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748283847063</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748283847063</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Comentadas algunas cosas en el validador\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748284255156</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748284255156</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"RoutesManager terminado\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748354194737</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748354194737</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Routes Manager terminado y splash screen funcionando\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748356801180</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748356801180</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Añadiendo bcrypt a la base de datos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748358156860</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748358156860</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Arreglado el error de los mappers y ConvocatoriaService terminado\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748440118689</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748440118689</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"Splash terminado\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748443029030</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748443029030</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Modelo de usuario creado\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1748443087938</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1748443087938</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"11\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"UnknownFeatures\">\r\n    <option featureType=\"dependencySupport\" implementationName=\"java:org.openjfx:javafx-base\" />\r\n    <option featureType=\"dependencySupport\" implementationName=\"java:org.jdbi:jdbi3-core\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"arreglando conflictos\" />\r\n    <MESSAGE value=\"Configuración del programa y dependencias añadidas\" />\r\n    <MESSAGE value=\"Test MapperTest.kt\" />\r\n    <MESSAGE value=\"Creada la carpeta convocatoria con sus respectivos datos\" />\r\n    <MESSAGE value=\"Empezando con los test del dao de la convocatoria, repositorio, dao, modelos y mappers hechos, falta el servicio\" />\r\n    <MESSAGE value=\"Comentadas algunas cosas en el validador\" />\r\n    <MESSAGE value=\"RoutesManager terminado\" />\r\n    <MESSAGE value=\"Routes Manager terminado y splash screen funcionando\" />\r\n    <MESSAGE value=\"Añadiendo bcrypt a la base de datos\" />\r\n    <MESSAGE value=\"Arreglado el error de los mappers y ConvocatoriaService terminado\" />\r\n    <MESSAGE value=\"Splash terminado\" />\r\n    <MESSAGE value=\"Modelo de usuario creado\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Modelo de usuario creado\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$PersonaDtoMapperTest.ic\" NAME=\"PersonaDtoMapperTest Coverage Results\" MODIFIED=\"1748501878272\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$JugadorMapperTest.ic\" NAME=\"JugadorMapperTest Coverage Results\" MODIFIED=\"1748503545529\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$Tests_in__New_Team3_test_.ic\" NAME=\"Tests in 'New-Team3.test' Coverage Results\" MODIFIED=\"1748272538974\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$EntrenadorMapperTest_test_conversion_EntrenadorEntity_a_Entrenador.ic\" NAME=\"EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador Coverage Results\" MODIFIED=\"1748526051741\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$EntrenadorMapperTest.ic\" NAME=\"EntrenadorMapperTest Coverage Results\" MODIFIED=\"1748526274943\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$PersonaMapperTest.ic\" NAME=\"PersonaMapperTest Coverage Results\" MODIFIED=\"1748525462079\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n    <SUITE FILE_PATH=\"coverage/New_Team3$EntrenadorMapperTest_test_conversion_Entrenador_a_EntrenadorEntity.ic\" NAME=\"EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity Coverage Results\" MODIFIED=\"1748525828746\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/.idea/workspace.xml	(date 1748529145241)
+@@ -4,14 +4,36 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="Modelo de usuario creado">
+-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EntrenadorMapperTest.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/EquipoMapperTest.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/JugadorMapperTest.kt" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/PersonaMapperTest.kt" afterDir="false" />
++    <list default="true" id="5fa3d01e-bb69-4e82-81e9-b4a0d1080850" name="Changes" comment="C">
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocado.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/utils/provideJugadorConvocadoDao.kt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/JugadorConvocadoDao.kt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/JugadorMapper.kt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/mapper/MapperTest.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/mapper/ConvocatoriaMapper.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/JugadorConvocatoria.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepository.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/repositories/ConvocatoriaRepositoryImpl.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaService.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/service/ConvocatoriaServiceImpl.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/ConvocatoriaValidator.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/convocatoria/validator/Validator.kt" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/routes/RoutesManager.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dev/newteam/newteam3/views/acercade-view.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tables.sql" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/repository/PersonaRepositoryMockitoTest.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/plantilla/service/PersonaServiceImplMockitoTest.kt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/kotlin/user/validator/UserValidatorTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/user/validator/UserValidatorTest.kt" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -46,6 +68,12 @@
+                 <item name="New-Team3" type="f1a62948:ProjectNode" />
+                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                 <item name="application" type="c8890929:TasksNode$1" />
++              </path>
++              <path>
++                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
++                <item name="New-Team3" type="f1a62948:ProjectNode" />
++                <item name="Tasks" type="e4a08cd1:TasksNode" />
++                <item name="build" type="c8890929:TasksNode$1" />
+               </path>
+             </expand>
+             <select />
+@@ -59,10 +87,8 @@
+       <list>
+         <option value="Kotlin Data Class" />
+         <option value="Kotlin File" />
+-        <option value="Kotlin Object" />
+-        <option value="FxmlFile" />
+-        <option value="Kotlin Interface" />
+         <option value="Kotlin Class" />
++        <option value="Kotlin Interface" />
+       </list>
+     </option>
+   </component>
+@@ -78,84 +104,98 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/karrasmil80/New-Team3.git&quot;,
+-    &quot;accountId&quot;: &quot;48c43642-ec47-445a-9340-4eaa21b6c7cb&quot;
++    &quot;accountId&quot;: &quot;e6cef565-dc86-4336-9a77-3714864c383b&quot;
+   }
+ }</component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="file://$PROJECT_DIR$/src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" root0="SKIP_INSPECTION" />
++  </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 4
+ }</component>
+   <component name="ProjectId" id="2xPaMMSnkVmzXyzU4zQHLEYzEFK" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Gradle.Build New-Team3.0.executor": "Run",
+-    "Gradle.Build New-Team3.executor": "Run",
+-    "Gradle.CasosCorrectos.eliminarAlumno.executor": "Run",
+-    "Gradle.CasosCorrectos.executor": "Run",
+-    "Gradle.CasosCorrectos.findAll.executor": "Run",
+-    "Gradle.CasosCorrectos.findById.executor": "Run",
+-    "Gradle.CasosCorrectos.insertarAlumno.executor": "Run",
+-    "Gradle.ConvocatoriaDaoTest.executor": "Run",
+-    "Gradle.ConvocatoriaValidatorTest.executor": "Run",
+-    "Gradle.EntrenadorMapperTest.executor": "Coverage",
+-    "Gradle.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity.executor": "Coverage",
+-    "Gradle.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador.executor": "Coverage",
+-    "Gradle.EntrenadorValidatorTest.executor": "Run",
+-    "Gradle.JugadorMapperTest.executor": "Coverage",
+-    "Gradle.JugadorMapperTest.test conversion JugadorEntity a Jugador.executor": "Run",
+-    "Gradle.JugadorValidatorTest.executor": "Run",
+-    "Gradle.MapeoCorrecto.JugadoraPersonaEntity.executor": "Run",
+-    "Gradle.MapeoCorrecto.executor": "Run",
+-    "Gradle.New-Team3.0 [run].executor": "Run",
+-    "Gradle.PersonaDaoTest.executor": "Run",
+-    "Gradle.PersonaDaoTest.findAll.executor": "Run",
+-    "Gradle.PersonaDtoMapperTest.executor": "Coverage",
+-    "Gradle.PersonaDtoMapperTest.test conversion Persona a Jugador.executor": "Run",
+-    "Gradle.PersonaDtoMapperTest.test conversion PersonaEntity a Entrenador.executor": "Run",
+-    "Gradle.PersonaMapperTest.executor": "Coverage",
+-    "Gradle.PersonaRepositoryMockitoTest.executor": "Run",
+-    "Gradle.PersonaServiceImplMockitoTest.executor": "Run",
+-    "Gradle.PersonaStorageCsvTest.executor": "Run",
+-    "Gradle.Tests in 'New-Team3.test'.executor": "Run",
+-    "Gradle.Tests in 'plantilla'.executor": "Run",
+-    "Gradle.Tests in 'plantilla.dao'.executor": "Run",
+-    "JUnit.dev.newteam.newteam3 in New-Team3.main.executor": "Run",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "features",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "jdk.selected.JAVA_MODULE": "liberica-full-21",
+-    "kotlin-language-version-configured": "true",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Problems",
+-    "project.structure.proportion": "0.0",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Gradle.Build New-Team3.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.deleteAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.deleteById.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.eliminarAlumno.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.eliminarPersona.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.findAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.findById.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.save.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.saveAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectos.testFindAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.delete.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.deleteAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.deleteByIdIncorrecto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.delete_entrenador.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.findAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.findById.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.save.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosCorrectosRepositorio.saveAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosIncorrectos.deleteIncorrecto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosIncorrectos.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosIncorrectos.findAllIncorrecto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.CasosIncorrectos.findByIdIncorrecto.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaDao.deleteAll_removesAllRecords.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaDao.deleteByConvocatoriaId_removesAllWithSameConvocatoria.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaDao.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.ConvocatoriaDao.findAll.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaDao.findById.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaDao.testFindByConvocatoriaId.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.ConvocatoriaDaoTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.EntrenadorValidatorTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.JugadorValidatorTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.New-Team3 [run].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaDaoTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.PersonaMapperTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaRepositoryMockitoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaServiceImplMockitoTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaStorageCsvTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.PersonaValidatorTest.executor&quot;: &quot;Coverage&quot;,
++    &quot;Gradle.PersonaValidatorTest.validateJugadorRolVacio.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Tests in 'convocatoria.dao'.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.UserValidatorTest.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.UserValidatorTest.validateUserContraseñaInvalida.executor&quot;: &quot;Coverage&quot;,
++    &quot;JUnit.dev.newteam.newteam3 in New-Team3.main.executor&quot;: &quot;Run&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;dev-zuil&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+-      <recent name="C:\Users\zupab\Desktop\New-Team 3\New-Team3.0\data" />
++      <recent name="C:\Users\zupab\IdeaProjects\New-Team3\src\test\kotlin\repository" />
+     </key>
+     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+-      <recent name="dev.newteam.newteam3.user.repository" />
+-      <recent name="dev.newteam.newteam3.user.model" />
+-      <recent name="dev.newteam.newteam3.convocatoria.models" />
+-      <recent name="dev.newteam.newteam3.convocatoria" />
+-      <recent name="dev.newteam.newteam3.controller" />
++      <recent name="user.validator" />
++      <recent name="user" />
++      <recent name="" />
++      <recent name="dev.newteam.newteam3.plantilla.models" />
++      <recent name="dev.newteam.newteam3.players.models" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Gradle.EquipoMapperTest">
+-    <configuration name="EntrenadorMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++  <component name="RunManager" selected="Gradle.New-Team3 [run]">
++    <configuration name="EntrenadorValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -168,7 +208,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;plantilla.mapper.EntrenadorMapperTest&quot;" />
++            <option value="&quot;plantilla.validator.EntrenadorValidatorTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -179,7 +219,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="JugadorValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -192,7 +232,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;plantilla.mapper.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity&quot;" />
++            <option value="&quot;plantilla.validator.JugadorValidatorTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -203,31 +243,29 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="New-Team3 [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+         <option name="externalSystemIdString" value="GRADLE" />
+-        <option name="scriptParameters" value="" />
++        <option name="scriptParameters" />
+         <option name="taskDescriptions">
+           <list />
+         </option>
+         <option name="taskNames">
+           <list>
+-            <option value=":test" />
+-            <option value="--tests" />
+-            <option value="&quot;plantilla.mapper.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador&quot;" />
++            <option value="run" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+       </ExternalSystemSettings>
+-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
++      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+       <DebugAllEnabled>false</DebugAllEnabled>
+-      <RunAsTest>true</RunAsTest>
++      <RunAsTest>false</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="EquipoMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="PersonaDaoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -240,7 +278,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;plantilla.mapper.EquipoMapperTest&quot;" />
++            <option value="&quot;plantilla.dao.PersonaDaoTest&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -251,7 +289,7 @@
+       <RunAsTest>true</RunAsTest>
+       <method v="2" />
+     </configuration>
+-    <configuration name="PersonaMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
++    <configuration name="UserValidatorTest.validateUserContraseñaInvalida" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+@@ -264,7 +302,7 @@
+           <list>
+             <option value=":test" />
+             <option value="--tests" />
+-            <option value="&quot;plantilla.mapper.PersonaMapperTest&quot;" />
++            <option value="&quot;user.validator.UserValidatorTest.validateUserContraseñaInvalida&quot;" />
+           </list>
+         </option>
+         <option name="vmOptions" />
+@@ -277,19 +315,19 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Gradle.EquipoMapperTest" />
+-        <item itemvalue="Gradle.EntrenadorMapperTest" />
+-        <item itemvalue="Gradle.EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador" />
+-        <item itemvalue="Gradle.EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity" />
+-        <item itemvalue="Gradle.PersonaMapperTest" />
++        <item itemvalue="Gradle.New-Team3 [run]" />
++        <item itemvalue="Gradle.UserValidatorTest.validateUserContraseñaInvalida" />
++        <item itemvalue="Gradle.JugadorValidatorTest" />
++        <item itemvalue="Gradle.EntrenadorValidatorTest" />
++        <item itemvalue="Gradle.PersonaDaoTest" />
+       </list>
+     </recent_temporary>
+   </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
+-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
++        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
++        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+       </set>
+     </attachedChunks>
+   </component>
+@@ -308,104 +346,80 @@
+       <workItem from="1747939304310" duration="405000" />
+       <workItem from="1747940397146" duration="264000" />
+       <workItem from="1747992162852" duration="1399000" />
+-      <workItem from="1748017716670" duration="1479000" />
+-      <workItem from="1748268740618" duration="284000" />
+-      <workItem from="1748270741171" duration="4936000" />
+-      <workItem from="1748275808515" duration="6700000" />
+-      <workItem from="1748352600458" duration="3848000" />
+-      <workItem from="1748356926244" duration="1237000" />
+-      <workItem from="1748438289803" duration="8638000" />
++      <workItem from="1748074449857" duration="7127000" />
++      <workItem from="1748086785769" duration="2026000" />
++      <workItem from="1748181182816" duration="7386000" />
++      <workItem from="1748188641550" duration="211000" />
++      <workItem from="1748190136596" duration="227000" />
++      <workItem from="1748249744918" duration="6536000" />
++      <workItem from="1748419279014" duration="291000" />
++      <workItem from="1748419681193" duration="5037000" />
++      <workItem from="1748426755060" duration="1179000" />
++      <workItem from="1748510538042" duration="13032000" />
++      <workItem from="1748523707219" duration="212000" />
+     </task>
+-    <task id="LOCAL-00001" summary="Test MapperTest.kt">
++    <task id="LOCAL-00001" summary="Conflictos arreglados">
+       <option name="closed" value="true" />
+-      <created>1748271356708</created>
++      <created>1747995078126</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748271356708</updated>
++      <updated>1747995078126</updated>
+     </task>
+-    <task id="LOCAL-00002" summary="Creada la carpeta convocatoria con sus respectivos datos">
++    <task id="LOCAL-00002" summary="Terminado el servicio y el repositorio, falta testear">
+       <option name="closed" value="true" />
+-      <created>1748277209352</created>
++      <created>1748188234353</created>
+       <option name="number" value="00002" />
+       <option name="presentableId" value="LOCAL-00002" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748277209352</updated>
++      <updated>1748188234353</updated>
+     </task>
+-    <task id="LOCAL-00003" summary="Empezando con los test del dao de la convocatoria, repositorio, dao, modelos y mappers hechos, falta el servicio">
++    <task id="LOCAL-00003" summary="Empezando con los test del repositorio">
+       <option name="closed" value="true" />
+-      <created>1748283847063</created>
++      <created>1748188841305</created>
+       <option name="number" value="00003" />
+       <option name="presentableId" value="LOCAL-00003" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748283847063</updated>
++      <updated>1748188841305</updated>
+     </task>
+-    <task id="LOCAL-00004" summary="Comentadas algunas cosas en el validador">
++    <task id="LOCAL-00004" summary="Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio">
+       <option name="closed" value="true" />
+-      <created>1748284255156</created>
++      <created>1748255922199</created>
+       <option name="number" value="00004" />
+       <option name="presentableId" value="LOCAL-00004" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748284255156</updated>
++      <updated>1748255922199</updated>
+     </task>
+-    <task id="LOCAL-00005" summary="RoutesManager terminado">
++    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt">
+       <option name="closed" value="true" />
+-      <created>1748354194737</created>
++      <created>1748255957669</created>
+       <option name="number" value="00005" />
+       <option name="presentableId" value="LOCAL-00005" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748354194737</updated>
++      <updated>1748255957669</updated>
+     </task>
+-    <task id="LOCAL-00006" summary="Routes Manager terminado y splash screen funcionando">
++    <task id="LOCAL-00006" summary="añadido el servicio al Koin">
+       <option name="closed" value="true" />
+-      <created>1748356801180</created>
++      <created>1748256279961</created>
+       <option name="number" value="00006" />
+       <option name="presentableId" value="LOCAL-00006" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748356801180</updated>
++      <updated>1748256279961</updated>
+     </task>
+-    <task id="LOCAL-00007" summary="Añadiendo bcrypt a la base de datos">
++    <task id="LOCAL-00007" summary="Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers">
+       <option name="closed" value="true" />
+-      <created>1748358156860</created>
++      <created>1748424597358</created>
+       <option name="number" value="00007" />
+       <option name="presentableId" value="LOCAL-00007" />
+       <option name="project" value="LOCAL" />
+-      <updated>1748358156860</updated>
+-    </task>
+-    <task id="LOCAL-00008" summary="Arreglado el error de los mappers y ConvocatoriaService terminado">
+-      <option name="closed" value="true" />
+-      <created>1748440118689</created>
+-      <option name="number" value="00008" />
+-      <option name="presentableId" value="LOCAL-00008" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1748440118689</updated>
+-    </task>
+-    <task id="LOCAL-00009" summary="Splash terminado">
+-      <option name="closed" value="true" />
+-      <created>1748443029030</created>
+-      <option name="number" value="00009" />
+-      <option name="presentableId" value="LOCAL-00009" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1748443029030</updated>
+-    </task>
+-    <task id="LOCAL-00010" summary="Modelo de usuario creado">
+-      <option name="closed" value="true" />
+-      <created>1748443087938</created>
+-      <option name="number" value="00010" />
+-      <option name="presentableId" value="LOCAL-00010" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1748443087938</updated>
++      <updated>1748424597358</updated>
+     </task>
+-    <option name="localTasksCounter" value="11" />
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
+-  <component name="UnknownFeatures">
+-    <option featureType="dependencySupport" implementationName="java:org.openjfx:javafx-base" />
+-    <option featureType="dependencySupport" implementationName="java:org.jdbi:jdbi3-core" />
+-  </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
+@@ -419,26 +433,26 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="arreglando conflictos" />
+-    <MESSAGE value="Configuración del programa y dependencias añadidas" />
+-    <MESSAGE value="Test MapperTest.kt" />
+-    <MESSAGE value="Creada la carpeta convocatoria con sus respectivos datos" />
+-    <MESSAGE value="Empezando con los test del dao de la convocatoria, repositorio, dao, modelos y mappers hechos, falta el servicio" />
+-    <MESSAGE value="Comentadas algunas cosas en el validador" />
+-    <MESSAGE value="RoutesManager terminado" />
+-    <MESSAGE value="Routes Manager terminado y splash screen funcionando" />
+-    <MESSAGE value="Añadiendo bcrypt a la base de datos" />
+-    <MESSAGE value="Arreglado el error de los mappers y ConvocatoriaService terminado" />
+-    <MESSAGE value="Splash terminado" />
+-    <MESSAGE value="Modelo de usuario creado" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Modelo de usuario creado" />
++    <MESSAGE value="Conflictos arreglados" />
++    <MESSAGE value="Terminado el servicio y el repositorio, falta testear" />
++    <MESSAGE value="Empezando con los test del repositorio" />
++    <MESSAGE value="Test del repositorio y servicio terminados, faltan los casos incorrectos del repositorio" />
++    <MESSAGE value="Merge remote-tracking branch 'origin/dev-zuil' into dev-zuil&#10;&#10;# Conflicts:&#10;#&#9;src/main/kotlin/dev/newteam/newteam3/plantilla/validator/JugadorValidator.kt" />
++    <MESSAGE value="añadido el servicio al Koin" />
++    <MESSAGE value="Merge pull request #29 from nicolasorteg/feature-nico&#10;&#10;Valitor User + Redimension" />
++    <MESSAGE value="Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers" />
++    <option name="LAST_COMMIT_MESSAGE" value="Todo el routes manager funcionando y vistas implementadas con sus respectivos controllers" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/New_Team3$PersonaDtoMapperTest.ic" NAME="PersonaDtoMapperTest Coverage Results" MODIFIED="1748501878272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$JugadorMapperTest.ic" NAME="JugadorMapperTest Coverage Results" MODIFIED="1748503545529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$Tests_in__New_Team3_test_.ic" NAME="Tests in 'New-Team3.test' Coverage Results" MODIFIED="1748272538974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorMapperTest_test_conversion_EntrenadorEntity_a_Entrenador.ic" NAME="EntrenadorMapperTest.test conversion EntrenadorEntity a Entrenador Coverage Results" MODIFIED="1748526051741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorMapperTest.ic" NAME="EntrenadorMapperTest Coverage Results" MODIFIED="1748526274943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$PersonaMapperTest.ic" NAME="PersonaMapperTest Coverage Results" MODIFIED="1748525462079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+-    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorMapperTest_test_conversion_Entrenador_a_EntrenadorEntity.ic" NAME="EntrenadorMapperTest.test conversion Entrenador a EntrenadorEntity Coverage Results" MODIFIED="1748525828746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$PersonaServiceImplMockitoTest.ic" NAME="PersonaServiceImplMockitoTest Coverage Results" MODIFIED="1748255825558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$UserValidatorTest_validateUserContraseñaInvalida.ic" NAME="UserValidatorTest.validateUserContraseñaInvalida Coverage Results" MODIFIED="1748523372901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$JugadorValidatorTest.ic" NAME="JugadorValidatorTest Coverage Results" MODIFIED="1748523356201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$PersonaRepositoryMockitoTest.ic" NAME="PersonaRepositoryMockitoTest Coverage Results" MODIFIED="1748513499046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaDaoTest.ic" NAME="ConvocatoriaDaoTest Coverage Results" MODIFIED="1748523258020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$CasosCorrectosRepositorio.ic" NAME="CasosCorrectosRepositorio Coverage Results" MODIFIED="1748513492659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$PersonaValidatorTest.ic" NAME="PersonaValidatorTest Coverage Results" MODIFIED="1748078952478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$ConvocatoriaDao.ic" NAME="ConvocatoriaDao Coverage Results" MODIFIED="1748523289363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$EntrenadorValidatorTest.ic" NAME="EntrenadorValidatorTest Coverage Results" MODIFIED="1748523341881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
++    <SUITE FILE_PATH="coverage/New_Team3$PersonaDaoTest.ic" NAME="PersonaDaoTest Coverage Results" MODIFIED="1748523315784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.convocatoria.models\r\n\r\nimport dev.newteam.newteam3.plantilla.models.Entrenador\r\nimport java.time.LocalDateTime\r\n\r\n/**\r\n * Aquí se almacenan los datos de la Convocatoria.\r\n */\r\ndata class Convocatoria(\r\n    val id: Int,\r\n    val jornada: LocalDateTime,\r\n    val descripcion: String,\r\n    val jugadoresConvocados: List<JugadorConvocatoria>,\r\n)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/models/Convocatoria.kt	(date 1748529128558)
+@@ -1,14 +1,12 @@
+ package dev.newteam.newteam3.convocatoria.models
+ 
+ import dev.newteam.newteam3.plantilla.models.Entrenador
++import dev.newteam.newteam3.plantilla.models.Jugador
++import java.time.LocalDate
+ import java.time.LocalDateTime
+ 
+-/**
+- * Aquí se almacenan los datos de la Convocatoria.
+- */
+-data class Convocatoria(
++data class Convocatoria (
+     val id: Int,
+-    val jornada: LocalDateTime,
+-    val descripcion: String,
+-    val jugadoresConvocados: List<JugadorConvocatoria>,
+-)
++    val jornada: LocalDate,
++    val personalList: List<JugadorConvocado>,
++)
+\ No newline at end of file
+Index: src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package convocatoria.dao\r\n\r\nimport dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao\r\nimport dev.newteam.newteam3.convocatoria.dao.ConvocatoriaEntity\r\nimport dev.newteam.newteam3.convocatoria.utils.provideConvocatoriaDao\r\nimport dev.newteam.newteam3.database.JdbiManager\r\nimport dev.newteam.newteam3.plantilla.dao.PersonaDao\r\nimport dev.newteam.newteam3.plantilla.utils.providePersonaDao\r\nimport org.junit.jupiter.api.*\r\nimport org.junit.jupiter.api.Assertions.assertTrue\r\nimport java.time.LocalDateTime\r\n\r\n\r\n@TestInstance(TestInstance.Lifecycle.PER_CLASS)\r\nclass ConvocatoriaDaoTest {\r\n\r\n    private lateinit var jdbi: JdbiManager\r\n    private lateinit var convocatoriaDao: ConvocatoriaDao\r\n\r\n\r\n    @BeforeAll\r\n    fun setUp() {\r\n        // Inicializamos la BD\r\n        val jdbi = JdbiManager(\r\n            databaseUrl = \"jdbc:h2:mem:newteamDB;DB_CLOSE_DELAY=-1\",\r\n            databaseInitTables = true,\r\n            databaseInitData = true,\r\n            databaseLogger = false\r\n        ).jdbi\r\n        convocatoriaDao = provideConvocatoriaDao(jdbi)\r\n    }\r\n\r\n    @Nested\r\n    @DisplayName(\"Casos correctos para convocatoria\")\r\n    inner class CasosCorrectos {\r\n\r\n        @Test\r\n        @DisplayName(\"Debería devolver una lista de convocatorias\")\r\n        fun findAll() {\r\n            val convocatoria = ConvocatoriaEntity(\r\n                id = 1,\r\n                jornada = LocalDateTime.parse(\"1970-01-01T00:00:00\"),\r\n                descripcion = \"Jornada de apertura\",\r\n                jugadoresConvocados = emptyList(),\r\n            )\r\n\r\n            val convocatorias = convocatoriaDao.findAll()\r\n\r\n            assertAll(\r\n                { assertTrue(convocatorias.isNotEmpty(), \"La lista no debe estar vacía\") },\r\n                { assertTrue(convocatorias.any { it.descripcion == \"Jornada de apertura\" }, \"Debe contener la convocatoria guardada\") }\r\n            )\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt b/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt
+--- a/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/test/kotlin/convocatoria/dao/ConvocatoriaDaoTest.kt	(date 1748529128567)
+@@ -2,25 +2,27 @@
+ 
+ import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaDao
+ import dev.newteam.newteam3.convocatoria.dao.ConvocatoriaEntity
++import dev.newteam.newteam3.convocatoria.dao.JugadorConvocadoEntity
+ import dev.newteam.newteam3.convocatoria.utils.provideConvocatoriaDao
+ import dev.newteam.newteam3.database.JdbiManager
+ import dev.newteam.newteam3.plantilla.dao.PersonaDao
+ import dev.newteam.newteam3.plantilla.utils.providePersonaDao
+ import org.junit.jupiter.api.*
+ import org.junit.jupiter.api.Assertions.assertTrue
++import org.junit.jupiter.api.Assertions.*
+ import java.time.LocalDateTime
+-
++import org.jdbi.v3.core.Jdbi
++import org.junit.jupiter.api.*
++import java.time.LocalDate
+ 
+ @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+ class ConvocatoriaDaoTest {
+ 
+-    private lateinit var jdbi: JdbiManager
++    private lateinit var jdbi: Jdbi
+     private lateinit var convocatoriaDao: ConvocatoriaDao
+ 
+-
+     @BeforeAll
+     fun setUp() {
+-        // Inicializamos la BD
+         val jdbi = JdbiManager(
+             databaseUrl = "jdbc:h2:mem:newteamDB;DB_CLOSE_DELAY=-1",
+             databaseInitTables = true,
+@@ -30,26 +32,57 @@
+         convocatoriaDao = provideConvocatoriaDao(jdbi)
+     }
+ 
++    //Por si se acumulan datos
++    @BeforeEach
++    fun clear() {
++        convocatoriaDao.deleteAll()
++    }
++
+     @Nested
+     @DisplayName("Casos correctos para convocatoria")
+     inner class CasosCorrectos {
+ 
+         @Test
+-        @DisplayName("Debería devolver una lista de convocatorias")
+-        fun findAll() {
+-            val convocatoria = ConvocatoriaEntity(
+-                id = 1,
+-                jornada = LocalDateTime.parse("1970-01-01T00:00:00"),
+-                descripcion = "Jornada de apertura",
+-                jugadoresConvocados = emptyList(),
+-            )
++        fun testFindAll() {
++            val datos1 = ConvocatoriaEntity(0, LocalDate.now())
++            val datos2 = ConvocatoriaEntity(0, LocalDate.now().plusDays(1))
++            convocatoriaDao.save(datos1)
++            convocatoriaDao.save(datos2)
++
++            val lista = convocatoriaDao.findAll()
++            assertTrue(lista.size >= 2, "Debe haber al menos dos convocatorias")
++        }
++
++        @Test
++        fun findById() {
++            val convocatoria = ConvocatoriaEntity(1, LocalDate.of(2025, 5, 29))
++            val id = convocatoriaDao.save(convocatoria)
++            val saved = convocatoriaDao.findById(id)
++
++            assertEquals(id, saved!!.id)
++            assertEquals(LocalDate.of(2025, 5, 29), saved!!.jornada)
++        }
++
++        @Test
++        fun findByJornada() {
++            val fecha = LocalDate.of(2025, 5, 30)
++            convocatoriaDao.save(ConvocatoriaEntity(0, fecha))
++
++            val save = convocatoriaDao.findByJornada(fecha)
++            assertNotNull(save)
++            assertEquals(fecha, save!!.jornada)
++        }
+ 
+-            val convocatorias = convocatoriaDao.findAll()
++        @Test
++        fun deleteById() {
++            val convocatoria = ConvocatoriaEntity(0, LocalDate.of(2025, 5, 29))
++            val id = convocatoriaDao.save(convocatoria)
+ 
+-            assertAll(
+-                { assertTrue(convocatorias.isNotEmpty(), "La lista no debe estar vacía") },
+-                { assertTrue(convocatorias.any { it.descripcion == "Jornada de apertura" }, "Debe contener la convocatoria guardada") }
+-            )
++            val idDelete = convocatoriaDao.deleteById(id)
++            assertEquals(1, idDelete)
++
++            assertNull(convocatoriaDao.findById(id))
+         }
++
+     }
+-}
+\ No newline at end of file
++}
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.convocatoria.dao\r\n\r\nimport dev.newteam.newteam3.plantilla.models.Jugador\r\nimport java.util.UUID\r\n\r\nclass JugadorConvocadoEntity(\r\n    val jugador : Jugador,\r\n)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/JugadorConvocadoEntity.kt	(date 1748529128573)
+@@ -1,8 +1,7 @@
+ package dev.newteam.newteam3.convocatoria.dao
+ 
+-import dev.newteam.newteam3.plantilla.models.Jugador
+-import java.util.UUID
+-
+-class JugadorConvocadoEntity(
+-    val jugador : Jugador,
++data class JugadorConvocadoEntity(
++    val id : String,
++    val personaId : Int,
++    val convocatoriaId : Int
+ )
+\ No newline at end of file
+Index: src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package convocatoria.validator\r\nimport dev.newteam.newteam3.convocatoria.models.Convocatoria\r\nimport dev.newteam.newteam3.convocatoria.models.JugadorConvocatoria\r\nimport dev.newteam.newteam3.convocatoria.validator.ConvocatoriaValidator\r\nimport dev.newteam.newteam3.plantilla.models.Jugador\r\nimport dev.newteam.newteam3.plantilla.models.Persona\r\nimport org.junit.jupiter.api.Assertions.*\r\nimport org.junit.jupiter.api.DisplayName\r\nimport org.junit.jupiter.api.Test\r\nimport java.time.LocalDate\r\nimport java.time.LocalDateTime\r\n\r\n\r\nclass ConvocatoriaValidatorTest {\r\n\r\n    private val validator = ConvocatoriaValidator()\r\n\r\n    private fun crearJugador(id: Int, posicion: Jugador.Posicion) = Jugador(\r\n        id = id,\r\n        nombre = \"Carlos\",\r\n        apellido = \"Alcaraz\",\r\n        fechaNacimiento = LocalDate.of(2003, 5, 5),\r\n        fechaIncorporacion = LocalDate.of(2025, 5, 20),\r\n        salario = 4000.0,\r\n        pais = \"España\",\r\n        rol = \"Jugador\",\r\n        imagen = \"https://www.directvsports.com/__export/1734643585495/sites/dsports/img/2024/12/19/alcaraz.jpg_1627369046.jpg\",\r\n        posicion = posicion,\r\n        dorsal = 7,\r\n        altura = 1.83,\r\n        peso = 74.0,\r\n        goles = 0,\r\n        partidosJugados = 0,\r\n        equipo = Persona.Equipos.MUPPET,\r\n        mediaGoles = 0.0,\r\n        minutosJugados = 0\r\n    )\r\n\r\n    private fun convocado(jugador: Jugador) = JugadorConvocatoria(jugador)\r\n\r\n    @Test\r\n    @DisplayName(\"Test Correcto Convocatoria válida\")\r\n    fun testConvocatoriaValida() {\r\n        val defensas = List(10) { crearJugador(it + 1, Jugador.Posicion.DEFENSA) }\r\n        val portero = crearJugador(99, Jugador.Posicion.PORTERO)\r\n        val jugadores = defensas + portero\r\n\r\n        val convocados = jugadores.map { convocado(it) }\r\n        val onceTitular = jugadores.map { it.id }\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"Jornada muy importante de la temporada.\",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = convocados,\r\n            //onceTitular = onceTitular\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isOk)\r\n        assertEquals(convocatoria, result.value)\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con fecha futura\")\r\n    fun testConvocatoriaFechaFutura() {\r\n        val jugador = crearJugador(1, Jugador.Posicion.DEFENSA)\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"Una jornada futura.\",\r\n            jornada = LocalDateTime.now().plusDays(3),\r\n            jugadoresConvocados = listOf(convocado(jugador)),\r\n            //onceTitular = listOf(jugador.id)\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. La fecha de la jornada no puede estar en el futuro.\", result.error.message)\r\n    }\r\n\r\n\r\n\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria sin jugadores\")\r\n    fun testConvocatoriaSinJugadoresConvocados() {\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"Sin jugadores.\",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = listOf(),\r\n            //onceTitular = listOf()\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. Debe haber al menos un jugador convocado.\", result.error.message)\r\n    }\r\n\r\n    /*\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con once titular vacío\")\r\n    fun testConvocatoriaOnceTitularVacio() {\r\n        val jugador = crearJugador(1, Jugador.Posicion.PORTERO)\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"Sin once titular.\",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = listOf(convocado(jugador)),\r\n            //onceTitular = listOf()\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. Debe haber al menos un jugador en el once titular.\", result.error.message)\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con más de 11 titulares\")\r\n    fun testConvocatoriaOnceTitularExcedido() {\r\n        val jugadores = List(12) { crearJugador(it + 1, Jugador.Posicion.DEFENSA) } // lista de 12 jugadores\r\n        val convocados = jugadores.map { convocado(it) }\r\n        val onceTitular = jugadores.map { it.id }\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"Once titular excedido.\",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = convocados,\r\n            //onceTitular = onceTitular\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. El once titular no puede tener más de 11 jugadores.\", result.error.message)\r\n    }\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con ID negativo/nulo.\")\r\n    fun testConvocatoriaIdInvalido() {\r\n        val jugador = crearJugador(1, Jugador.Posicion.DEFENSA)\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 0,\r\n            descripcion = \"Convocatoria con ID inválido.\",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = listOf(convocado(jugador)),\r\n            //onceTitular = listOf(jugador.id)\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. El ID de la convocatoria debe ser mayor a 0.\", result.error.message)\r\n    }\r\n     */\r\n\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con descripción vacía\")\r\n    fun testConvocatoriaDescripcionVacia() {\r\n        val jugador = crearJugador(1, Jugador.Posicion.DEFENSA)\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"  \",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = listOf(convocado(jugador)),\r\n            //onceTitular = listOf(jugador.id)\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. La descripción no puede estar vacía.\", result.error.message)\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con descripción demasiado corta\")\r\n    fun testConvocatoriaDescripcionMuyCorta() {\r\n        val jugador = crearJugador(1, Jugador.Posicion.DEFENSA)\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = \"Corta\",\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = listOf(convocado(jugador)),\r\n            //onceTitular = listOf(jugador.id)\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. La descripción debe tener entre 10 y 300 caracteres.\", result.error.message)\r\n    }\r\n\r\n    @Test\r\n    @DisplayName(\"Test Fallo por Convocatoria con descripción demasiado larga\")\r\n    fun testConvocatoriaDescripcionMuyLarga() {\r\n        val jugador = crearJugador(1, Jugador.Posicion.DEFENSA)\r\n        val descripcionLarga = \"A\".repeat(301)\r\n\r\n        val convocatoria = Convocatoria(\r\n            id = 1,\r\n            descripcion = descripcionLarga,\r\n            jornada = LocalDateTime.now().minusDays(1),\r\n            jugadoresConvocados = listOf(convocado(jugador)),\r\n            //onceTitular = listOf(jugador.id)\r\n        )\r\n\r\n        val result = validator.validate(convocatoria)\r\n\r\n        assertTrue(result.isErr)\r\n        assertEquals(\"Datos no válidos. La descripción debe tener entre 10 y 300 caracteres.\", result.error.message)\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt b/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt
+--- a/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/test/kotlin/convocatoria/validator/ConvocatoriaValidatorTest.kt	(date 1748529128596)
+@@ -1,16 +1,6 @@
+ package convocatoria.validator
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+-import dev.newteam.newteam3.convocatoria.models.JugadorConvocatoria
+-import dev.newteam.newteam3.convocatoria.validator.ConvocatoriaValidator
+-import dev.newteam.newteam3.plantilla.models.Jugador
+-import dev.newteam.newteam3.plantilla.models.Persona
+-import org.junit.jupiter.api.Assertions.*
+-import org.junit.jupiter.api.DisplayName
+-import org.junit.jupiter.api.Test
+-import java.time.LocalDate
+-import java.time.LocalDateTime
+ 
+-
++/*
+ class ConvocatoriaValidatorTest {
+ 
+     private val validator = ConvocatoriaValidator()
+@@ -219,6 +209,8 @@
+     }
+ }
+ 
++ */
++
+ 
+ 
+ 
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.convocatoria.dao\r\n\r\nimport dev.newteam.newteam3.convocatoria.models.JugadorConvocatoria\r\nimport java.time.LocalDateTime\r\n\r\ndata class ConvocatoriaEntity(\r\n    val id: Int,\r\n    val jornada: LocalDateTime,\r\n    val descripcion: String,\r\n    val jugadoresConvocados: List<JugadorConvocatoria>,\r\n)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaEntity.kt	(date 1748529128601)
+@@ -1,11 +1,8 @@
+ package dev.newteam.newteam3.convocatoria.dao
+ 
+-import dev.newteam.newteam3.convocatoria.models.JugadorConvocatoria
+-import java.time.LocalDateTime
++import java.time.LocalDate
+ 
+ data class ConvocatoriaEntity(
+-    val id: Int,
+-    val jornada: LocalDateTime,
+-    val descripcion: String,
+-    val jugadoresConvocados: List<JugadorConvocatoria>,
+-)
++    val id : Int,
++    val jornada : LocalDate
++)
+\ No newline at end of file
+Index: src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.plantilla.mapper\r\n\r\nimport dev.newteam.newteam3.plantilla.dao.EntrenadorEntity\r\nimport dev.newteam.newteam3.plantilla.dao.JugadorEntity\r\nimport dev.newteam.newteam3.plantilla.dao.PersonaEntity\r\nimport dev.newteam.newteam3.plantilla.dto.PersonaDto\r\nimport dev.newteam.newteam3.plantilla.models.Entrenador\r\nimport dev.newteam.newteam3.plantilla.models.Jugador\r\nimport dev.newteam.newteam3.plantilla.models.Persona\r\n\r\n    fun PersonaDto.toJugador(): Jugador {\r\n        return Jugador(\r\n            id = this.id,\r\n            nombre = this.nombre,\r\n            apellido = this.apellido,\r\n            fechaNacimiento = this.fecha_nacimiento,\r\n            fechaIncorporacion = this.fecha_incorporacion,\r\n            salario = this.salario,\r\n            pais = this.pais,\r\n            posicion = this.posicion!!,\r\n            rol = this.rol,\r\n            dorsal = this.dorsal!!,\r\n            altura = this.altura!!,\r\n            peso = this.peso!!,\r\n            goles = this.goles!!,\r\n            mediaGoles = this.media_goles!!,\r\n            partidosJugados = this.partidos_jugados!!,\r\n            minutosJugados = this.minutos_jugados!!,\r\n            imagen = this.imagen,\r\n            equipo = Persona.Equipos.valueOf(equipo)\r\n        )\r\n    }\r\n\r\n    fun PersonaDto.toEntrenador(): Entrenador {\r\n        return Entrenador(\r\n            id = this.id,\r\n            nombre = this.nombre,\r\n            apellido = this.apellido,\r\n            fechaNacimiento = this.fecha_nacimiento,\r\n            fechaIncorporacion = this.fecha_incorporacion,\r\n            salario = this.salario,\r\n            pais = this.pais,\r\n            imagen = this.imagen,\r\n            especializacion = this.especializacion!!,\r\n            rol = this.rol,\r\n            equipo = Persona.Equipos.valueOf(equipo)\r\n        )\r\n    }\r\n\r\n\r\n    fun PersonaDto.toModel(): Persona {\r\n        return if (this.rol == \"jugador\") {\r\n            Jugador(\r\n                id = this.id,\r\n                nombre = this.nombre,\r\n                apellido = this.apellido,\r\n                fechaNacimiento = this.fecha_nacimiento,\r\n                fechaIncorporacion = this.fecha_incorporacion,\r\n                salario = this.salario,\r\n                pais = this.pais,\r\n                posicion = this.posicion!!,\r\n\r\n                dorsal = this.dorsal!!,\r\n                altura = this.altura!!,\r\n                peso = this.peso!!,\r\n                goles = this.goles!!,\r\n                mediaGoles = this.media_goles!!,\r\n                partidosJugados = this.partidos_jugados!!,\r\n                minutosJugados = this.minutos_jugados!!,\r\n                imagen = this.imagen,\r\n                equipo = Persona.Equipos.valueOf(equipo)\r\n            )\r\n        } else {\r\n            Entrenador(\r\n                id = this.id,\r\n                nombre = this.nombre,\r\n                apellido = this.apellido,\r\n                fechaNacimiento = this.fecha_nacimiento,\r\n                fechaIncorporacion = this.fecha_incorporacion,\r\n                salario = this.salario,\r\n                pais = this.pais,\r\n                especializacion = this.especializacion!!,\r\n                imagen = this.imagen,\r\n                equipo = Persona.Equipos.valueOf(equipo)\r\n            )\r\n        }\r\n    }\r\n\r\n    fun Persona.toEntity(): PersonaEntity {\r\n        if (rol == \"jugador\") {\r\n            val jugador = this as Jugador\r\n            return JugadorEntity(\r\n                id = this.id,\r\n                nombre = jugador.nombre,\r\n                apellido = jugador.apellido,\r\n                fechaNacimiento = jugador.fechaNacimiento,\r\n                fechaIncorporacion = jugador.fechaIncorporacion,\r\n                salario = jugador.salario,\r\n                pais = jugador.pais,\r\n                posicion = jugador.posicion,\r\n                dorsal = jugador.dorsal,\r\n                altura = jugador.altura,\r\n                peso = jugador.peso,\r\n                goles = jugador.goles,\r\n                mediaGoles = jugador.mediaGoles,\r\n                partidosJugados = jugador.partidosJugados,\r\n                minutosJugados = jugador.minutosJugados,\r\n                imagen = jugador.imagen,\r\n                rol = jugador.rol,\r\n                equipo = jugador.equipo\r\n            )\r\n        } else {\r\n            val entrenador = this as Entrenador\r\n            return EntrenadorEntity(\r\n                id = entrenador.id,\r\n                nombre = entrenador.nombre,\r\n                apellido = entrenador.apellido,\r\n                fechaNacimiento = entrenador.fechaNacimiento,\r\n                fechaIncorporacion = entrenador.fechaIncorporacion,\r\n                salario = entrenador.salario,\r\n                pais = entrenador.pais,\r\n                especializacion = entrenador.especializacion,\r\n                imagen = entrenador.imagen,\r\n                rol = entrenador.rol,\r\n                equipo = entrenador.equipo\r\n            )\r\n        }\r\n    }\r\n\r\n    fun PersonaEntity.toJugador(): Jugador {\r\n        val jugador = this as JugadorEntity\r\n        return Jugador(\r\n            id = jugador.id,\r\n            nombre = jugador.nombre,\r\n            apellido = jugador.apellido,\r\n            fechaNacimiento = jugador.fechaNacimiento,\r\n            fechaIncorporacion = jugador.fechaIncorporacion,\r\n            salario = jugador.salario,\r\n            pais = jugador.pais,\r\n            posicion = jugador.posicion,\r\n            dorsal = jugador.dorsal,\r\n            altura = jugador.altura,\r\n            peso = jugador.peso,\r\n            goles = jugador.goles,\r\n            mediaGoles = jugador.mediaGoles,\r\n            partidosJugados = jugador.partidosJugados,\r\n            minutosJugados = jugador.minutosJugados,\r\n            imagen = jugador.imagen,\r\n            rol = jugador.rol,\r\n            equipo = this.equipo,\r\n        )\r\n    }\r\n\r\n    fun PersonaEntity.toEntrenador(): Entrenador {\r\n        val entrenador = this as EntrenadorEntity\r\n        return Entrenador(\r\n            id = entrenador.id,\r\n            nombre = entrenador.nombre,\r\n            apellido = entrenador.apellido,\r\n            fechaNacimiento = entrenador.fechaNacimiento,\r\n            fechaIncorporacion = entrenador.fechaIncorporacion,\r\n            salario = entrenador.salario,\r\n            pais = entrenador.pais,\r\n            equipo = entrenador.equipo,\r\n            imagen = \"\",\r\n            rol = this.rol,\r\n            especializacion = this.especializacion\r\n        )\r\n    }\r\n\r\n\r\n    fun PersonaEntity.toModel(): Persona {\r\n        return if (rol == \"jugador\") {\r\n            val jugador = this as JugadorEntity\r\n            return Jugador(\r\n                id = jugador.id,\r\n                nombre = jugador.nombre,\r\n                apellido = jugador.apellido,\r\n                fechaNacimiento = jugador.fechaNacimiento,\r\n                fechaIncorporacion = jugador.fechaIncorporacion,\r\n                salario = jugador.salario,\r\n                pais = jugador.pais,\r\n                equipo = jugador.equipo,\r\n                imagen = jugador.imagen,\r\n                rol = jugador.rol,\r\n                posicion = jugador.posicion,\r\n                dorsal = jugador.dorsal,\r\n                altura = jugador.altura,\r\n                peso = jugador.peso,\r\n                goles = jugador.goles,\r\n                mediaGoles = jugador.mediaGoles,\r\n                partidosJugados = jugador.partidosJugados,\r\n                minutosJugados = jugador.minutosJugados\r\n            )\r\n        } else {\r\n            val entrenador = this as EntrenadorEntity\r\n            Entrenador(\r\n                id = entrenador.id,\r\n                nombre = entrenador.nombre,\r\n                apellido = entrenador.apellido,\r\n                fechaNacimiento = entrenador.fechaNacimiento,\r\n                fechaIncorporacion = entrenador.fechaIncorporacion,\r\n                salario = entrenador.salario,\r\n                pais = entrenador.pais,\r\n                equipo = entrenador.equipo,\r\n                imagen = entrenador.imagen,\r\n                rol = entrenador.rol,\r\n                especializacion = entrenador.especializacion,\r\n            )\r\n        }\r\n    }\r\n\r\n    fun Persona.toEntrenador(): Entrenador {\r\n        val entrenador = this as Entrenador\r\n        return Entrenador(\r\n            id = entrenador.id,\r\n            nombre = entrenador.nombre,\r\n            apellido = entrenador.apellido,\r\n            fechaNacimiento = entrenador.fechaNacimiento,\r\n            fechaIncorporacion = entrenador.fechaIncorporacion,\r\n            salario = entrenador.salario,\r\n            pais = entrenador.pais,\r\n            equipo = entrenador.equipo,\r\n            imagen = \"\",\r\n            rol = this.rol,\r\n            especializacion = this.especializacion\r\n        )\r\n    }\r\n\r\n\r\n    fun Persona.toJugador(): Jugador {\r\n        val entrenador = this as Jugador\r\n        return Jugador(\r\n            id = entrenador.id,\r\n            nombre = entrenador.nombre,\r\n            apellido = entrenador.apellido,\r\n            fechaNacimiento = entrenador.fechaNacimiento,\r\n            fechaIncorporacion = entrenador.fechaIncorporacion,\r\n            salario = entrenador.salario,\r\n            pais = entrenador.pais,\r\n            equipo = entrenador.equipo,\r\n            imagen = \"\",\r\n            rol = this.rol,\r\n            posicion = this.posicion,\r\n            dorsal = this.dorsal,\r\n            altura = this.altura,\r\n            peso = this.peso,\r\n            goles = this.goles,\r\n            mediaGoles = this.mediaGoles,\r\n            partidosJugados = this.partidosJugados,\r\n            minutosJugados = this.minutosJugados,\r\n        )\r\n    }\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt b/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/plantilla/mapper/PersonaMapper.kt	(date 1748529128618)
+@@ -169,10 +169,11 @@
+     }
+ 
+ 
+-    fun PersonaEntity.toModel(): Persona {
+-        return if (rol == "jugador") {
++fun PersonaEntity.toModel(): Persona {
++    return when (rol.trim().lowercase()) {
++        "jugador" -> {
+             val jugador = this as JugadorEntity
+-            return Jugador(
++            Jugador(
+                 id = jugador.id,
+                 nombre = jugador.nombre,
+                 apellido = jugador.apellido,
+@@ -192,7 +193,9 @@
+                 partidosJugados = jugador.partidosJugados,
+                 minutosJugados = jugador.minutosJugados
+             )
+-        } else {
++        }
++
++        "entrenador" -> {
+             val entrenador = this as EntrenadorEntity
+             Entrenador(
+                 id = entrenador.id,
+@@ -208,9 +211,13 @@
+                 especializacion = entrenador.especializacion,
+             )
+         }
++
++        else -> throw IllegalStateException("Rol desconocido: '$rol'. No se puede mapear a un modelo.")
+     }
++}
++
+ 
+-    fun Persona.toEntrenador(): Entrenador {
++fun Persona.toEntrenador(): Entrenador {
+         val entrenador = this as Entrenador
+         return Entrenador(
+             id = entrenador.id,
+Index: src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.convocatoria.dao\r\n\r\nimport dev.newteam.newteam3.plantilla.dao.PersonaEntity\r\nimport org.jdbi.v3.sqlobject.customizer.Bind\r\nimport org.jdbi.v3.sqlobject.kotlin.RegisterKotlinMapper\r\nimport org.jdbi.v3.sqlobject.statement.GetGeneratedKeys\r\nimport org.jdbi.v3.sqlobject.statement.SqlQuery\r\nimport org.jdbi.v3.sqlobject.statement.SqlUpdate\r\nimport java.time.LocalDateTime\r\n\r\n\r\n@RegisterKotlinMapper(ConvocatoriaEntity::class)\r\ninterface ConvocatoriaDao {\r\n\r\n    @SqlQuery(\"SELECT id, jornada, descripcion FROM convocatoria\")\r\n    fun findAll(): List<ConvocatoriaEntity>\r\n\r\n    @SqlQuery(\"SELECT id, jornada, descripcion FROM convocatoria WHERE id = :id\")\r\n    fun findById(@Bind(\"id\")id: Int): ConvocatoriaEntity?\r\n\r\n    @SqlUpdate(\"DELETE FROM convocatoria WHERE id = :id\")\r\n    fun delete(@Bind(\"id\") id: Int) : Int\r\n\r\n    @SqlUpdate(\"DELETE FROM convocatoria\")\r\n    fun deleteAll(): Int\r\n\r\n    @SqlUpdate(\"\"\"\r\n    INSERT INTO convocatoria (jornada, descripcion)\r\n    VALUES (:jornada, :descripcion)\r\n\"\"\")\r\n    @GetGeneratedKeys(\"id\")\r\n    fun save(\r\n        @Bind(\"jornada\") jornada: LocalDateTime,\r\n        @Bind(\"descripcion\") descripcion: String\r\n    ): Int\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/convocatoria/dao/ConvocatoriaDao.kt	(date 1748529128636)
+@@ -1,36 +1,47 @@
+ package dev.newteam.newteam3.convocatoria.dao
+ 
+-import dev.newteam.newteam3.plantilla.dao.PersonaEntity
++import dev.newteam.newteam3.plantilla.dao.PersonaDao
+ import org.jdbi.v3.sqlobject.customizer.Bind
++import org.jdbi.v3.sqlobject.customizer.BindBean
+ import org.jdbi.v3.sqlobject.kotlin.RegisterKotlinMapper
+ import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys
+ import org.jdbi.v3.sqlobject.statement.SqlQuery
+ import org.jdbi.v3.sqlobject.statement.SqlUpdate
+-import java.time.LocalDateTime
+-
++import java.time.LocalDate
+ 
+ @RegisterKotlinMapper(ConvocatoriaEntity::class)
+ interface ConvocatoriaDao {
+ 
+-    @SqlQuery("SELECT id, jornada, descripcion FROM convocatoria")
++    @SqlQuery("""
++        SELECT id AS id, jornada AS jornada
++        FROM convocatoria
++    """)
+     fun findAll(): List<ConvocatoriaEntity>
+ 
+-    @SqlQuery("SELECT id, jornada, descripcion FROM convocatoria WHERE id = :id")
+-    fun findById(@Bind("id")id: Int): ConvocatoriaEntity?
++    @SqlQuery("""
++        SELECT id AS id, jornada AS jornada
++        FROM convocatoria
++        WHERE id = :id
++    """)
++    fun findById(@Bind("id") id: Int): ConvocatoriaEntity?
+ 
++    @SqlQuery("""
++        SELECT id AS id, jornada AS jornada
++        FROM convocatoria
++        WHERE jornada = :jornada
++    """)
++    fun findByJornada(@Bind("jornada") jornada: LocalDate): ConvocatoriaEntity?
++
++    @SqlUpdate("""
++        INSERT INTO convocatoria (jornada)
++        VALUES (:jornada)
++    """)
++    @GetGeneratedKeys("id")
++    fun save(@BindBean convocatoria: ConvocatoriaEntity): Int
++
+     @SqlUpdate("DELETE FROM convocatoria WHERE id = :id")
+-    fun delete(@Bind("id") id: Int) : Int
++    fun deleteById(@Bind("id") id: Int): Int
+ 
+     @SqlUpdate("DELETE FROM convocatoria")
+     fun deleteAll(): Int
+-
+-    @SqlUpdate("""
+-    INSERT INTO convocatoria (jornada, descripcion)
+-    VALUES (:jornada, :descripcion)
+-""")
+-    @GetGeneratedKeys("id")
+-    fun save(
+-        @Bind("jornada") jornada: LocalDateTime,
+-        @Bind("descripcion") descripcion: String
+-    ): Int
+-}
+\ No newline at end of file
++}
+Index: src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package dev.newteam.newteam3.user.repository\r\n\r\nimport dev.newteam.newteam3.convocatoria.models.Convocatoria\r\nimport dev.newteam.newteam3.user.model.User\r\n\r\ninterface UserRepository {\r\n    fun findAll(): List<User>\r\n    fun findById(id: Int): User?\r\n    fun save(user: User): User\r\n    fun deleteById(id: Int) : Int\r\n    fun deleteAll() : Int\r\n    fun saveAll(user : List<User>): List<User>\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt b/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt
+--- a/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/kotlin/dev/newteam/newteam3/user/repository/UserRepository.kt	(date 1748529128640)
+@@ -1,6 +1,5 @@
+ package dev.newteam.newteam3.user.repository
+ 
+-import dev.newteam.newteam3.convocatoria.models.Convocatoria
+ import dev.newteam.newteam3.user.model.User
+ 
+ interface UserRepository {
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module dev.newteam.newteam3 {\r\n\r\n    //DEPENDENCIAS\r\n    //JAVA\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n\r\n    //KOTLIN\r\n    requires kotlin.reflect;\r\n\r\n    //LOGGER\r\n    requires logging.jvm;\r\n    requires org.slf4j;\r\n\r\n    //bcrypt\r\n    requires jbcrypt;\r\n\r\n    //KOIN\r\n    requires koin.core.jvm;\r\n    requires org.jdbi.v3.core;\r\n    requires org.jdbi.v3.sqlobject;\r\n    requires org.jdbi.v3.kotlin;\r\n    requires com.github.benmanes.caffeine;\r\n    requires kotlinx.serialization.core;\r\n    requires kotlin.result.jvm;\r\n    requires org.jdbi.v3.sqlobject.kotlin;\r\n\r\n\r\n    //CARPETAS A ABRIR EN LA APP\r\n    //APP\r\n    opens dev.newteam.newteam3 to javafx.fxml;\r\n    exports dev.newteam.newteam3 to javafx.graphics;\r\n\r\n    //JDBI MANAGER\r\n    opens dev.newteam.newteam3.database to javafx.fxml;\r\n    exports dev.newteam.newteam3.database to javafx.graphics;\r\n\r\n    //DAO\r\n    opens dev.newteam.newteam3.plantilla.dao to org.jdbi.v3.core;\r\n    exports dev.newteam.newteam3.plantilla.dao to kotlin.reflect;\r\n\r\n    //CONTOLLERS\r\n    opens dev.newteam.newteam3.controller to javafx.fxml;\r\n    exports dev.newteam.newteam3.controller to javafx.graphics;\r\n\r\n    //ROUTES MANAGER\r\n    opens dev.newteam.newteam3.routes to javafx.fxml;\r\n    exports dev.newteam.newteam3.routes to javafx.graphics;\r\n\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision 4ca4d104587de2cbe0a541973b409c0f1d64d53b)
++++ b/src/main/java/module-info.java	(date 1748529128646)
+@@ -47,6 +47,10 @@
+     opens dev.newteam.newteam3.routes to javafx.fxml;
+     exports dev.newteam.newteam3.routes to javafx.graphics;
+ 
++    //ENTITY
++    opens dev.newteam.newteam3.convocatoria.dao to org.jdbi.v3.core;
++    exports dev.newteam.newteam3.convocatoria.dao to kotlin.reflect;
++
+ 
+ }
+ 

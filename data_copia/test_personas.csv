@@ -1,3 +1,0 @@
-id,nombre,apellidos,fechaNacimiento,fechaIncorporacion,salario,pais,imagen,rol,equipo,especializacion,posicion,dorsal,altura,peso,goles,mediaGoles,partidosJugados,minutosJugados
-1,Carlos,Alcaraz,2003-05-05,2025-05-20,4000.0,España,Entrenador,Entrenador,NEW_TEAM,PRINCIPAL,,,,,,,,
-1,Carlos,Alcaraz,2003-05-05,2025-05-20,4000.0,España,Jugador,Jugador,MUPPET,,DELANTERO,7,1.83,74.0,0,0.0,0,0

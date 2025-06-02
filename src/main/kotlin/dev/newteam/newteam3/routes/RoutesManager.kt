@@ -24,8 +24,12 @@ private val logger = logging()
 object RoutesManager {
     lateinit var escenaPrincipal : Stage
     private lateinit var _escenarioActivo : Stage
-    val escenaActiva : Stage
+    var escenaActiva: Stage
         get() = _escenarioActivo
+        set(value) {
+            _escenarioActivo = value
+        }
+
     lateinit var app : Application
 
     private var sceneMap : HashMap<String, Pane> = HashMap()
@@ -36,6 +40,7 @@ object RoutesManager {
         PLANTILLA_NEWTEAM("views/newteam-view.fxml"),
         BANQUILLO_NEWTEAM("views/newteam-banquillo-view.fxml"),
         LOGIN("views/login-view.fxml"),
+        USER_LOGIN("views/user-login-view.fxml"),
         HELP("views/acercade-view.fxml"),
         SPLASH("views/splash-view.fxml"),
         MODIFY_NEWTEAM("views/newteam-modify-view.fxml"),
@@ -74,19 +79,41 @@ object RoutesManager {
         _escenarioActivo = mainStage
     }
 
+    fun initUserStage() {
+        logger.debug { "Escena usuario cargada correctamente. Mostrando stage." }
+
+        val fxmlLoader = FXMLLoader(getResource(View.USER_LOGIN.fxmlPath))
+        val scene = Scene(fxmlLoader.load())
+
+        val newStage = Stage().apply {
+            this.scene = scene
+            title = "Acceso Usuario"
+            show()
+        }
+
+        _escenarioActivo = newStage
+    }
+
+
+
+
     fun initPlantillaStage() {
         logger.debug { "Cargando escena new team" }
         val fxmlLoader = FXMLLoader(getResource(View.PLANTILLA_NEWTEAM.fxmlPath))
         val root = fxmlLoader.load<Pane>()
         val newScene = Scene(root, 1400.0, 780.0)
-        Stage().apply {
+
+        val newStage = Stage().apply {
             title = "New Team APP"
             scene = newScene
             centerOnScreen()
             isResizable = false
+            show()
+        }
 
-        }.show()
+        _escenarioActivo = newStage
     }
+
 
     fun initPlantillaMuppetStage() {
         logger.debug { "Cargando escena muppet" }

@@ -125,19 +125,19 @@ class PersonaMapperTest {
             equipo = Persona.Equipos.MUPPET.toString(),
             posicion = null,
             dorsal = null,
-            altura = 1.80,  // ✅ Valor realista
+            altura = 1.80,
             peso = null,
             goles = null,
             media_goles = null,
             partidos_jugados = null,
             minutos_jugados = null,
-            rol = "entrenador", // ✅ Corregido a minúscula
+            rol = "entrenador",
             especialidad = Entrenador.Especializacion.PRINCIPAL
         )
 
         val persona = personaDto.toModel()
 
-        assertTrue(persona is Entrenador) // ✅ Validamos que es un entrenador
+        assertTrue(persona is Entrenador)
         val entrenador = persona as Entrenador
 
         assertEquals(personaDto.id, entrenador.id)
@@ -172,13 +172,13 @@ class PersonaMapperTest {
             media_goles = 0.85,
             partidos_jugados = 900,
             minutos_jugados = 81000,
-            rol = "jugador", // ✅ Rol correcto
+            rol = "jugador",
             especialidad = null
         )
 
         val persona = personaDto.toModel()
 
-        assertTrue(persona is Jugador) // ✅ Validamos que es un jugador
+        assertTrue(persona is Jugador)
         val jugador = persona as Jugador
 
         assertEquals(personaDto.id, jugador.id)
@@ -226,7 +226,7 @@ class PersonaMapperTest {
         // Conversión de PersonaEntity a Jugador
         val jugador = jugadorEntity.toJugador()
 
-        assertTrue(jugador is Jugador) // ✅ Validamos que la conversión es correcta
+        assertTrue(jugador is Jugador)
 
         // Validaciones de propiedades
         assertEquals(jugadorEntity.id, jugador.id)
@@ -268,7 +268,7 @@ class PersonaMapperTest {
         // Conversión de PersonaEntity a Entrenador
         val entrenador = entrenadorEntity.toEntrenador()
 
-        assertTrue(entrenador is Entrenador) // ✅ Validamos que la conversión es correcta
+        assertTrue(entrenador is Entrenador)
 
         // Validaciones de propiedades
         assertEquals(entrenadorEntity.id, entrenador.id)
@@ -282,8 +282,8 @@ class PersonaMapperTest {
         assertEquals(entrenadorEntity.especializacion, entrenador.especializacion)
         assertEquals(entrenadorEntity.rol, entrenador.rol)
 
-        // Validamos que el campo `imagen` se inicializa como una cadena vacía
-        assertEquals("", entrenador.imagen) // ⚠️ Se asigna vacío en la conversión
+        // validamos campo imagen como cadena vacía
+        assertEquals("", entrenador.imagen)
     }
 
     @Test
@@ -319,7 +319,7 @@ class PersonaMapperTest {
         assertEquals(jugador.salario, convertido.salario)
         assertEquals(jugador.pais, convertido.pais)
         assertEquals(jugador.equipo, convertido.equipo)
-        assertEquals("", convertido.imagen) // Imagen se setea a cadena vacía
+        assertEquals("", convertido.imagen)
         assertEquals(jugador.rol, convertido.rol)
         assertEquals(jugador.posicion, convertido.posicion)
         assertEquals(jugador.dorsal, convertido.dorsal)

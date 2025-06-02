@@ -23,31 +23,43 @@ class LoginController {
     @FXML
     lateinit var loginButton: Button
 
+    @FXML
+    lateinit var userAccessButton: Button
+
+
     fun initialize() {
         logger.debug { "Iniciando sesion..." }
+
         loginButton.setOnAction {
             val username = usernameTextField.text
             val password = passwordTextField.text
 
             if(login(username, password)){
                 logger.debug { "Has iniciado sesion" }
-                //Iniciamos la escena de la plantilla tras un login exitoso
                 RoutesManager.initPlantillaStage()
-                //Cerramos la anterior pantalla
-                RoutesManager.escenaActiva.close()
+
+                loginButton.scene.window.hide()
             } else {
                 Alert(Alert.AlertType.ERROR).apply {
                     title = "Error de autenticación"
                     headerText = "Vuelva a introducir sus datos correctamente"
                 }.showAndWait()
             }
+        }
 
-            cancelButton.setOnAction {
-                usernameTextField.clear()
-                passwordTextField.clear()
-            }
+        cancelButton.setOnAction {
+            usernameTextField.clear()
+            passwordTextField.clear()
+        }
+
+        userAccessButton.setOnAction {
+            logger.debug { "Accediendo como usuario libre..." }
+            RoutesManager.initUserStage()
+
+            userAccessButton.scene.window.hide()
         }
     }
+
 
     fun login(username: String, password: String): Boolean {
         val correctUsername = "admin"

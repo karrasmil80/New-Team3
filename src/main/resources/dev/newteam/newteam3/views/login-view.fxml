@@ -6,6 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="665.0" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.newteam.newteam3.controller.LoginController">
     <ImageView fitHeight="448.0" fitWidth="665.0">
         <Image url="@../images/login-view.png" />
@@ -21,5 +22,7 @@
 
     <!-- Avisadme si la fuente que he puesto en 'login.css' funciona o no -->
     <TextField fx:id="usernameTextField" layoutX="49.0" layoutY="122.0" prefHeight="44.0" prefWidth="454.0" />
-    <TextField fx:id="passwordTextField" layoutX="51.0" layoutY="236.0" prefHeight="44.0" prefWidth="451.0" />
+    <PasswordField fx:id="passwordTextField" layoutX="51.0" layoutY="236.0" prefHeight="44.0" prefWidth="451.0" />
+
+
 </AnchorPane>
